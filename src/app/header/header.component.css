@@ -1,3 +1,22 @@
+:root{
+    /*--weblue: #21409a;*/
+    --b1: #D4E9E2;
+    --b2: #FAECDE;
+    --b3: #FBE9E5;
+    --b4: #D9E1E7;
+    --b5: #F1E4ED;
+    --b6: #DAEDF2;
+
+    --d1: #05905F;
+    --d2: #FF9D63;
+    --d3: #E76D50;
+    --d4: #225882;
+    --d5: #D67BBB;
+    --d6: #2BA9CA;
+
+}
+
+
 @font-face {
 	font-family: colombo;
 	src: url("/assets/fonts/Colombo.otf") format("opentype");
@@ -6,6 +25,30 @@
 @font-face {
 	font-family: poppins;
 	src: url("/assets/fonts/Poppins-Regular.ttf") format("truetype");
+
+}
+
+@font-face {
+	font-family: poppins-bold;
+	src: url("/assets/fonts/Poppins-Bold.ttf") format("truetype");
+
+}
+
+@font-face {
+	font-family: poppins-semibold;
+	src: url("/assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+
+}
+
+@font-face {
+	font-family: poppins-black;
+	src: url("/assets/fonts/Poppins-Black.ttf") format("truetype");
+
+}
+
+@font-face {
+	font-family: poppins-medium;
+	src: url("/assets/fonts/Poppins-Medium.ttf") format("truetype");
 
 }
 
@@ -127,9 +170,9 @@ mat-toolbar {
 }
 
 .wishlist {
-	font-family: poppins;
+	font-family: poppins-black;
 	font-style: normal;
-	font-weight: 900;
+	font-weight: normal;
 	font-size: 24px;
 	line-height: 40px;
 
