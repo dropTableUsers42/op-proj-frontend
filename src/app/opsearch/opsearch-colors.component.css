@@ -1,0 +1,54 @@
+.page-container {
+	background-color: #D4E9E2;
+}
+
+.domain {
+	color: #05905F;
+}
+
+.search-bar {
+	background: #F9F9F9;
+}
+
+.search-icon {
+	color: #05905F;
+}
+
+.search-input {
+	color: #05905F;
+}
+
+mat-button-toggle {
+	border: 1px solid #05905F !important;
+	background-color: #F9F9F9 !important;
+	color: #05905F;
+}
+
+.mat-button-toggle-checked {
+	background-color: #05905F !important;
+	color: #FFFFFF !important;
+}
+
+.domain-filter, .sub-filter {
+	background: #F9F9F9;
+}
+
+.domain-filter-icon {
+	background-color: #FF8F8F;
+}
+
+.domain-filter-label {
+	color: #05905F;
+}
+
+::ng-deep .domain-filter .mat-select-arrow {
+	color: #05905F !important;
+}
+
+::ng-deep .sub-filter .mat-select-arrow {
+	color: #181918 !important;
+}
+
+::ng-deep .sort-filter .mat-select-arrow {
+	color: #181918 !important;
+}

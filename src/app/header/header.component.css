@@ -3,12 +3,6 @@
 	src: url("/assets/fonts/Colombo.otf") format("opentype");
 }
 
-@font-face {
-	font-family: poppins;
-	src: url("/assets/fonts/Poppins-Regular.ttf") format("truetype");
-
-}
-
 mat-toolbar {
 	height: 60px !important;
 	position: absolute;

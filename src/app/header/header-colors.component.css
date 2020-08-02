@@ -1,9 +1,13 @@
-.mat-default {
+.header-container.mat-default {
 	background-color: black;
 }
 
-.mat-core {
+.header-container.mat-core {
 	background-color: white;
+}
+
+.header-container.mat-core-scrolled {
+	background-color: #D4E9E2;
 }
 
 .menu-button.mat-default, .logo.mat-default, .wishlist.mat-default {

@@ -1,11 +1,38 @@
 import { Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import { Router } from '@angular/router';
+import { ScrollService } from '../_services/scroll.service';
+import {
+	trigger,
+	state,
+	style,
+	animate,
+	transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css',
   './header-colors.component.css'],
+  animations: [
+		trigger('headerColor', [
+			state('default', style({
+				backgroundColor: '#181918'
+			})),
+			state('search', style({
+				backgroundColor: '#F9F9F9'
+      })),
+      state('core-scrolled', style({
+				backgroundColor: '#D4E9E2'
+      })),
+      transition('default <=> *', [
+				animate('0.5s ease-in-out')
+			]),
+			transition('* => *', [
+				animate('0.25s ease-in-out')
+			]),
+		]),
+	],
 })
 export class HeaderComponent implements OnInit {
 
@@ -13,6 +40,23 @@ export class HeaderComponent implements OnInit {
   wishlist = 'WISHLIST';
 
   @Input('page') page_style;
+
+  scrolled: boolean;
+
+  get header_trigger() {
+    if(this.page_style != 'core')
+    {
+      return 'default';
+    }
+    else if(this.page_style == 'core' && !this.scrolled)
+    {
+      return 'search';
+    }
+    else
+    {
+      return 'core-scrolled';
+    }
+  }
 
   mat_style() { 
     if(this.page_style == 'core')
@@ -44,9 +88,12 @@ export class HeaderComponent implements OnInit {
 
   @Output() onSidenavToggle: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private scrollService: ScrollService) { }
 
   ngOnInit(): void {
+    this.scrollService.events$.subscribe(event => {
+      this.scrolled = !event;
+    });
   }
 
   sidenavToggle() {

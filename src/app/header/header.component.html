@@ -1,5 +1,5 @@
-<mat-toolbar color="{{mat_style()}}" *ngIf="showHeader()">
-	<div class="header-container">
+<mat-toolbar *ngIf="showHeader()">
+	<div class="header-container" [@headerColor]="header_trigger">
 		<div class="header-button-container">
 			<button mat-button disableRipple color="{{mat_style()}}" class="menu-button" (click)="sidenavToggle()">
 				<mat-icon>{{'menu'}}</mat-icon>

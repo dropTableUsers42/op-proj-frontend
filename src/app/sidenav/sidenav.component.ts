@@ -26,7 +26,15 @@ export class SidenavComponent implements OnInit {
     }
   }
 
-  sidelink_class() {
+  get sidenav_class() {
+    return {
+      'sidenav-container': true,
+      'mat-core' : this.page_style == 'core',
+      'mat-default': this.page_style != 'core'
+    }
+  }
+
+  get sidelink_class() {
     return {
       'sidelink': true,
       'mat-core' : this.page_style == 'core',
@@ -34,7 +42,7 @@ export class SidenavComponent implements OnInit {
     }
   }
 
-  aboutlink_class() {
+  get aboutlink_class() {
     return {
       'aboutlink': true,
       'mat-core' : this.page_style == 'core',
@@ -44,11 +52,11 @@ export class SidenavComponent implements OnInit {
 
   LinksList = [
     {link: 'search/core', name: 'Core'},
-    {link: 'search/information technology', name: 'IT'},
+    {link: 'search/it', name: 'IT'},
     {link: 'search/consulting', name: 'Consulting'},
-    {link: 'search/entrepreneurship', name: 'Entrepreneurship'},
-    {link: 'search/finance', name: 'Finance'},
-    {link: 'search/socdev & policy', name: 'Socdev & Policy'},
+    {link: 'search/ent', name: 'Entrepreneurship'},
+    {link: 'search/fin', name: 'Finance'},
+    {link: 'search/socpol', name: 'Socdev & Policy'},
   ]
 
   AboutLink = {link: 'about', name: 'ABOUT US'}

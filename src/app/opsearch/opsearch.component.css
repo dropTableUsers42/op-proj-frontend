@@ -3,11 +3,6 @@
 	src: url("/assets/fonts/Colombo.otf") format("opentype");
 }
 
-@font-face {
-	font-family: poppins;
-	src: url("/assets/fonts/Poppins-Regular.ttf") format("truetype");
-}
-
 .page-container {
 	width: 100%;
 	height: 100%;
@@ -43,8 +38,6 @@
 .search-bar {
 	width: 100%;
 	height: 40px;
-
-	background: #F9F9F9;
 	border-radius: 62px;
 
 	padding-left: 15px;
@@ -64,12 +57,9 @@
 	
 	margin-top: 10px;
 	margin-bottom: 10px;
-
-	color: #05905F;
 }
 
 .search-input {
-	
 	background-color: transparent;
 
 	border-style: none;
@@ -85,14 +75,7 @@
 	font-size: 24px;
 	line-height: 40px;
 
-	color: #05905F;
-
 	min-width: 0px;
-}
-
-.search-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-	color: #05905F;
-	opacity: 1; /* Firefox */
 }
 
 .search-type-toggle {
@@ -109,8 +92,6 @@ mat-button-toggle-group {
 
 mat-button-toggle {
 
-	border: 1px solid #05905F !important;
-
 	height: 26px;
 	box-sizing: border-box;
 	border-radius: 39px;
@@ -120,12 +101,6 @@ mat-button-toggle {
 	display: flex;
 	align-items: center;
 	text-align: center;
-
-}
-
-mat-button-toggle.core {
-	color: #05905F;
-	background-color: #F9F9F9 !important;
 }
 
 .mat-button-toggle-label-content {
@@ -136,36 +111,6 @@ mat-button-toggle.core {
 	line-height: 21px;
 
 	text-align: center;
-}
-
-.core.mat-button-toggle-checked {
-	background-color: #05905F !important;
-	color: #FFFFFF !important;
-}
-
-.information.mat-button-toggle-checked {
-	background-color: #FFA954 !important;
-	color: #FFFFFF !important;
-}
-
-.consulting.mat-button-toggle-checked {
-	background-color: #E76D50 !important;
-	color: #FFFFFF !important;
-}
-
-.entrepreneurship.mat-button-toggle-checked {
-	background-color: #225882 !important;
-	color: #FFFFFF !important;
-}
-
-.finance.mat-button-toggle-checked {
-	background-color: #9562A5 !important;
-	color: #FFFFFF !important;
-}
-
-.socdev.mat-button-toggle-checked {
-	background-color: #44A7C1 !important;
-	color: #FFFFFF !important;
 }
 
 .filter-container {
@@ -186,7 +131,6 @@ mat-button-toggle.core {
 	display: flex;
 	flex-direction: row;
 
-	background: #F9F9F9;
 	border-radius: 8px;
 
 	padding-left: 6px;
@@ -204,8 +148,6 @@ mat-button-toggle.core {
 	height: 13px;
 
 	border-radius: 50%;
-
-	background-color: #FF8F8F;
 }
 
 .domain-filter-label {
@@ -218,8 +160,6 @@ mat-button-toggle.core {
 	display: flex;
 	align-items: center;
 
-	color: #05905F;
-
 	padding-right: 10px;
 
 }
@@ -228,17 +168,12 @@ mat-button-toggle.core {
 	margin-left: 6px;
 }
 
-::ng-deep .domain-filter .mat-select-arrow {
-	color: #05905F !important;
-}
-
 .sub-filter {
 	height: 25px;
 
 	display: flex;
 	flex-direction: row;
 
-	background: #F9F9F9;
 	border-radius: 8px;
 
 	margin-left: 10px;
@@ -293,10 +228,6 @@ mat-button-toggle.core {
 
 .sub-label-string {
 	margin-left: 6px;
-}
-
-::ng-deep .sub-filter .mat-select-arrow {
-	color: #181918 !important;
 }
 
 .shadow-container {

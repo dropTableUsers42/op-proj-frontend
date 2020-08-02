@@ -1,14 +1,15 @@
-<!--<router-outlet name='header-route'></router-outlet>-->
-
 <mat-sidenav-container>
 
-	<mat-sidenav [ngClass]="sidenav_style()" #sidenav [(opened)]="isMenuOpen">
-		<app-sidenav [page]="getPageStyle()" (onSidenavToggle)="sidenav.toggle()"></app-sidenav>
+	<!--<mat-sidenav [ngClass]="sidenav_class" #sidenav [(opened)]="isMenuOpen">
+		<app-sidenav [page]="page_style" (onSidenavToggle)="sidenav.toggle()"></app-sidenav>
+	</mat-sidenav>-->
+	<mat-sidenav #sidenav [(opened)]="isMenuOpen">
+		<app-sidenav [page]="page_style" (onSidenavToggle)="sidenav.toggle()"></app-sidenav>
 	</mat-sidenav>
 
-	<mat-sidenav-content  [ngClass]="getContentClass()">
+	<mat-sidenav-content>
 
-		<app-header [page]="getPageStyle()" (onSidenavToggle)="sidenav.toggle()" ></app-header>
+		<app-header [page]="page_style" (onSidenavToggle)="sidenav.toggle()" ></app-header>
 
 		<router-outlet></router-outlet>
 

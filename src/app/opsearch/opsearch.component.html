@@ -1,6 +1,6 @@
 <div class="page-container">
 	<div class="domain-container">
-		<p class="domain" [style.color]="getMainColor()">{{domain}}</p>
+		<p class="domain">{{domain}}</p>
 	</div>
 
 	<div class="shadow-container" [@shadowTrigger]="isScrolledToTop ? 'hasNoShadow' : 'hasShadow'">
@@ -10,7 +10,7 @@
 				<input class="search-input" type="text" id="searchstring" name="searchstring" placeholder="Search" autocomplete="off" autocorrect="off" spellcheck="false">
 				<div class="search-type-toggle">
 					<mat-button-toggle-group name="search-type-toggle" [(value)] = "search_type">
-						<mat-button-toggle *ngFor="let type of search_types" disableRipple id="{{type.name}}" [ngClass]="getDomain()" value="{{type.id}}">{{type.name}}</mat-button-toggle>
+						<mat-button-toggle *ngFor="let type of search_types" disableRipple id="{{type.name}}" value="{{type.id}}">{{type.name}}</mat-button-toggle>
 					</mat-button-toggle-group>
 				</div>
 			</div>

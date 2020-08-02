@@ -14,8 +14,8 @@ export class AppComponent implements OnInit, OnDestroy{
   wishlist = 'WISHLIST'
   public isMenuOpen = false;
 
-  sidenav_style() { 
-    if(this.getPageStyle() == 'core')
+  get sidenav_class() { 
+    if(this.page_style == 'core')
     {
       return 'mat-core';
     }
@@ -25,9 +25,7 @@ export class AppComponent implements OnInit, OnDestroy{
     }
   }
 
-  constructor(
-    public router: Router
-  ) {
+  constructor(public router: Router) {
   }
 
   ngOnInit() {
@@ -36,60 +34,7 @@ export class AppComponent implements OnInit, OnDestroy{
   ngOnDestroy() {
   }
 
-  getContentClass() {
-    if(this.router.url.includes('login'))
-    {
-      return 'black';
-    }
-    else if(this.router.url.includes('register') || this.router.url.includes('profile'))
-    {
-      return 'grey';
-    }
-    else if(this.router.url.includes('opps'))
-    {
-      return 'white';
-    }
-    else if(this.router.url.includes('search'))
-    {
-      return this.getHeaderClass();
-    }
-    else
-    {
-      return 'black';
-    }
-  }
-
-  getHeaderClass() {
-    if(this.router.url.includes('search/core'))
-    {
-      return 'core';
-    }
-    if(this.router.url.includes('search/information%20technology'))
-    {
-      return 'infotech';
-    }
-    if(this.router.url.includes('search/consulting'))
-    {
-      return 'consulting';
-    }
-    if(this.router.url.includes('search/entrepreneurship'))
-    {
-      return 'entrepreneurship';
-    }
-    if(this.router.url.includes('search/finance'))
-    {
-      return 'finance';
-    }
-    if(this.router.url.includes('search/socdev%20&%20policy'))
-    {
-      return 'socdev';
-    }
-    return {
-      'black' : true,
-    };
-  }
-
-  getPageStyle()
+  get page_style()
   {
     if(this.router.url.includes('search/core'))
     {

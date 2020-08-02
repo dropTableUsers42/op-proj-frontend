@@ -1,4 +1,4 @@
-<div class="sidenav-container">
+<div [ngClass]="sidenav_class">
 	<div class="sidenav-button-container">
 		<button mat-button disableRipple color="{{mat_style()}}" class="menu-button" (click)="sidenavToggle()">
 			<mat-icon>{{'close'}}</mat-icon>
@@ -7,11 +7,11 @@
 	
 	<div class="link-list">
 		<div class="sidelink-container">
-			<div [ngClass]="sidelink_class()" *ngFor="let link of LinksList">
+			<div [ngClass]="sidelink_class" *ngFor="let link of LinksList">
 				<a routerLink="{{link.link}}">{{link.name}}</a>
 			</div>
 		</div>
-		<div [ngClass]="aboutlink_class()">
+		<div [ngClass]="aboutlink_class">
 			<a routerLink="{{AboutLink.link}}">{{AboutLink.name}}</a>
 		</div>
 	</div>

@@ -3,11 +3,6 @@
 	src: url("/assets/fonts/Colombo.otf") format("opentype");
 }
 
-@font-face {
-	font-family: poppins;
-	src: url("/assets/fonts/Poppins-Regular.ttf") format("truetype");
-}
-
 .opps-card {
 	position: relative;
 	width: 100%;
@@ -60,7 +55,7 @@
 .opps-name {
 	margin-top: 2.9%;
 
-	width: 74%;
+	width: 80%;
 
 	font-weight: bold;
 	font-size: 100%;
@@ -83,7 +78,7 @@
 	bottom: 3.63%;
 	width: 70%;
 
-	font-weight: 500;
+	font-weight: 600;
 	font-size: 66.66%;
 	line-height: 100%;
 
