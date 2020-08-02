@@ -168,11 +168,14 @@ mat-button-toggle.core {
 }
 
 .filter-container {
-	width: 100%;
 
 	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 	display: flex;
+
+	flex-flow: row wrap;
+
+	margin-left: -30px;
 
 }
 
@@ -189,7 +192,19 @@ mat-button-toggle.core {
 	padding-right: 10px;
 
 	justify-content: center;
-	align-items: center; 
+	align-items: center;
+
+	margin-left: 30px;
+	margin-bottom: 10px;
+}
+
+.domain-filter-icon {
+	width: 13px;
+	height: 13px;
+
+	border-radius: 50%;
+
+	background-color: #FF8F8F;
 }
 
 .domain-filter-label {
@@ -205,10 +220,82 @@ mat-button-toggle.core {
 	color: #05905F;
 
 	padding-right: 10px;
+
 }
 
-::ng-deep .mat-select-arrow {
+.domain-label-string {
+	margin-left: 6px;
+}
+
+::ng-deep .domain-filter .mat-select-arrow {
 	color: #05905F !important;
+}
+
+.sub-filter {
+	height: 25px;
+
+	display: flex;
+	flex-direction: row;
+
+	background: #F9F9F9;
+	border-radius: 8px;
+
+	margin-left: 10px;
+
+	padding-left: 6px;
+	padding-right: 10px;
+
+	justify-content: center;
+	align-items: center; 
+	margin-bottom: 10px;
+}
+
+.sort-filter {
+	height: 25px;
+
+	display: flex;
+	flex-direction: row;
+
+	background: transparent;
+	border-radius: 8px;
+
+	margin-left: auto;
+
+	padding-left: 6px;
+	padding-right: 10px;
+
+	justify-content: center;
+	align-items: center; 
+	margin-bottom: 10px;
+}
+
+.sub-filter-label {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 25px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	padding-right: 10px;
+}
+
+.sub-icon {
+	height: 13px;
+	width: 13px;
+
+	font-size: 13px;
+}
+
+.sub-label-string {
+	margin-left: 6px;
+}
+
+::ng-deep .sub-filter .mat-select-arrow {
+	color: #181918 !important;
 }
 
 .opps-list {
@@ -266,11 +353,25 @@ mat-button-toggle.core {
 
 @media screen and (max-width: 790px) {
 	
+	.domain-filter {
+		margin-left: calc(100vw * 0.0234);
+	}
+
+	.filter-container {
+		margin-left: calc(-100vw * 0.0234);
+	}
+
+	.opps-list {
+		margin-left: calc(-100vw * 0.0234);
+		margin-right: calc(-100vw * 0.0234);
+	}
+
 	.opp-card-container {
 		margin-bottom: calc(100vw * 0.0234);
+		margin-left: calc(100vw * 0.0234);;
 
-		width: calc((100vw - 90px - 1 * 30px)/2);
-		height: calc((100vw - 90px - 1 * 30px)*100/275);
-		font-size: calc((100vw - 90px - 1 * 30px)*24/(2*275));
+		width: calc((100vw - 90px - 1 * 100vw * 0.0234)/2);
+		height: calc((100vw - 90px - 1 * 100vw * 0.0234)*100/275);
+		font-size: calc((100vw - 90px - 1 * 100vw * 0.0234)*24/(2*275));
 	}
 }
