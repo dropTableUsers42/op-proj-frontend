@@ -1,3 +1,57 @@
+:root{
+    /*--weblue: #21409a;*/
+    --b1: #D4E9E2;
+    --b2: #FAECDE;
+    --b3: #FBE9E5;
+    --b4: #D9E1E7;
+    --b5: #F1E4ED;
+    --b6: #DAEDF2;
+
+    --d1: #05905F;
+    --d2: #FF9D63;
+    --d3: #E76D50;
+    --d4: #225882;
+    --d5: #D67BBB;
+    --d6: #2BA9CA;
+
+}
+
+@font-face {
+	font-family: colombo;
+	src: url("/assets/fonts/Colombo.otf") format("opentype");
+}
+
+@font-face {
+	font-family: poppins;
+	src: url("/assets/fonts/Poppins-Regular.ttf") format("truetype");
+
+}
+
+@font-face {
+	font-family: poppins-bold;
+	src: url("/assets/fonts/Poppins-Bold.ttf") format("truetype");
+
+}
+
+@font-face {
+	font-family: poppins-semibold;
+	src: url("/assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+
+}
+
+@font-face {
+	font-family: poppins-black;
+	src: url("/assets/fonts/Poppins-Black.ttf") format("truetype");
+
+}
+
+@font-face {
+	font-family: poppins-medium;
+	src: url("/assets/fonts/Poppins-Medium.ttf") format("truetype");
+
+}
+
+
 mat-sidenav-content.black{
 	background-color: black !important;
 }
@@ -39,5 +93,25 @@ mat-sidenav.mat-default {
 }
 
 mat-sidenav.mat-core {
-	background: rgba(249, 249, 249, 0.8) !important;
+	background: rgba(249, 249, 249, 0.2) !important;
+}
+
+mat-sidenav.mat-infotech {
+	background: rgba(249, 249, 249, 0.2) !important;
+}
+
+mat-sidenav.mat-consulting {
+	background: rgba(249, 249, 249, 0.2) !important;
+}
+
+mat-sidenav.mat-entrepreneurship {
+	background: rgba(249, 249, 249, 0.2) !important;
+}
+
+mat-sidenav.mat-finance {
+	background: rgba(249, 249, 249, 0.2) !important;
+}
+
+mat-sidenav.mat-socdev {
+	background: rgba(249, 249, 249, 0.2) !important;
 }
