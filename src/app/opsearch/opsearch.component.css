@@ -244,12 +244,17 @@ mat-button-toggle.core {
 
 	height: 200px;
 	width: calc((100vw - 90px - 3 * 30px)/4);
+
+	font-size: 24px;
 }
 
 @media screen and (min-width: 1360px) {
+	
 	.opp-card-container {
+
 		width: calc((100vw - 90px - 4 * 30px)/5);
-		height: calc((100vw - 90px - 4 * 30px)*200/(5*275));;
+		height: calc((100vw - 90px - 4 * 30px)*200/(5*275));
+		font-size: calc((100vw - 90px - 4 * 30px)*24/(5*275));
 	}
 }
 
@@ -260,8 +265,12 @@ mat-button-toggle.core {
 }
 
 @media screen and (max-width: 790px) {
+	
 	.opp-card-container {
+		margin-bottom: calc(100vw * 0.0234);
+
 		width: calc((100vw - 90px - 1 * 30px)/2);
 		height: calc((100vw - 90px - 1 * 30px)*100/275);
+		font-size: calc((100vw - 90px - 1 * 30px)*24/(2*275));
 	}
 }

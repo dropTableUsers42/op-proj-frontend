@@ -1,7 +1,9 @@
 <div class="opps-card">
-	<p class="opps-type" [style.background-color]="getMainColor()">
-		{{opportunity.Type}}
-	</p>
+	<div class="opps-type-container" [style.background-color]="getMainColor()">
+		<span class="opps-type">
+			{{opportunity.Type}}
+		</span>
+	</div>
 	<p class="opps-name" [style.color]="getMainColor()">
 		{{opportunity.Name_of_Program}}
 	</p>
