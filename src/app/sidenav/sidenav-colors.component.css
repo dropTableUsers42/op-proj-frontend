@@ -1,3 +1,21 @@
+:root{
+    /*--weblue: #21409a;*/
+    --b: #D4E9E2;
+    --b2: #FAECDE;
+    --b3: #FBE9E5;
+    --b4: #D9E1E7;
+    --b5: #F1E4ED;
+    --b6: #DAEDF2;
+
+    /*--d1: #05905F;*/
+    --d2: #FF9D63;
+    --d3: #E76D50;
+    --d4: #225882;
+    --d5: #D67BBB;
+    --d6: #2BA9CA;
+
+}
+
 .menu-button.mat-default{
 	color: white;
 }
@@ -6,6 +24,27 @@
 	color: #05905F;
 }
 
+.menu-button.mat-infotech{
+	color: #FF9D63;
+}
+
+.menu-button.mat-consulting{
+	color: #E76D50;
+}
+
+.menu-button.mat-entrepreneurship{
+	color: #225882;
+}
+
+.menu-button.mat-finance{
+	color: #D67BBB;
+}
+
+.menu-button.mat-socdev{
+	color: #2BA9CA;
+}
+
+
 .mat-default>a:link, .mat-default>a:visited, .mat-default>a:hover, .mat-default>a:active {
 	color: #F9F9F9;
 }
@@ -13,3 +52,45 @@
 .mat-core>a:link, .mat-core>a:visited, .mat-core>a:hover, .mat-core>a:active {
 	color: #05905F;
 }
+
+.mat-infotech>a:link, .mat-infotech>a:visited, .mat-infotech>a:hover, .mat-infotech>a:active {
+	color: #FF9D63;
+}
+
+.mat-consulting>a:link, .mat-consulting>a:visited, .mat-consulting>a:hover, .mat-consulting>a:active {
+	color: #E76D50;
+}
+
+.mat-entrepreneurship>a:link, .mat-entrepreneurship>a:visited, .mat-entrepreneurship>a:hover, .mat-entrepreneurship>a:active {
+	color: #225882;
+}
+
+.mat-finance>a:link, .mat-finance>a:visited, .mat-finance>a:hover, .mat-finance>a:active {
+	color: #D67BBB;
+}
+
+.mat-socdev>a:link, .mat-socdev>a:visited, .mat-socdev>a:hover, .mat-socdev>a:active {
+	color: #2BA9CA;
+}
+
+
+/*
+mat-sidenav.mat-infotech {
+	background: rgba(249, 249, 249, 0.8) !important;
+}
+
+mat-sidenav.mat-consulting {
+	background: rgba(249, 249, 249, 0.8) !important;
+}
+
+mat-sidenav.mat-entrepreneurship {
+	background: rgba(249, 249, 249, 0.8) !important;
+}
+
+mat-sidenav.mat-finance {
+	background: rgba(249, 249, 249, 0.8) !important;
+}
+
+mat-sidenav.mat-socdev {
+	background: rgba(249, 249, 249, 0.8) !important;
+}*/
