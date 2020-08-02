@@ -19,6 +19,26 @@ export class AppComponent implements OnInit, OnDestroy{
     {
       return 'mat-core';
     }
+    else if(this.getPageStyle() == 'infotech')
+    {
+      return 'mat-infotech';
+    }
+    else if(this.getPageStyle() == 'consulting')
+    {
+      return 'mat-consulting';
+    }
+    else if(this.getPageStyle() == 'entrepreneurship')
+    {
+      return 'mat-entrepreneurship';
+    }
+    else if(this.getPageStyle() == 'finance')
+    {
+      return 'mat-finance';
+    }
+    else if(this.getPageStyle() == 'socdev')
+    {
+      return 'mat-socdev';
+    }
     else
     {
       return 'mat-default';
@@ -64,23 +84,23 @@ export class AppComponent implements OnInit, OnDestroy{
     {
       return 'core';
     }
-    if(this.router.url.includes('search/information%20technology'))
+    else if(this.router.url.includes('search/information%20technology'))
     {
       return 'infotech';
     }
-    if(this.router.url.includes('search/consulting'))
+    else if(this.router.url.includes('search/consulting'))
     {
       return 'consulting';
     }
-    if(this.router.url.includes('search/entrepreneurship'))
+    else if(this.router.url.includes('search/entrepreneurship'))
     {
       return 'entrepreneurship';
     }
-    if(this.router.url.includes('search/finance'))
+    else if(this.router.url.includes('search/finance'))
     {
       return 'finance';
     }
-    if(this.router.url.includes('search/socdev%20&%20policy'))
+    else if(this.router.url.includes('search/socdev%20&%20policy'))
     {
       return 'socdev';
     }
@@ -94,6 +114,26 @@ export class AppComponent implements OnInit, OnDestroy{
     if(this.router.url.includes('search/core'))
     {
       return 'core';
+    }
+    else if(this.router.url.includes('search/information%20technology'))
+    {
+      return 'infotech';
+    }
+    else if(this.router.url.includes('search/consulting'))
+    {
+      return 'consulting';
+    }
+    else if(this.router.url.includes('search/entrepreneurship'))
+    {
+      return 'entrepreneurship';
+    }
+    else if(this.router.url.includes('search/finance'))
+    {
+      return 'finance';
+    }
+    else if(this.router.url.includes('search/socdev%20&%20policy'))
+    {
+      return 'socdev';
     }
     else if(this.router.url.includes(''))
     {
