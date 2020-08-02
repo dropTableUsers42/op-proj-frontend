@@ -36,7 +36,8 @@
 
 .search-container {
 	padding-top: 13px;
-	width: 100%;
+	padding-left: 45px;
+	padding-right: 45px;
 }
 
 .search-bar {
@@ -298,8 +299,14 @@ mat-button-toggle.core {
 	color: #181918 !important;
 }
 
-.opps-list {
+.shadow-container {
+	width: 100vw;
+	margin-left: -45px;
+	z-index:1;
+}
 
+.opps-list {
+	z-index: 0;
 	padding-top: 15px;
 
 	display: flex;

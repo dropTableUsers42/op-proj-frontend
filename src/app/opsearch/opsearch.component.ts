@@ -1,14 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Opps } from '../_models/opps.model';
 import { ActivatedRoute } from '@angular/router';
 import { BackendService } from '../_services/backend.service';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
+
 
 @Component({
   selector: 'app-opsearch',
   templateUrl: './opsearch.component.html',
-  styleUrls: ['./opsearch.component.css']
+  styleUrls: ['./opsearch.component.css'],
+  animations: [
+    trigger('shadowTrigger', [
+      state('hasShadow', style({
+        boxShadow: '3px 6px 10px -4px rgba(0, 0, 0, 0.3)'
+      })),
+      state('hasNoShadow', style({
+        boxShadow: 'none'
+      })),
+      transition('* => *', [
+        animate('0.2s ease-in-out')
+      ]),
+    ]),
+  ],
 })
-export class OpsearchComponent implements OnInit {
+export class OpsearchComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('scrollFrame', {static: false}) scrollFrame: ElementRef;
+  private scrollContainer: any;
+  public isScrolledToTop: boolean = true;
+
+  get shadow_class() {
+    return {
+      'shadow-container': true,
+      'has-shadow': !this.isScrolledToTop,
+    }
+  }
+
+  ngAfterViewInit() {
+    this.scrollContainer = this.scrollFrame.nativeElement;
+    this.isScrolledToTop = this.scrollContainer.scrollTop == 0;
+  }
+
+  scrolled(event: any) {
+    this.isScrolledToTop = this.scrollContainer.scrollTop == 0;
+  }
 
   search_types = [
     { id: 1, name: "Opps" },

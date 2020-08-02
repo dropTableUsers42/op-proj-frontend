@@ -3,51 +3,53 @@
 		<p class="domain" [style.color]="getMainColor()">{{domain}}</p>
 	</div>
 
-	<div class="search-container">
-		<div class="search-bar">
-			<mat-icon class="search-icon">search</mat-icon>
-			<input class="search-input" type="text" id="searchstring" name="searchstring" placeholder="Search" autocomplete="off" autocorrect="off" spellcheck="false">
-			<div class="search-type-toggle">
-				<mat-button-toggle-group name="search-type-toggle" [(value)] = "search_type">
-					<mat-button-toggle *ngFor="let type of search_types" disableRipple id="{{type.name}}" [ngClass]="getDomain()" value="{{type.id}}">{{type.name}}</mat-button-toggle>
-				</mat-button-toggle-group>
+	<div class="shadow-container" [@shadowTrigger]="isScrolledToTop ? 'hasNoShadow' : 'hasShadow'">
+		<div class="search-container">
+			<div class="search-bar">
+				<mat-icon class="search-icon">search</mat-icon>
+				<input class="search-input" type="text" id="searchstring" name="searchstring" placeholder="Search" autocomplete="off" autocorrect="off" spellcheck="false">
+				<div class="search-type-toggle">
+					<mat-button-toggle-group name="search-type-toggle" [(value)] = "search_type">
+						<mat-button-toggle *ngFor="let type of search_types" disableRipple id="{{type.name}}" [ngClass]="getDomain()" value="{{type.id}}">{{type.name}}</mat-button-toggle>
+					</mat-button-toggle-group>
+				</div>
 			</div>
-		</div>
-		<div class="filter-container">
-			<div class="domain-filter">
-				<mat-placeholder class="domain-filter-label"><div class="domain-filter-icon"></div><span class="domain-label-string">Domain</span></mat-placeholder>
-				<mat-select disableOptionCentering>
-				</mat-select>
-			</div>
-			<div class="sub-filter">
-				<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">settings</mat-icon><span class="sub-label-string">Opps&nbsp;Type</span></mat-placeholder>
-				<mat-select disableOptionCentering>
-				</mat-select>
-			</div>
-			<div class="sub-filter">
-				<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">calendar_today</mat-icon><span class="sub-label-string">Date</span></mat-placeholder>
-				<mat-select disableOptionCentering>
-				</mat-select>
-			</div>
-			<div class="sub-filter">
-				<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">location_on</mat-icon><span class="sub-label-string">Region</span></mat-placeholder>
-				<mat-select disableOptionCentering>
-				</mat-select>
-			</div>
-			<div class="sub-filter">
-				<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">attach_money</mat-icon><span class="sub-label-string">Funding</span></mat-placeholder>
-				<mat-select disableOptionCentering>
-				</mat-select>
-			</div>
-			<div class="sort-filter">
-				<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">sort</mat-icon><span class="sub-label-string">Sort</span></mat-placeholder>
-				<mat-select disableOptionCentering>
-				</mat-select>
+			<div class="filter-container">
+				<div class="domain-filter">
+					<mat-placeholder class="domain-filter-label"><div class="domain-filter-icon"></div><span class="domain-label-string">Domain</span></mat-placeholder>
+					<mat-select disableOptionCentering>
+					</mat-select>
+				</div>
+				<div class="sub-filter">
+					<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">settings</mat-icon><span class="sub-label-string">Opps&nbsp;Type</span></mat-placeholder>
+					<mat-select disableOptionCentering>
+					</mat-select>
+				</div>
+				<div class="sub-filter">
+					<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">calendar_today</mat-icon><span class="sub-label-string">Date</span></mat-placeholder>
+					<mat-select disableOptionCentering>
+					</mat-select>
+				</div>
+				<div class="sub-filter">
+					<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">location_on</mat-icon><span class="sub-label-string">Region</span></mat-placeholder>
+					<mat-select disableOptionCentering>
+					</mat-select>
+				</div>
+				<div class="sub-filter">
+					<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">attach_money</mat-icon><span class="sub-label-string">Funding</span></mat-placeholder>
+					<mat-select disableOptionCentering>
+					</mat-select>
+				</div>
+				<div class="sort-filter">
+					<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">sort</mat-icon><span class="sub-label-string">Sort</span></mat-placeholder>
+					<mat-select disableOptionCentering>
+					</mat-select>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="opps-list">
+	<div class="opps-list" (scroll)="scrolled($event)" #scrollFrame>
 		<div class="opp-card-container">
 			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
 		</div>
