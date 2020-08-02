@@ -19,6 +19,26 @@ export class HeaderComponent implements OnInit {
     {
       return 'core';
     }
+    else if(this.page_style == 'infotech')
+    {
+      return 'infotech';
+    }
+    else if(this.page_style == 'consulting')
+    {
+      return 'consulting';
+    }
+    else if(this.page_style == 'entrepreneurship')
+    {
+      return 'entrepreneurship';
+    }
+    else if(this.page_style == 'finance')
+    {
+      return 'finance';
+    }
+    else if(this.page_style == 'socdev')
+    {
+      return 'socdev';
+    }
     else
     {
       return 'default';
@@ -28,7 +48,12 @@ export class HeaderComponent implements OnInit {
   logo_class() {
     return {
       'logo': true,
-      'mat-core': this.page_style === 'core',
+      'mat-core' : this.page_style == 'core',
+      'mat-infotech' : this.page_style == 'infotech',
+      'mat-consulting' : this.page_style == 'consulting',
+      'mat-entrepreneurship' : this.page_style == 'entrepreneurship',
+      'mat-finance' : this.page_style == 'finance',
+      'mat-socdev' : this.page_style == 'socdev',
       'mat-default': this.page_style !== 'core',
     };
   }
@@ -36,7 +61,12 @@ export class HeaderComponent implements OnInit {
   wishlist_class() {
     return {
       'wishlist': true,
-      'mat-core': this.page_style === 'core',
+      'mat-core' : this.page_style == 'core',
+      'mat-infotech' : this.page_style == 'infotech',
+      'mat-consulting' : this.page_style == 'consulting',
+      'mat-entrepreneurship' : this.page_style == 'entrepreneurship',
+      'mat-finance' : this.page_style == 'finance',
+      'mat-socdev' : this.page_style == 'socdev',
       'mat-default': this.page_style !== 'core',
     };
   }
