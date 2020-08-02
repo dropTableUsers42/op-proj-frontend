@@ -16,8 +16,8 @@ body {
 	position: absolute;
 	width: 805px;
 	height: 432px;
-	left: 60px;
-	top: 228px;
+	left: 6%;
+	bottom: 3%;
 
 	font-family: colombo, sans-serif;
 	font-style: normal;
@@ -27,7 +27,7 @@ body {
 	display: flex;
 	align-items: flex-end;
 
-	color: #FFFFFF;
+	color: #F9F9F9;
 
 
 	mix-blend-mode: normal;
