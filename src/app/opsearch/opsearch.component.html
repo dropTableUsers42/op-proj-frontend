@@ -13,10 +13,68 @@
 				</mat-button-toggle-group>
 			</div>
 		</div>
+		<div class="filter-container">
+			<div class="domain-filter">
+				<mat-placeholder class="domain-filter-label">Domain</mat-placeholder>
+				<mat-select disableOptionCentering>
+					<mat-option>None</mat-option>
+					<mat-option value="option1">Option 1</mat-option>
+					<mat-option value="option2">Option 2</mat-option>
+					<mat-option value="option3">Option 3</mat-option>
+				</mat-select>
+			</div>
+		</div>
 	</div>
 
 	<div class="opps-list">
-		<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
+		<div class="opp-card-container">
+			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+		</div>
 	</div>
 </div>
 <!--<form #searchForm="ngForm">
