@@ -1,8 +1,82 @@
+:root{
+    /*--weblue: #21409a;*/
+    --b1: #D4E9E2;
+    --b2: #FAECDE;
+    --b3: #FBE9E5;
+    --b4: #D9E1E7;
+    --b5: #F1E4ED;
+    --b6: #DAEDF2;
+
+    --d1: #05905F;
+    --d2: #FF9D63;
+    --d3: #E76D50;
+    --d4: #225882;
+    --d5: #D67BBB;
+    --d6: #2BA9CA;
+
+}
+
+
+@font-face {
+	font-family: colombo;
+	src: url("/assets/fonts/Colombo.otf") format("opentype");
+}
+
+@font-face {
+	font-family: poppins;
+	src: url("/assets/fonts/Poppins-Regular.ttf") format("truetype");
+
+}
+
+@font-face {
+	font-family: poppins-bold;
+	src: url("/assets/fonts/Poppins-Bold.ttf") format("truetype");
+
+}
+
+@font-face {
+	font-family: poppins-semibold;
+	src: url("/assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+
+}
+
+@font-face {
+	font-family: poppins-black;
+	src: url("/assets/fonts/Poppins-Black.ttf") format("truetype");
+
+}
+
+@font-face {
+	font-family: poppins-medium;
+	src: url("/assets/fonts/Poppins-Medium.ttf") format("truetype");
+
+}
+
 .mat-default {
 	background-color: black;
 }
 
 .mat-core {
+	background-color: white;
+}
+
+.mat-infotech {
+	background-color: white;
+}
+
+.mat-consulting {
+	background-color: white;
+}
+
+.mat-entrepreneurship {
+	background-color: white;
+}
+
+.mat-finance {
+	background-color: white;
+}
+
+.mat-socdev {
 	background-color: white;
 }
 
@@ -13,3 +87,24 @@
 .menu-button.mat-core, .logo.mat-core, .wishlist.mat-core {
 	color: #05905F;
 }
+
+.menu-button.mat-infotech, .logo.mat-infotech, .wishlist.mat-infotech {
+	color: #FF9D63;
+}
+
+.menu-button.mat-consulting, .logo.mat-consulting, .wishlist.mat-consulting {
+	color: #E76D50;
+}
+
+.menu-button.mat-entrepreneurship, .logo.mat-entrepreneurship, .wishlist.mat-entrepreneurship {
+	color: #225882;
+}
+
+.menu-button.mat-finance, .logo.mat-finance, .wishlist.mat-finance {
+	color: #D67BBB;
+}
+
+.menu-button.mat-socdev, .logo.mat-socdev, .wishlist.mat-socdev {
+	color: #2BA9CA;
+}
+
