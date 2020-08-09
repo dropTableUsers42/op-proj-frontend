@@ -1,9 +1,9 @@
 <div class="page-container">
-	<div class="domain-container">
+	<div class="domain-container" [@domainTransform]="isScrolledToTop ? 'default' : 'transform'">
 		<p class="domain">{{domain}}</p>
 	</div>
 
-	<div class="shadow-container" [@shadowTrigger]="isScrolledToTop ? 'hasNoShadow' : 'hasShadow'">
+	<div class="shadow-container" [@domainTransform]="isScrolledToTop ? 'default' : 'transform'" [@shadowTrigger]="isScrolledToTop ? 'hasNoShadow' : 'hasShadow'">
 		<div class="search-container">
 			<div class="search-bar">
 				<mat-icon class="search-icon">search</mat-icon>
@@ -49,7 +49,7 @@
 		</div>
 	</div>
 
-	<div class="opps-list" (scroll)="scrolled($event)" #scrollFrame>
+	<div class="opps-list" (scroll)="scrolled($event)" #scrollFrame [@domainTransform]="isScrolledToTop ? 'default' : 'transform'" [style.height.px]="scrollContainerHeight">
 		<div class="opp-card-container">
 			<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
 		</div>

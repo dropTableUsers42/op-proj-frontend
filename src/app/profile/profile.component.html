@@ -1,21 +1,82 @@
-<img class="reg-icon">
+<div class="page-container">
+	<div class="profile-all-container">
+		<div class="profile-details-container">
+			<div class="profile-image-container">
+				<img class="reg-icon">
+			</div>
+			<div class="profile-text-container">
+				<div class="name-container">
+					<p class="name-content">{{user?.name}}</p>
+				</div>
+				<div class="college-container">
+					<p class="college-content">{{user?.college}}</p>
+				</div>
+				<div class="year-branch-container">
+					<p class="year-branch-content">{{user?.yearOfStudy}} | {{user?.branch}}</p>
+				</div>
+				<hr class="year-branch-divider"><br>
+				<div class="follower-container">
+					<p class="follower-content"><b>XXX</b> Followers</p>
+					<p class="following-content"><b>XXX</b> Following</p>
+				</div>
+				<div class="email-container">
+					<p class="email-content">{{user?.email}}</p>
+				</div>
+			</div>
+			<div class="profile-button-email-container">
+				<div class="edit-button-container">
+					<button class="edit-button">Edit Profile</button>
+				</div>
+			</div>
+		</div>
+		<div class="profile-about-container">
+			<div class="about-container">
+				<label class="about-label">About</label><br>
+				<p class="about-content">{{user?.bio}}</p>
+			</div>
+		</div>
+		<div class="profile-domains-container">
+			<div class="domains-container">
+				<mat-button-toggle-group multiple name="domain-choice" aria-label="Domain Choice">
+					<mat-button-toggle class="core" value="Core">Core</mat-button-toggle>
+					<mat-button-toggle class="it" value="IT">IT/Coding</mat-button-toggle>
+					<mat-button-toggle class="consulting" value="consulting">Consulting</mat-button-toggle>
+					<mat-button-toggle class="ent" value="ent">Entrepeneurship</mat-button-toggle>
+					<mat-button-toggle class="finance" value="finance">Finance</mat-button-toggle>
+					<mat-button-toggle class="socdev" value="socdev">SocDev & Policy</mat-button-toggle>
+				</mat-button-toggle-group>
+			</div>
+		</div>
+		<div class="opps-form-container">
+			<label class="opps-form-label">Opportunities Pursued</label>
+			<div class="opps-form-content">
+				<p class="opps-content">{{ops}}</p>
+			</div>
+		</div>
+	</div>
+	<div class="wishlist-container">
+		<p class="wishlist-label">Wishlist</p>
+		<app-opps-wishlist></app-opps-wishlist>
+		<p (click)="logout()" class="logout" >Log Out</p>
+	</div>
+	<!--<p class="about-label">About</p>
 
-<p class="about-label">About</p>
+	<p class="name">{{user?.name}}</p>
+	<p class="college">{{user?.college}}</p>
+	<p class="year-branch">{{user?.yearOfStudy}} | {{user?.branch}}</p>
+	<p class="email">{{user?.email}}</p>
 
-<p class="name">{{user?.name}}</p>
-<p class="college">{{user?.college}}</p>
-<p class="year-branch">{{user?.yearOfStudy}} | {{user?.branch}}</p>
-<p class="email">{{user?.email}}</p>
+	<p class="about">{{user?.bio}}</p>
 
-<p class="about">{{user?.bio}}</p>
+	<p class="ops-label">Opportunities Pursued</p>
+	<p class="ops">{{ops}}</p>
 
-<p class="ops-label">Opportunities Pursued</p>
-<p class="ops">{{ops}}</p>
+	<div class="wishlist-container">
+		<p class="wishlist-label">Wishlist</p>
+		<app-opps-wishlist></app-opps-wishlist>
+		<p (click)="logout()" class="logout" >Logout</p>
+	</div>
 
-<div class="wishlist-container">
-	<p class="wishlist-label">Wishlist</p>
-	<app-opps-wishlist></app-opps-wishlist>
-	<p (click)="logout()" class="logout" >Logout</p>
+	<input class="edit" type="submit" value="Edit Profile" (click)="onClick()">
+	-->
 </div>
-
-<input class="edit" type="submit" value="Edit Profile" (click)="onClick()">

@@ -3,220 +3,327 @@
 	src: url("/assets/fonts/Colombo.otf") format("opentype");
 }
 
-@font-face {
-	font-family: poppins;
-	src: url("/assets/fonts/Poppins-Regular.ttf") format("truetype");
+input, textarea {
+	background-color: transparent;
+	border-style: none;
+
+	padding: 0 0;
+
+	resize: none;
+
+	overflow: hidden;
+
+	min-width: 0px;
+}
+
+input:focus, textarea:focus, button:focus {
+	outline: none;
+}
+
+p {
+	margin: 0 0;
+}
+
+.page-container {
+	height: 100%;
+	width: 100%;
+
+	background-color: #363636;
+
+	padding-top: 80px;
+	padding-left: 45px;
+	padding-right: 45px;
+
+	overflow-y: scroll;
+}
+
+.profile-all-container {
+	padding-left: 45px;
+	padding-right: 45px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.page-container::-webkit-scrollbar {
+	display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.page-container {
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+}
+
+.profile-details-container {
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+}
+
+.profile-image-container {
+	width: 180px;
+	min-width: 180px;
 }
 
 .reg-icon {
-
-	position: absolute;
-	width: 180px;
-	height: 180px;
-	left: 90px;
-	top: 90px;
+	max-width: 100%;
+	height: auto;
 
 	border-radius: 50%;
 
 	box-shadow: inset 0px 7px 7px rgba(0, 0, 0, 0.25);
 
-	background-image: url('/assets/images/placeholder.jpg');
+	content: url('/assets/images/placeholder.jpg');
 }
 
-.about-label {
-	position: absolute;
-	width: 43px;
-	height: 21px;
-	left: 90px;
-	top: 300px;
+.profile-text-container {
+	padding-left: 60px;
+	flex-grow: 1;
+}
 
+.name-label, .college-label, .year-label, .branch-label, .about-label, .domains-label, .opps-form-label {
 	font-family: Poppins;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 14px;
 	line-height: 21px;
-	/* identical to box height */
 
+	margin-bottom: 0px;
 
 	color: #8F8F8F;
 }
 
-.name {
-	position: absolute;
-	height: 48px;
-	left: 330px;
-	top: 95px;
-
+.name-content {
 	font-family: Poppins;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 32px;
-	line-height: 48px;
-	/* identical to box height */
+	line-height: 32px;
 
+	color: #F9F9F9;
 
-	color: #FFFFFF;
-
+	margin-bottom: 0px;
 }
-
-.college {
-	position: absolute;
-	width: 50%;
-	height: 36px;
-	left: 330px;
-	top: 134px;
-
+.college-content {
 	font-family: Poppins;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 24px;
-	line-height: 36px;
-	/* identical to box height */
+	line-height: 24px;
 
-
-	color: #FFFFFF;
-	background-color: #363636;
-	border-style: none;
+	color: #F9F9F9;
 }
 
-.year-branch {
-	position: absolute;
-	width: 50%;
-	height: 27px;
-	left: 330px;
-	top: 169px;
-
+.year-branch-content {
 	font-family: Poppins;
 	font-style: normal;
 	font-weight: 300;
 	font-size: 18px;
-	line-height: 27px;
-	/* identical to box height */
-
+	line-height: 18px;
 
 	color: #F9F9F9;
 }
 
-.email {
-	position: absolute;
-	width: 50%;
-	height: 21px;
-	left: 330px;
-	top: 249px;
-
+.email-content, .follower-content, .following-content {
 	font-family: Poppins;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
-	line-height: 21px;
-	/* identical to box height */
-
+	line-height: 14px;
 
 	color: #F9F9F9;
 }
 
-.about {
-	position: absolute;
-	width: 86%;
-	height: 21px;
-	left: 90px;
-	top: 320px;
-
-	font-family: Poppins;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 18px;
-	line-height: 117.5%;
-	/* or 21px */
-
-
-	color: #D0D0D0;
+.following-content {
+	margin-left: 32px;
 }
 
-.ops-label {
-	position: absolute;
-	width: 184px;
-	height: 24px;
-	left: 90px;
-	top: 450px;
-
-	font-family: Poppins;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 16px;
-	line-height: 24px;
-	/* identical to box height */
-
-
-	color: #8F8F8F;
-
+.email-container {
+	margin-top: 7px;
 }
 
-.ops {
-	
-	position: absolute;
-	width: 1066.78px;
-	height: 154px;
-	left: 123.22px;
-	top: 473px;
+.college-container, .year-branch-container {
+	margin-top: 8px;
+}
 
-	font-family: Poppins;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 16px;
-	line-height: 29px;
-	/* or 181% */
+.year-branch-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.year-branch-divider {
+	float: left;
+	width: 60px;
+
+	margin-top: 13px;
+	margin-bottom: 0px;
+
+	border-top: 5px solid #F9F9F9;
+}
+
+.follower-container {
+	margin-top: 13px;
 
 	display: flex;
-	align-items: center;
-	letter-spacing: 0.03em;
-
-	color: #FFFFFF;
-
+	flex-direction: row;
 }
 
-.edit {
-	position: absolute;
-	height: 35px;
-	right: 90px;
-	top: 90px;
+.profile-button-email-container {
+	display:flex;
+	flex-direction: column;
 
-	/* White */
-	background-color: #363636;
+	padding-top: 10px;
+}
+
+.edit-button-container {
+	flex-grow: 1;
+}
+
+.edit-button {
+	padding-left: 25px;
+	padding-right: 25px;
+	float: right;
+	height: 35px;
+
 	border: 3px solid #F9F9F9;
 	border-radius: 39px;
+
+	background-color: transparent;
 
 
 	font-family: Poppins;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 20px;
-	line-height: 30px;
-	/* identical to box height */
+	line-height: 100%;
 
 	text-align: center;
 
 	color: #F9F9F9;
 }
 
-.wishlist-container {
-	position: absolute;
+.edit-button:hover {
+	background-color: #F9F9F9;
+	color: #363636;
+}
+
+.about-label {
+	margin-top: 30px;
+}
+
+.about-content {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 18px;
+
 	width: 100%;
-	top: 70%;
+
+	color: #D0D0D0;
+}
+
+.domains-container {
+	margin-top: 14px;
+}
+
+mat-button-toggle-group {
+	margin-top: 4px;
+	box-shadow: none !important;
+	border-style: none !important;
+
+	overflow: unset !important;
+
+	width: 100%;
+	flex-wrap: wrap;
+}
+
+mat-button-toggle {
+
+	border: 2px solid #F9F9F9 !important;
+    background-color: transparent !important;
+
+	height: 33px;
+	border-radius: 13px;
+
+	margin-right: 3%;
+	padding-left: 20px;
+	padding-right: 20px;
+
+	display: flex;
+	align-items: center;
+	text-align: center;
+	
+	color: #F9F9F9 !important;
+
+}
+
+mat-button-toggle:hover {
+    background-color: #F9F9F9 !important;
+	color: #363636 !important;
+}
+
+::ng-deep .mat-button-toggle-label-content {
+    font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 27px;
+
+	padding: 0 0 !important;
+}
+
+.mat-button-toggle-checked {
+	background-color: #F9F9F9 !important;
+	color: #363636 !important;
+}
+
+.opps-form-container {
+	margin-top: 30px;
+}
+
+.opps-form-content {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 29px;
+
+	color: #F9F9F9;
+}
+
+.opps-content {
+	width: 100%;
+
+	overflow-y: visible;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.opps-content::-webkit-scrollbar {
+	display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.opps-content {
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+}
+
+.wishlist-container {
+	width: 100%;
+
+	margin-top: 30px;
 
 	display: inline-block;
 }
 
 .wishlist-label {
-	height: 24px;
 
+	margin-bottom: 20px;
 
 	font-family: Poppins;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 18px;
-	line-height: 27px;
-	/* identical to box height */
+	line-height: 18px;
 
 	text-align: center;
 
@@ -226,17 +333,18 @@
 }
 
 .logout {
-	height: 24px;
+	height: 25px;
 	width: 125px;
 	margin: 0 auto;
+
+	margin-bottom: 20px;
 
 
 	font-family: Poppins;
 	font-style: normal;
-	font-weight: bold;
-	font-size: 18px;
-	line-height: 27px;
-	/* identical to box height */
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 25px;
 
 	text-align: center;
 
@@ -244,4 +352,8 @@
 
 	background: #F9F9F9;
 	border-radius: 35px;
+
+	color: #363636;
 }
+
+/*********************************************/

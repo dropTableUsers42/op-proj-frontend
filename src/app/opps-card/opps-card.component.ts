@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Opps } from '../_models/opps.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-opps-card',
@@ -11,7 +12,7 @@ export class OppsCardComponent implements OnInit {
 
   @Input('opps') public opportunity: Opps;
 
-  constructor() {
+  constructor(private router: Router) {
    }
 
   ngOnInit(): void {
@@ -19,6 +20,10 @@ export class OppsCardComponent implements OnInit {
 
   getMainColor() {
       return '#05905F';
+  }
+
+  oppClick() {
+    this.router.navigate(['opps/default']);
   }
 
 }

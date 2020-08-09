@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
-    console.log(this.authService.currentUserValue);
   }
 
   signInToken(form) {

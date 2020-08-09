@@ -19,11 +19,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 mat-sidenav {
 	padding: 0px 0px !important;
-
 	mix-blend-mode: normal !important;
-	backdrop-filter: blur(20px) !important;
+	backdrop-filter: blur(5px) !important;
+}
+
+.sidenav-container {
+	background: transparent !important;
+}
+
+.mat-drawer-content {
+	overflow-y: hidden !important;
 }
 
 .mat-drawer-backdrop.mat-drawer-shown {
 	background-color: transparent !important;
+}
+
+mat-sidenav.mat-default {
+	background: rgba(24, 25, 24, 0.8) !important;
+}
+
+mat-sidenav.mat-core {
+	background: rgba(249, 249, 249, 0.8) !important;
 }

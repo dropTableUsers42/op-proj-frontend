@@ -17,6 +17,8 @@ mat-toolbar {
 	padding: 8px 10px;
 
 	display: flex;
+
+	z-index: 1;
 }
 
 .header-button-container {

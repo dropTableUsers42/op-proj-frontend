@@ -1,5 +1,18 @@
 .opps-list {
 	display: flex;
-	flex-flow: row nowrap;
+	flex-flow: row wrap;
 	justify-content: center;
+
+	margin-left: -30px;
+	margin-right: -30px;
+}
+
+.opp-card-container {
+	margin-left: 30px;
+	margin-bottom: 30px;
+
+	height: 200px;
+	width: 275px;
+
+	font-size: 24px;
 }

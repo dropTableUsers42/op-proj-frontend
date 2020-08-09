@@ -8,27 +8,34 @@
 	src: url("/assets/fonts/Poppins-Regular.ttf") format("truetype");
 }
 
-body {
-	background-color: black;
+.page-container {
+	background-color: #181918;
+	height: 100%;
+	width: 100%;
+	padding-left: 60px;
+	padding-top: 168px;
+	padding-right: 60px;
 }
 
 .main_title {
-	position: absolute;
-	width: 805px;
-	height: 432px;
-	left: 60px;
-	top: 228px;
-
+	width: 62.9%;
 	font-family: colombo, sans-serif;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 120px;
 	line-height: 144px;
-	display: flex;
-	align-items: flex-end;
+
+	margin: 0 0;
 
 	color: #FFFFFF;
 
-
 	mix-blend-mode: normal;
+}
+
+@media screen and (max-width: 920px)
+{
+	.main_title {
+		font-size: 86px;
+		line-height: 103.5px;
+	}
 }

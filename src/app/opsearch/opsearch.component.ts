@@ -29,6 +29,17 @@ import {
 				animate('0.2s ease-in-out')
 			]),
 		]),
+		trigger('domainTransform', [
+			state('default', style({
+				transform: 'none'
+			})),
+			state('transform', style({
+				transform: 'translateY(-79px)'
+			})),
+			transition('* => *', [
+				animate('0.2s ease-in-out')
+			]),
+		]),
 	],
 })
 export class OpsearchComponent implements OnInit, AfterViewInit {
@@ -36,15 +47,30 @@ export class OpsearchComponent implements OnInit, AfterViewInit {
 	@ViewChild('scrollFrame', {static: false}) scrollFrame: ElementRef;
 	private scrollContainer: any;
 	public isScrolledToTop: boolean = true;
+	public scrollContainerHeight: number = 0;
 
 	ngAfterViewInit() {
 		this.scrollContainer = this.scrollFrame.nativeElement;
 		this.isScrolledToTop = this.scrollContainer.scrollTop == 0;
+
+		this.scrollContainer.style.height = '{$h}px';
+
 	}
 
 	scrolled(event: any) {
 		this.isScrolledToTop = this.scrollContainer.scrollTop == 0;
 		this.scrollService.newEvent(this.isScrolledToTop);
+		let h: number;
+		if(!this.isScrolledToTop)
+		{
+			this.scrollContainerHeight = this.scrollContainer.offsetHeight + 79;
+		}
+		else
+		{
+			this.scrollContainerHeight = window.innerHeight - 190;
+		}
+		this.scrollContainer.style.height = '{$h}px';
+
 	}
 
 	search_types = [
@@ -82,6 +108,7 @@ export class OpsearchComponent implements OnInit, AfterViewInit {
 		}));
 
 		this.scrollService.newEvent(this.isScrolledToTop);
+		this.scrollContainerHeight = window.innerHeight - 257;
 
 		this.opportunity_list.push(new Opps());
 		this.opportunity_list[0].domain = 'Core';

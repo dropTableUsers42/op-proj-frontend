@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
 
@@ -20,9 +19,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.backendService.getUser(this.authService.currentUserValue.username).subscribe((ret: User)=>{
-      this.user = ret;
-    })
+    this.user = this.authService.currentUserValue;
   }
 
   onSubmit(form) {

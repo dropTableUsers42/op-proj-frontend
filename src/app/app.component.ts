@@ -36,7 +36,7 @@ export class AppComponent implements OnInit, OnDestroy{
 
   get page_style()
   {
-    if(this.router.url.includes('search/core'))
+    if(this.router.url.includes('search/core') || this.router.url.includes('opps'))
     {
       return 'core';
     }

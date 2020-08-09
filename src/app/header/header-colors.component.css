@@ -17,3 +17,7 @@
 .menu-button.mat-core, .logo.mat-core, .wishlist.mat-core {
 	color: #05905F;
 }
+
+.logo {
+	opacity: 1;
+}

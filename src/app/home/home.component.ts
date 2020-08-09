@@ -4,7 +4,6 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements OnInit {
 

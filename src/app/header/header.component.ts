@@ -6,7 +6,10 @@ import {
 	state,
 	style,
 	animate,
-	transition,
+  transition,
+  query,
+  group,
+  animateChild
 } from '@angular/animations';
 
 @Component({
@@ -28,6 +31,20 @@ import {
       transition('default <=> *', [
 				animate('0.5s ease-in-out')
 			]),
+      transition('* => *', [
+        group([
+          query('@logoTransform', animateChild()),
+          animate('0.25s ease-in-out'),
+          ]),
+      ]),
+    ]),
+    trigger('logoTransform', [
+			state('default', style({
+				opacity: 1
+			})),
+			state('transform', style({
+				opacity: 0
+			})),
 			transition('* => *', [
 				animate('0.25s ease-in-out')
 			]),
@@ -55,6 +72,21 @@ export class HeaderComponent implements OnInit {
     else
     {
       return 'core-scrolled';
+    }
+  }
+
+  get logo_trigger() {
+    if(this.page_style != 'core')
+    {
+      return 'default';
+    }
+    else if(this.page_style == 'core' && !this.scrolled)
+    {
+      return 'default';
+    }
+    else
+    {
+      return 'transform';
     }
   }
 
@@ -106,6 +138,10 @@ export class HeaderComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  profileClick() {
+    this.router.navigate(['profile']);
   }
 
 }

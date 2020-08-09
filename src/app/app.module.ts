@@ -17,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { OppsCardComponent } from './opps-card/opps-card.component';
 import { OppsWishlistComponent } from './opps-wishlist/opps-wishlist.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { OppDetailComponent } from './opp-detail/opp-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     OppsCardComponent,
     OppsWishlistComponent,
     SidenavComponent,
+    OppDetailComponent,
   ],
   imports: [
     BrowserModule,

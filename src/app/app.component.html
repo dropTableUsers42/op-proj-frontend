@@ -3,7 +3,7 @@
 	<!--<mat-sidenav [ngClass]="sidenav_class" #sidenav [(opened)]="isMenuOpen">
 		<app-sidenav [page]="page_style" (onSidenavToggle)="sidenav.toggle()"></app-sidenav>
 	</mat-sidenav>-->
-	<mat-sidenav #sidenav [(opened)]="isMenuOpen">
+	<mat-sidenav #sidenav [(opened)]="isMenuOpen" [ngClass]="sidenav_class">
 		<app-sidenav [page]="page_style" (onSidenavToggle)="sidenav.toggle()"></app-sidenav>
 	</mat-sidenav>
 

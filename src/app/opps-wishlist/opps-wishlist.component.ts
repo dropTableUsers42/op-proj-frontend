@@ -17,11 +17,13 @@ export class OppsWishlistComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.authService.currentUserValue.token);
-    this.backendService.getWishlist().subscribe(
-      opps => {
-        this.opportunity_list = opps;
-      }
-    )
+    this.opportunity_list.push(new Opps());
+		this.opportunity_list[0].domain = 'Core';
+		this.opportunity_list[0].Deadline = '1 Week';
+		this.opportunity_list[0].Location = 'Singapore';
+		this.opportunity_list[0].Name_of_Program = 'STEP Youth Regional Affairs Dialogue';
+		this.opportunity_list[0].Organiser = 'Commitee Organis';
+		this.opportunity_list[0].Type = 'CONFERENCE';
   }
 
 }
