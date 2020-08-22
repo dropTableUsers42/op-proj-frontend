@@ -1,43 +1,45 @@
 <div class="page-container">
-	<div class="profile-details-container">
-		<div class="profile-image-container">
-			<img class="reg-icon">
-		</div>
-		<div class="profile-text-container">
-			<div class="name-container">
-				<label class="name-label">Name</label><br>
-				<input autocomplete="off" autocorrect="off" spellcheck="false" class="name-content" name="name-content" value="{{user?.name}}">
+	<form id="profileForm" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+		<div class="profile-details-container">
+			<div class="profile-image-container">
+				<img class="reg-icon">
 			</div>
-			<div class="college-container">
-				<label class="college-label">College</label><br>
-				<input autocomplete="off" autocorrect="off" spellcheck="false" class="college-content" name="college-content" value="{{user?.college}}">
-			</div>
-			<div class="year-branch-container">
-				<div class="year-container">
-					<label class="year-label">Year</label><br>
-					<input autocomplete="off" autocorrect="off" spellcheck="false" class="year-content" name="year-content" value="{{user?.yearOfStudy}}">
+			<div class="profile-text-container">
+				<div class="name-container">
+					<label class="name-label">Name</label><br>
+					<input autocomplete="off" autocorrect="off" spellcheck="false" class="name-content" name="name-content" formControlName="name">
 				</div>
-				<div class="branch-container">
-					<label class="branch-label">Branch</label><br>
-					<input autocomplete="off" autocorrect="off" spellcheck="false" class="branch-content" name="branch-content" value="{{user?.branch}}">
+				<div class="college-container">
+					<label class="college-label">College</label><br>
+					<input autocomplete="off" autocorrect="off" spellcheck="false" class="college-content" name="college-content" formControlName="college">
+				</div>
+				<div class="year-branch-container">
+					<div class="year-container">
+						<label class="year-label">Year</label><br>
+						<input autocomplete="off" autocorrect="off" spellcheck="false" class="year-content" name="year-content" formControlName="year">
+					</div>
+					<div class="branch-container">
+						<label class="branch-label">Branch</label><br>
+						<input autocomplete="off" autocorrect="off" spellcheck="false" class="branch-content" name="branch-content" formControlName="branch">
+					</div>
+				</div>
+			</div>
+			<div class="profile-button-email-container">
+				<div class="edit-button-container">
+					<button for="profileForm" class="edit-button">Save</button>
+				</div>
+				<div class="email-container">
+					<p class="email-content">{{user?.email}}</p>
 				</div>
 			</div>
 		</div>
-		<div class="profile-button-email-container">
-			<div class="edit-button-container">
-				<button class="edit-button" (click)="onEditClick()">Save</button>
-			</div>
-			<div class="email-container">
-				<p class="email-content">{{user?.email}}</p>
+		<div class="profile-about-container">
+			<div class="about-container">
+				<label class="about-label">About</label><br>
+				<textarea autocomplete="off" autocorrect="off" spellcheck="false" class="about-content" name="about-content" formControlName="bio"></textarea>
 			</div>
 		</div>
-	</div>
-	<div class="profile-about-container">
-		<div class="about-container">
-			<label class="about-label">About</label><br>
-			<textarea autocomplete="off" autocorrect="off" spellcheck="false" class="about-content" name="about-content" value="{{user?.bio}}"></textarea>
-		</div>
-	</div>
+	</form>
 	<div class="profile-domains-container">
 		<div class="domains-container">
 			<label class="domains-label">Domain Interests</label><br>

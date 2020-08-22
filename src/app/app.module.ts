@@ -12,7 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { OpsearchComponent } from './opsearch/opsearch.component';
 import { JwtInterceptor } from './_helpers/jwt.interceptors';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { OppsCardComponent } from './opps-card/opps-card.component';
 import { OppsWishlistComponent } from './opps-wishlist/opps-wishlist.component';
@@ -39,7 +39,8 @@ import { OppDetailComponent } from './opp-detail/opp-detail.component';
     BrowserAnimationsModule,
     AppUiModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

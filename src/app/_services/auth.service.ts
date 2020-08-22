@@ -49,4 +49,20 @@ export class AuthService {
     localStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUserSubject.next(user);
   }
+
+  sendOtp(id) {
+    return this.http.post("https://the-op.herokuapp.com/login/otp", {"identifier": id});
+  }
+
+  loginOtp(id, otp) {
+    return this.http.post<User>("https://the-op.herokuapp.com/login", {"identifier": id, "otp": otp})
+          .pipe(map(user => {
+              let token = user['token'];
+              user = user['user'];
+              user.token = token;
+              localStorage.setItem('currentUser', JSON.stringify(user));
+              this.currentUserSubject.next(user);
+              return user;
+          }));
+  }
 }

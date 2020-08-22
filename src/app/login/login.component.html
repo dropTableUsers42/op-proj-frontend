@@ -11,13 +11,13 @@
 			<label class="remember-label" for="remember">Remember Me</label>
 			<input class="signin" type="submit" value="Sign In">
 		</form>
-		<form>
-			<input class="otp" type="text" id="otp" name="otp" placeholder="LDAP ID">
+		<form #otpform="ngForm" (ngSubmit)="sendOtp(otpform)">
+			<input class="otp" type="text" id="otpid" name="otpid" placeholder="LDAP ID" [ngModel]="login_id" ngModel required>
 			<input class="sendotp" type="submit" value="Send OTP">
 		</form>
-		<form #tokenform="ngForm" (ngSubmit)="signInToken(tokenform)">
-			<input class="tokenid" type="text" id="tokenid" name="tokenid" placeholder="LDAP ID" [ngModel]="login_id" ngModel required>
-			<input class="token" type="password" id="token" name="token" placeholder="Token" [ngModel]="login_token" ngModel required>
+		<form #loginform="ngForm" (ngSubmit)="signInOtp(loginform)">
+			<input class="tokenid" type="text" id="loginid" name="loginid" placeholder="LDAP ID" [ngModel]="login_id" ngModel required>
+			<input class="token" type="password" id="otp" name="otp" placeholder="OTP" [ngModel]="login_otp" ngModel required>
 			<input class="signintoken" type="submit" value="Sign In">
 		</form>
 	</div>

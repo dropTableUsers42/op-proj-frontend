@@ -16,7 +16,7 @@ input, textarea {
 	min-width: 0px;
 }
 
-input:focus, textarea:focus {
+input:focus, textarea:focus, button:focus {
 	outline: none;
 }
 

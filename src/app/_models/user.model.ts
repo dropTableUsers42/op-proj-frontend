@@ -6,7 +6,7 @@ export class User {
 	token: string;
 	
 	college: string;
-	yearOfStudy: number;
+	year: number;
 	branch: string;
 	createdAt: string;
 	updatedAt: string;

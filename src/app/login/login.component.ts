@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   token_login = 'ENTER YOUR TOKEN TO LOGIN';
   logo = "LOGO";
 
-  login_token;
   login_id;
+  login_otp;
 
   constructor(private router: Router, private authService: AuthService) { }
 
@@ -31,6 +31,30 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/profile']);
       }
     )
+  }
+
+  signInOtp(form) {
+    this.authService.loginOtp(form.value.loginid, parseInt(form.value.otp)).subscribe(
+      user => {
+        let reged = this.authService.currentUserValue.hasCompletedRegistration;
+        if(reged)
+        {
+          this.router.navigate(['/profile']);
+        }
+        else
+        {
+          this.router.navigate(['/register']);
+        }
+      }
+    )
+  }
+
+  sendOtp(form) {
+    this.authService.sendOtp(form.value.otpid).subscribe(
+      user => {
+        console.log("Otp Sent!");
+      }
+    );
   }
 
 }

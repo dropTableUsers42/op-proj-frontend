@@ -13,7 +13,7 @@
 	height: 100%;
 	width: 100%;
 	padding-left: 60px;
-	padding-top: 168px;
+	padding-top: calc(228*100vh/720);
 	padding-right: 60px;
 }
 
@@ -32,10 +32,42 @@
 	mix-blend-mode: normal;
 }
 
+@media screen and (min-width: 1400px)
+{
+	.main_title {
+		font-size: calc(120*100vw/1280);
+		line-height: calc(144*100vw/1280);
+	}
+}
+
 @media screen and (max-width: 920px)
 {
 	.main_title {
 		font-size: 86px;
 		line-height: 103.5px;
+	}
+}
+
+@media screen and (max-width: 670px)
+{
+	.main_title {
+		font-size: 62px;
+		line-height: 75.3px;
+	}
+}
+
+@media screen and (max-width: 512px)
+{
+	.main_title {
+		font-size: 48px;
+		line-height: 57.6px;
+	}
+}
+
+@media screen and (max-width: 420px)
+{
+	.main_title {
+		font-size: calc(120*100vw/1280);
+		line-height: calc(144*100vw/1280);
 	}
 }

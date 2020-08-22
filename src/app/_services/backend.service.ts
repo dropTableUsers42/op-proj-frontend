@@ -18,7 +18,7 @@ export class BackendService {
     return this.httpClient.get<User>("https://the-op.herokuapp.com/user/".concat(username)).pipe(map((user) => user['user']));
   }
 
-  public patch(user: User): Observable<User>{
+  public patchUser(user: User): Observable<User>{
     return this.httpClient.patch<User>("https://the-op.herokuapp.com/me/profile", user)
       .pipe(map(
         (user) => {

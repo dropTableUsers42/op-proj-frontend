@@ -16,7 +16,6 @@ export class OppsWishlistComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(this.authService.currentUserValue.token);
     this.opportunity_list.push(new Opps());
 		this.opportunity_list[0].domain = 'Core';
 		this.opportunity_list[0].Deadline = '1 Week';
