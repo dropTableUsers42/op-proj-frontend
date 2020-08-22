@@ -34,4 +34,8 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  onEditClick() {
+    this.router.navigate(['profile/edit']);
+  }
+
 }

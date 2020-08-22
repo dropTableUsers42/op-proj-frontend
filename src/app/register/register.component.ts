@@ -29,5 +29,9 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  onEditClick() {
+    this.router.navigate(['profile']);
+  }
+
 
 }

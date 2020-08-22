@@ -144,4 +144,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['profile']);
   }
 
+  logoClick() {
+    this.router.navigate(['']);
+  }
+
 }

@@ -1,22 +1,52 @@
 <div class="page-container">
 	<div class="opp-title-container">
-		<div class="opp-text-container">
-			<div class="opp-name-container">
-				<p class="opp-name">{{opps.Name_of_Program}}</p>
+		<div class="opp-name-org-image-container">
+			<div class="opp-text-container">
+				<div class="opp-name-container">
+					<p class="opp-name">{{opps.Name_of_Program}}</p>
+				</div>
+				<div class="opp-organiser-container">
+					<p class="opp-organiser">{{opps.Organiser}}</p>
+				</div>
+				<div class="opp-interested-button-container">
+					<button class="opp-interested-button">Interested?</button>
+					<button class="opp-interested-number">20</button>
+				</div>
 			</div>
-			<div class="opp-organiser-container">
-				<p class="opp-organiser">{{opps.Organiser}}</p>
+			<div class="opp-image-container">
+				<img class="opp-icon">
 			</div>
-			<div class="opp-interested-button-container">
-				<p class="opp-interested-button">{{opps.Organiser}}</p>
+		</div>
+		<div class="opp-domain-type-container">
+			<div class="opp-domain-type">
+				{{opps.domain}} | {{opps.Type}}
 			</div>
 		</div>
 	</div>
 	<div class="opp-detailed-container">
-		<p style="font-size: xx-large;">TEXT</p>
-		<p style="font-size: xx-large;">TEXT</p>
-		<p style="font-size: xx-large;">TEXT</p>
-		<p style="font-size: xx-large;">TEXT</p>
-		<p style="font-size: xx-large;">TEXT</p>
+		<hr class="opp-top-divider"><br>
+		<p class="opp-location">{{opps.Location}}</p>
+		<p class="opp-deadline">Deadline: {{opps.Deadline}}</p>
+		<p class="opp-deadline">Date of Opportunity: 12th Dec, 2020</p>
+		<p class="opp-deadline">Eligibility: 12345678</p>
+
+		<p class="opp-about">About: {{opps.About}}</p>
+		<hr class="opp-middle-divider"><br><br><br>
+
+		<label class="opp-testimonial-label">Testimonials</label>
+		<div class="opp-testimonial-container">
+			<p class="opp-testimonial">{{opps.Testimonial}}</p>
+		</div>
+		<hr class="opp-thread-divider"><br><br><br>
+		<label class="opp-thread-label">Threads</label>
+
+		<div class="opp-comments-container">
+			<div class="opp-new-comment-container">
+				<div class="reg-icon-container">
+					<img class="reg-icon">
+				</div>
+				<input autocomplete="off" spellcheck="false" class="opp-new-comment-input" placeholder="Have a question regarding the Opportunity?">
+			</div>
+		</div>
 	</div>
 </div>

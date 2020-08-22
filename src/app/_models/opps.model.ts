@@ -13,4 +13,8 @@ export class Opps {
 	public Location: string;
 	
 	public Deadline: string;
+
+	public About: string;
+
+	public Testimonial: string;
 }
