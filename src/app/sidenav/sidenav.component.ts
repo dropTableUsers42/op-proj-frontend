@@ -53,10 +53,10 @@ export class SidenavComponent implements OnInit {
   LinksList = [
     {link: 'search/core', name: 'Core'},
     {link: 'search/it', name: 'IT'},
-    {link: 'search/consulting', name: 'Consulting'},
+    {link: 'search/consult', name: 'Consulting'},
     {link: 'search/ent', name: 'Entrepreneurship'},
     {link: 'search/fin', name: 'Finance'},
-    {link: 'search/socpol', name: 'Socdev & Policy'},
+    {link: 'search/socdev', name: 'Socdev & Policy'},
   ]
 
   AboutLink = {link: 'about', name: 'ABOUT US'}

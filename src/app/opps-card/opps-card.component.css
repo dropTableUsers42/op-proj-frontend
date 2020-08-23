@@ -24,13 +24,11 @@
 
 .opps-type-container {
 	height: calc(1600%/180);
-	width: 40%;
 	
 	display: flex;
-	align-items: center;
 	justify-content: center;
 
-	border-radius: 34.58%/231.25%;
+	border-radius: 37px;
 	display: table;
 
 	padding-left: 2.5%;
@@ -41,6 +39,7 @@
 
 	font-weight: 900;
 	font-size: 58.3%;
+	line-height: 21px;
 
 	height: 100%;
 

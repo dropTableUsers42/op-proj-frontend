@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { OppsCardComponent } from './opps-card/opps-card.component';
 import { OppsWishlistComponent } from './opps-wishlist/opps-wishlist.component';
 import { OppDetailComponent } from './opp-detail/opp-detail.component';
+import { Profilev2Component } from './profilev2/profilev2.component';
 
 
 const routes: Routes = [
@@ -17,8 +18,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'profile/edit', component: RegisterComponent },
+  { path: 'profilev2/:slug', component: Profilev2Component },
   { path: 'search/:domain', component: OpsearchComponent },
-  { path: 'opps/:oppid', component: OppDetailComponent },
+  { path: 'opps/:slug', component: OppDetailComponent },
   { path: '**', redirectTo: ''},
 ];
 

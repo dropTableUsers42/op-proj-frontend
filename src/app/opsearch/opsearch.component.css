@@ -112,7 +112,7 @@ mat-button-toggle {
 }
 
 ::ng-deep .mat-button-toggle-label-content {
-    font-family: Poppins;
+	font-family: Poppins;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 14px;
@@ -246,29 +246,41 @@ mat-button-toggle {
 	z-index:1;
 }
 
-.opps-list {
+.opps-list, .user-list {
 	z-index: 0;
 	padding-top: 15px;
 
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: left;
+	
 
 	overflow: scroll;
+	
+}
 
+.opps-list {
 	margin-left: -30px;
 	margin-right: -30px;
 }
 
+.user-list {
+	margin-left: -22px;
+	margin-right: -22px;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
-.opps-list::-webkit-scrollbar {
+.opps-list::-webkit-scrollbar, .user-list::-webkit-scrollbar{
 	display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.opps-list {
+.opps-list, .user-list {
 	-ms-overflow-style: none;  /* IE and Edge */
 	scrollbar-width: none;  /* Firefox */
+}
+
+.opps-list-inner, .user-list-inner {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: left;
 }
 
 .opp-card-container {
@@ -320,4 +332,14 @@ mat-button-toggle {
 		height: calc((100vw - 90px - 1 * 100vw * 0.0234)*100/275);
 		font-size: calc((100vw - 90px - 1 * 100vw * 0.0234)*24/(2*275));
 	}
+}
+
+.user-card-container {
+	margin-left: 22px;
+	margin-bottom: 30px;
+
+	height: 120px;
+	width: calc((100vw - 90px - 2 * 22px)/3);
+
+	font-size: 24px;
 }

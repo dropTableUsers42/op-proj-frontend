@@ -11,7 +11,7 @@
 				<div class="college-container">
 					<p class="college-content">{{user?.college}}</p>
 				</div>
-				<div class="year-branch-container">
+				<div *ngIf="user?.hasCompletedRegistration" class="year-branch-container">
 					<p class="year-branch-content">{{user?.year}} | {{user?.branch}}</p>
 				</div>
 				<hr class="year-branch-divider"><br>
@@ -24,12 +24,12 @@
 				</div>
 			</div>
 			<div class="profile-button-email-container">
-				<div class="edit-button-container">
-					<button class="edit-button" (click)="onEditClick()">Edit Profile</button>
+				<div class="follow-button-container">
+					<button [ngClass]="followed_class" (click)="onFollowClick()"><span>{{follow_string}}</span></button>
 				</div>
 			</div>
 		</div>
-		<div class="profile-about-container">
+		<div *ngIf="user?.hasCompletedRegistration" class="profile-about-container">
 			<div class="about-container">
 				<label class="about-label">About</label><br>
 				<p class="about-content">{{user?.bio}}</p>
@@ -47,7 +47,7 @@
 				</mat-button-toggle-group>
 			</div>
 		</div>
-		<div *ngIf="user.pursued.length > 0" class="opps-form-container">
+		<div *ngIf="user?.pursued.length > 0" class="opps-form-container">
 			<label class="opps-form-label">Opportunities Pursued</label>
 			<div class="opps-form-content">
 				<ul>
@@ -56,10 +56,12 @@
 			</div>
 		</div>
 	</div>
-	<div class="wishlist-container">
-		<p class="wishlist-label">Wishlist</p>
-		<app-opps-wishlist [wishlist]="wishlist"></app-opps-wishlist>
-		<p (click)="logout()" class="logout" >Log Out</p>
+	<div *ngIf="wishlist">
+		<div *ngIf="wishlist.length > 0" class="wishlist-container">
+			<p class="wishlist-label">Wishlist</p>
+			<app-opps-wishlist [wishlist]="wishlist"></app-opps-wishlist>
+			<p (click)="logout()" class="logout" >Log Out</p>
+		</div>
 	</div>
 	<!--<p class="about-label">About</p>
 

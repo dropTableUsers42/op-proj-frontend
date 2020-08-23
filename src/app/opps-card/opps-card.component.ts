@@ -3,27 +3,30 @@ import { Opps } from '../_models/opps.model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-opps-card',
-  templateUrl: './opps-card.component.html',
-  styleUrls: ['./opps-card.component.css']
+	selector: 'app-opps-card',
+	templateUrl: './opps-card.component.html',
+	styleUrls: ['./opps-card.component.css']
 })
 export class OppsCardComponent implements OnInit {
 
 
-  @Input('opps') public opportunity: Opps;
+@Input('opps') public opportunity: Opps;
 
-  constructor(private router: Router) {
-   }
+	constructor(private router: Router) {
+	}
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+	}
 
-  getMainColor() {
-      return '#05905F';
-  }
+	getMainColor() {
+		if(this.opportunity.domain == 'Core')
+			return '#05905F';
+		else if(this.opportunity.domain == 'IT')
+			return '#FF9D63';
+	}
 
-  oppClick() {
-    this.router.navigate(['opps/default']);
-  }
+	oppClick() {
+		this.router.navigate(['opps', this.opportunity.slug]);
+	}
 
 }

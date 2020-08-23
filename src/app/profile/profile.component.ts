@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../_services/backend.service';
 import { AuthService } from '../_services/auth.service';
 import { User } from '../_models/user.model';
+import { Opps } from '../_models/opps.model';
 import { Router } from '@angular/router';
 
 
@@ -16,11 +17,16 @@ export class ProfileComponent implements OnInit {
 
   user: User;
 
+  wishlist: Opps[];
+
   constructor(private backendService: BackendService, private router: Router, private authService: AuthService) {
   }
 
   ngOnInit(): void {
     this.user = this.authService.currentUserValue;
+    this.backendService.getMyWishlist().subscribe(ret => {
+      this.wishlist = ret;
+    })
   }
 
   onClick()

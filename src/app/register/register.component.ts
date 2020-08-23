@@ -18,7 +18,6 @@ export class RegisterComponent implements OnInit {
 
   profileForm  = new FormGroup({
     name: new FormControl('', Validators.required),
-    college: new FormControl('', Validators.required),
     year: new FormControl('', [Validators.required]),
     branch: new FormControl('', Validators.required),
     bio: new FormControl(''),

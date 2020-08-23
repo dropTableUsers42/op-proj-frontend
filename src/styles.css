@@ -9,6 +9,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	box-sizing: border-box !important;
 }
 
+p {
+	margin: 0 0;
+}
+
+input, textarea {
+	background-color: transparent;
+	border-style: none;
+
+	padding: 0 0;
+
+	resize: none;
+
+	overflow: hidden;
+
+	min-width: 0px;
+}
+
+input:focus, textarea:focus, button:focus {
+	outline: none;
+}
+
 .mat-toolbar-row, .mat-toolbar-single-row {
     padding: 0px 0px !important;
 }

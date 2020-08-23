@@ -1,12 +1,12 @@
 <div class="page-container">
-	<div class="opp-title-container">
+	<div [ngClass]="title_class">
 		<div class="opp-name-org-image-container">
 			<div class="opp-text-container">
 				<div class="opp-name-container">
-					<p class="opp-name">{{opps.Name_of_Program}}</p>
+					<p class="opp-name">{{opps?.Name_of_Program}}</p>
 				</div>
 				<div class="opp-organiser-container">
-					<p class="opp-organiser">{{opps.Organiser}}</p>
+					<p class="opp-organiser">{{opps?.Organiser}}</p>
 				</div>
 				<div class="opp-interested-button-container">
 					<button class="opp-interested-button">Interested?</button>
@@ -19,27 +19,30 @@
 		</div>
 		<div class="opp-domain-type-container">
 			<div class="opp-domain-type">
-				{{opps.domain}} | {{opps.Type}}
+				{{opps?.domain}} | {{opps?.Type}}
 			</div>
 		</div>
 	</div>
-	<div class="opp-detailed-container">
+	<div [ngClass]="detail_class">
 		<hr class="opp-top-divider"><br>
-		<p class="opp-location">{{opps.Location}}</p>
-		<p class="opp-deadline">Deadline: {{opps.Deadline}}</p>
-		<p class="opp-deadline">Date of Opportunity: 12th Dec, 2020</p>
-		<p class="opp-deadline">Eligibility: 12345678</p>
+		<p class="opp-location">{{opps?.Location}}</p>
+		<p class="opp-deadline">Registration Deadline: {{opps?.Deadline_Reg}}</p>
+		<p class="opp-deadline">Competition Deadline: {{opps?.Deadline_Comp}}</p>
+		<a href="{{opps?.Site}}"><p class="opp-deadline">Website: {{opps?.Site}}</p></a>
 
-		<p class="opp-about">About: {{opps.About}}</p>
+		<p *ngIf="opps?.About" class="opp-about">About: {{opps?.About}}</p>
 		<hr class="opp-middle-divider"><br><br><br>
 
-		<label class="opp-testimonial-label">Testimonials</label>
-		<div class="opp-testimonial-container">
-			<p class="opp-testimonial">{{opps.Testimonial}}</p>
+		<div *ngIf="opps?.Testimonial">
+			<label class="opp-testimonial-label">Testimonials</label>
+			<div class="opp-testimonial-container">
+				<p class="opp-testimonial">{{opps?.Testimonial}}</p>
+			</div>
+			<hr class="opp-thread-divider"><br><br><br>
+			
 		</div>
-		<hr class="opp-thread-divider"><br><br><br>
-		<label class="opp-thread-label">Threads</label>
 
+		<label class="opp-thread-label">Threads</label>
 		<div class="opp-comments-container">
 			<div class="opp-new-comment-container">
 				<div class="reg-icon-container">

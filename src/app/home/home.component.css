@@ -18,6 +18,9 @@
 }
 
 .main_title {
+	position: absolute;
+	left: 60px;
+	bottom: 60px;
 	width: 62.9%;
 	font-family: colombo, sans-serif;
 	font-style: normal;

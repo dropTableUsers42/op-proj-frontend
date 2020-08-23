@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Opps } from '../_models/opps.model';
+import { User } from '../_models/user.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BackendService } from '../_services/backend.service';
 import { ScrollService } from '../_services/scroll.service';
+import { AuthService } from '../_services/auth.service';
 import {
 	trigger,
 	state,
@@ -10,6 +13,7 @@ import {
 	animate,
 	transition,
 } from '@angular/animations';
+import { Profilev2Component } from '../profilev2/profilev2.component';
 
 
 @Component({
@@ -44,6 +48,11 @@ import {
 })
 export class OpsearchComponent implements OnInit, AfterViewInit {
 
+	searchForm = new FormGroup({
+		searchstring: new FormControl(''),
+		searchtype: new FormControl('Opps')
+	})
+
 	@ViewChild('scrollFrame', {static: false}) scrollFrame: ElementRef;
 	private scrollContainer: any;
 	public isScrolledToTop: boolean = true;
@@ -54,7 +63,6 @@ export class OpsearchComponent implements OnInit, AfterViewInit {
 		this.isScrolledToTop = this.scrollContainer.scrollTop == 0;
 
 		this.scrollContainer.style.height = '{$h}px';
-
 	}
 
 	scrolled(event: any) {
@@ -80,19 +88,77 @@ export class OpsearchComponent implements OnInit, AfterViewInit {
 	search_type = this.search_types[0].id.toString();
 
 	public opportunity_list: Opps[] = [];
+	public user_list: User[] = [];
 	public domain: string;
 	public searchstring;
 
 	public domain_links = {
 		'core': 'Core',
-		'it': 'Information Technology',
-		'consulting': 'Consulting',
+		'it': 'IT',
+		'consult': 'Consulting',
 		'ent': 'Entrepreneurship',
 		'fin': 'Finance',
-		'socpol': 'Socdev & Policy'
+		'socdev': 'SocDev-and-Policy'
 	}
 
-	constructor(private router: Router, private actRoute: ActivatedRoute, private backendService: BackendService, private scrollService: ScrollService) {
+	public domain_tags = {
+		'core': 'Core',
+		'it': 'IT',
+		'consult': 'Consulting',
+		'ent': 'Entrepreneurship',
+		'fin': 'Finance',
+		'socdev': 'SocDev-and-Policy'
+	}
+
+	public domain_tag: string;
+
+	public get_page_style = {
+		'Core': 'core',
+		'IT': 'it',
+		'Consulting': 'consult',
+		'Entrepreneurship': 'ent',
+		'Finance': 'fin',
+		'SocDev-and-Policy': 'socdev' 
+	}
+
+	get list_class() {
+		if(this.searchForm.value['searchtype'] == 'Opps')
+		{
+			return 'opps-list';
+		}
+		else
+		{
+			return 'user-list';
+		}
+	}
+
+	page_style: string;
+
+	constructor(private router: Router, private actRoute: ActivatedRoute, private backendService: BackendService, private scrollService: ScrollService, private authService: AuthService) {
+	}
+
+	get page_class() {
+		let ret_class = {'page-container': true};
+		ret_class[this.page_style] = true;
+		return ret_class;
+	}
+
+	get domain_title_class() {
+		let ret_class = {'domain': true};
+		ret_class[this.page_style] = true;
+		return ret_class;
+	}
+
+	get search_icon_class() {
+		let ret_class = {'search-icon': true};
+		ret_class[this.page_style] = true;
+		return ret_class;
+	}
+
+	get search_input_class() {
+		let ret_class = {'search-input': true};
+		ret_class[this.page_style] = true;
+		return ret_class;
 	}
 
 	ngOnInit(): void {
@@ -103,27 +169,42 @@ export class OpsearchComponent implements OnInit, AfterViewInit {
 			}
 			else
 			{
+				this.user_list = [];
+				this.opportunity_list = [];
 				this.domain = this.domain_links[val.domain];
+				this.domain_tag = this.domain_tags[val.domain];
+				this.page_style = val.domain;
+				this.searchForm.patchValue({'searchstring': ''});
+				this.searchSpecific();
 			}
 		}));
 
 		this.scrollService.newEvent(this.isScrolledToTop);
 		this.scrollContainerHeight = window.innerHeight - 257;
 
-		this.opportunity_list.push(new Opps());
-		this.opportunity_list[0].domain = 'Core';
-		this.opportunity_list[0].Deadline = '1 Week';
-		this.opportunity_list[0].Location = 'Singapore';
-		this.opportunity_list[0].Name_of_Program = 'STEP Youth Regional Affairs Dialogue';
-		this.opportunity_list[0].Organiser = 'Commitee Organis';
-		this.opportunity_list[0].Type = 'CONFERENCE';
+		this.searchForm.get('searchtype').valueChanges.subscribe(val => {
+			this.searchForm.patchValue({'searchstring': ''});
+			this.searchSpecific();
+		});
+		
 	}
 
-	search(form) {
-		this.backendService.getOpps(form.value.searchstring)
-			.subscribe((opps => {
-				this.opportunity_list = opps;
-			}));
+	search() {
+		this.searchSpecific();
+	}
+
+	searchSpecific() {
+		if(this.searchForm.value.searchtype == 'Opps')
+		{
+			this.backendService.searchOpps(this.searchForm.value.searchstring, this.domain_tag).subscribe(list => {
+				this.opportunity_list = list;
+			})
+		}
+		else {
+			this.backendService.searchUser(this.searchForm.value.searchstring).subscribe(list => {
+				this.user_list = list;
+			})
+		}
 	}
 
 }

@@ -1,0 +1,17 @@
+<div (click)="onProfileClick()" class="user-card">
+	<div class="icon-container"><img class="reg-icon"></div>
+	<div class="user-text-container">
+		<div class="user-name">
+			<p>{{user?.name}}</p>
+		</div>
+		<div class="user-college">
+			<p>{{user?.college}}</p>
+		</div>
+		<div class="user-year">
+			<p>{{user?.year}} year</p>
+		</div>
+		<div *ngIf="follow_hidden" class="follow-button-container">
+			<button [ngClass]="followed_class" (click)="onFollowClick($event)"><span>{{follow_string}}</span></button>
+		</div>
+	</div>
+</div>

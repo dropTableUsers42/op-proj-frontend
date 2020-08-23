@@ -12,9 +12,20 @@ export class Opps {
 	
 	public Location: string;
 	
-	public Deadline: string;
+	public Deadline_Reg: string;
+
+	public Deadline_Comp: string;
 
 	public About: string;
 
 	public Testimonial: string;
+
+	public tags: Tag[];
+
+	public Site: string;
+}
+
+export class Tag  {
+	public slug: string;
+	public name: string;
 }

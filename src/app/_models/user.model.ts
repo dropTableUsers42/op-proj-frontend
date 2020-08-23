@@ -1,3 +1,5 @@
+import { Opps } from './opps.model';
+
 export class User {
 	id: number;
 	name: string;
@@ -10,9 +12,15 @@ export class User {
 	branch: string;
 	createdAt: string;
 	updatedAt: string;
-	wishlist: string;
 	bio: string;
 
 	hasCompletedRegistration: boolean;
 	tags: string[];
+
+	followers: User[];
+	following: User[];
+
+	pursued: Opps[];
+
+	isFollowed: boolean;
 }

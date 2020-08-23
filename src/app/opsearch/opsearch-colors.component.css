@@ -1,32 +1,109 @@
-.page-container {
+.page-container.core {
 	background-color: #D4E9E2;
 }
 
-.domain {
+.page-container.it {
+	background-color: #FAECDE;
+}
+
+.page-container.consult {
+	background-color: #FBE9E5;
+}
+
+.page-container.fin {
+	background-color: #F1E4ED;
+}
+
+.page-container.ent {
+	background-color: #D9E1E7;
+}
+
+.page-container.socdev {
+	background-color: #DAEDF2;
+}
+
+.domain.core, .search-icon.core, .search-input.core, .core mat-button-toggle, .core::ng-deep .domain-filter .mat-select-arrow, .core .domain-filter-label {
 	color: #05905F;
+}
+
+.domain.it, .search-icon.it, .search-input.it, .it mat-button-toggle, .it::ng-deep .domain-filter .mat-select-arrow, .it .domain-filter-label {
+	color: #FF9D63;
+}
+
+.domain.consult, .search-icon.consult, .search-input.consult, .consult mat-button-toggle, .consult::ng-deep .domain-filter .mat-select-arrow, .consult .domain-filter-label {
+	color: #E76D50;
+}
+
+.domain.ent, .search-icon.ent, .search-input.ent, .ent mat-button-toggle, .ent::ng-deep .domain-filter .mat-select-arrow, .ent .domain-filter-label {
+	color: #225882;
+}
+
+.domain.fin, .search-icon.fin, .search-input.fin, .fin mat-button-toggle, .fin::ng-deep .domain-filter .mat-select-arrow, .fin .domain-filter-label {
+	color: #D67BBB;
+}
+
+.domain.socdev, .search-icon.socdev, .search-input.socdev, .socdev mat-button-toggle, .socdev::ng-deep .domain-filter .mat-select-arrow, .sodev .domain-filter-label {
+	color: #2BA9CA;
+}
+
+.core mat-button-toggle {
+	border: 1px solid #05905F;
+}
+
+.it mat-button-toggle {
+	border: 1px solid #FF9D63;
+}
+
+.consult mat-button-toggle {
+	border: 1px solid #E76D50;
+}
+
+.ent mat-button-toggle {
+	border: 1px solid #225882;
+}
+
+.fin mat-button-toggle {
+	border: 1px solid #D67BBB;
+}
+
+.socdev mat-button-toggle {
+	border: 1px solid #2BA9CA;
 }
 
 .search-bar {
 	background: #F9F9F9;
 }
 
-.search-icon {
-	color: #05905F;
-}
-
-.search-input {
-	color: #05905F;
-}
-
 mat-button-toggle {
-	border: 1px solid #05905F !important;
 	background-color: #F9F9F9 !important;
-	color: #05905F;
 }
 
 .mat-button-toggle-checked {
-	background-color: #05905F !important;
 	color: #FFFFFF !important;
+}
+
+.core .mat-button-toggle-checked {
+	background-color: #05905F !important;
+}
+
+.it .mat-button-toggle-checked {
+	background-color: #FF9D63 !important;
+}
+
+.consult .mat-button-toggle-checked {
+	background-color: #E76D50 !important;
+}
+
+.fin .mat-button-toggle-checked {
+	background-color:  #D67BBB !important;
+}
+
+.ent .mat-button-toggle-checked {
+	background-color: #225882 !important;
+}
+
+.socdev .mat-button-toggle-checked {
+	background-color: #2BA9CA !important;
 }
 
 .domain-filter, .sub-filter {
@@ -35,14 +112,6 @@ mat-button-toggle {
 
 .domain-filter-icon {
 	background-color: #FF8F8F;
-}
-
-.domain-filter-label {
-	color: #05905F;
-}
-
-::ng-deep .domain-filter .mat-select-arrow {
-	color: #05905F !important;
 }
 
 ::ng-deep .sub-filter .mat-select-arrow {
