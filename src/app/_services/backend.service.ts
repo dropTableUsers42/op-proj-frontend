@@ -84,4 +84,10 @@ export class BackendService {
       return item;
     }));
   }
+
+  public addOppsToWishlist(slug) : Observable<Opps[]> {
+    let body = {'opportunity': slug};
+    return this.httpClient.post<Opps[]>("https://the-op.herokuapp.com/me/wishlist", body=body);
+  }
+
 }

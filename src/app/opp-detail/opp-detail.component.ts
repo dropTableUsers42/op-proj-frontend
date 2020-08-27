@@ -37,6 +37,22 @@ export class OppDetailComponent implements OnInit {
     return ret_class;
   }
 
+  get interested_class() {
+    let ret = {'opp-interested-button': true};
+    if(!this.opps)
+    {
+    }
+    else if(this.opps.isInWishlist)
+    {
+      ret['interested'] = true;
+    }
+    else
+    {
+      ret['not-interested'] = true;
+    }
+    return ret;
+  }
+
   constructor(private actRoute: ActivatedRoute, private backendService: BackendService, private pageStyleService: PageStyleService) { }
 
   ngOnInit(): void {
@@ -57,6 +73,25 @@ export class OppDetailComponent implements OnInit {
     this.opps.About = "Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random";
 
     this.opps.Testimonial = "Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description.Lorem ipsum description blah blah blah random hello description description Lorem Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description.Lorem ipsum description blah blah blah rand. Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description.Lorem ipsum description blah blah blah";*/
+  }
+
+  interestedClick() {
+    if(this.opps)
+    { 
+      if(this.opps.isInWishlist)
+      {
+        this.opps.numUsers--;
+      }
+      else
+      {
+        this.opps.numUsers++;
+        this.backendService.addOppsToWishlist(this.opps.slug).subscribe( ret => {
+          console.log('added');
+        });
+      }
+      this.opps.isInWishlist = !this.opps.isInWishlist;
+    }
+
   }
 
 }

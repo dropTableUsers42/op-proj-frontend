@@ -35,6 +35,11 @@ p {
 	padding-right: 120px;
 
 	padding-top: 190px;
+
+	display: flex;
+	flex-direction: column;
+
+	padding-bottom: 65px;
 }
 
 .opp-detailed-container {
@@ -48,6 +53,8 @@ p {
 .opp-name-org-image-container {
 	display: flex;
 	flex-direction: row;
+
+	flex-grow: 1;
 }
 
 .opp-text-container {
@@ -95,11 +102,11 @@ p {
 }
 
 .opp-interested-button {
-	background-color: transparent;
+
+	border: 3px solid #F9F9F9;
 
 	height: 37px;
 
-	border: 3px solid #F9F9F9;
 	border-radius: 43px;
 
 	font-family: Poppins;
@@ -111,7 +118,20 @@ p {
 	padding-left: 10px;
 	padding-right: 10px;
 
+
+}
+
+.opp-interested-button.not-interested {
 	color: #F9F9F9;
+	background-color: transparent;
+}
+
+.opp-interested-button.interested {
+	background-color: #F9F9F9;
+}
+
+.opp-interested-button.interested::before {
+	content: 'Interested';
 }
 
 .opp-interested-number {

@@ -23,6 +23,10 @@ export class Opps {
 	public tags: Tag[];
 
 	public Site: string;
+
+	public isInWishlist: boolean;
+
+	public numUsers: number;
 }
 
 export class Tag  {

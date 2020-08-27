@@ -1,5 +1,5 @@
 <div class="opps-list">
-	<div class="opp-card-container">
-		<app-opps-card *ngFor="let opportunity of opportunity_list" [opps]="opportunity"></app-opps-card>
+	<div class="opp-card-container" *ngFor="let opportunity of opportunity_list">
+		<app-opps-card [opps]="opportunity"></app-opps-card>
 	</div>
 </div>

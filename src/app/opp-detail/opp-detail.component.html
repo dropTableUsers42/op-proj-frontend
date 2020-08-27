@@ -9,8 +9,8 @@
 					<p class="opp-organiser">{{opps?.Organiser}}</p>
 				</div>
 				<div class="opp-interested-button-container">
-					<button class="opp-interested-button">Interested?</button>
-					<button class="opp-interested-number">20</button>
+					<button [ngClass]="interested_class" (click)="interestedClick()"><span [hidden]="opps?.isInWishlist">Interested?</span></button>
+					<button class="opp-interested-number">{{opps?.numUsers}}</button>
 				</div>
 			</div>
 			<div class="opp-image-container">

@@ -13,3 +13,11 @@
 .opp-detailed-container.it {
 	background-color: #FAECDE;
 }
+
+.core .opp-interested-button.interested {
+	color: #05905F;
+}
+
+.it .opp-interested-button.interested {
+	color: #FF9D63;
+}
