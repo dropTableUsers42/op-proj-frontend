@@ -120,7 +120,7 @@ mat-button-toggle {
 
 	text-align: center;
 
-	padding: 4px;
+	padding: 4px !important;
 }
 
 .filter-container {

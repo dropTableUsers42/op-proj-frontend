@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import { Router } from '@angular/router';
 import { ScrollService } from '../_services/scroll.service';
+import { PageStyleService } from '../_services/page-style.service';
 import {
 	trigger,
 	state,
@@ -27,6 +28,21 @@ import {
       })),
       state('core-scrolled', style({
 				backgroundColor: '#D4E9E2'
+      })),
+      state('it-scrolled', style({
+				backgroundColor: '#FAECDE'
+      })),
+      state('consult-scrolled', style({
+				backgroundColor: '#FBE9E5'
+      })),
+      state('ent-scrolled', style({
+				backgroundColor: '#D9E1E7'
+      })),
+      state('fin-scrolled', style({
+				backgroundColor: '#F1E4ED'
+      })),
+      state('socdev-scrolled', style({
+				backgroundColor: '#DAEDF2'
       })),
       transition('default <=> *', [
 				animate('0.5s ease-in-out')
@@ -61,26 +77,23 @@ export class HeaderComponent implements OnInit {
   scrolled: boolean;
 
   get header_trigger() {
-    if(this.page_style != 'core')
+    if(this.page_style == 'home')
     {
       return 'default';
     }
-    else if(this.page_style == 'core' && !this.scrolled)
+    else if((this.page_style == 'core' || this.page_style == 'it' || this.page_style == 'ent'
+            || this.page_style == 'consult' || this.page_style == 'fin' || this.page_style == 'socdev') && !this.scrolled)
     {
       return 'search';
     }
     else
     {
-      return 'core-scrolled';
+      return this.page_style.concat('-scrolled');
     }
   }
 
   get logo_trigger() {
-    if(this.page_style != 'core')
-    {
-      return 'default';
-    }
-    else if(this.page_style == 'core' && !this.scrolled)
+    if(!this.scrolled)
     {
       return 'default';
     }
@@ -99,6 +112,13 @@ export class HeaderComponent implements OnInit {
     {
       return 'default';
     }
+  }
+
+  get header_class() {
+    let ret = {'header-container' : true};
+
+    ret[this.page_style] = true;
+    return ret;
   }
 
   logo_class() {
@@ -120,12 +140,15 @@ export class HeaderComponent implements OnInit {
 
   @Output() onSidenavToggle: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private router: Router, private scrollService: ScrollService) { }
+  constructor(private router: Router, private scrollService: ScrollService, private pageStyleService: PageStyleService) { }
 
   ngOnInit(): void {
     this.scrollService.events$.subscribe(event => {
       this.scrolled = !event;
     });
+    this.pageStyleService.events$.subscribe(ps => {
+      this.scrolled = false;
+    })
   }
 
   sidenavToggle() {

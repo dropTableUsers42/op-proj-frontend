@@ -1,21 +1,29 @@
-.header-container.mat-default {
-	background-color: black;
-}
-
-.header-container.mat-core {
-	background-color: white;
-}
-
-.header-container.mat-core-scrolled {
-	background-color: #D4E9E2;
-}
-
-.menu-button.mat-default, .logo.mat-default, .wishlist.mat-default {
+.home .menu-button, .home .logo, .home .wishlist {
 	color: white;
 }
 
-.menu-button.mat-core, .logo.mat-core, .wishlist.mat-core {
+.core .menu-button, .core .logo, .core .wishlist {
 	color: #05905F;
+}
+
+.it .menu-button, .it .logo, .it .wishlist {
+	color: #FF9D63;
+}
+
+.consult .menu-button, .consult .logo, .consult .wishlist {
+	color: #E76D50;
+}
+
+.ent .menu-button, .ent .logo, .ent .wishlist {
+	color: #225882;
+}
+
+.fin .menu-button, .fin .logo, .fin .wishlist {
+	color: #D67BBB;
+}
+
+.socdev .menu-button, .socdev .logo, .socdev .wishlist {
+	color: #2BA9CA;
 }
 
 .logo {

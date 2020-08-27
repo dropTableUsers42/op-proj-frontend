@@ -27,11 +27,11 @@ export class SidenavComponent implements OnInit {
   }
 
   get sidenav_class() {
-    return {
-      'sidenav-container': true,
-      'mat-core' : this.page_style == 'core',
-      'mat-default': this.page_style != 'core'
-    }
+    let ret = {'sidenav-container' : true};
+
+    ret[this.page_style] = true;
+
+    return ret;
   }
 
   get sidelink_class() {

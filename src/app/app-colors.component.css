@@ -1,0 +1,7 @@
+mat-sidenav.home {
+	background: rgba(24, 25, 24, 0.8) !important;
+}
+
+mat-sidenav.search {
+	background: rgba(249, 249, 249, 0.8) !important;
+}

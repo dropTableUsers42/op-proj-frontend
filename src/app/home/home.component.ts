@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { PageStyleService } from '../_services/page-style.service';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,10 @@ export class HomeComponent implements OnInit {
 
   title = 'THE OPPORTUNITY PROJECT.';
 
-  constructor() { }
+  constructor(private pageStyleService: PageStyleService) { }
 
   ngOnInit(): void {
+    this.pageStyleService.newEvent('home');
   }
 
 }

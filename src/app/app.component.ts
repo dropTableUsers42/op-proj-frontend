@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConstantPool } from '@angular/compiler';
+import { PageStyleService } from './_services/page-style.service';
 
 @Component({
   selector: 'app-root',
@@ -8,27 +9,36 @@ import { ConstantPool } from '@angular/compiler';
   styleUrls: ['./app.component.css',
               './app-colors.component.css'],
 })
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit{
 
   logo = 'LOGO';
   wishlist = 'WISHLIST'
   public isMenuOpen = false;
+  internal_page_style;
 
   get sidenav_class() { 
-    if(this.page_style == 'core')
+    if(this.page_style == 'home')
     {
-      return 'mat-core';
+      return 'home';
     }
     else
     {
-      return 'mat-default';
+      return 'search';
     }
   }
 
-  constructor(public router: Router) {
+  constructor(public router: Router, private pageStyleService: PageStyleService) {
   }
 
   ngOnInit() {
+    this.pageStyleService.events$.subscribe(ps => {
+      this.internal_page_style = ps;
+    });
+    this.internal_page_style = 'home';
+  }
+
+  ngAfterViewInit() {
+    
   }
   
   ngOnDestroy() {
@@ -36,11 +46,36 @@ export class AppComponent implements OnInit, OnDestroy{
 
   get page_style()
   {
+    return this.internal_page_style;
+  }
+
+  get initial_page_style()
+  {
     if(this.router.url.includes('search/core') || this.router.url.includes('opps'))
     {
       return 'core';
     }
-    else if(this.router.url.includes(''))
+    else if(this.router.url.includes('search/consult'))
+    {
+      return 'consult';
+    }
+    else if(this.router.url.includes('search/it'))
+    {
+      return 'it';
+    }
+    else if(this.router.url.includes('search/ent'))
+    {
+      return 'ent';
+    }
+    else if(this.router.url.includes('search/fin'))
+    {
+      return 'fin';
+    }
+    else if(this.router.url.includes('search/socdev'))
+    {
+      return 'socdev';
+    }
+    else
     {
       return 'home';
     }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Opps } from '../_models/opps.model';
 import { BackendService } from '../_services/backend.service';
+import { PageStyleService } from '../_services/page-style.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -36,15 +37,16 @@ export class OppDetailComponent implements OnInit {
     return ret_class;
   }
 
-  constructor(private actRoute: ActivatedRoute, private backendService: BackendService) { }
+  constructor(private actRoute: ActivatedRoute, private backendService: BackendService, private pageStyleService: PageStyleService) { }
 
   ngOnInit(): void {
     this.actRoute.params.subscribe(val => {
       this.backendService.getOpps(val['slug']).subscribe(opp => {
         this.opps = opp;
         this.page_style = this.get_page_style[this.opps.domain];
+        this.pageStyleService.newEvent(this.page_style);
       })
-    })
+    });
     /*this.opps = new Opps();
     this.opps.Name_of_Program = "STEP Youth Regional Affairs Dialogue";
     this.opps.Organiser = "Comittee Organis";

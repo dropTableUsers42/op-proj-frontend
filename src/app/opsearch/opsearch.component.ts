@@ -5,6 +5,7 @@ import { User } from '../_models/user.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BackendService } from '../_services/backend.service';
 import { ScrollService } from '../_services/scroll.service';
+import { PageStyleService } from '../_services/page-style.service'
 import { AuthService } from '../_services/auth.service';
 import {
 	trigger,
@@ -134,7 +135,7 @@ export class OpsearchComponent implements OnInit, AfterViewInit {
 
 	page_style: string;
 
-	constructor(private router: Router, private actRoute: ActivatedRoute, private backendService: BackendService, private scrollService: ScrollService, private authService: AuthService) {
+	constructor(private router: Router, private actRoute: ActivatedRoute, private backendService: BackendService, private scrollService: ScrollService, private authService: AuthService, private pageStyleService: PageStyleService) {
 	}
 
 	get page_class() {
@@ -176,6 +177,7 @@ export class OpsearchComponent implements OnInit, AfterViewInit {
 				this.page_style = val.domain;
 				this.searchForm.patchValue({'searchstring': ''});
 				this.searchSpecific();
+				this.pageStyleService.newEvent(this.page_style);
 			}
 		}));
 

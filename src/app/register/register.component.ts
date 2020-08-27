@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { BackendService } from '../_services/backend.service';
 import { AuthService } from '../_services/auth.service';
+import { PageStyleService } from '../_services/page-style.service';
 import { User } from '../_models/user.model';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
@@ -23,7 +24,7 @@ export class RegisterComponent implements OnInit {
     bio: new FormControl(''),
   });
 
-  constructor(private backendService: BackendService, private router: Router, private authService: AuthService) {
+  constructor(private backendService: BackendService, private router: Router, private authService: AuthService, private pageStyleService: PageStyleService) {
   }
 
   ngOnInit(): void {
@@ -34,7 +35,8 @@ export class RegisterComponent implements OnInit {
       year: this.user.year,
       branch: this.user.branch,
       bio: this.user.bio,
-    })
+    });
+    this.pageStyleService.newEvent('home');
   }
 
   onSubmit() {

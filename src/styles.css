@@ -55,11 +55,3 @@ mat-sidenav {
 .mat-drawer-backdrop.mat-drawer-shown {
 	background-color: transparent !important;
 }
-
-mat-sidenav.mat-default {
-	background: rgba(24, 25, 24, 0.8) !important;
-}
-
-mat-sidenav.mat-core {
-	background: rgba(249, 249, 249, 0.8) !important;
-}
