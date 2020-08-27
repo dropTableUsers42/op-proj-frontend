@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter, Input } from '@angular/core';
+import { PageStyleService } from '../_services/page-style.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -11,7 +12,7 @@ export class SidenavComponent implements OnInit {
   public isMenuOpen = true;
   @ViewChild('sidenav') public sidenav;
 
-  @Input('page') page_style;
+  page_style: string;
 
   @Output() onSidenavToggle: EventEmitter<any> = new EventEmitter<any>();
 
@@ -61,9 +62,12 @@ export class SidenavComponent implements OnInit {
 
   AboutLink = {link: 'about', name: 'ABOUT US'}
 
-  constructor() { }
+  constructor(private pageStyleService: PageStyleService) { }
 
   ngOnInit(): void {
+    this.pageStyleService.events$.subscribe(ps => {
+      this.page_style = ps;
+    })
   }
 
   sidenavToggle() {

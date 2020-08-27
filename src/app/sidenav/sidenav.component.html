@@ -8,11 +8,11 @@
 	<div class="link-list">
 		<div class="sidelink-container">
 			<div [ngClass]="sidelink_class" *ngFor="let link of LinksList">
-				<a routerLink="{{link.link}}">{{link.name}}</a>
+				<a routerLink="{{link.link}}" (click)="sidenavToggle()">{{link.name}}</a>
 			</div>
 		</div>
 		<div [ngClass]="aboutlink_class">
-			<a routerLink="{{AboutLink.link}}">{{AboutLink.name}}</a>
+			<a routerLink="{{AboutLink.link}}" (click)="sidenavToggle()">{{AboutLink.name}}</a>
 		</div>
 	</div>
 </div>

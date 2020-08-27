@@ -111,7 +111,7 @@ mat-button-toggle {
 	text-align: center;
 }
 
-::ng-deep .mat-button-toggle-label-content {
+::ng-deep .search-container .mat-button-toggle-label-content {
 	font-family: Poppins;
 	font-style: normal;
 	font-weight: 600;

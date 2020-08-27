@@ -14,7 +14,6 @@ import {
 	animate,
 	transition,
 } from '@angular/animations';
-import { Profilev2Component } from '../profilev2/profilev2.component';
 
 
 @Component({

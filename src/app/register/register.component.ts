@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../_services/backend.service';
 import { AuthService } from '../_services/auth.service';
 import { PageStyleService } from '../_services/page-style.service';

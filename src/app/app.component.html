@@ -4,12 +4,12 @@
 		<app-sidenav [page]="page_style" (onSidenavToggle)="sidenav.toggle()"></app-sidenav>
 	</mat-sidenav>-->
 	<mat-sidenav #sidenav [(opened)]="isMenuOpen" [ngClass]="sidenav_class">
-		<app-sidenav [page]="page_style" (onSidenavToggle)="sidenav.toggle()"></app-sidenav>
+		<app-sidenav (onSidenavToggle)="sidenav.toggle()"></app-sidenav>
 	</mat-sidenav>
 
 	<mat-sidenav-content>
 
-		<app-header [page]="page_style" (onSidenavToggle)="sidenav.toggle()" ></app-header>
+		<app-header (onSidenavToggle)="sidenav.toggle()" ></app-header>
 
 		<router-outlet></router-outlet>
 

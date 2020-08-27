@@ -72,7 +72,7 @@ export class HeaderComponent implements OnInit {
   logo = 'LOGO';
   wishlist = 'WISHLIST';
 
-  @Input('page') page_style;
+  page_style: string;
 
   scrolled: boolean;
 
@@ -88,7 +88,10 @@ export class HeaderComponent implements OnInit {
     }
     else
     {
-      return this.page_style.concat('-scrolled');
+      if(this.page_style)
+        return this.page_style.concat('-scrolled');
+      else
+        return 'search';
     }
   }
 
@@ -143,10 +146,12 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private scrollService: ScrollService, private pageStyleService: PageStyleService) { }
 
   ngOnInit(): void {
+    this.scrolled = false;
     this.scrollService.events$.subscribe(event => {
       this.scrolled = !event;
     });
     this.pageStyleService.events$.subscribe(ps => {
+      this.page_style = ps;
       this.scrolled = false;
     })
   }

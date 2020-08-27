@@ -27,7 +27,6 @@ export class ProfileComponent implements OnInit {
     this.user = this.authService.currentUserValue;
     this.backendService.getMyWishlist().subscribe(ret => {
       this.wishlist = ret;
-      console.log(ret);
     });
     this.pageStyleService.newEvent('home');
   }
