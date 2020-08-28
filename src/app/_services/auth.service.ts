@@ -71,7 +71,7 @@ export class AuthService {
   }
 
   signUp(id, ref, name, username, otp) {
-    return this.http.post<User>("https://the-op.herokuapp.com/referral", {"email": id, "referral" : ref, 'name': name, 'username': username, 'otp': otp}).pipe(map(user => {
+    return this.http.post<User>("https://the-op.herokuapp.com/signup", {"email": id, "referral" : ref, 'name': name, 'username': username, 'otp': otp}).pipe(map(user => {
       let token = user['token'];
       user = user['user'];
       user.token = token;
