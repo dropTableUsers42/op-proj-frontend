@@ -20,6 +20,10 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { OppDetailComponent } from './opp-detail/opp-detail.component';
 import { Profilev2Component } from './profilev2/profilev2.component';
 import { UserCardComponent } from './user-card/user-card.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { SignupComponent } from './signup/signup.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
+import { OppsWishlistv2Component } from './opps-wishlistv2/opps-wishlistv2.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { UserCardComponent } from './user-card/user-card.component';
     OppDetailComponent,
     Profilev2Component,
     UserCardComponent,
+    LoginFormComponent,
+    SignupComponent,
+    SignupFormComponent,
+    OppsWishlistv2Component,
   ],
   imports: [
     BrowserModule,

@@ -35,7 +35,13 @@ export class BackendService {
 
   public getMyWishlist(): Observable<Opps[]>{
     return this.httpClient.get<Opps[]>("https://the-op.herokuapp.com/me/wishlist")
-      .pipe(map((opps) => opps['wishlist']['opportunities']));
+      .pipe(map((opps) => {
+        opps = opps['wishlist']['opportunities'];
+        opps.map(opp => {
+          opp.domain = opp['domain']['type'];
+        })
+        return opps;
+      }));
   }
 
   public searchOpps(searchstring, domain): Observable<Opps[]> {

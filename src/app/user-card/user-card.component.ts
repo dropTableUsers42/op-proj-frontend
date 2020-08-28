@@ -33,7 +33,7 @@ export class UserCardComponent implements OnInit {
   }
 
   get follow_string() {
-    return this.user.isFollowed ? 'Followed' : 'Follow';
+    return this.user.isFollowed ? 'Following' : 'Follow';
   }
 
   onFollowClick(event) {

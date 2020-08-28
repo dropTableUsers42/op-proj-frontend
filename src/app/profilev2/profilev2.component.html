@@ -58,8 +58,8 @@
 	</div>
 	<div *ngIf="wishlist">
 		<div *ngIf="wishlist.length > 0" class="wishlist-container">
-			<p class="wishlist-label">Wishlist</p>
-			<app-opps-wishlist [wishlist]="wishlist"></app-opps-wishlist>
+			<p class="wishlist-label">Wishlist:</p>
+			<app-opps-wishlistv2 [wishlist]="wishlist"></app-opps-wishlistv2>
 			<p (click)="logout()" class="logout" >Log Out</p>
 		</div>
 	</div>

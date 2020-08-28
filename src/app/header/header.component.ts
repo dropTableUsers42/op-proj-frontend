@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import { Router } from '@angular/router';
 import { ScrollService } from '../_services/scroll.service';
 import { PageStyleService } from '../_services/page-style.service';
+import { AuthService } from '../_services/auth.service';
 import {
 	trigger,
 	state,
@@ -143,7 +144,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() onSidenavToggle: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private router: Router, private scrollService: ScrollService, private pageStyleService: PageStyleService) { }
+  constructor(private router: Router, private scrollService: ScrollService, private pageStyleService: PageStyleService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.scrolled = false;
@@ -161,11 +162,17 @@ export class HeaderComponent implements OnInit {
   }
 
   showHeader() {
-    if(this.router.url.includes('login') || this.router.url.includes('register'))
+    /*if(this.router.url.includes('login') || this.router.url.includes('register'))
     {
       return false;
     }
-    return true;
+    return true;*/
+
+    if(this.authService.currentUserValue && this.authService.currentUserValue.hasCompletedRegistration)
+    {
+      return true;
+    }
+    return false;
   }
 
   profileClick() {
@@ -174,6 +181,10 @@ export class HeaderComponent implements OnInit {
 
   logoClick() {
     this.router.navigate(['']);
+  }
+
+  wishlist_link() {
+    this.router.navigate(['profile'], {fragment: 'profile_wishlist'});
   }
 
 }

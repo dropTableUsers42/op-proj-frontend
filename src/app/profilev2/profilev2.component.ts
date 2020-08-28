@@ -33,7 +33,7 @@ export class Profilev2Component implements OnInit {
   }
 
   get follow_string() {
-    return this.followed ? 'Followed' : 'Follow';
+    return this.followed ? 'Following' : 'Follow';
   }
 
   get followed_class() {

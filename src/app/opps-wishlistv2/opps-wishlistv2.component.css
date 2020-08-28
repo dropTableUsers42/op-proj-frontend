@@ -1,0 +1,109 @@
+.opps-counter {
+	text-align: right;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 21px;
+
+	color: #F9F9F9;
+
+	padding-right: 55px;
+	padding-bottom: 5px;
+}
+
+.opps-list-container {
+	display: flex;
+	flex-flow: row;
+	justify-content: left;
+
+	margin-left: -45px;
+	margin-right: -45px;
+
+	margin-bottom: 30px;
+}
+
+.left-arrow-container, .right-arrow-container {
+	min-width: 90px;
+
+	align-content: center;
+	text-align: center;
+
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+}
+
+.left-arrow-button, .right-arrow-button {
+	color: #363636 !important;
+	background-color: #C4C4C4 !important;
+
+	cursor: pointer;
+}
+
+.opps-list {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: left;
+
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.opps-list::-webkit-scrollbar {
+	display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.opps-list {
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+}
+
+.opp-card-container {
+	margin-left: 27px;
+	margin-bottom: 0;
+
+	height: 147px;
+	width: calc((100vw - 180px - 3 * 27px)/4);
+	min-width: calc((100vw - 180px - 3 * 27px)/4);
+
+	font-size: 24px;
+}
+
+.opp-card-first {
+	margin-left: 0;
+}
+
+@media screen and (min-width: 1360px) {
+	
+	.opp-card-container {
+		width: calc((100vw - 90px - 4 * 30px)/5);
+		height: calc((100vw - 90px - 4 * 30px)*200/(5*275));
+		font-size: calc((100vw - 90px - 4 * 30px)*24/(5*275));
+	}
+}
+
+@media screen and (max-width: 1020px) {
+	.opp-card-container {
+		width: calc((100vw - 90px - 2 * 30px)/3);
+	}
+}
+
+@media screen and (max-width: 790px) {
+	.opps-list {
+		margin-left: calc(-100vw * 0.0234);
+		margin-right: calc(-100vw * 0.0234);
+	}
+
+	.opp-card-container {
+		margin-bottom: calc(100vw * 0.0234);
+		margin-left: calc(100vw * 0.0234);;
+
+		width: calc((100vw - 90px - 1 * 100vw * 0.0234)/2);
+		height: calc((100vw - 90px - 1 * 100vw * 0.0234)*100/275);
+		font-size: calc((100vw - 90px - 1 * 100vw * 0.0234)*24/(2*275));
+	}
+}

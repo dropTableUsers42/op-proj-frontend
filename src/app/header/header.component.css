@@ -114,7 +114,13 @@ mat-toolbar {
 	content: url('/assets/images/placeholder.jpg');
 }
 
+.reg-icon:hover {
+	cursor: pointer;
+}
+
 .profile-wishlist-container {
+
+	z-index: 10;
 
 	height: 100%;
 
@@ -133,7 +139,10 @@ mat-toolbar {
 
 	vertical-align: middle;
 	display: inline-block;
+}
 
+.wishlist:hover {
+	cursor: pointer;
 }
 
 @media screen and (max-width: 540px) {

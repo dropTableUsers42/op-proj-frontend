@@ -333,15 +333,14 @@ mat-button-toggle:hover {
 
 .wishlist-label {
 
-	margin-bottom: 20px;
+	margin-bottom: -21px;
+	margin-left: 45px;
 
 	font-family: Poppins;
 	font-style: normal;
-	font-weight: bold;
+	font-weight: 600;
 	font-size: 18px;
-	line-height: 18px;
-
-	text-align: center;
+	line-height: 27px;
 
 	/* White */
 

@@ -1,0 +1,21 @@
+<div class="form-container">
+	<form *ngIf="formState == 'enter-ref'" class="ref-form" (ngSubmit)="sendRef()" [formGroup]="referralForm">
+		<label class="ref-code-label">{{referral_label}}</label>
+		<input class="ref-code-id" type="text" id="refid" name="refid" placeholder="EMAIL ID" formControlName="referral_id">
+		<input class="ref-code-code" type="password" id="refcode" name="refcode" placeholder="Referral Code" formControlName="referral_code">
+		<p *ngIf="ref_invalid" class="ref-incorrect">Please check your Email ID or Referral Code!</p>
+		<input class="ref-otp-send-button" type="submit" value="Send OTP">
+	</form>
+	<form *ngIf="formState == 'enter-otp'" (ngSubmit)="signUp()" class="reg-form" [formGroup]="registerForm">
+		<label class="reg-label">{{reg_label}}</label>
+		<input class="reg-name" type="text" id="name" name="name" placeholder="Name" formControlName="name">
+		<input class="reg-username" type="text" id="username" name="username" placeholder="Username" formControlName="username">
+		<input class="reg-otp" type="password" id="otp" name="otp" placeholder="OTP" formControlName="otp">
+		<p *ngIf="otp_invalid" class="otp-incorrect">Invalid OTP!</p>
+		<input class="reg-reenter-button" (click)="reEnter()" type="button" value="Reenter Email">
+		<input class="reg-button" type="submit" value="Register">
+	</form>
+	<div class="link-container">
+		<p class="signin-link" (click)="signin()">Already have an account? Click here to Sign In!</p>
+	</div>
+</div>
