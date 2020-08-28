@@ -44,6 +44,17 @@ import {
 				animate('0.2s ease-in-out')
 			]),
 		]),
+		trigger('searchTransform', [
+			state('default', style({
+				transform: 'none'
+			})),
+			state('transform', style({
+				transform: 'translateY(-90px)'
+			})),
+			transition('* => *', [
+				animate('0.2s ease-in-out')
+			]),
+		]),
 	],
 })
 export class OpsearchComponent implements OnInit, AfterViewInit {
@@ -71,12 +82,13 @@ export class OpsearchComponent implements OnInit, AfterViewInit {
 		let h: number;
 		if(!this.isScrolledToTop)
 		{
-			this.scrollContainerHeight = this.scrollContainer.offsetHeight + 79;
+			this.scrollContainerHeight = this.scrollContainer.offsetHeight + 90;
 		}
 		else
 		{
 			this.scrollContainerHeight = window.innerHeight - 190;
 		}
+		h = this.scrollContainerHeight;
 		this.scrollContainer.style.height = '{$h}px';
 
 	}
@@ -181,7 +193,7 @@ export class OpsearchComponent implements OnInit, AfterViewInit {
 		}));
 
 		this.scrollService.newEvent(this.isScrolledToTop);
-		this.scrollContainerHeight = window.innerHeight - 257;
+		this.scrollContainerHeight = window.innerHeight - 246;
 
 		this.searchForm.get('searchtype').valueChanges.subscribe(val => {
 			this.searchForm.patchValue({'searchstring': ''});

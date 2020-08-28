@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConstantPool } from '@angular/compiler';
 import { PageStyleService } from './_services/page-style.service';
@@ -9,7 +9,7 @@ import { PageStyleService } from './_services/page-style.service';
   styleUrls: ['./app.component.css',
               './app-colors.component.css'],
 })
-export class AppComponent implements OnInit, OnDestroy, AfterViewInit{
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit, OnChanges{
 
   logo = 'LOGO';
   wishlist = 'WISHLIST'
@@ -26,6 +26,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit{
       return 'search';
     }
   }
+
+  ngOnChanges() {}
 
   constructor(public router: Router, private pageStyleService: PageStyleService) {
   }

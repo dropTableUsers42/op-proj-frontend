@@ -67,7 +67,7 @@ export class AuthService {
   }
 
   sendRefOtp(id, ref) {
-    return this.http.post("https://the-op.herokuapp.com/login/otp", {"email": id, "referral" : ref});
+    return this.http.post("https://the-op.herokuapp.com/signup/otp", {"email": id, "referral" : ref});
   }
 
   signUp(id, ref, name, username, otp) {

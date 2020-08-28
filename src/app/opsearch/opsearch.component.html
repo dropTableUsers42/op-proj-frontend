@@ -3,7 +3,7 @@
 		<p [ngClass]="domain_title_class">{{domain}}</p>
 	</div>
 
-	<div class="shadow-container" [@domainTransform]="isScrolledToTop ? 'default' : 'transform'" [@shadowTrigger]="isScrolledToTop ? 'hasNoShadow' : 'hasShadow'">
+	<div class="shadow-container" [@searchTransform]="isScrolledToTop ? 'default' : 'transform'" [@shadowTrigger]="isScrolledToTop ? 'hasNoShadow' : 'hasShadow'">
 		<form [formGroup]="searchForm" (ngSubmit)="search()">
 			<div class="search-container">
 				<div class="search-bar">
@@ -41,7 +41,7 @@
 						<mat-select disableOptionCentering>
 						</mat-select>
 					</div>
-					<div class="sort-filter">
+					<div *ngIf='false' class="sort-filter">
 						<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">sort</mat-icon><span class="sub-label-string">Sort</span></mat-placeholder>
 						<mat-select disableOptionCentering>
 						</mat-select>
@@ -51,7 +51,7 @@
 		</form>
 	</div>
 
-	<div [ngClass]="list_class" (scroll)="scrolled($event)" #scrollFrame [@domainTransform]="isScrolledToTop ? 'default' : 'transform'" [style.height.px]="scrollContainerHeight">
+	<div [ngClass]="list_class" (scroll)="scrolled($event)" #scrollFrame [@searchTransform]="isScrolledToTop ? 'default' : 'transform'" [style.height.px]="scrollContainerHeight">
 		<div *ngIf="searchForm.value['searchtype'] == 'Opps'" class="opps-list-inner">
 			<div class="opp-card-container" *ngFor="let opportunity of opportunity_list">
 				<app-opps-card [opps]="opportunity"></app-opps-card>

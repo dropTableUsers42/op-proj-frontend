@@ -1,8 +1,15 @@
 <div (click)="oppClick()" class="opps-card">
-	<div class="opps-type-container" [style.background-color]="getMainColor()">
-		<span class="opps-type">
-			{{opportunity.Type}}
-		</span>
+	<div class="opps-type-interest-container">
+		<div class="opps-type-container" >
+			<div class="opps-type" [style.background-color]="getMainColor()">
+				{{opportunity.Type}}
+			</div>
+		</div>
+		<div *ngIf="false" class="opps-interested-button-container">
+			<button mat-mini-fab disabled class="opps-interested-button">
+				<mat-icon>home</mat-icon>
+			</button>
+		</div>
 	</div>
 	<p class="opps-name" [style.color]="getMainColor()">
 		{{opportunity.Name_of_Program}}

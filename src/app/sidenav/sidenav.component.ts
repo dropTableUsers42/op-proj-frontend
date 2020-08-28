@@ -52,12 +52,12 @@ export class SidenavComponent implements OnInit {
   }
 
   LinksList = [
-    {link: 'search/core', name: 'Core'},
-    {link: 'search/it', name: 'IT'},
-    {link: 'search/consult', name: 'Consulting'},
-    {link: 'search/ent', name: 'Entrepreneurship'},
-    {link: 'search/fin', name: 'Finance'},
-    {link: 'search/socdev', name: 'Socdev & Policy'},
+    {link: 'search/core', name: 'Core', id: 'core'},
+    {link: 'search/it', name: 'IT', id: 'it'},
+    {link: 'search/consult', name: 'Consulting', id: 'consult'},
+    {link: 'search/ent', name: 'Entrepreneurship', id: 'ent'},
+    {link: 'search/fin', name: 'Finance', id: 'fin'},
+    {link: 'search/socdev', name: 'Socdev & Policy', id: 'socdev'},
   ]
 
   AboutLink = {link: 'about', name: 'ABOUT US'}

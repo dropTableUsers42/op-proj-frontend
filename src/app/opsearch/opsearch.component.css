@@ -5,7 +5,7 @@
 
 .page-container {
 	width: 100%;
-	height: calc(100% + 79px);
+	height: calc(100% + 90px);
 	padding-top: 60px;
 
 	padding-left: 45px;
@@ -123,7 +123,7 @@ mat-button-toggle {
 
 	text-align: center;
 
-	padding: 4px !important;
+	padding: 10px !important;
 }
 
 .filter-container {
@@ -252,8 +252,6 @@ mat-button-toggle {
 .opps-list, .user-list {
 	z-index: 0;
 	padding-top: 15px;
-
-	
 
 	overflow: scroll;
 	

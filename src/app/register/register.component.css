@@ -83,6 +83,8 @@ input:focus, textarea:focus, button:focus {
 	margin-bottom: 0px;
 
 	height: 32px;
+
+	border-bottom: 1px solid #f9f9f9;
 }
 .college-content {
 	font-family: Poppins;
@@ -106,6 +108,7 @@ input:focus, textarea:focus, button:focus {
 	height: 20px;
 
 	color: #F9F9F9;
+	border-bottom: 1px solid #f9f9f9;
 }
 
 .year-content {

@@ -7,7 +7,7 @@
 	
 	<div class="link-list">
 		<div class="sidelink-container">
-			<div [ngClass]="sidelink_class" *ngFor="let link of LinksList">
+			<div [ngClass]="sidelink_class" id="{{link.id}}" *ngFor="let link of LinksList">
 				<a routerLink="{{link.link}}" (click)="sidenavToggle()">{{link.name}}</a>
 			</div>
 		</div>
