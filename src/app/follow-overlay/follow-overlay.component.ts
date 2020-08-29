@@ -22,12 +22,23 @@ export class FollowOverlayComponent implements OnInit {
   }
 
   public close() {
-    console.log(this.user_list);
     this.onClose.emit();
   }
 
   stopPropagate(event) {
     event.stopPropagation();
+  }
+
+  followed_class(user) {
+    return {
+      "follow-button": true,
+      "followed": user.isFollowed,
+      "unfollowed": !user.isFollowed,
+    }
+  }
+
+  follow_string(user) {
+    return user.isFollowed ? 'Following' : 'Follow';
   }
 
 }

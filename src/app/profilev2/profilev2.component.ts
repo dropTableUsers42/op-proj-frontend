@@ -50,10 +50,10 @@ export class Profilev2Component implements OnInit {
 
   ngOnInit(): void {
     this.actRoute.params.subscribe(val => {
-      /*if(val.slug == this.authService.currentUserValue.username)
+      if(val.slug == this.authService.currentUserValue.username)
       {
         this.router.navigate(['profile']);
-      }*/
+      }
       this.backendService.getUser(val.slug).subscribe(user => {
         this.user = user;
         this.followed = this.isFollowed;

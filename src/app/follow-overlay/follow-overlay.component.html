@@ -10,5 +10,12 @@
 				<mat-icon (click)="close()">close</mat-icon>
 			</div>
 		</div>
+		<div class="follow-list">
+			<div *ngFor="let user of user_list" class="follow-container">
+				<div class="icon-container"><img class="reg-icon"></div>
+				<div class="name-container"><div>{{user.name}}</div></div>
+				<button [ngClass]="followed_class(user)" (click)="onFollowClick($event)"><span>{{follow_string(user)}}</span></button>
+			</div>
+		</div>
 	</div>
 </div>
