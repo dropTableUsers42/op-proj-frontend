@@ -87,6 +87,8 @@
 
 	display: flex;
 	flex-direction: row;
+
+	margin-bottom: 15px;
 }
 
 .icon-container {
@@ -120,6 +122,11 @@
 	color: #F9F9F9;
 
 	flex-grow: 1;
+}
+
+a:link, a:visited, a:hover, a:active {
+	color: #F9F9F9;
+	text-decoration: none;
 }
 
 .follow-button {

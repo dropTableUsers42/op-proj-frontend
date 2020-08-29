@@ -19,8 +19,8 @@ export class RegisterComponent implements OnInit {
 
   profileForm  = new FormGroup({
     name: new FormControl('', Validators.required),
-    year: new FormControl('', [Validators.required]),
-    branch: new FormControl('', Validators.required),
+    year: new FormControl('', [Validators.required, isIntegerValidator]),
+    branch: new FormControl('', [Validators.required, containsNumberValidator]),
     bio: new FormControl(''),
   });
 
@@ -46,16 +46,21 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-
 }
 
-export const isIntegerValidator = function(control: AbstractControl) : ValidationErrors | null {
-    const error: ValidationErrors = {integer: true};
-    if(control.value && control.value !== '${parseInt(control.value, 10)}') {
-      control.setErrors(error);
-      return error;
-    }
+export function isIntegerValidator(control: AbstractControl) : {[key : string]: boolean} | null {
+  if(control.value !== undefined && isNaN(control.value)) {
+    return {'nonNum': true};
+  }
+  return null;
+}
 
-    control.setErrors(null);
-    return null;
+export function containsNumberValidator(control: AbstractControl) : {[key : string]: boolean} | null {
+  let str = String(control.value);
+
+  if(/\d/.test(str))
+  {
+    return {'num': true};
+  }
+  return null;
 }

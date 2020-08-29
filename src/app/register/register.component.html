@@ -7,7 +7,7 @@
 			<div class="profile-text-container">
 				<div class="name-container">
 					<label class="name-label">Name</label><br>
-					<input autocomplete="off" autocorrect="off" spellcheck="false" class="name-content" name="name-content" formControlName="name">
+					<input autocomplete="off" autocorrect="off" spellcheck="false" [ngClass]="{'name-content': true, 'input-invalid': profileForm.get('name').invalid}" name="name-content" formControlName="name">
 				</div>
 				<div class="college-container">
 					<label class="college-label">College</label><br>
@@ -16,17 +16,27 @@
 				<div class="year-branch-container">
 					<div class="year-container">
 						<label class="year-label">Year</label><br>
-						<input autocomplete="off" autocorrect="off" spellcheck="false" class="year-content" name="year-content" formControlName="year">
+						<input autocomplete="off" autocorrect="off" spellcheck="false" [ngClass]="{'year-content': true, 'input-invalid': profileForm.get('year').invalid}" name="year-content" formControlName="year">
 					</div>
 					<div class="branch-container">
 						<label class="branch-label">Branch</label><br>
-						<input autocomplete="off" autocorrect="off" spellcheck="false" class="branch-content" name="branch-content" formControlName="branch">
+						<input autocomplete="off" autocorrect="off" spellcheck="false" [ngClass]="{'branch-content': true, 'input-invalid': profileForm.get('branch').invalid}" name="branch-content" formControlName="branch">
+					</div>
+				</div>
+				<div *ngIf="profileForm.get('year').invalid">
+					<div *ngIf="profileForm.get('year').errors.nonNum" class="form-error">
+						Please enter a number as your year!
+					</div>
+				</div>
+				<div *ngIf="profileForm.get('branch').invalid">
+					<div *ngIf="profileForm.get('branch').errors.num" class="form-error">
+						Your Branch cannot contain numbers!
 					</div>
 				</div>
 			</div>
 			<div class="profile-button-email-container">
 				<div class="edit-button-container">
-					<button for="profileForm" class="edit-button">Save</button>
+					<button for="profileForm" [ngClass]="{'edit-button': true, 'button-invalid': profileForm.invalid}" [disabled]="profileForm.invalid">Save</button>
 				</div>
 				<div class="email-container">
 					<p class="email-content">{{user?.email}}</p>

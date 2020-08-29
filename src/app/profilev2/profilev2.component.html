@@ -16,8 +16,8 @@
 				</div>
 				<hr class="year-branch-divider"><br>
 				<div class="follower-container">
-					<p class="follower-content"><b>{{user?.followers.length}}</b> Followers</p>
-					<p class="following-content"><b>{{user?.following.length}}</b> Following</p>
+					<p class="follower-content" (click)="overlayShow=true; overlayType='Followers'"><b>{{user?.followers.length}}</b> Followers</p>
+					<p class="following-content" (click)="overlayShow=true; overlayType='Following'"><b>{{user?.following.length}}</b> Following</p>
 				</div>
 				<div class="email-container">
 					<p class="email-content">{{user?.email}}</p>
@@ -83,3 +83,4 @@
 	<input class="edit" type="submit" value="Edit Profile" (click)="onClick()">
 	-->
 </div>
+<app-follow-overlay [show]="overlayShow" [title]="overlayType" (onClose)="overlayShow=false" [users]="overlayType=='Followers' ? user?.followers : user?.following"></app-follow-overlay>

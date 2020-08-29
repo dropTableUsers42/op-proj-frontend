@@ -111,6 +111,10 @@ input:focus, textarea:focus, button:focus {
 	border-bottom: 1px solid #f9f9f9;
 }
 
+.input-invalid {
+	border-bottom: 1px solid #e24040;
+}
+
 .year-content {
 	width: 30px;
 }
@@ -175,6 +179,14 @@ input:focus, textarea:focus, button:focus {
 .edit-button:hover {
 	background-color: #f9f9f9;
 	color: #363636;
+}
+
+.button-invalid, .button-invalid:hover {
+	border: 3px solid #9c9a9a;
+	color: #9c9a9a;
+	background: #5a5a5a;
+
+	cursor: not-allowed;
 }
 
 .about-label {
@@ -324,4 +336,16 @@ mat-button-toggle:hover {
 
 	background: #F9F9F9;
 	border-radius: 35px;
+}
+
+.form-error {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 14px;
+
+	margin-top: 5px;
+
+	color: #e24040;
 }

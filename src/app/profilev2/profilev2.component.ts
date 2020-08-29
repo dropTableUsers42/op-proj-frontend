@@ -20,6 +20,10 @@ export class Profilev2Component implements OnInit {
 
   wishlist: Opps[];
 
+  overlayShow: boolean = false;
+
+  overlayType: string;
+
   followed = true;
 
   get isFollowed() {
