@@ -20,6 +20,10 @@ export class AuthGuardGuard implements CanActivate {
     }
     else if(this.authService.currentUserValue && !this.authService.currentUserValue.hasCompletedRegistration)
     {
+      if(next.url.toString() === 'register')
+      {
+        return true;
+      }
       this.router.navigate(['register']);
       return false;
     }
