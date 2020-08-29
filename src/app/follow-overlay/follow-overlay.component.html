@@ -1,0 +1,14 @@
+<div *ngIf="show" (click)="close()" class="overlay-with-bg">
+	<div class="overlay-container" (click)="stopPropagate($event)">
+		<div class="overlay-header">
+			<div class="overlay-header-left">
+			</div>
+			<div class="overlay-title">
+				{{title}}
+			</div>
+			<div class="overlay-cross">
+				<mat-icon (click)="close()">close</mat-icon>
+			</div>
+		</div>
+	</div>
+</div>

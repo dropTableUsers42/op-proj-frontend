@@ -21,15 +21,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signInToken(form) {
-    this.authService.login(form.value.tokenid, form.value.token).subscribe(
-      user => {
-        console.log(this.authService.currentUserValue);
-        this.router.navigate(['/profile']);
-      }
-    )
-  }
-
   signInOtp(form) {
     this.authService.loginOtp(form.value.loginid, parseInt(form.value.otp)).subscribe(
       user => {

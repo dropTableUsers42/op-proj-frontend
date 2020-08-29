@@ -46,6 +46,8 @@
 
 	height: 100%;
 
+	max-width: 180px;
+
 	text-align: center;
 	vertical-align: middle;
 
@@ -72,33 +74,54 @@
 
 	line-height: 20px !important;
 
-	font-size: 20px !important;
-
 	padding: 0 0 !important;
 }
 
-::ng-deep .mat-mini-fab, .mat-button-wrapper {
+::ng-deep span.mat-mini-fab, ::ng-deep span.mat-button-wrapper {
 	padding: 0 0 !important;
 	line-height: 0 !important;
+
+	font-size: 15px !important;
+	font-weight: bold;
+}
+
+.mat-mini-fab {
+	box-shadow: none;
 }
 
 .opps-name {
 	margin-top: 2.9%;
 
-	width: 80%;
+	width: 100%;
 
 	font-weight: bold;
 	font-size: 100%;
 	line-height: 100%;
 	word-wrap: break-word;
 
+	text-overflow: ellipsis;
+	overflow: hidden;
+
 	margin-bottom: 0px;
+
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
 }
 
 .opps-org {
 	font-weight: normal;
 	font-size: 58.3%;
-	line-height: 100%;
+	line-height: 120%;
+
+	word-wrap: break-word;
+
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
 
 	margin-top: 3%;
 }
@@ -113,6 +136,15 @@
 	line-height: 100%;
 
 	white-space: pre-line;
+
+	word-wrap: break-word;
+
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
 
 	margin: 0 0;
 }

@@ -27,10 +27,23 @@ export class BackendService {
     return this.httpClient.patch<User>("https://the-op.herokuapp.com/me/profile", usr)
       .pipe(map(
         (user) => {
-          this.authService.updateUser(user['user']);
-          return user['user'];
+          user = user['user'];
+          user.college = user['college']['type'];
+          this.authService.updateUser(user);
+          return user;
         }
       ));
+  }
+
+  public getMe(): Observable<User>{
+    return this.httpClient.get<User>("https://the-op.herokuapp.com/me").pipe(map(
+      (user) => {
+        user = user['user'];
+        user.college = user['college']['type'];
+        this.authService.updateUser(user);
+        return user;
+      }
+    ))
   }
 
   public getMyWishlist(): Observable<Opps[]>{
@@ -94,6 +107,10 @@ export class BackendService {
   public addOppsToWishlist(slug) : Observable<Opps[]> {
     let body = {'opportunity': slug};
     return this.httpClient.post<Opps[]>("https://the-op.herokuapp.com/me/wishlist", body=body);
+  }
+
+  public deleteOppsFromWishlist(slug) : Observable<Opps[]> {
+    return this.httpClient.delete<Opps[]>("https://the-op.herokuapp.com/me/wishlist/".concat(slug));
   }
 
 }

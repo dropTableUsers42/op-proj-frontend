@@ -172,6 +172,11 @@ input:focus, textarea:focus, button:focus {
 	color: #F9F9F9;
 }
 
+.edit-button:hover {
+	background-color: #f9f9f9;
+	color: #363636;
+}
+
 .about-label {
 	margin-top: 30px;
 }

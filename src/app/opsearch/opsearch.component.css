@@ -294,6 +294,16 @@ mat-button-toggle {
 	font-size: 24px;
 }
 
+.user-card-container {
+	margin-left: 22px;
+	margin-bottom: 30px;
+
+	height: calc(120*(100vw - 90px - 2 * 22px)/(3*382));
+	width: calc((100vw - 90px - 2 * 22px)/3);
+
+	font-size: calc(24*(100vw - 90px - 2 * 22px)/(3*382));
+}
+
 @media screen and (min-width: 1360px) {
 	
 	.opp-card-container {
@@ -302,11 +312,25 @@ mat-button-toggle {
 		height: calc((100vw - 90px - 4 * 30px)*200/(5*275));
 		font-size: calc((100vw - 90px - 4 * 30px)*24/(5*275));
 	}
+
+	.user-card-container {
+
+		width: calc((100vw - 90px - 3 * 22px)/4);
+		height: calc(120*(100vw - 90px - 3 * 22px)/(4*382));
+		font-size: calc(24*(100vw - 90px - 3 * 22px)/(4*382));
+	}
 }
 
 @media screen and (max-width: 1020px) {
 	.opp-card-container {
 		width: calc((100vw - 90px - 2 * 30px)/3);
+	}
+
+	.user-card-container {
+
+		width: calc((100vw - 90px - 1 * 22px)/2);
+		height: calc(120*(100vw - 90px - 1 * 22px)/(2*382));
+		font-size: calc(24*(100vw - 90px - 1 * 22px)/(2*382));
 	}
 }
 
@@ -333,14 +357,11 @@ mat-button-toggle {
 		height: calc((100vw - 90px - 1 * 100vw * 0.0234)*100/275);
 		font-size: calc((100vw - 90px - 1 * 100vw * 0.0234)*24/(2*275));
 	}
-}
 
-.user-card-container {
-	margin-left: 22px;
-	margin-bottom: 30px;
+	.user-card-container {
 
-	height: 120px;
-	width: calc((100vw - 90px - 2 * 22px)/3);
-
-	font-size: 24px;
+		width: calc((100vw - 90px));
+		height: calc(120*(100vw - 90px)/(382));
+		font-size: calc(24*(100vw - 90px)/(382));
+	}
 }

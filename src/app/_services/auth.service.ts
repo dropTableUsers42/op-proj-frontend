@@ -21,22 +21,6 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  login(id, token) {
-    let user = new User();
-    user.token = token;
-    localStorage.setItem('currentUser', JSON.stringify(user));
-    this.currentUserSubject.next(user);
-    return this.http.get<User>('https://the-op.herokuapp.com/user/'.concat(id))
-        .pipe(map(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            user = user['user'];
-            user.token = token;
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            this.currentUserSubject.next(user);
-            return user;
-        }));
-  }
-
   logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
@@ -59,6 +43,7 @@ export class AuthService {
           .pipe(map(user => {
               let token = user['token'];
               user = user['user'];
+              user.college = user['college']['type'];
               user.token = token;
               localStorage.setItem('currentUser', JSON.stringify(user));
               this.currentUserSubject.next(user);
@@ -74,6 +59,7 @@ export class AuthService {
     return this.http.post<User>("https://the-op.herokuapp.com/signup", {"email": id, "referral" : ref, 'name': name, 'username': username, 'otp': otp}).pipe(map(user => {
       let token = user['token'];
       user = user['user'];
+      user.college = user['college']['type'];
       user.token = token;
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);

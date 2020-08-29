@@ -133,6 +133,10 @@ p {
 	color: #F9F9F9;
 }
 
+.follower-content, .following-content {
+	cursor: pointer;
+}
+
 .following-content {
 	margin-left: 32px;
 }

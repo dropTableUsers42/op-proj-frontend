@@ -12,7 +12,7 @@
 					<p class="college-content">{{user?.college}}</p>
 				</div>
 				<div *ngIf="user?.hasCompletedRegistration" class="year-branch-container">
-					<p class="year-branch-content">{{user?.year}} | {{user?.branch}}</p>
+					<p class="year-branch-content">{{user?.year | toNth}} year | {{user?.branch}}</p>
 				</div>
 				<hr class="year-branch-divider"><br>
 				<div class="follower-container">
@@ -60,7 +60,6 @@
 		<div *ngIf="wishlist.length > 0" class="wishlist-container">
 			<p class="wishlist-label">Wishlist:</p>
 			<app-opps-wishlistv2 [wishlist]="wishlist"></app-opps-wishlistv2>
-			<p (click)="logout()" class="logout" >Log Out</p>
 		</div>
 	</div>
 	<!--<p class="about-label">About</p>

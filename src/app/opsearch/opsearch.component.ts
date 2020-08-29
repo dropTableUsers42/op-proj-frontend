@@ -61,7 +61,7 @@ export class OpsearchComponent implements OnInit, AfterViewInit {
 
 	searchForm = new FormGroup({
 		searchstring: new FormControl(''),
-		searchtype: new FormControl('Opps')
+		searchtype: new FormControl('People')
 	})
 
 	@ViewChild('scrollFrame', {static: false}) scrollFrame: ElementRef;
@@ -72,14 +72,11 @@ export class OpsearchComponent implements OnInit, AfterViewInit {
 	ngAfterViewInit() {
 		this.scrollContainer = this.scrollFrame.nativeElement;
 		this.isScrolledToTop = this.scrollContainer.scrollTop == 0;
-
-		this.scrollContainer.style.height = '{$h}px';
 	}
 
-	scrolled(event: any) {
+	scrolled() {
 		this.isScrolledToTop = this.scrollContainer.scrollTop == 0;
 		this.scrollService.newEvent(this.isScrolledToTop);
-		let h: number;
 		if(!this.isScrolledToTop)
 		{
 			this.scrollContainerHeight = this.scrollContainer.offsetHeight + 90;
@@ -88,9 +85,6 @@ export class OpsearchComponent implements OnInit, AfterViewInit {
 		{
 			this.scrollContainerHeight = window.innerHeight - 190;
 		}
-		h = this.scrollContainerHeight;
-		this.scrollContainer.style.height = '{$h}px';
-
 	}
 
 	search_types = [

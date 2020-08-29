@@ -1,0 +1,55 @@
+.opps-interested-button {
+	background-color: transparent !important;
+}
+
+.core .opps-in-wishlist {
+	color: #05905F !important;
+}
+
+.it .opps-in-wishlist {
+	color: #FF9D63 !important;
+}
+
+.consult .opps-in-wishlist {
+	color: #E76D50 !important;
+}
+
+.fin .opps-in-wishlist {
+	color: #225882 !important;
+}
+
+.ent .opps-in-wishlist {
+	color: #D67BBB !important;
+}
+
+.socdev .opps-in-wishlist {
+	color: #2BA9CA !important;
+}
+
+.opps-interested-button.opps-not-wishlist {
+	color: #f9f9f9 !important;
+}
+
+.core .opps-not-wishlist {
+	background-color: #05905F !important;
+}
+
+.it .opps-not-wishlist {
+	background-color: #FF9D63 !important;
+}
+
+.consult .opps-not-wishlist {
+	background-color: #E76D50 !important;
+}
+
+.fin .opps-not-wishlist {
+	background-color: #225882 !important;
+}
+
+.ent .opps-not-wishlist {
+	background-color: #D67BBB !important;
+}
+
+.socdev .opps-not-wishlist {
+	background-color: #2BA9CA !important;
+}

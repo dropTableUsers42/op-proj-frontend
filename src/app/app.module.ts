@@ -24,6 +24,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupComponent } from './signup/signup.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { OppsWishlistv2Component } from './opps-wishlistv2/opps-wishlistv2.component';
+import { ToNthPipe } from './_pipes/to-nth.pipe';
+import { FollowOverlayComponent } from './follow-overlay/follow-overlay.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { OppsWishlistv2Component } from './opps-wishlistv2/opps-wishlistv2.compo
     SignupComponent,
     SignupFormComponent,
     OppsWishlistv2Component,
+    ToNthPipe,
+    FollowOverlayComponent,
   ],
   imports: [
     BrowserModule,

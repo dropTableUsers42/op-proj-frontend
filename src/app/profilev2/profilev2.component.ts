@@ -5,6 +5,7 @@ import { PageStyleService } from '../_services/page-style.service';
 import { User } from '../_models/user.model';
 import { Opps } from '../_models/opps.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToNthPipe } from '../_pipes/to-nth.pipe';
 
 @Component({
   selector: 'app-profilev2',
@@ -49,14 +50,17 @@ export class Profilev2Component implements OnInit {
 
   ngOnInit(): void {
     this.actRoute.params.subscribe(val => {
-      if(val.slug == this.authService.currentUserValue.username)
+      /*if(val.slug == this.authService.currentUserValue.username)
       {
         this.router.navigate(['profile']);
-      }
+      }*/
       this.backendService.getUser(val.slug).subscribe(user => {
         this.user = user;
         this.followed = this.isFollowed;
         this.wishlist = user['wishlist']['opportunities'];
+        this.wishlist.map(opp => {
+          opp.domain = opp['domain']['type'];
+        });
       });
     });
     this.pageStyleService.newEvent('home');

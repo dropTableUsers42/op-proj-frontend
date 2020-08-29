@@ -5,6 +5,7 @@ import { PageStyleService } from '../_services/page-style.service';
 import { User } from '../_models/user.model';
 import { Opps } from '../_models/opps.model';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { ToNthPipe } from '../_pipes/to-nth.pipe'; 
 
 
 @Component({
@@ -20,6 +21,10 @@ export class ProfileComponent implements OnInit, AfterViewChecked {
 
   wishlist: Opps[];
 
+  overlayShow: boolean = false;
+
+  overlayType: string;
+
   private fragment: string;
 
   constructor(private backendService: BackendService, private router: Router, private authService: AuthService, private pageStyleService: PageStyleService, private actRoute: ActivatedRoute) {
@@ -27,9 +32,13 @@ export class ProfileComponent implements OnInit, AfterViewChecked {
 
   ngOnInit(): void {
     this.user = this.authService.currentUserValue;
-    this.backendService.getMyWishlist().subscribe(ret => {
-      this.wishlist = ret;
-    });
+    this.backendService.getMe().subscribe(user => {
+      this.user = user;
+      this.wishlist = user['wishlist']['opportunities'];
+      this.wishlist.map(opp => {
+        opp.domain = opp['domain']['type'];
+      });
+    })
     this.pageStyleService.newEvent('home');
     this.actRoute.fragment.subscribe(frag => {this.fragment = frag});
   }

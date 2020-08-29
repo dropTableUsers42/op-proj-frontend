@@ -1,13 +1,13 @@
-<div (click)="oppClick()" class="opps-card">
+<div (click)="oppClick()" [ngClass]="main_class">
 	<div class="opps-type-interest-container">
 		<div class="opps-type-container" >
 			<div class="opps-type" [style.background-color]="getMainColor()">
 				{{opportunity.Type}}
 			</div>
 		</div>
-		<div *ngIf="false" class="opps-interested-button-container">
-			<button mat-mini-fab disabled class="opps-interested-button">
-				<mat-icon>home</mat-icon>
+		<div *ngIf="showInterested" class="opps-interested-button-container">
+			<button mat-mini-fab [ngClass]="{'opps-interested-button':true, 'opps-not-wishlist':!opportunity.isInWishlist, 'opps-in-wishlist':opportunity.isInWishlist}" (click)="interested_click($event)">
+				<mat-icon [inline]='true'>{{interested_icon}}</mat-icon>
 			</button>
 		</div>
 	</div>

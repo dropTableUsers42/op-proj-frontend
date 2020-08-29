@@ -80,14 +80,17 @@ export class OppDetailComponent implements OnInit {
     { 
       if(this.opps.isInWishlist)
       {
+        this.backendService.deleteOppsFromWishlist(this.opps.slug).subscribe( ret => {
+          console.log('removed');
+        });
         this.opps.numUsers--;
       }
       else
       {
-        this.opps.numUsers++;
         this.backendService.addOppsToWishlist(this.opps.slug).subscribe( ret => {
           console.log('added');
         });
+        this.opps.numUsers++;
       }
       this.opps.isInWishlist = !this.opps.isInWishlist;
     }

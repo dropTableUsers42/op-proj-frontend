@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Opps } from '../_models/opps.model';
 import { User } from '../_models/user.model';
 import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { BackendService } from '../_services/backend.service';
+import { ToNthPipe } from '../_pipes/to-nth.pipe'
 
 @Component({
   selector: 'app-user-card',
