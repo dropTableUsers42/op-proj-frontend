@@ -13,7 +13,7 @@ import { ToNthPipe } from '../_pipes/to-nth.pipe';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit, AfterViewChecked {
+export class ProfileComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   ops = "chjbkdsghbvksdcnbadvjkdnvkjdnvjkacklamlkacklamlkacklamlklamlkbgklamlkacklamlklamlkvlklamlkvggamlkvlklamlkvdddgdfg";
 
@@ -28,6 +28,7 @@ export class ProfileComponent implements OnInit, AfterViewChecked {
   private fragment: string;
 
   constructor(private backendService: BackendService, private router: Router, private authService: AuthService, private pageStyleService: PageStyleService, private actRoute: ActivatedRoute) {
+    this.pageStyleService.newEvent('home');
   }
 
   ngOnInit(): void {
@@ -39,8 +40,10 @@ export class ProfileComponent implements OnInit, AfterViewChecked {
         opp.domain = opp['domain']['type'];
       });
     })
-    this.pageStyleService.newEvent('home');
     this.actRoute.fragment.subscribe(frag => {this.fragment = frag});
+  }
+
+  ngAfterViewInit() {
   }
 
   ngAfterViewChecked(): void {

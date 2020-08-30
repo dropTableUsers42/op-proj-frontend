@@ -50,6 +50,7 @@ export class Profilev2Component implements OnInit {
   }
 
   constructor(private backendService: BackendService, private actRoute: ActivatedRoute, private router: Router, private authService: AuthService, private pageStyleService: PageStyleService) {
+    this.pageStyleService.newEvent('home');
   }
 
   ngOnInit(): void {
@@ -67,7 +68,6 @@ export class Profilev2Component implements OnInit {
         });
       });
     });
-    this.pageStyleService.newEvent('home');
   }
 
   logout()

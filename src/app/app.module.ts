@@ -26,6 +26,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { OppsWishlistv2Component } from './opps-wishlistv2/opps-wishlistv2.component';
 import { ToNthPipe } from './_pipes/to-nth.pipe';
 import { FollowOverlayComponent } from './follow-overlay/follow-overlay.component';
+import { CountdownPipe } from './_pipes/countdown.pipe';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { FollowOverlayComponent } from './follow-overlay/follow-overlay.componen
     OppsWishlistv2Component,
     ToNthPipe,
     FollowOverlayComponent,
+    CountdownPipe,
   ],
   imports: [
     BrowserModule,

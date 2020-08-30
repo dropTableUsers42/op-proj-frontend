@@ -115,6 +115,13 @@ input:focus, textarea:focus, button:focus {
 	border-bottom: 1px solid #e24040;
 }
 
+.input-invalid {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
 .year-content {
 	width: 30px;
 }
@@ -189,8 +196,25 @@ input:focus, textarea:focus, button:focus {
 	cursor: not-allowed;
 }
 
+.about-label-container {
+	display: flex;
+	flex-direction: row;
+
+	padding-top: 30px;
+}
+
 .about-label {
-	margin-top: 30px;
+	flex-grow: 1;
+}
+
+.about-countdown {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+
+	color: #f9f9f9;
+
 }
 
 .about-content {
@@ -200,11 +224,25 @@ input:focus, textarea:focus, button:focus {
 	font-size: 18px;
 	line-height: 117.5%;
 
-	height: 51px;
-
 	width: 100%;
 
 	color: #D0D0D0;
+
+	padding: 5px;
+	border-radius: 10px;
+	border: 1px solid #f9f9f9;
+
+	overflow: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.about-content::-webkit-scrollbar {
+	display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.about-content {
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
 }
 
 mat-button-toggle-group {
@@ -219,14 +257,13 @@ mat-button-toggle-group {
 }
 
 mat-button-toggle {
-
 	border: 2px solid #F9F9F9 !important;
-    background-color: transparent !important;
+	background-color: transparent !important;
 
 	height: 33px;
 	border-radius: 13px;
 
-	margin-right: 3%;
+	margin-right: 20px;
 	padding-left: 20px;
 	padding-right: 20px;
 
@@ -238,9 +275,34 @@ mat-button-toggle {
 
 }
 
-mat-button-toggle:hover {
-    background-color: #F9F9F9 !important;
-	color: #363636 !important;
+mat-button-toggle:hover.core {
+	background-color: #05905F !important;
+	border: 2px solid #05905F !important;
+}
+
+mat-button-toggle:hover.it {
+	background-color: #FF9D63 !important;
+	border: 2px solid #FF9D63 !important;
+}
+
+mat-button-toggle:hover.consult {
+	background-color: #E76D50 !important;
+	border: 2px solid #E76D50 !important;
+}
+
+mat-button-toggle:hover.fin {
+	background-color: #D67BBB !important;
+	border: 2px solid #D67BBB !important;
+}
+
+mat-button-toggle:hover.ent {
+	background-color: #225882 !important;
+	border: 2px solid #225882 !important;
+}
+
+mat-button-toggle:hover.socdev {
+	background-color: #2BA9CA !important;
+	border: 2px solid #2BA9CA !important;
 }
 
 ::ng-deep .mat-button-toggle-label-content {
@@ -348,4 +410,22 @@ mat-button-toggle:hover {
 	margin-top: 5px;
 
 	color: #e24040;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }

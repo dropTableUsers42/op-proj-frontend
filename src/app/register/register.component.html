@@ -45,20 +45,23 @@
 		</div>
 		<div class="profile-about-container">
 			<div class="about-container">
-				<label class="about-label">About</label><br>
-				<textarea autocomplete="off" autocorrect="off" spellcheck="false" class="about-content" name="about-content" formControlName="bio"></textarea>
+				<div class="about-label-container">
+					<label class="about-label">About</label>
+					<label class="about-countdown">{{profileForm.value.bio | countdown:255}} / 255</label>
+				</div>
+				<textarea cdkTextAreaAutoSize autocomplete="off" autocorrect="off" spellcheck="false" class="about-content" name="about-content" formControlName="bio" maxlength="255"></textarea>
 			</div>
 		</div>
 	</form>
-	<div class="profile-domains-container">
-		<div class="domains-container">
+	<div class="profile-domains-container" [formGroup]="profileForm">
+		<div class="domains-container" formGroupName="domainForm">
 			<label class="domains-label">Domain Interests</label><br>
-			<mat-button-toggle-group multiple name="domain-choice" aria-label="Domain Choice">
-				<mat-button-toggle class="core" value="Core">Core</mat-button-toggle>
-				<mat-button-toggle class="it" value="IT">IT/Coding</mat-button-toggle>
-				<mat-button-toggle class="consulting" value="consulting">Consulting</mat-button-toggle>
+			<mat-button-toggle-group multiple name="domain-choice" aria-label="Domain Choice" formControlName="domains">
+				<mat-button-toggle class="core" value="core">Core</mat-button-toggle>
+				<mat-button-toggle class="it" value="it">IT</mat-button-toggle>
+				<mat-button-toggle class="consult" value="consult">Consulting</mat-button-toggle>
 				<mat-button-toggle class="ent" value="ent">Entrepeneurship</mat-button-toggle>
-				<mat-button-toggle class="finance" value="finance">Finance</mat-button-toggle>
+				<mat-button-toggle class="fin" value="fin">Finance</mat-button-toggle>
 				<mat-button-toggle class="socdev" value="socdev">SocDev & Policy</mat-button-toggle>
 			</mat-button-toggle-group>
 		</div>

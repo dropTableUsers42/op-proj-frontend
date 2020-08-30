@@ -14,7 +14,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit, OnChanges
   logo = 'LOGO';
   wishlist = 'WISHLIST'
   public isMenuOpen = false;
-  page_style;
+  page_style: string;
 
   get sidenav_class() { 
     if(this.page_style == 'home')
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit, OnChanges
 
   ngOnInit() {
     this.pageStyleService.events$.subscribe(ps => {
-      this.page_style = ps;
+      setTimeout( () => {this.page_style = ps;} );
     });
   }
 

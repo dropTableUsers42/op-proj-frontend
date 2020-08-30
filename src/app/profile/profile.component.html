@@ -37,7 +37,7 @@
 		</div>
 		<div class="profile-domains-container">
 			<div class="domains-container">
-				<mat-button-toggle-group multiple name="domain-choice" aria-label="Domain Choice">
+				<mat-button-toggle-group disabled multiple name="domain-choice" aria-label="Domain Choice">
 					<mat-button-toggle class="core" value="Core">Core</mat-button-toggle>
 					<mat-button-toggle class="it" value="IT">IT/Coding</mat-button-toggle>
 					<mat-button-toggle class="consulting" value="consulting">Consulting</mat-button-toggle>
@@ -47,7 +47,7 @@
 				</mat-button-toggle-group>
 			</div>
 		</div>
-		<div *ngIf="user.pursued.length > 0" class="opps-form-container">
+		<div *ngIf="user?.pursued.length > 0" class="opps-form-container">
 			<label class="opps-form-label">Opportunities Pursued</label>
 			<div class="opps-form-content">
 				<ul>
@@ -56,7 +56,7 @@
 			</div>
 		</div>
 	</div>
-	<div *ngIf="wishlist.length > 0" id="profile_wishlist" class="wishlist-container">
+	<div *ngIf="wishlist?.length > 0" id="profile_wishlist" class="wishlist-container">
 		<p class="wishlist-label">Wishlist</p>
 		<app-opps-wishlist [wishlist]="wishlist"></app-opps-wishlist>
 		<p (click)="logout()" class="logout" >Log Out</p>
