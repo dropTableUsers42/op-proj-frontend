@@ -62,7 +62,7 @@ export class Profilev2Component implements OnInit {
       this.backendService.getUser(val.slug).subscribe(user => {
         this.user = user;
         this.followed = this.isFollowed;
-        this.wishlist = user['wishlist']['opportunities'];
+        this.wishlist = user['wishlist'];
         this.wishlist.map(opp => {
           opp.domain = opp['domain']['type'];
         });

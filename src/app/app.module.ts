@@ -27,6 +27,7 @@ import { OppsWishlistv2Component } from './opps-wishlistv2/opps-wishlistv2.compo
 import { ToNthPipe } from './_pipes/to-nth.pipe';
 import { FollowOverlayComponent } from './follow-overlay/follow-overlay.component';
 import { CountdownPipe } from './_pipes/countdown.pipe';
+import { OppDetailCommentComponent } from './opp-detail-comment/opp-detail-comment.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { CountdownPipe } from './_pipes/countdown.pipe';
     ToNthPipe,
     FollowOverlayComponent,
     CountdownPipe,
+    OppDetailCommentComponent,
   ],
   imports: [
     BrowserModule,

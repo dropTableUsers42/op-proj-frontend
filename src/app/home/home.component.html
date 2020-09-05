@@ -1,3 +1,69 @@
 <div class="page-container">
-	<p class="main_title">{{title}}</p>
+	<div class="title-page-container">
+		<div class="title-container">
+			<h1 class="main_title">{{title}}</h1>	
+		</div>
+	</div>
+	<div class="search-page-container">
+		<div class="shadow-container" [@shadowTrigger]="isScrolledToTop ? 'hasNoShadow' : 'hasShadow'">
+			<form [formGroup]="searchForm" (ngSubmit)="search()">
+				<div class="search-container">
+					<div class="search-bar">
+						<mat-icon *ngIf="!spin" [ngClass]="search_icon_class">search</mat-icon>
+						<mat-spinner *ngIf="spin" diameter=20></mat-spinner>
+						<input [ngClass]="search_input_class" type="text" id="searchstring" name="searchstring" placeholder="Search" autocomplete="off" autocorrect="off" spellcheck="false" formControlName="searchstring">
+						<div class="search-type-toggle">
+							<mat-button-toggle-group name="search-type-toggle" formControlName="searchtype">
+								<mat-button-toggle *ngFor="let type of search_types" disableRipple id="{{type.name}}" value="{{type.name}}">{{type.name}}</mat-button-toggle>
+							</mat-button-toggle-group>
+						</div>
+					</div>
+					<div class="filter-container">
+						<div class="domain-filter">
+							<mat-placeholder class="domain-filter-label"><div class="domain-filter-icon"></div><span class="domain-label-string">Domain</span></mat-placeholder>
+							<mat-select disableOptionCentering>
+							</mat-select>
+						</div>
+						<div class="sub-filter">
+							<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">settings</mat-icon><span class="sub-label-string">Opps&nbsp;Type</span></mat-placeholder>
+							<mat-select disableOptionCentering>
+							</mat-select>
+						</div>
+						<div class="sub-filter">
+							<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">calendar_today</mat-icon><span class="sub-label-string">Date</span></mat-placeholder>
+							<mat-select disableOptionCentering>
+							</mat-select>
+						</div>
+						<div class="sub-filter">
+							<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">location_on</mat-icon><span class="sub-label-string">Region</span></mat-placeholder>
+							<mat-select disableOptionCentering>
+							</mat-select>
+						</div>
+						<div class="sub-filter">
+							<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">attach_money</mat-icon><span class="sub-label-string">Funding</span></mat-placeholder>
+							<mat-select disableOptionCentering>
+							</mat-select>
+						</div>
+						<div *ngIf='false' class="sort-filter">
+							<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">sort</mat-icon><span class="sub-label-string">Sort</span></mat-placeholder>
+							<mat-select disableOptionCentering>
+							</mat-select>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div [ngClass]="list_class" (scroll)="scrolled()" #scrollFrame>
+			<div *ngIf="searchForm.value['searchtype'] == 'Opps'" class="opps-list-inner">
+				<div class="opp-card-container" *ngFor="let opportunity of opportunity_list">
+					<app-opps-card [opps]="opportunity"></app-opps-card>
+				</div>
+			</div>
+			<div *ngIf="searchForm.value['searchtype'] == 'People'" class="user-list-inner">
+				<div class="user-card-container" *ngFor="let user of user_list">
+					<app-user-card [user]="user"></app-user-card>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

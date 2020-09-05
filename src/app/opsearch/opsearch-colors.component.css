@@ -42,7 +42,7 @@
 	color: #D67BBB;
 }
 
-.domain.socdev, .search-icon.socdev, .search-input.socdev, .socdev mat-button-toggle, .socdev::ng-deep .domain-filter .mat-select-arrow, .socdev .domain-filter-label, .sodev .sub-filter-label, .socdev ::ng-deep .sub-filter .mat-select-arrow, .socdev ::ng-deep .sort-filter .mat-select-arrow {
+.domain.socdev, .search-icon.socdev, .search-input.socdev, .socdev mat-button-toggle, .socdev::ng-deep .domain-filter .mat-select-arrow, .socdev .domain-filter-label, .socdev .sub-filter-label, .socdev ::ng-deep .sub-filter .mat-select-arrow, .socdev ::ng-deep .sort-filter .mat-select-arrow {
 	color: #2BA9CA;
 }
 
@@ -112,10 +112,6 @@ mat-button-toggle {
 
 .domain-filter-icon {
 	background-color: #FF8F8F;
-}
-
-.core .search-input::placeholder {
-	color: brown;
 }
 
 .core .search-input::placeholder {

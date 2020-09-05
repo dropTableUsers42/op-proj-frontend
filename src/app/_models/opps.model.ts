@@ -1,3 +1,5 @@
+import { User } from './user.model';
+
 export class Opps {
 	public domain: string;
 
@@ -27,9 +29,19 @@ export class Opps {
 	public isInWishlist: boolean;
 
 	public numUsers: number;
+
+	public comments: Comment[];
 }
 
 export class Tag  {
 	public slug: string;
 	public name: string;
+}
+
+export class Comment {
+	public children: string[];
+	public _id: string;
+	public user: User;
+	public parent: string;
+	public data: string;
 }

@@ -1,0 +1,23 @@
+<div class="comment-container">
+	<div class="comment-main">
+		<div class="image-container">
+			<img class="reg-icon">
+		</div>
+		<div class="comment-data">
+			<div class="comment-text">
+				<b>{{comment.user.name}}</b> {{comment.data}}
+			</div>
+			<div class="comment-reply" (click)="replying = !replying">
+				<div class="reply-link">
+					{{replying ? 'Close':'Reply'}}
+				</div>
+			</div>
+			<form *ngIf="replying" class="comment-reply-form" (ngSubmit)="submitReply()" [formGroup]="replyForm">
+				<div class="image-container">
+					<img class="reg-icon">
+				</div>
+				<input autocomplete="off" spellcheck="false" class="opp-reply-comment-input" placeholder="Reply to this comment." formControlName="data">
+			</form>
+		</div>
+	</div>
+</div>

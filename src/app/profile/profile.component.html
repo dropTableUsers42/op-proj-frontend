@@ -59,8 +59,8 @@
 	<div *ngIf="wishlist?.length > 0" id="profile_wishlist" class="wishlist-container">
 		<p class="wishlist-label">Wishlist</p>
 		<app-opps-wishlist [wishlist]="wishlist"></app-opps-wishlist>
-		<p (click)="logout()" class="logout" >Log Out</p>
 	</div>
+	<p (click)="logout()" class="logout" >Log Out</p>
 	<!--<p class="about-label">About</p>
 
 	<p class="name">{{user?.name}}</p>

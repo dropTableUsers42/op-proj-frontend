@@ -1,0 +1,30 @@
+.search-bar {
+	background: #F9F9F9;
+}
+
+.search-icon, .search-input, mat-button-toggle, ::ng-deep .domain-filter .mat-select-arrow, .domain-filter-label, .sub-filter-label, ::ng-deep .sub-filter .mat-select-arrow, ::ng-deep .sort-filter .mat-select-arrow {
+	color: #181918;
+}
+
+mat-button-toggle {
+	border: 1px solid #181918 !important;
+	background-color: #F9F9F9 !important;
+}
+
+.mat-button-toggle-checked {
+	color: #FFFFFF !important;
+	background-color: #181918 !important;
+}
+
+.domain-filter, .sub-filter {
+	background: #F9F9F9;
+}
+
+.domain-filter-icon {
+	background-color: #FF8F8F;
+}
+
+.search-input::placeholder {
+	color: #181918;
+	opacity: 0.5;
+}

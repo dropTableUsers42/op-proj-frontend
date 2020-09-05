@@ -10,7 +10,7 @@
 				</div>
 				<div class="opp-interested-button-container">
 					<button [ngClass]="interested_class" (click)="interestedClick()"><span [hidden]="opps?.isInWishlist">Interested?</span></button>
-					<button class="opp-interested-number">{{opps?.numUsers}}</button>
+					<button [ngClass]="interested_number_class">{{opps?.numUsers}}</button>
 				</div>
 			</div>
 			<div class="opp-image-container">
@@ -24,31 +24,79 @@
 		</div>
 	</div>
 	<div [ngClass]="detail_class">
-		<hr class="opp-top-divider"><br>
-		<p class="opp-location">{{opps?.Location}}</p>
-		<p class="opp-deadline">Registration Deadline: {{opps?.Deadline_Reg}}</p>
-		<p class="opp-deadline">Competition Deadline: {{opps?.Deadline_Comp}}</p>
-		<a href="{{opps?.Site}}"><p class="opp-deadline">Website: {{opps?.Site}}</p></a>
-
-		<p *ngIf="opps?.About" class="opp-about">About: {{opps?.About}}</p>
-		<hr class="opp-middle-divider"><br><br><br>
+		<div class="opp-main-details-container">
+			<div class="opp-deadline-loc-date-container">
+				<div class="opp-deadline-container">
+					<label class="opp-deadline-label">
+						Deadline
+					</label>
+					<div class="opp-deadline">
+						12th June, 2020
+					</div>
+				</div>
+				<div class="opp-location-container">
+					<label class="opp-location-label">
+						Location
+					</label>
+					<div class="opp-location">
+						{{location_type}}
+					</div>
+					<hr class="opp-location-divider">
+					<div class="opp-country">
+						{{opps?.Location}}
+					</div>
+				</div>
+				<div class="opp-date-container">
+					<label class="opp-date-label">
+						Date
+					</label>
+					<div class="opp-date">
+						12th June, 2020
+					</div>
+				</div>
+			</div>
+			<div class="opp-tags-container">
+				<div class="opp-tag" *ngFor="let tag of opps?.tags">
+					{{tag.name}}
+				</div>
+			</div>
+			<div class="opp-about-container">
+				{{opps?.About}}
+			</div>
+		</div>
 
 		<div *ngIf="opps?.Testimonial">
 			<label class="opp-testimonial-label">Testimonials</label>
 			<div class="opp-testimonial-container">
 				<p class="opp-testimonial">{{opps?.Testimonial}}</p>
 			</div>
-			<hr class="opp-thread-divider"><br><br><br>
-			
 		</div>
 
-		<label class="opp-thread-label">Threads</label>
-		<div class="opp-comments-container">
-			<div class="opp-new-comment-container">
-				<div class="reg-icon-container">
-					<img class="reg-icon">
+		<div class="opp-comments-recc-container">
+			<div class="opp-comments-container">
+				<label class="opp-thread-label">Threads</label>
+				<form class="opp-new-comment-container" (ngSubmit)="submitComment()" [formGroup]="commentForm">
+					<div class="reg-icon-container">
+						<img class="reg-icon">
+					</div>
+					<input autocomplete="off" spellcheck="false" class="opp-new-comment-input" placeholder="Have a question regarding the Opportunity?" formControlName="data">
+				</form>
+				<div class="opp-all-comments-container" *ngFor="let comment of opps?.comments">
+					<div class="opp-parent-comment" *ngIf="comment.parent==null">
+						<app-opp-detail-comment [comment]="comment" [opp]="opps" (onReplySubmitted)="addToReplies($event)"></app-opp-detail-comment>
+						<div class="opp-child-comment" *ngFor="let child_id of comment.children">
+							<app-opp-detail-comment [comment]="comment_dict[child_id]" [opp]="opps" (onReplySubmitted)="addToReplies($event)"></app-opp-detail-comment>
+						</div>
+					</div>
 				</div>
-				<input autocomplete="off" spellcheck="false" class="opp-new-comment-input" placeholder="Have a question regarding the Opportunity?">
+			</div>
+			<div class="opp-recc-container">
+				<label class="opp-recc-label">Similar Opportunities</label>
+				<div class="opps-list">
+					<div class="opp-card-container" *ngFor="let opportunity of recc_opps | slice:0:10">
+						<app-opps-card [opps]="opportunity"></app-opps-card>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

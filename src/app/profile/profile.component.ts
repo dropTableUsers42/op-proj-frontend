@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, AfterViewChecked
     this.user = this.authService.currentUserValue;
     this.backendService.getMe().subscribe(user => {
       this.user = user;
-      this.wishlist = user['wishlist']['opportunities'];
+      this.wishlist = user['wishlist'];
       this.wishlist.map(opp => {
         opp.domain = opp['domain']['type'];
       });

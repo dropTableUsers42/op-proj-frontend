@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const uiModules = [
   MatSidenavModule,
@@ -12,7 +13,8 @@ const uiModules = [
   MatButtonModule,
   MatToolbarModule,
   MatButtonToggleModule,
-  MatSelectModule
+  MatSelectModule,
+  MatProgressSpinnerModule
 ];
 
 @NgModule({

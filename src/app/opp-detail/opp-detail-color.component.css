@@ -2,22 +2,34 @@
 	background-color: #05905F;
 }
 
-.opp-detailed-container.core {
-	background-color: #D4E9E2;
-}
-
 .opp-title-container.it {
 	background-color: #FF9D63;
 }
 
-.opp-detailed-container.it {
-	background-color: #FAECDE;
+.opp-detailed-container {
+	background-color: #F9F9F9;
 }
 
-.core .opp-interested-button.interested {
+.core .opp-interested-button.interested, .core .opp-interested-number.interested {
 	color: #05905F;
 }
 
-.it .opp-interested-button.interested {
+.it .opp-interested-button.interested, .it .opp-interested-number.interested {
 	color: #FF9D63;
+}
+
+.it .opp-main-details-container {
+	background-color: #FAECDE;
+}
+
+.it .opp-deadline-label, .it .opp-location-label, .it .opp-date-label, .it .opp-deadline, .it .opp-location, .it .opp-date, .it .opp-country, .it .opp-tag, .it .opp-about-container {
+	color: #FF9D63;
+}
+
+.it .opp-location-divider {
+	border-top: 1px solid #FF9D63;
+}
+
+.it .opp-tag {
+	border: 1px solid #FF9D63;
 }

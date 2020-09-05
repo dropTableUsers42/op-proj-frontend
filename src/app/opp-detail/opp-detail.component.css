@@ -42,14 +42,6 @@ p {
 	padding-bottom: 65px;
 }
 
-.opp-detailed-container {
-	padding-top: 125px;
-	padding-right: 60px;
-	padding-left: 60px;
-
-	padding-bottom: 40px;
-}
-
 .opp-name-org-image-container {
 	display: flex;
 	flex-direction: row;
@@ -121,12 +113,12 @@ p {
 
 }
 
-.opp-interested-button.not-interested {
+.opp-interested-button.not-interested, .opp-interested-number.not-interested {
 	color: #F9F9F9;
 	background-color: transparent;
 }
 
-.opp-interested-button.interested {
+.opp-interested-button.interested, .opp-interested-number.interested{
 	background-color: #F9F9F9;
 }
 
@@ -137,7 +129,6 @@ p {
 .opp-interested-number {
 
 	margin-left: 20px;
-	background-color: transparent;
 
 	height: 37px;
 	width: 37px;
@@ -150,8 +141,6 @@ p {
 	font-weight: 600;
 	font-size: 18px;
 	line-height: 19px;
-
-	color: #F9F9F9;
 }
 
 .opp-image-container {
@@ -173,7 +162,6 @@ p {
 
 .opp-domain-type-container {
 	width: 100%;
-	margin-top: 145px;
 }
 
 .opp-domain-type {
@@ -189,6 +177,149 @@ p {
 
 /****************************************/
 
+.opp-detailed-container {
+	padding-top: 93px;
+	padding-right: 60px;
+	padding-left: 60px;
+
+	padding-bottom: 40px;
+}
+
+.opp-main-details-container {
+	min-height: calc(100vh - 158px);
+
+	margin-bottom: 63px;
+
+	border-radius: 25px;
+
+	padding-top: 45px;
+
+	padding-right: 92px;
+	padding-left: 92px;
+	padding-bottom: 47px;
+}
+
+.opp-deadline-loc-date-container {
+	display: flex;
+	flex-direction: row;
+
+	padding-right: 39px;
+	padding-left: 39px;
+}
+
+.opp-deadline-container {
+	width: 30%;
+}
+
+.opp-deadline-label, .opp-location-label, .opp-date-label {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 117.5%;
+
+	width: 100%;
+	text-align: center;
+}
+
+.opp-deadline, .opp-date {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 117.5%;
+
+	width: 100%;
+	text-align: center;
+
+	margin-top: 21px;
+}
+
+.opp-location {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 48px;
+	line-height: 117.5%;
+
+	width: 100%;
+	text-align: center;
+
+	margin-top: 7px;
+}
+
+.opp-location-divider {
+
+	margin-top: 9px;
+	margin-bottom: 0px;
+
+	width: 15.4%;
+}
+
+.opp-country {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 117.5%;
+
+	width: 100%;
+	text-align: center;
+
+	margin-top: 6px;
+}
+
+.opp-location-container {
+	width: 40%;
+}
+
+.opp-date-container {
+	width: 30%;
+}
+
+.opp-tags-container {
+	display: flex;
+	flex-direction: row;
+
+	justify-content: center;
+
+	margin-top: 25px;
+}
+
+.opp-tag {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 117.5%;
+	/* or 15px */
+
+	text-align: center;
+
+	border-radius: 55px;
+
+	padding-top: 3px;
+	padding-left: 11px;
+	padding-right: 11px;
+	padding-bottom: 3px;
+
+	margin-left: 7px;
+}
+
+.opp-about-container {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 117.5%;
+
+	text-align: center;
+	width: 100%;
+
+	margin-top: 70px;
+}
+
+/*
 .opp-top-divider, .opp-middle-divider, .opp-thread-divider {
 
 	float: left;
@@ -238,7 +369,9 @@ p {
 	margin-top: 45px;
 }
 
-.opp-testimonial-label, .opp-thread-label {
+*/
+
+.opp-testimonial-label, .opp-thread-label, .opp-recc-label {
 
 	margin-top: 20px;
 	font-family: Poppins;
@@ -246,6 +379,11 @@ p {
 	font-weight: 500;
 	font-size: 24px;
 	line-height: 24px;
+}
+
+.opp-thread-label, .opp-recc-label {
+	margin-top: 0px;
+	margin-bottom: 10px;
 }
 
 .opp-testimonial-container {
@@ -271,12 +409,19 @@ p {
 	color: #181918;
 }
 
-.opp-thread-divider {
-	margin-top: 45px;
+.opp-comments-recc-container {
+	display: flex;
+	flex-direction: row;
 }
 
 .opp-comments-container {
-	width: 723px;
+	width: 62.3%;
+
+	margin-top: 50px;
+}
+
+.opp-recc-container {
+	margin-top: 50px;
 }
 
 .opp-new-comment-container {
@@ -320,4 +465,45 @@ p {
 	line-height: 14px;
 
 	color: #181918;
+}
+
+.opp-parent-comment {
+	margin-top: 20px;
+}
+
+.opp-child-comment {
+	margin-top: 10px;
+	margin-left: 31px;
+}
+
+.opp-recc-container {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+
+	align-content: flex-end;
+}
+
+.opp-recc-label {
+	text-align: right;
+}
+
+/***********************************************/
+
+.opps-list {
+	display: flex;
+	flex-flow: column;
+	align-items: flex-end;
+
+	flex-grow: 1;
+}
+
+.opp-card-container {
+	margin-bottom: 20px;
+
+	height: 147px;
+	width: calc((100vw - 180px - 3 * 27px)/4);
+	min-width: calc((100vw - 180px - 3 * 27px)/4);
+
+	font-size: 24px;
 }

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../_models/user.model';
-import { Opps } from '../_models/opps.model';
-import { Observable } from 'rxjs';
+import { Opps, Comment } from '../_models/opps.model';
+import { Observable, ObservedValueOf } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 
@@ -57,10 +57,10 @@ export class BackendService {
       }));
   }
 
-  public searchOpps(searchstring, domain): Observable<Opps[]> {
+  public searchOpps(searchstring, domain = null): Observable<Opps[]> {
 
     let params = new HttpParams().set("name",searchstring);
-    if(domain !== undefined)
+    if(domain !== undefined && domain != null)
     {
       params = params.append("domain", domain);
     }
@@ -111,6 +111,26 @@ export class BackendService {
 
   public deleteOppsFromWishlist(slug) : Observable<Opps[]> {
     return this.httpClient.delete<Opps[]>("https://the-op.herokuapp.com/me/wishlist/".concat(slug));
+  }
+
+  public addComment(oppSlug, data, parent=null) : Observable<Comment> {
+    let body = {'data': data};
+    if(parent != null)
+    {
+      body['parent'] = parent;
+    }
+    return this.httpClient.post<Comment>("https://the-op.herokuapp.com/opportunity/".concat(oppSlug).concat("/comment"), body=body);
+  }
+
+  public getReccomendations(slug) : Observable<Opps[]> {
+    return this.httpClient.get<Opps[]>("https://the-op.herokuapp.com/opportunity/".concat(slug).concat("/recommendations")).pipe(map(
+      opps => {
+        opps.map(opp => {
+          opp.domain = opp['domain']['type'];
+        });
+        return opps;
+      }
+    ));
   }
 
 }
