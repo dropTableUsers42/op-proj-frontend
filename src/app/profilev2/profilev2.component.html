@@ -29,7 +29,7 @@
 				</div>
 			</div>
 		</div>
-		<div *ngIf="user?.hasCompletedRegistration" class="profile-about-container">
+		<div *ngIf="user?.hasCompletedRegistration && user?.bio?.length > 0" class="profile-about-container">
 			<div class="about-container">
 				<label class="about-label">About</label><br>
 				<p class="about-content">{{user?.bio}}</p>
@@ -38,12 +38,7 @@
 		<div class="profile-domains-container">
 			<div class="domains-container">
 				<mat-button-toggle-group disabled multiple name="domain-choice" aria-label="Domain Choice">
-					<mat-button-toggle class="core" value="Core">Core</mat-button-toggle>
-					<mat-button-toggle class="it" value="IT">IT/Coding</mat-button-toggle>
-					<mat-button-toggle class="consulting" value="consulting">Consulting</mat-button-toggle>
-					<mat-button-toggle class="ent" value="ent">Entrepeneurship</mat-button-toggle>
-					<mat-button-toggle class="finance" value="finance">Finance</mat-button-toggle>
-					<mat-button-toggle class="socdev" value="socdev">SocDev & Policy</mat-button-toggle>
+					<mat-button-toggle *ngFor="let domain of domain_prefs" class="{{domain}}" value="{{domain}}">{{domain_prefs_list[domain]}}</mat-button-toggle>
 				</mat-button-toggle-group>
 			</div>
 		</div>

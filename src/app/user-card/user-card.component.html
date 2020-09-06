@@ -10,8 +10,12 @@
 		<div class="user-year">
 			<p *ngIf="user?.year">{{user?.year | toNth}} year</p>
 		</div>
-		<div *ngIf="follow_hidden" class="follow-button-container">
-			<button [ngClass]="followed_class" (click)="onFollowClick($event)"><span>{{follow_string}}</span></button>
+		<div class="follow-button-container">
+			<div class="domain-prefs">
+				<div *ngFor="let domain of domain_prefs" class="domain-pref-circ {{domain}}">
+				</div>
+			</div>
+			<button *ngIf="follow_hidden" [ngClass]="followed_class" (click)="onFollowClick($event)"><span>{{follow_string}}</span></button>
 		</div>
 	</div>
 </div>

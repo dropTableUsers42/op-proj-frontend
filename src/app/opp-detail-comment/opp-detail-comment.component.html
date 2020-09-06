@@ -7,8 +7,11 @@
 			<div class="comment-text">
 				<b>{{comment.user.name}}</b> {{comment.data}}
 			</div>
-			<div class="comment-reply" (click)="replying = !replying">
-				<div class="reply-link">
+			<div class="comment-reply">
+				<div class="time-link">
+					{{comment.createdAt }}
+				</div>
+				<div class="reply-link" (click)="replying = !replying">
 					{{replying ? 'Close':'Reply'}}
 				</div>
 			</div>

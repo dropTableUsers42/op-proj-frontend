@@ -14,6 +14,7 @@ export class OppsCardComponent implements OnInit {
 
 @Input('opps') public opportunity: Opps;
 @Input('interest') public showInterested: boolean = true;
+@Input('type') public cardType: string = 'search';
 
 	constructor(private router: Router, private backendService: BackendService) {
 	}
@@ -40,6 +41,7 @@ export class OppsCardComponent implements OnInit {
 	get main_class() {
 		let ret={'opps-card': true};
 		ret[this.domain_page_style[this.opportunity.domain]] = true;
+		ret[this.cardType] = true;
 		return ret;
 	}
 

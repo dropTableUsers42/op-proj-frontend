@@ -14,7 +14,7 @@
 			<div *ngFor="let user of user_list" class="follow-container">
 				<div class="icon-container"><a routerLink="{{'/profilev2/' + user.username}}" (click)="close()"><img class="reg-icon"></a></div>
 				<div class="name-container"><div><a routerLink="{{'/profilev2/' + user.username}}" (click)="close()">{{user.name}}</a></div></div>
-				<button [ngClass]="followed_class(user)" (click)="onFollowClick($event)"><span>{{follow_string(user)}}</span></button>
+				<button *ngIf="show_followed(user)" [ngClass]="followed_class(user)" (click)="onFollowClick(user)"><span>{{follow_string(user)}}</span></button>
 			</div>
 		</div>
 	</div>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ScrollService } from '../_services/scroll.service';
 import { PageStyleService } from '../_services/page-style.service';
 import { AuthService } from '../_services/auth.service';
+import { InterestedService } from '../_services/interested.service';
 import {
 	trigger,
 	state,
@@ -77,6 +78,8 @@ export class HeaderComponent implements OnInit {
 
   scrolled: boolean;
 
+  shakeState: boolean = true;
+
   get header_trigger() {
     if(this.page_style == 'home')
     {
@@ -144,7 +147,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() onSidenavToggle: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private router: Router, private scrollService: ScrollService, private pageStyleService: PageStyleService, private authService: AuthService) { }
+  constructor(private router: Router, private scrollService: ScrollService, private pageStyleService: PageStyleService, private authService: AuthService, private interestedService: InterestedService) { }
 
   ngOnInit(): void {
     this.scrolled = false;
@@ -154,6 +157,9 @@ export class HeaderComponent implements OnInit {
     this.pageStyleService.events$.subscribe(ps => {
       this.page_style = ps;
       this.scrolled = false;
+    });
+    this.interestedService.events$.subscribe(ic => {
+      this.shakeState = !this.shakeState;
     })
   }
 

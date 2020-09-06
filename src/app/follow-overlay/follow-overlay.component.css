@@ -143,6 +143,8 @@ a:link, a:visited, a:hover, a:active {
 	line-height: 117.5%;
 
 	text-align: center;
+
+	min-width: 105px;
 }
 
 .follow-button.followed {

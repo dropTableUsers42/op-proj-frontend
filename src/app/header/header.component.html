@@ -13,7 +13,7 @@
 				<span class="align-helper"></span><img class="reg-icon">
 			</div>
 			<div class="profile-wishlist-container">
-				<span class="align-helper"></span><p class="wishlist" (click)="wishlist_link()">{{wishlist}}</p>
+				<span class="align-helper"></span><p [ngClass]="{'wishlist': true, 'shake1': shakeState, 'shake2': !shakeState}" (click)="wishlist_link()">{{wishlist}}</p>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../_models/user.model';
+import { AuthService } from '../_services/auth.service';
+import { BackendService } from '../_services/backend.service';
 
 @Component({
   selector: 'app-follow-overlay',
@@ -16,7 +18,7 @@ export class FollowOverlayComponent implements OnInit {
 
   @Output() onClose: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private authService: AuthService, private backendService: BackendService) { }
 
   ngOnInit(): void {
   }
@@ -29,7 +31,16 @@ export class FollowOverlayComponent implements OnInit {
     event.stopPropagation();
   }
 
-  followed_class(user) {
+  followed_class(user : User) {
+    user.isFollowed = false;
+    for(let user1 of this.authService.currentUserValue.following)
+    {
+      if(user1.username == user.username)
+      {
+        user.isFollowed = true;
+        break;
+      }
+    }
     return {
       "follow-button": true,
       "followed": user.isFollowed,
@@ -37,8 +48,35 @@ export class FollowOverlayComponent implements OnInit {
     }
   }
 
+  show_followed(user: User) {
+    if(user.username == this.authService.currentUserValue.username)
+    {
+      return false;
+    }
+    return true;
+  }
+
   follow_string(user) {
     return user.isFollowed ? 'Following' : 'Follow';
+  }
+
+  onFollowClick(user : User) {
+    if(user.isFollowed)
+    {
+      this.backendService.unfollow(user.username).subscribe(fl => {
+        let currentUser = this.authService.currentUserValue;
+        currentUser.following = fl;
+        this.authService.updateUser(currentUser);
+      })
+    }
+    else
+    {
+      this.backendService.follow(user.username).subscribe(fl => {
+        let currentUser = this.authService.currentUserValue;
+        currentUser.following = fl;
+        this.authService.updateUser(currentUser);
+      })
+    }
   }
 
 }

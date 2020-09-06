@@ -8,16 +8,50 @@ import { ToNthPipe } from '../_pipes/to-nth.pipe'
 @Component({
   selector: 'app-user-card',
   templateUrl: './user-card.component.html',
-  styleUrls: ['./user-card.component.css']
+  styleUrls: ['./user-card.component.css',
+            './user-card-colors.component.css']
 })
 export class UserCardComponent implements OnInit {
 
   @Input('user') public user: User;
 
   constructor(private router: Router, private authService: AuthService, private backendService: BackendService) {
-   }
+  }
+
+  domain_prefs_api = {
+    'Core': 'core',
+    'IT': 'it',
+    'Consulting': 'consult',
+    'Entrepreneurship': 'ent',
+    'Finance': 'fin',
+    'SocDev-and-Policy': 'socdev',
+  }
+
+  domain_prefs_list = {
+    'core': 'Core',
+    'it': 'IT',
+    'consult': 'Consulting',
+    'ent': 'Entrepreneurship',
+    'fin': 'Finance',
+    'socdev': 'Socdev & Policy'
+  };
+
+  domain_prefs = [
+    'core',
+    'it',
+    'consult',
+    'ent',
+    'fin',
+    'socdev'
+  ]
 
   ngOnInit(): void {
+    this.domain_prefs = [];
+    for(let domain in this.user.domains)
+    {
+      if(this.user.domains[domain])
+        this.domain_prefs.push(this.domain_prefs_api[domain]);
+    }
   }
 
   get follow_hidden() {

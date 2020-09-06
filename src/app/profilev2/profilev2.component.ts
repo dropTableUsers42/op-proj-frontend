@@ -49,6 +49,33 @@ export class Profilev2Component implements OnInit {
     }
   }
 
+  domain_prefs_api = {
+    'Core': 'core',
+    'IT': 'it',
+    'Consulting': 'consult',
+    'Entrepreneurship': 'ent',
+    'Finance': 'fin',
+    'SocDev-and-Policy': 'socdev',
+  }
+
+  domain_prefs_list = {
+    'core': 'Core',
+    'it': 'IT',
+    'consult': 'Consulting',
+    'ent': 'Entrepreneurship',
+    'fin': 'Finance',
+    'socdev': 'Socdev & Policy'
+  };
+
+  domain_prefs = [
+    'core',
+    'it',
+    'consult',
+    'ent',
+    'fin',
+    'socdev'
+  ]
+
   constructor(private backendService: BackendService, private actRoute: ActivatedRoute, private router: Router, private authService: AuthService, private pageStyleService: PageStyleService) {
     this.pageStyleService.newEvent('home');
   }
@@ -62,6 +89,14 @@ export class Profilev2Component implements OnInit {
       this.backendService.getUser(val.slug).subscribe(user => {
         this.user = user;
         this.followed = this.isFollowed;
+        this.domain_prefs = [];
+        for(let domain in this.user.domains)
+        {
+          if(this.user.domains[domain])
+          {
+            this.domain_prefs.push(this.domain_prefs_api[domain]);
+          }
+        }
         this.wishlist = user['wishlist'];
         this.wishlist.map(opp => {
           opp.domain = opp['domain']['type'];

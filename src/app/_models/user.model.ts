@@ -23,4 +23,6 @@ export class User {
 	pursued: Opps[];
 
 	isFollowed: boolean;
+
+	domains;
 }

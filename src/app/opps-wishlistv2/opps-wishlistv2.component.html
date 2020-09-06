@@ -8,7 +8,7 @@
 		</div>
 		<div class="opps-list">
 			<div [ngClass]="{'opp-card-container': true, 'opp-card-first': first}" *ngFor="let opportunity of opportunity_list; let first=first; let i=index" id="{{'card' + i}}">
-				<app-opps-card [opps]="opportunity"></app-opps-card>
+				<app-opps-card [opps]="opportunity" [type]="'wishlistv2'"></app-opps-card>
 			</div>
 		</div>
 		<div class="right-arrow-container" (click)="right()">

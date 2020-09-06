@@ -17,10 +17,10 @@
 	<p class="opps-org" [style.color]="getMainColor()">
 		{{opportunity.Organiser}}
 	</p>
-	<p class="opps-location" [style.color]="getMainColor()">
+	<p *ngIf="cardType != 'wishlistv2' && cardType != 'recc'" class="opps-location" [style.color]="getMainColor()">
 		{{opportunity.Location}}
 	</p>
-	<p class="opps-duration" [style.color]="getMainColor()">
+	<p *ngIf="cardType != 'wishlistv2' && cardType != 'recc'" class="opps-duration" [style.color]="getMainColor()">
 		{{opportunity.Deadline_Reg || ''}}
 	</p>
 </div>

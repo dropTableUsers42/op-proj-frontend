@@ -19,11 +19,38 @@ export class ProfileComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   user: User;
 
-  wishlist: Opps[];
+  wishlist: Opps[] = [];
 
   overlayShow: boolean = false;
 
   overlayType: string;
+
+  domain_prefs_api = {
+    'Core': 'core',
+    'IT': 'it',
+    'Consulting': 'consult',
+    'Entrepreneurship': 'ent',
+    'Finance': 'fin',
+    'SocDev-and-Policy': 'socdev',
+  }
+
+  domain_prefs_list = {
+    'core': 'Core',
+    'it': 'IT',
+    'consult': 'Consulting',
+    'ent': 'Entrepreneurship',
+    'fin': 'Finance',
+    'socdev': 'Socdev & Policy'
+  };
+
+  domain_prefs = [
+    'core',
+    'it',
+    'consult',
+    'ent',
+    'fin',
+    'socdev'
+  ]
 
   private fragment: string;
 
@@ -39,6 +66,14 @@ export class ProfileComponent implements OnInit, AfterViewInit, AfterViewChecked
       this.wishlist.map(opp => {
         opp.domain = opp['domain']['type'];
       });
+      this.domain_prefs = [];
+      for(let domain in this.user.domains)
+      {
+        if(this.user.domains[domain])
+        {
+          this.domain_prefs.push(this.domain_prefs_api[domain]);
+        }
+      }
     })
     this.actRoute.fragment.subscribe(frag => {this.fragment = frag});
   }

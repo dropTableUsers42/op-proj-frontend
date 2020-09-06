@@ -22,6 +22,13 @@
 	font-style: normal;
 
 	line-height: 0px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.wishlist.opps-card, .wishlistv2.opps-card {
+	box-shadow: 0px 8px 14px rgba(18, 18, 18, 0.4);
 }
 
 .opps-type-interest-container {
@@ -107,6 +114,10 @@
 	display: -webkit-box;
 	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
+}
+
+.wishlistv2 .opps-name, .recc .opps-name {
+	flex-grow: 1;
 }
 
 .opps-org {

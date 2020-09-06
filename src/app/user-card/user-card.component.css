@@ -84,14 +84,36 @@ p {
 	color: #181918;
 
 	flex-grow: 1;
+
+	margin-top: 5px;
+
 }
 
 .follow-button-container {
 	height: 18%;
+
+	display: flex;
+	flex-direction: row;
+}
+
+.domain-prefs {
+	flex-grow: 1;
+
+	display: flex;
+	flex-direction: row;
+}
+
+.domain-pref-circ {
+
+	height: 17px;
+	width: 17px;
+
+	border-radius: 17px;
+
+	margin-right: 6px;
 }
 
 .follow-button {
-	float: right;
 	height: 100%;
 
 	min-width: 28%;
@@ -110,8 +132,8 @@ p {
 
 .follow-button.followed {
 	border: 1px solid #181918;
-	background-color: transparent;
-	color: #181918;
+	background-color: #181918;
+	color: #F9F9F9;
 }
 
 .follow-button.followed:hover {

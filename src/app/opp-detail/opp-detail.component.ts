@@ -3,8 +3,8 @@ import { Opps } from '../_models/opps.model';
 import { BackendService } from '../_services/backend.service';
 import { AuthService } from '../_services/auth.service';
 import { PageStyleService } from '../_services/page-style.service';
+import { InterestedService } from '../_services/interested.service';
 import { ActivatedRoute } from '@angular/router';
-import { Comment } from '@angular/compiler';
 import { FormGroup, FormControl } from '@angular/forms';
 import { User } from '../_models/user.model';
 
@@ -80,7 +80,7 @@ export class OppDetailComponent implements OnInit {
     data: new FormControl('')
   })
 
-  constructor(private actRoute: ActivatedRoute, private backendService: BackendService, private pageStyleService: PageStyleService, private authService: AuthService) { }
+  constructor(private actRoute: ActivatedRoute, private backendService: BackendService, private pageStyleService: PageStyleService, private authService: AuthService, public interestedService: InterestedService) { }
 
   fill_comments() {
     this.comment_dict = {};
@@ -96,11 +96,9 @@ export class OppDetailComponent implements OnInit {
         this.opps = opp;
         this.page_style = this.get_page_style[this.opps.domain];
         this.pageStyleService.newEvent(this.page_style);
-        this.opps.Testimonial = "Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description.Lorem ipsum description blah blah blah random hello description description Lorem Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description.Lorem ipsum description blah blah blah rand. Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description.Lorem ipsum description blah blah blah";
 
         this.backendService.getReccomendations(this.opps.slug).subscribe(reccs => {
           this.recc_opps = reccs;
-          console.log(reccs);
         })
         this.fill_comments();
       })
@@ -118,6 +116,7 @@ export class OppDetailComponent implements OnInit {
   }
 
   interestedClick() {
+    this.interestedService.newEvent('detail');
     if(this.opps)
     { 
       if(this.opps.isInWishlist)

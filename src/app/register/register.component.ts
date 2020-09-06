@@ -32,6 +32,15 @@ export class RegisterComponent implements OnInit {
     this.pageStyleService.newEvent('home');
   }
 
+  domain_prefs_api = {
+    'Core': 'core',
+    'IT': 'it',
+    'Consulting': 'consult',
+    'Entrepreneurship': 'ent',
+    'Finance': 'fin',
+    'SocDev-and-Policy': 'socdev',
+  }
+
   ngOnInit(): void {
     this.user = this.authService.currentUserValue;
     this.profileForm.patchValue({
@@ -41,14 +50,37 @@ export class RegisterComponent implements OnInit {
       branch: this.user.branch,
       bio: this.user.bio,
     });
+    let domain_prefs = [];
+    for(let domain in this.user.domains)
+    {
+      if(this.user.domains[domain])
+        domain_prefs.push(this.domain_prefs_api[domain]);
+    }
+    this.profileForm.patchValue({
+      domainForm: {domains: domain_prefs}
+    })
   }
 
   onSubmit() {
-    console.log(this.profileForm.value.domainForm.domains);
+    let domainBody = this.domain_prefs_api;
+    for(let domain in this.domain_prefs_api)
+    {
+      if(this.profileForm.value.domainForm.domains.includes(this.domain_prefs_api[domain]))
+      {
+        domainBody[domain] = true;
+      }
+      else
+      {
+        domainBody[domain] = false;
+      }
+    }
     delete this.profileForm.value.domainForm;
     this.backendService.patchUser(this.profileForm.value).subscribe((user: User)=>{
       this.user = user;
-      this.router.navigate(["/profile"]);
+      this.backendService.addDomainPref(domainBody).subscribe((user: User) => {
+        this.user = user;
+        this.router.navigate(["/profile"]);
+      })
     })
   }
 

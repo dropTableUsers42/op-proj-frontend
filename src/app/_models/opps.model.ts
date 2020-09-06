@@ -44,4 +44,5 @@ export class Comment {
 	public user: User;
 	public parent: string;
 	public data: string;
+	public createdAt: Date;
 }

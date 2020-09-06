@@ -74,12 +74,12 @@ export class BackendService {
     }));
   }
 
-  public follow(username) {
-    return this.httpClient.post("https://the-op.herokuapp.com/me/follow", {"username": username});
+  public follow(username) : Observable<User[]>{
+    return this.httpClient.post<User[]>("https://the-op.herokuapp.com/me/follow", {"username": username});
   }
 
-  public unfollow(username) {
-    return this.httpClient.post("https://the-op.herokuapp.com/me/unfollow", {"username": username});
+  public unfollow(username) : Observable<User[]>{
+    return this.httpClient.post<User[]>("https://the-op.herokuapp.com/me/unfollow", {"username": username});
   }
 
   public searchUser(searchstring) : Observable<User[]> {
@@ -131,6 +131,17 @@ export class BackendService {
         return opps;
       }
     ));
+  }
+
+  public addDomainPref(domainBody) : Observable<User> {
+    console.log(domainBody);
+    return this.httpClient.post<User>("https://the-op.herokuapp.com/me/domains/", {"domains": domainBody}).pipe(map(user => {
+      user = user['user'];
+      user.college = user['college']['type'];
+      user.domains = domainBody;
+      this.authService.updateUser(user);
+      return user;
+    }));
   }
 
 }

@@ -93,8 +93,8 @@
 			<div class="opp-recc-container">
 				<label class="opp-recc-label">Similar Opportunities</label>
 				<div class="opps-list">
-					<div class="opp-card-container" *ngFor="let opportunity of recc_opps | slice:0:10">
-						<app-opps-card [opps]="opportunity"></app-opps-card>
+					<div class="opp-card-container" *ngFor="let opportunity of recc_opps | slice:0:6">
+						<app-opps-card [opps]="opportunity" [type]="'recc'"></app-opps-card>
 					</div>
 				</div>
 			</div>
