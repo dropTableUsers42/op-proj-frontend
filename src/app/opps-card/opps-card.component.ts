@@ -6,8 +6,8 @@ import { BackendService } from '../_services/backend.service'
 @Component({
 	selector: 'app-opps-card',
 	templateUrl: './opps-card.component.html',
-	styleUrls: ['./opps-card.component.css',
-				'./opps-card-colors.component.css']
+	styleUrls: ['./opps-card.component.scss',
+				'./opps-card-colors.component.scss']
 })
 export class OppsCardComponent implements OnInit {
 

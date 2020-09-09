@@ -18,8 +18,8 @@ import {
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css',
-  './header-colors.component.css'],
+  styleUrls: ['./header.component.scss',
+  './header-colors.component.scss'],
   animations: [
 		trigger('headerColor', [
 			state('default', style({

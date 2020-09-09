@@ -4,7 +4,7 @@ import { Opps } from '../_models/opps.model';
 @Component({
   selector: 'app-opps-wishlistv2',
   templateUrl: './opps-wishlistv2.component.html',
-  styleUrls: ['./opps-wishlistv2.component.css']
+  styleUrls: ['./opps-wishlistv2.component.scss']
 })
 export class OppsWishlistv2Component implements OnInit, OnChanges {
 

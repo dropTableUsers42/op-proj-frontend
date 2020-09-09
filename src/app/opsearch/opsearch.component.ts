@@ -19,8 +19,8 @@ import {
 @Component({
 	selector: 'app-opsearch',
 	templateUrl: './opsearch.component.html',
-	styleUrls: ['./opsearch.component.css',
-							'./opsearch-colors.component.css'],
+	styleUrls: ['./opsearch.component.scss',
+				'./opsearch-colors.component.scss'],
 	animations: [
 		trigger('shadowTrigger', [
 			state('hasShadow', style({

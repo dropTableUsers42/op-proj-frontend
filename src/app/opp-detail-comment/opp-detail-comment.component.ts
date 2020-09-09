@@ -6,7 +6,7 @@ import { BackendService } from '../_services/backend.service';
 @Component({
   selector: 'app-opp-detail-comment',
   templateUrl: './opp-detail-comment.component.html',
-  styleUrls: ['./opp-detail-comment.component.css']
+  styleUrls: ['./opp-detail-comment.component.scss']
 })
 export class OppDetailCommentComponent implements OnInit {
 
