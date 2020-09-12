@@ -121,6 +121,8 @@ label {
 .otp-button-container {
 	display: flex;
 	flex-direction: row-reverse;
+
+	width: 100%;
 }
 
 .otp-send-button, .otp-enter-button, .otp-resend-button {
