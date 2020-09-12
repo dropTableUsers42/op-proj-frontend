@@ -5,8 +5,8 @@
 
 .page-container {
 	width: 100%;
-	height: calc(100% + 90px);
-	padding-top: 60px;
+	height: calc(200%);
+	padding-top: calc(60px + 12px);
 
 	padding-left: 45px;
 	padding-right: 45px;
@@ -17,6 +17,12 @@
 	overflow-y: hidden;
 }
 
+@media screen and (max-width: 600px) {
+	.page-container {
+		padding-top: calc(60px + 5px);
+	}
+}
+
 .transform-container {
 	height: 100%;
 }
@@ -24,8 +30,6 @@
 .domain-container {
 
 	pointer-events: none;
-
-	padding-top: 12px;
 
 	z-index: 2;
 }
@@ -44,6 +48,21 @@
 	padding-top: 13px;
 	padding-left: 45px;
 	padding-right: 45px;
+
+	margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+
+	.domain {
+		font-size: 40px;
+		line-height: 50px;
+	}
+	.search-container {
+		padding-top: 5px;
+		padding-left: 7px;
+		padding-right: 7px;
+	}
 }
 
 .search-bar {
@@ -55,7 +74,15 @@
 	padding-right: 10px;
 
 	display: flex;
+}
 
+@media screen and (max-width: 600px) {
+	.search-bar {
+
+		padding-left: 10px;
+		padding-right: 4px;
+		height: 30px;
+	}
 }
 
 .search-icon {
@@ -68,6 +95,21 @@
 	
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+	.search-icon {
+
+		width: 16px;
+		height: 16px;
+
+		font-size: 18px;
+
+		line-height: 16px;
+
+		margin-top: 7px;
+		margin-bottom: 7px;
+	}
 }
 
 .search-input {
@@ -87,6 +129,13 @@
 	line-height: 40px;
 
 	min-width: 0px;
+}
+
+@media screen and (max-width: 600px) {
+	.search-input {
+		font-size: 18px;
+		line-height: 30px;
+	}
 }
 
 .search-type-toggle {
@@ -126,9 +175,20 @@ mat-button-toggle {
 	padding: 10px !important;
 }
 
+@media screen and (max-width: 600px) {
+	mat-button-toggle {
+		height: 22px;
+	}
+
+	::ng-deep .search-container .mat-button-toggle-label-content {
+		font-size: 12px;
+		line-height: 16px;
+	}
+}
+
 .filter-container {
 
-	margin-top: 15px;
+	margin-top: 5px;
 	margin-bottom: 5px;
 	display: flex;
 
@@ -254,7 +314,6 @@ mat-button-toggle {
 	padding-top: 15px;
 
 	overflow: scroll;
-	
 }
 
 .opps-list {
@@ -351,7 +410,7 @@ mat-button-toggle {
 
 	.opp-card-container {
 		margin-bottom: calc(100vw * 0.0234);
-		margin-left: calc(100vw * 0.0234);;
+		margin-left: calc(100vw * 0.0234);
 
 		width: calc((100vw - 90px - 1 * 100vw * 0.0234)/2);
 		height: calc((100vw - 90px - 1 * 100vw * 0.0234)*100/275);
@@ -363,5 +422,24 @@ mat-button-toggle {
 		width: calc((100vw - 90px));
 		height: calc(120*(100vw - 90px)/(382));
 		font-size: calc(24*(100vw - 90px)/(382));
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.opp-card-container {
+		margin-left: 20px;
+		margin-bottom: calc(100vw * 0.0234);
+		width: calc((100vw - 40px - 20px)/2);
+		height: calc((100vw - 40px - 20px)*100/275);
+		font-size: calc((100vw - 40px - 20px)*12/275);
+	}
+
+	.opps-list {
+		margin-left: -45px;
+		margin-right: -45px;
+	}
+
+	.filter-container {
+		display: none;
 	}
 }

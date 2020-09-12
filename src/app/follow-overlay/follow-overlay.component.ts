@@ -6,7 +6,7 @@ import { BackendService } from '../_services/backend.service';
 @Component({
   selector: 'app-follow-overlay',
   templateUrl: './follow-overlay.component.html',
-  styleUrls: ['./follow-overlay.component.css']
+  styleUrls: ['./follow-overlay.component.scss']
 })
 export class FollowOverlayComponent implements OnInit {
 

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../_services/auth.service';
+import { AuthService } from '../../_services/auth.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css']
+  styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
 
@@ -26,7 +26,7 @@ export class LoginFormComponent implements OnInit {
   otpForm = new FormGroup({
     login_id: new FormControl(''),
     login_otp: new FormControl(''),
-  })
+  });
 
   formState = 'send-otp';
   otp_valid: boolean = true;

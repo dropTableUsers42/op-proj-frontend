@@ -6,8 +6,8 @@ import { PageStyleService } from './_services/page-style.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css',
-              './app-colors.component.css'],
+  styleUrls: ['./app.component.scss',
+              './app-colors.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit, OnChanges{
 

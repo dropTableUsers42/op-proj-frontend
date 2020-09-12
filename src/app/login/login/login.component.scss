@@ -20,8 +20,32 @@
 	flex-direction: row;
 }
 
+@media screen and (max-width: 600px) {
+	.page-container {
+		flex-direction: column;
+	}
+}
+
 .title-container {
 	width: calc(62.9vw);
+}
+
+@media screen and (max-width: 1200px) {
+	.title-container {
+		width: calc(52.9vw);
+	}
+}
+
+@media screen and (max-width: 930px) {
+	.title-container {
+		width: calc(42.9vw);
+	}
+}
+
+@media screen and (max-width: 770px) {
+	.title-container {
+		width: calc(32.9vw);
+	}
 }
 
 .main_title {

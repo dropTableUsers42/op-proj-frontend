@@ -10,7 +10,7 @@ import { ToNthPipe } from '../_pipes/to-nth.pipe';
 @Component({
   selector: 'app-profilev2',
   templateUrl: './profilev2.component.html',
-  styleUrls: ['./profilev2.component.css']
+  styleUrls: ['./profilev2.component.scss']
 })
 export class Profilev2Component implements OnInit {
 

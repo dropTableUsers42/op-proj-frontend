@@ -12,8 +12,19 @@ label {
 	margin: 0 0;
 }
 
-:host {
-	flex-grow: 1;
+@media screen and (min-width: 600px)
+{
+	:host {
+		flex-grow: 1;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	:host {
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+	}
 }
 
 .form-container {
@@ -25,15 +36,27 @@ label {
 	max-width: 325px;
 
 	float: right;
-
 }
 
-.ref-form, .reg-form {
+@media screen and (max-width: 600px) {
+	.form-container {
+		margin: 0 auto;
+		display: inline-block;
+	}
+}
+
+.otp-form {
 	margin-top: 90px;
 
 }
 
-.ref-code-label, .reg-label {
+@media screen and (max-width: 600px) {
+	.otp-form {
+		margin-top: 7vw;
+	}
+}
+
+.otp-login-label {
 
 	font-family: Poppins;
 	font-style: normal;
@@ -44,14 +67,37 @@ label {
 
 	text-align: right;
 
-	float: right;
 
 	color: #FFFFFF;
 
 	margin: 0 0;
 }
 
-.ref-code-id, .ref-code-code, .reg-name, .reg-username, .reg-otp {
+.otp-id-change-container {
+	width: 100%;
+
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: right;
+}
+
+.otp-login-change {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 14px;
+
+	text-align: right;
+
+	color: #FFFFFF;
+
+	margin: 0 0;
+
+	cursor: pointer;
+}
+
+.otp-login-id, .otp-login-otp {
 
 	width: 100%;
 	height: 30px;
@@ -66,15 +112,18 @@ label {
 	float: right;
 }
 
-.ref-code-code, .reg-username, .reg-otp {
+.otp-login-otp {
 
 	margin-top: 5px;
 
 }
 
-.ref-otp-send-button, .reg-button, .reg-reenter-button {
+.otp-button-container {
+	display: flex;
+	flex-direction: row-reverse;
+}
 
-	float: right;
+.otp-send-button, .otp-enter-button, .otp-resend-button {
 
 	font-family: poppins;
 	font-style: normal;
@@ -92,11 +141,11 @@ label {
 	margin-top: 8px;
 }
 
-.reg-reenter-button {
+.otp-resend-button {
 	float: left;
 }
 
-.ref-incorrect, .otp-incorrect {
+.otp-otp-incorrect, .otp-id-incorrect, .otp-otp-sent {
 
 	font-family: poppins;
 	font-style: normal;
@@ -105,21 +154,24 @@ label {
 	line-height: 14px;
 
 	margin-top: 5px;
+}
+
+.otp-otp-incorrect, .otp-id-incorrect {
 	color: #e24040;
 }
 
-.link-container {
-	width: 100%;
+.otp-otp-sent {
+	color: #6ce924;
 }
 
-.signin-link {
+.signup-link {
 	color: white;
 
 	width: 100%;
 	text-align: center;
 }
 
-.signin-link:hover {
+.signup-link:hover {
 	cursor: pointer;
 	text-decoration: underline;
 }

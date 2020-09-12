@@ -11,8 +11,8 @@ import { User } from '../_models/user.model';
 @Component({
   selector: 'app-opp-detail',
   templateUrl: './opp-detail.component.html',
-  styleUrls: ['./opp-detail.component.css', 
-          './opp-detail-color.component.css']
+  styleUrls: ['./opp-detail.component.scss', 
+          './opp-detail-color.component.scss']
 })
 export class OppDetailComponent implements OnInit {
 

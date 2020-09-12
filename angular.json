@@ -24,10 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              {
-                "input":"src/themes/def-theme.scss",
-              },
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -125,5 +122,10 @@
       }
     }
   },
-  "defaultProject": "op-app"
+  "defaultProject": "op-app",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

@@ -6,7 +6,7 @@ import { AuthService } from '../_services/auth.service'
 @Component({
   selector: 'app-opps-wishlist',
   templateUrl: './opps-wishlist.component.html',
-  styleUrls: ['./opps-wishlist.component.css']
+  styleUrls: ['./opps-wishlist.component.scss']
 })
 export class OppsWishlistComponent implements OnInit {
 

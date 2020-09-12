@@ -10,8 +10,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css',
-              './home-colors.component.css'],
+  styleUrls: ['./home.component.scss',
+              './home-colors.component.scss'],
   animations: [
     trigger('shadowTrigger', [
 			state ('hasShadow', style({
