@@ -54,17 +54,6 @@ mat-toolbar {
 	text-align: center;
 }
 
-@media screen and (max-width: 540px) {
-	.logo {
-		font-size: 24px;
-	}
-}
-@media screen and (max-width: 420px) {
-	.logo {
-		font-size: 20px;
-	}
-}
-
 .profile-container {
 	position: relative;
 	width: 30%;
@@ -126,6 +115,12 @@ mat-toolbar {
 
 	white-space: nowrap;
 	text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+	.profile-wishlist-container {
+		display: none;
+	}
 }
 
 .wishlist {

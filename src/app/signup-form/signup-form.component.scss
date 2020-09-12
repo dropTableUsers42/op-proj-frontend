@@ -12,8 +12,19 @@ label {
 	margin: 0 0;
 }
 
-:host {
-	flex-grow: 1;
+@media screen and (min-width: 600px)
+{
+	:host {
+		flex-grow: 1;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	:host {
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+	}
 }
 
 .form-container {
@@ -28,9 +39,22 @@ label {
 
 }
 
+@media screen and (max-width: 600px) {
+	.form-container {
+		margin: 0 auto;
+		display: inline-block;
+	}
+}
+
 .ref-form, .reg-form {
 	margin-top: 90px;
 
+}
+
+@media screen and (max-width: 600px) {
+	.ref-form, .reg-form {
+		margin-top: 7vw;
+	}
 }
 
 .ref-code-label, .reg-label {
@@ -63,7 +87,6 @@ label {
 
 	margin-top: 5px;
 
-	float: right;
 }
 
 .ref-code-code, .reg-username, .reg-otp {
@@ -72,9 +95,12 @@ label {
 
 }
 
-.ref-otp-send-button, .reg-button, .reg-reenter-button {
+.button-container {
+	display: flex;
+	flex-direction: row-reverse;
+}
 
-	float: right;
+.ref-otp-send-button, .reg-button, .reg-reenter-button {
 
 	font-family: poppins;
 	font-style: normal;
@@ -92,8 +118,9 @@ label {
 	margin-top: 8px;
 }
 
-.reg-reenter-button {
-	float: left;
+.reg-button {
+	text-align: right;
+	flex-grow: 1;
 }
 
 .ref-incorrect, .otp-incorrect {

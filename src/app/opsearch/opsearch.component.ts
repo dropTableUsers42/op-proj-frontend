@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Renderer2, DoCheck } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Opps } from '../_models/opps.model';
 import { User } from '../_models/user.model';
@@ -8,210 +8,196 @@ import { ScrollService } from '../_services/scroll.service';
 import { PageStyleService } from '../_services/page-style.service'
 import { AuthService } from '../_services/auth.service';
 import {
-	trigger,
-	state,
-	style,
-	animate,
-	transition,
+    trigger,
+    state,
+    style,
+    animate,
+    transition,
 } from '@angular/animations';
 
 
 @Component({
-	selector: 'app-opsearch',
-	templateUrl: './opsearch.component.html',
-	styleUrls: ['./opsearch.component.scss',
-				'./opsearch-colors.component.scss'],
-	animations: [
-		trigger('shadowTrigger', [
-			state('hasShadow', style({
-				boxShadow: '3px 6px 10px -4px rgba(0, 0, 0, 0.3)'
-			})),
-			state('hasNoShadow', style({
-				boxShadow: 'none'
-			})),
-			transition('* => *', [
-				animate('0.2s ease-in-out')
-			]),
-		]),
-		trigger('domainTransform', [
-			state('default', style({
-				transform: 'none'
-			})),
-			state('transform', style({
-				transform: 'translateY(-79px)'
-			})),
-			transition('* => *', [
-				animate('0.2s ease-in-out')
-			]),
-		]),
-		trigger('searchTransform', [
-			state('default', style({
-				transform: 'none'
-			})),
-			state('transform', style({
-				transform: 'translateY(-90px)'
-			})),
-			transition('* => *', [
-				animate('0.2s ease-in-out')
-			]),
-		]),
-	],
+    selector: 'app-opsearch',
+    templateUrl: './opsearch.component.html',
+    styleUrls: ['./opsearch.component.scss',
+                './opsearch-colors.component.scss'],
+    animations: [
+        trigger('shadowTrigger', [
+            state('hasShadow', style({
+                boxShadow: '3px 6px 10px -4px rgba(0, 0, 0, 0.3)'
+            })),
+            state('hasNoShadow', style({
+                boxShadow: 'none'
+            })),
+            transition('* => *', [
+                animate('0.2s ease-in-out')
+            ]),
+        ]),
+        trigger('domainTransform', [
+            state('default', style({
+                transform: 'none'
+            })),
+            state('transform', style({
+                transform: 'translateY(-{{translate}}px)'
+            }), {params: {translate: 67}}),
+            transition('* => *', [
+                animate('0.2s ease-in-out')
+            ]),
+        ]),
+    ],
 })
-export class OpsearchComponent implements OnInit, AfterViewInit {
+export class OpsearchComponent implements OnInit, DoCheck {
 
-	searchForm = new FormGroup({
-		searchstring: new FormControl(''),
-		searchtype: new FormControl('People')
-	})
+    pageStyle: string;
 
-	@ViewChild('scrollFrame', {static: false}) scrollFrame: ElementRef;
-	private scrollContainer: any;
-	public isScrolledToTop: boolean = true;
-	public scrollContainerHeight: number = 0;
+    searchForm = new FormGroup({
+        searchstring: new FormControl(''),
+        searchtype: new FormControl('People')
+    });
 
-	ngAfterViewInit() {
-		this.scrollContainer = this.scrollFrame.nativeElement;
-		this.isScrolledToTop = this.scrollContainer.scrollTop == 0;
-	}
+    searchTypes = [
+        'Opps',
+        'People',
+    ];
 
-	scrolled() {
-		this.isScrolledToTop = this.scrollContainer.scrollTop == 0;
-		this.scrollService.newEvent(this.isScrolledToTop);
-		if(!this.isScrolledToTop)
-		{
-			this.scrollContainerHeight = this.scrollContainer.offsetHeight + 90;
-		}
-		else
-		{
-			this.scrollContainerHeight = window.innerHeight - 190;
-		}
-	}
+    public opportunityList: Opps[] = [];
+    public userList: User[] = [];
+    public domain: string;
+    public searchstring;
 
-	search_types = [
-		{ id: 1, name: "Opps" },
-		{ id: 2, name: "People" }, 
-	]
-	search_type = this.search_types[0].id.toString();
+    public domain_links = {
+        'core': 'Core',
+        'it': 'IT',
+        'consult': 'Consulting',
+        'ent': 'Entrepreneurship',
+        'fin': 'Finance',
+        'socdev': 'SocDev-and-Policy'
+    };
 
-	public opportunity_list: Opps[] = [];
-	public user_list: User[] = [];
-	public domain: string;
-	public searchstring;
+    public domain_tags = {
+        'core': 'Core',
+        'it': 'IT',
+        'consult': 'Consulting',
+        'ent': 'Entrepreneurship',
+        'fin': 'Finance',
+        'socdev': 'SocDev-and-Policy'
+    };
 
-	public domain_links = {
-		'core': 'Core',
-		'it': 'IT',
-		'consult': 'Consulting',
-		'ent': 'Entrepreneurship',
-		'fin': 'Finance',
-		'socdev': 'SocDev-and-Policy'
-	}
+    public domain_tag: string;
 
-	public domain_tags = {
-		'core': 'Core',
-		'it': 'IT',
-		'consult': 'Consulting',
-		'ent': 'Entrepreneurship',
-		'fin': 'Finance',
-		'socdev': 'SocDev-and-Policy'
-	}
+    public get_page_style = {
+        'Core': 'core',
+        'IT': 'it',
+        'Consulting': 'consult',
+        'Entrepreneurship': 'ent',
+        'Finance': 'fin',
+        'SocDev-and-Policy': 'socdev' 
+    };
 
-	public domain_tag: string;
+    @ViewChild('scrollFrame') scrollFrame: ElementRef;
+    @ViewChild('shadowContainer') shadowContainer: ElementRef;
+    @ViewChild('domainContainer') domainContainer: ElementRef;
+    public isScrolledToTop = true;
+    public scrollContainerHeight = 0;
+    public domainTranslate = 0;
+    public frameFinalHeight = 0;
+    public isMobile = false;
 
-	public get_page_style = {
-		'Core': 'core',
-		'IT': 'it',
-		'Consulting': 'consult',
-		'Entrepreneurship': 'ent',
-		'Finance': 'fin',
-		'SocDev-and-Policy': 'socdev' 
-	}
+    ngDoCheck(): void {
+        this.isMobile = window.innerWidth <= 600;
+        this.domainTranslate = this.domainContainer?.nativeElement.offsetTop - 5;
+        this.frameFinalHeight = this.domainContainer?.nativeElement.offsetHeight + this.shadowContainer?.nativeElement.offsetHeight;
+        this.frameFinalHeight = window.innerHeight - this.frameFinalHeight;
+        if (this.scrollFrame) {
 
-	get list_class() {
-		if(this.searchForm.value['searchtype'] == 'Opps')
-		{
-			return 'opps-list';
-		}
-		else
-		{
-			return 'user-list';
-		}
-	}
+            this.isScrolledToTop = this.scrollFrame.nativeElement.scrollTop === 0;
+            this.scrollService.newEvent(this.isScrolledToTop);
 
-	page_style: string;
+            if (!this.isScrolledToTop)
+            {
+                this.scrollContainerHeight = this.frameFinalHeight;
+            }
+            else
+            {
+                this.scrollContainerHeight = this.frameFinalHeight - this.domainTranslate - 5 * (this.isMobile ? 0 : 1);
+            }
 
-	constructor(private router: Router, private actRoute: ActivatedRoute, private backendService: BackendService, private scrollService: ScrollService, private authService: AuthService, private pageStyleService: PageStyleService) {
-	}
+            this.renderer.setStyle(this.scrollFrame.nativeElement, 'height', this.scrollContainerHeight.toString().concat('px'));
+        }
+    }
 
-	get page_class() {
-		let ret_class = {'page-container': true};
-		ret_class[this.page_style] = true;
-		return ret_class;
-	}
+    scrolled(): void {
+    }
 
-	get domain_title_class() {
-		let ret_class = {'domain': true};
-		ret_class[this.page_style] = true;
-		return ret_class;
-	}
+    constructor(private router: Router,
+                private renderer: Renderer2,
+                private actRoute: ActivatedRoute,
+                private backendService: BackendService,
+                private scrollService: ScrollService,
+                private authService: AuthService,
+                private pageStyleService: PageStyleService) {}
 
-	get search_icon_class() {
-		let ret_class = {'search-icon': true};
-		ret_class[this.page_style] = true;
-		return ret_class;
-	}
+    get list_class(): {} {
+        if (this.searchForm.value.searchtype === 'Opps')
+        {
+            return 'opps-list';
+        }
+        else
+        {
+            return 'user-list';
+        }
+    }
 
-	get search_input_class() {
-		let ret_class = {'search-input': true};
-		ret_class[this.page_style] = true;
-		return ret_class;
-	}
+    get page_class(): {} {
+        const retClass = {'page-container': true};
+        retClass[this.pageStyle] = true;
+        return retClass;
+    }
 
-	ngOnInit(): void {
-		this.actRoute.params.subscribe((val => {
-			if(!(val.domain in this.domain_links))
-			{
-				this.router.navigate(['']);
-			}
-			else
-			{
-				this.user_list = [];
-				this.opportunity_list = [];
-				this.domain = this.domain_links[val.domain];
-				this.domain_tag = this.domain_tags[val.domain];
-				this.page_style = val.domain;
-				this.searchForm.patchValue({'searchstring': ''});
-				this.searchSpecific();
-				this.pageStyleService.newEvent(this.page_style);
-			}
-		}));
+    ngOnInit(): void {
+        this.actRoute.params.subscribe((val => {
+            if(!(val.domain in this.domain_links))
+            {
+                this.router.navigate(['']);
+            }
+            else
+            {
+                this.userList = [];
+                this.opportunityList = [];
+                this.domain = this.domain_links[val.domain];
+                this.domain_tag = this.domain_tags[val.domain];
+                this.pageStyle = val.domain;
+                this.searchForm.patchValue({searchstring: ''});
+                this.searchSpecific();
+                this.pageStyleService.newEvent(this.pageStyle);
+            }
+        }));
 
-		this.scrollService.newEvent(this.isScrolledToTop);
-		this.scrollContainerHeight = window.innerHeight - 246;
+        this.scrollService.newEvent(this.isScrolledToTop);
+        this.scrollContainerHeight = window.innerHeight - 246;
 
-		this.searchForm.get('searchtype').valueChanges.subscribe(val => {
-			this.searchForm.patchValue({'searchstring': ''});
-			this.searchSpecific();
-		});
-		
-	}
+        this.searchForm.get('searchtype').valueChanges.subscribe(val => {
+            this.searchForm.patchValue({searchstring: ''});
+            this.searchSpecific();
+        });
+    }
 
-	search() {
-		this.searchSpecific();
-	}
+    search(): void {
+        this.searchSpecific();
+    }
 
-	searchSpecific() {
-		if(this.searchForm.value.searchtype == 'Opps')
-		{
-			this.backendService.searchOpps(this.searchForm.value.searchstring, this.domain_tag).subscribe(list => {
-				this.opportunity_list = list;
-			})
-		}
-		else {
-			this.backendService.searchUser(this.searchForm.value.searchstring).subscribe(list => {
-				this.user_list = list;
-			})
-		}
-	}
+    searchSpecific() {
+        if(this.searchForm.value.searchtype == 'Opps')
+        {
+            this.backendService.searchOpps(this.searchForm.value.searchstring, this.domain_tag).subscribe(list => {
+                this.opportunityList = list;
+            })
+        }
+        else {
+            this.backendService.searchUser(this.searchForm.value.searchstring).subscribe(list => {
+                this.userList = list;
+            })
+        }
+    }
 
 }

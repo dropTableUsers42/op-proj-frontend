@@ -6,13 +6,15 @@
 		</div>
 		<input *ngIf="formState=='send-otp'" class="otp-login-id" type="text" id="otpid" name="otpid" placeholder="EMAIL ID" formControlName="login_id">
 		<input *ngIf="formState=='enter-otp'" class="otp-login-otp" type="password" id="otp" name="otp" placeholder="OTP" formControlName="login_otp">
-		<p *ngIf="!otp_valid" class="otp-id-incorrect">Invalid OTP</p>
-		<p *ngIf="!id_valid" class="otp-otp-incorrect">Your account does not exist, try registering!</p>
-		<p *ngIf="otp_sent" class="otp-otp-sent">OTP Sent!</p>
-		<p *ngIf="otp_resent" class="otp-otp-sent">OTP Resent!</p>
-		<input *ngIf="formState=='enter-otp'" class="otp-resend-button" type="button" (click)="resendOtp()" value="Resend OTP">
-		<input *ngIf="formState=='send-otp'" class="otp-send-button" type="submit" value="Send OTP">
-		<input *ngIf="formState=='enter-otp'" class="otp-enter-button" type="submit" value="Enter OTP">
+		<div *ngIf="!otp_valid" class="otp-id-incorrect">Invalid OTP</div>
+		<div *ngIf="!id_valid" class="otp-otp-incorrect">Your account does not exist, try registering!</div>
+		<div *ngIf="otp_sent" class="otp-otp-sent">OTP Sent!</div>
+		<div *ngIf="otp_resent" class="otp-otp-sent">OTP Resent!</div>
+		<div class="otp-button-container">
+			<input *ngIf="formState=='enter-otp'" class="otp-resend-button" type="button" (click)="resendOtp()" value="Resend OTP">
+			<input *ngIf="formState=='send-otp'" class="otp-send-button" type="submit" value="Send OTP">
+			<input *ngIf="formState=='enter-otp'" class="otp-enter-button" type="submit" value="Enter OTP">
+		</div>
 	</form>
 	<!--<form #loginform="ngForm" (ngSubmit)="signInOtp(loginform)">
 		<label class="token-login">{{token_login}}</label>

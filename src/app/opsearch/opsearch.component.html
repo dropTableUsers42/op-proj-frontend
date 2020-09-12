@@ -1,17 +1,17 @@
 <div [ngClass]="page_class">
-	<div class="domain-container" [@domainTransform]="isScrolledToTop ? 'default' : 'transform'">
-		<p [ngClass]="domain_title_class">{{domain}}</p>
+	<div class="domain-container" #domainContainer [@domainTransform]="{value: isScrolledToTop ? 'default' : 'transform', params: {translate: domainTranslate}}">
+		<p class="domain">{{domain}}</p>
 	</div>
 
-	<div class="shadow-container" [@searchTransform]="isScrolledToTop ? 'default' : 'transform'" [@shadowTrigger]="isScrolledToTop ? 'hasNoShadow' : 'hasShadow'">
+	<div class="shadow-container" #shadowContainer [@domainTransform]="{value: isScrolledToTop ? 'default' : 'transform', params: {translate: domainTranslate + 5 * (this.isMobile ? 0 : 1)}}" [@shadowTrigger]="isScrolledToTop ? 'hasNoShadow' : 'hasShadow'">
 		<form [formGroup]="searchForm" (ngSubmit)="search()">
 			<div class="search-container">
 				<div class="search-bar">
-					<mat-icon [ngClass]="search_icon_class">search</mat-icon>
-					<input [ngClass]="search_input_class" type="text" id="searchstring" name="searchstring" placeholder="Search" autocomplete="off" autocorrect="off" spellcheck="false" formControlName="searchstring">
+					<mat-icon class="search-icon">search</mat-icon>
+					<input class="search-input" type="text" id="searchstring" name="searchstring" placeholder="Search" autocomplete="off" autocorrect="off" spellcheck="false" formControlName="searchstring">
 					<div class="search-type-toggle">
 						<mat-button-toggle-group name="search-type-toggle" formControlName="searchtype">
-							<mat-button-toggle *ngFor="let type of search_types" disableRipple id="{{type.name}}" value="{{type.name}}">{{type.name}}</mat-button-toggle>
+							<mat-button-toggle *ngFor="let type of searchTypes" disableRipple id="{{type}}" value="{{type}}">{{type}}</mat-button-toggle>
 						</mat-button-toggle-group>
 					</div>
 				</div>
@@ -51,17 +51,19 @@
 		</form>
 	</div>
 
-	<div [ngClass]="list_class" (scroll)="scrolled()" #scrollFrame [@searchTransform]="isScrolledToTop ? 'default' : 'transform'" [style.height.px]="scrollContainerHeight">
+	<div [ngClass]="list_class" (scroll)="scrolled()" #scrollFrame [@domainTransform]="{value: isScrolledToTop ? 'default' : 'transform', params: {translate: domainTranslate + 5 * (this.isMobile ? 0 : 1)}}">
+
 		<div *ngIf="searchForm.value['searchtype'] == 'Opps'" class="opps-list-inner">
-			<div class="opp-card-container" *ngFor="let opportunity of opportunity_list">
+			<div class="opp-card-container" *ngFor="let opportunity of opportunityList">
 				<app-opps-card [opps]="opportunity"></app-opps-card>
 			</div>
 		</div>
 		<div *ngIf="searchForm.value['searchtype'] == 'People'" class="user-list-inner">
-			<div class="user-card-container" *ngFor="let user of user_list">
+			<div class="user-card-container" *ngFor="let user of userList">
 				<app-user-card [user]="user"></app-user-card>
 			</div>
 		</div>
+		
 	</div>
 </div>
 <!--<form #searchForm="ngForm">

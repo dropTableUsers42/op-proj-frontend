@@ -12,8 +12,19 @@ label {
 	margin: 0 0;
 }
 
-:host {
-	flex-grow: 1;
+@media screen and (min-width: 600px)
+{
+	:host {
+		flex-grow: 1;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	:host {
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+	}
 }
 
 .form-container {
@@ -25,12 +36,24 @@ label {
 	max-width: 325px;
 
 	float: right;
+}
 
+@media screen and (max-width: 600px) {
+	.form-container {
+		margin: 0 auto;
+		display: inline-block;
+	}
 }
 
 .otp-form {
 	margin-top: 90px;
 
+}
+
+@media screen and (max-width: 600px) {
+	.otp-form {
+		margin-top: 7vw;
+	}
 }
 
 .otp-login-label {
@@ -44,7 +67,6 @@ label {
 
 	text-align: right;
 
-	float: right;
 
 	color: #FFFFFF;
 
@@ -96,9 +118,12 @@ label {
 
 }
 
-.otp-send-button, .otp-enter-button, .otp-resend-button {
+.otp-button-container {
+	display: flex;
+	flex-direction: row-reverse;
+}
 
-	float: right;
+.otp-send-button, .otp-enter-button, .otp-resend-button {
 
 	font-family: poppins;
 	font-style: normal;
