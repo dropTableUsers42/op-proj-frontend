@@ -11,9 +11,9 @@
 		<div *ngIf="otp_sent" class="otp-otp-sent">OTP Sent!</div>
 		<div *ngIf="otp_resent" class="otp-otp-sent">OTP Resent!</div>
 		<div class="otp-button-container">
-			<input *ngIf="formState=='enter-otp'" class="otp-resend-button" type="button" (click)="resendOtp()" value="Resend OTP">
 			<input *ngIf="formState=='send-otp'" class="otp-send-button" type="submit" value="Send OTP">
 			<input *ngIf="formState=='enter-otp'" class="otp-enter-button" type="submit" value="Enter OTP">
+			<input *ngIf="formState=='enter-otp'" class="otp-resend-button" type="button" (click)="resendOtp()" value="Resend OTP">
 		</div>
 	</form>
 	<!--<form #loginform="ngForm" (ngSubmit)="signInOtp(loginform)">

@@ -341,7 +341,8 @@ mat-button-toggle-group {
 mat-button-toggle {
 
 	border: 2px solid #F9F9F9 !important;
-    background-color: transparent !important;
+	background-color: #F9F9F9 !important;
+	color: #363636 !important;
 
 	height: 33px;
 	border-radius: 13px;
@@ -353,18 +354,11 @@ mat-button-toggle {
 	display: flex;
 	align-items: center;
 	text-align: center;
-	
-	color: #F9F9F9 !important;
 
 }
 
 mat-button-toggle:focus {
 	outline: none;
-}
-
-mat-button-toggle:hover {
-    background-color: #F9F9F9 !important;
-	color: #363636 !important;
 }
 
 ::ng-deep .domains-container .mat-button-toggle-label-content {

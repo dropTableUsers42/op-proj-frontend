@@ -11,6 +11,18 @@ p {
 	margin: 0 0;
 }
 
+@media screen and (max-width: 1024px) {
+	.desktop-large {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.desktop-small {
+		display: none;
+	}
+}
+
 .page-container {
 	width: 100%;
 	height: 100%;
@@ -42,6 +54,13 @@ p {
 	padding-bottom: 65px;
 }
 
+@media screen and (max-width: 1024px) {
+	.opp-title-container {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+
 .opp-name-org-image-container {
 	display: flex;
 	flex-direction: row;
@@ -49,13 +68,27 @@ p {
 	flex-grow: 1;
 }
 
+@media screen and (max-width: 1024px) {
+	.opp-name-org-image-container {
+		display: flex;
+		flex-direction: column-reverse;
+	
+		flex-grow: 1;
+	}
+}
+
 .opp-text-container {
-	height: 290px;
 
 	display: flex;
 	flex-direction: column;
 
 	flex-grow: 1;
+}
+
+@media screen and (min-width: 1024px) {
+	.opp-text-container {
+		height: 290px;
+	}
 }
 
 .opp-name-container {
@@ -73,9 +106,13 @@ p {
 }
 
 .opp-organiser-container {
-	margin-top: 15px;
+	margin-top: 15px;	
+}
 
-	flex-grow: 1;
+@media screen and (min-width: 1024px) {
+	.opp-organiser-container {
+		flex-grow: 1;
+	}
 }
 
 .opp-organiser {
@@ -88,6 +125,28 @@ p {
 	color: #F9F9F9;
 }
 
+@media screen and (max-width: 1024px) {
+	.opp-name-container, .opp-organiser-container {
+		display: inline block;
+		margin: 0 auto;
+	}
+
+	.opp-name, .opp-organiser {
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 770px) {
+	.opp-name {
+		font-size: 30px;
+		line-height: 103.5%;
+	}
+
+	.opp-organiser {
+		font-size: 18px;
+		line-height: 103.5%;
+	}
+}
 .opp-interested-button-container {
 	display: flex;
 	flex-direction: row;
@@ -111,8 +170,14 @@ p {
 	padding-right: 10px;
 
 	min-width: 170px;
+}
 
-
+@media screen and (max-width: 1024px) {
+	.opp-interested-button-container {
+		display: inline block;
+		margin: 0 auto;
+		margin-top: 50px;
+	}
 }
 
 .opp-interested-button.not-interested, .opp-interested-number.not-interested {
@@ -148,6 +213,22 @@ p {
 .opp-image-container {
 	width: 288px;
 	min-width: 288px;
+}
+
+@media screen and (max-width: 540px) {
+	.opp-image-container {
+		width: 68vw;
+		min-width: 68vw;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.opp-image-container {
+		margin-left: -120px;
+		margin-right: -120px;
+		display: inline block;
+		margin: 0 auto;
+	}
 }
 
 .opp-icon {
@@ -188,7 +269,6 @@ p {
 }
 
 .opp-main-details-container {
-	min-height: calc(100vh - 158px);
 
 	margin-bottom: 63px;
 
@@ -199,6 +279,13 @@ p {
 	padding-right: 92px;
 	padding-left: 92px;
 	padding-bottom: 47px;
+}
+
+@media screen and (max-width: 1024px) {
+	.opp-main-details-container {
+		padding-right: 25px;
+		padding-left: 25px;
+	}
 }
 
 .opp-deadline-loc-date-container {
@@ -279,6 +366,20 @@ p {
 	width: 30%;
 }
 
+@media screen and (max-width: 1024px) {
+	.opp-deadline-container {
+		width: 50%;
+	}
+
+	.opp-location-container {
+		width: 100%;
+	}
+
+	.opp-date-container {
+		width: 50%;
+	}
+}
+
 .opp-tags-container {
 	display: flex;
 	flex-direction: row;
@@ -319,6 +420,33 @@ p {
 	width: 100%;
 
 	margin-top: 70px;
+}
+
+@media screen and (max-width: 700px) {
+	.opp-location-label, .opp-date-label, .opp-deadline-label {
+		font-size: 14px;
+		line-height: 117.5%;
+	}
+
+	.opp-location {
+		font-size: 36px;
+		line-height: 117.5%;
+	}
+
+	.opp-deadline, .opp-date {
+		font-size: 18px;
+		line-height: 117.5%;
+	}
+
+	.opp-country {
+		font-size: 14px;
+		line-height: 117.5%;
+	}
+
+	.opp-about-container {
+		font-size: 14px;
+		line-height: 117.5%;
+	}
 }
 
 /*
@@ -413,7 +541,7 @@ p {
 
 .opp-comments-recc-container {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 }
 
 .opp-comments-container {
@@ -484,10 +612,6 @@ p {
 	flex-direction: column;
 
 	align-content: flex-end;
-}
-
-.opp-recc-label {
-	text-align: right;
 }
 
 /***********************************************/

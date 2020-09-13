@@ -27,6 +27,14 @@ export class OppsCardComponent implements OnInit {
 			return '#05905F';
 		else if(this.opportunity.domain == 'IT')
 			return '#FF9D63';
+		else if(this.opportunity.domain == 'Consulting')
+			return '#E76D50';
+		else if(this.opportunity.domain == 'Finance')
+			return '#D67BBB';
+		else if(this.opportunity.domain == 'Entrepreneurship')
+			return '#225882';
+		else if(this.opportunity.domain == 'SocDev-and-Policy')
+			return '#2BA9CA';
 	}
 
 	domain_page_style = {
@@ -35,7 +43,7 @@ export class OppsCardComponent implements OnInit {
 		'Consulting': 'consult',
 		'Finance': 'fin',
 		'Entrepreneurship': 'ent',
-		'Socdev & Policy': 'socdev'
+		'SocDev-and-Policy': 'socdev'
 	}
 
 	get main_class() {

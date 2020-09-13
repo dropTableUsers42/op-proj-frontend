@@ -6,6 +6,22 @@
 	background-color: #FF9D63;
 }
 
+.opp-title-container.consult {
+	background-color: #E76D50;
+}
+
+.opp-title-container.fin {
+	background-color:#D67BBB;
+}
+
+.opp-title-container.ent {
+	background-color:#225882;
+}
+
+.opp-title-container.socdev {
+	background-color: #2BA9CA;
+}
+
 .opp-detailed-container {
 	background-color: #F9F9F9;
 }
@@ -18,18 +34,115 @@
 	color: #FF9D63;
 }
 
+.consult .opp-interested-button.interested, .consult .opp-interested-number.interested {
+	color: #E76D50;
+}
+
+.fin .opp-interested-button.interested, .fin .opp-interested-number.interested {
+	color: #D67BBB;
+}
+
+.ent .opp-interested-button.interested, .ent .opp-interested-number.interested {
+	color: #225882;
+}
+
+.socdev .opp-interested-button.interested, .socdev .opp-interested-number.interested {
+	color: #2BA9CA;
+}
+
+.core .opp-main-details-container {
+	background-color: #D4E9E2;
+}
+
 .it .opp-main-details-container {
 	background-color: #FAECDE;
+}
+
+.consult .opp-main-details-container {
+	background-color: #FBE9E5;
+}
+
+.fin .opp-main-details-container {
+	background-color: #F1E4ED;
+}
+
+.ent .opp-main-details-container {
+	background-color: #D9E1E7;
+}
+
+.socdev .opp-main-details-container {
+	background-color: #DAEDF2;
+}
+
+.core .opp-deadline-label, .core .opp-location-label, .core .opp-date-label, .core .opp-deadline, .core .opp-location, .core .opp-date, .core .opp-country, .core .opp-tag, .core .opp-about-container {
+	color: #05905F;
 }
 
 .it .opp-deadline-label, .it .opp-location-label, .it .opp-date-label, .it .opp-deadline, .it .opp-location, .it .opp-date, .it .opp-country, .it .opp-tag, .it .opp-about-container {
 	color: #FF9D63;
 }
 
+.consult .opp-deadline-label, .consult .opp-location-label, .consult .opp-date-label, .consult .opp-deadline, .consult .opp-location, .consult .opp-date, .consult .opp-country, .consult .opp-tag, .consult .opp-about-container {
+	color: #E76D50
+}
+
+.fin .opp-deadline-label, .fin .opp-location-label, .fin .opp-date-label, .fin .opp-deadline, .fin .opp-location, .fin .opp-date, .fin .opp-country, .fin .opp-tag, .fin .opp-about-container {
+	color: #D67BBB;
+}
+
+.ent .opp-deadline-label, .ent .opp-location-label, .ent .opp-date-label, .ent .opp-deadline, .ent .opp-location, .ent .opp-date, .ent .opp-country, .ent .opp-tag, .ent .opp-about-container {
+	color: #225882
+}
+
+.socdev .opp-deadline-label, .socdev .opp-location-label, .socdev .opp-date-label, .socdev .opp-deadline, .socdev .opp-location, .socdev .opp-date, .socdev .opp-country, .socdev .opp-tag, .socdev .opp-about-container {
+	color: #D67BBB;
+}
+
+
+.core .opp-location-divider {
+	border-top: #05905F;
+}
+
 .it .opp-location-divider {
-	border-top: 1px solid #FF9D63;
+	border-top: #FF9D63;
+}
+
+.consult .opp-location-divider {
+	border-top: #E76D50
+}
+
+.fin .opp-location-divider {
+	border-top:  #D67BBB;
+}
+
+.ent .opp-location-divider {
+	border-top: #225882
+}
+
+.socdev .opp-location-divider{
+	border-top: #2BA9CA;
+}
+
+.core .opp-tag {
+	border: 1px solid #05905F;
 }
 
 .it .opp-tag {
 	border: 1px solid #FF9D63;
+}
+
+.consult .opp-tag{
+	border: 1px solid #D67BBB;
+}
+
+.fin .opp-tag {
+	border: 1px solid #D67BBB;
+}
+
+.ent .opp-tag {
+	border: 1px solid #225882
+}
+
+.socdev .opp-tag{
+	border: 1px solid #2BA9CA;
 }

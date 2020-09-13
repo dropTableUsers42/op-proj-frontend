@@ -109,7 +109,6 @@ label {
 
 	margin-top: 5px;
 
-	float: right;
 }
 
 .otp-login-otp {
@@ -143,8 +142,9 @@ label {
 	margin-top: 8px;
 }
 
-.otp-resend-button {
-	float: left;
+.otp-send-button,.otp-enter-button {
+	text-align: right;
+	flex-grow: 1;
 }
 
 .otp-otp-incorrect, .otp-id-incorrect, .otp-otp-sent {

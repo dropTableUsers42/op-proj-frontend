@@ -26,18 +26,18 @@
 	<div [ngClass]="detail_class">
 		<div class="opp-main-details-container">
 			<div class="opp-deadline-loc-date-container">
-				<div class="opp-deadline-container">
-					<label class="opp-deadline-label">
+				<div class="opp-deadline-container desktop-large">
+					<div class="opp-deadline-label">
 						Deadline
-					</label>
+					</div>
 					<div class="opp-deadline">
 						12th June, 2020
 					</div>
 				</div>
 				<div class="opp-location-container">
-					<label class="opp-location-label">
+					<div class="opp-location-label">
 						Location
-					</label>
+					</div>
 					<div class="opp-location">
 						{{location_type}}
 					</div>
@@ -46,10 +46,28 @@
 						{{opps?.Location}}
 					</div>
 				</div>
-				<div class="opp-date-container">
-					<label class="opp-date-label">
+				<div class="opp-date-container desktop-large">
+					<div class="opp-date-label">
 						Date
-					</label>
+					</div>
+					<div class="opp-date">
+						12th June, 2020
+					</div>
+				</div>
+			</div>
+			<div class="opp-deadline-loc-date-container desktop-small">
+				<div class="opp-deadline-container desktop-small">
+					<div class="opp-deadline-label">
+						Deadline
+					</div>
+					<div class="opp-deadline">
+						12th June, 2020
+					</div>
+				</div>
+				<div class="opp-date-container desktop-small">
+					<div class="opp-date-label">
+						Date
+					</div>
 					<div class="opp-date">
 						12th June, 2020
 					</div>
@@ -73,6 +91,15 @@
 		</div>
 
 		<div class="opp-comments-recc-container">
+			<div class="opp-recc-container">
+				<label class="opp-recc-label">Similar Opportunities</label>
+				<!--<div class="opps-list">
+					<div class="opp-card-container" *ngFor="let opportunity of recc_opps | slice:0:6">
+						<app-opps-card [opps]="opportunity" [type]="'recc'"></app-opps-card>
+					</div>
+				</div>-->
+				<!--<app-opps-wishlistv2 [wishlist]='recc_opps'></app-opps-wishlistv2>-->
+			</div>
 			<div class="opp-comments-container">
 				<label class="opp-thread-label">Threads</label>
 				<form class="opp-new-comment-container" (ngSubmit)="submitComment()" [formGroup]="commentForm">
@@ -87,14 +114,6 @@
 						<div class="opp-child-comment" *ngFor="let child_id of comment.children">
 							<app-opp-detail-comment [comment]="comment_dict[child_id]" [opp]="opps" (onReplySubmitted)="addToReplies($event)"></app-opp-detail-comment>
 						</div>
-					</div>
-				</div>
-			</div>
-			<div class="opp-recc-container">
-				<label class="opp-recc-label">Similar Opportunities</label>
-				<div class="opps-list">
-					<div class="opp-card-container" *ngFor="let opportunity of recc_opps | slice:0:6">
-						<app-opps-card [opps]="opportunity" [type]="'recc'"></app-opps-card>
 					</div>
 				</div>
 			</div>
