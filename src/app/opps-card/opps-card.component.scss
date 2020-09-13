@@ -13,7 +13,7 @@
 	box-shadow: 0px 8px 14px rgba(167, 167, 167, 0.4);
 	border-radius: 4.36%/6%;
 
-	padding: 3.63%;
+	padding: 6.171%;
 	display: inline-block;
 
 	background-color: white;
@@ -41,7 +41,6 @@
 	max-height: calc(1600%/180);
 
 	flex-grow: 1;
-
 }
 
 .opps-type {
@@ -68,6 +67,18 @@
 
 	padding-left: 6px;
 	padding-right: 6px;
+}
+
+@media screen and (max-width: 1180px) {
+	.opps-type {
+		max-width: 100px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.opps-type {
+		max-width: 40px;
+	}
 }
 
 .opps-interested-button-container {
@@ -139,7 +150,7 @@
 
 .opps-location {
 	position: absolute;
-	bottom: 3.63%;
+	bottom: 6.171%;
 	width: 70%;
 
 	font-weight: 600;
@@ -163,7 +174,7 @@
 .opps-duration {
 	position: absolute;
 	right: 3.63%;
-	bottom: 3.63%;
+	bottom: 6.171%;
 
 	font-weight: 500;
 	font-size: 66.66%;

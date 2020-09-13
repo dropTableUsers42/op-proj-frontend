@@ -38,6 +38,10 @@ input:focus, textarea:focus, button:focus {
 	flex-direction: row;
 }
 
+.profile-domains-container {
+	margin-top: 30px
+}
+
 .profile-image-container {
 	width: 180px;
 	min-width: 180px;
@@ -181,6 +185,8 @@ input:focus, textarea:focus, button:focus {
 	text-align: center;
 
 	color: #F9F9F9;
+
+	cursor: pointer;
 }
 
 .edit-button:hover {
@@ -403,7 +409,7 @@ mat-button-toggle:hover.socdev {
 .form-error {
 	font-family: Poppins;
 	font-style: normal;
-	font-weight: bold;
+	font-weight: 600;
 	font-size: 14px;
 	line-height: 14px;
 

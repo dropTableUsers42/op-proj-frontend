@@ -9,7 +9,7 @@
 					<p class="opp-organiser">{{opps?.Organiser}}</p>
 				</div>
 				<div class="opp-interested-button-container">
-					<button [ngClass]="interested_class" (click)="interestedClick()"><span [hidden]="opps?.isInWishlist">Interested?</span></button>
+					<button [ngClass]="interested_class" (click)="interestedClick()"><span [hidden]="opps?.isInWishlist">Add to Wishlist?</span></button>
 					<button [ngClass]="interested_number_class">{{opps?.numUsers}}</button>
 				</div>
 			</div>
@@ -19,7 +19,7 @@
 		</div>
 		<div class="opp-domain-type-container">
 			<div class="opp-domain-type">
-				{{opps?.domain}} | {{opps?.Type}}
+				{{domain_type_api[opps?.domain]}} | {{opps?.Type}}
 			</div>
 		</div>
 	</div>
@@ -31,7 +31,7 @@
 						Deadline
 					</div>
 					<div class="opp-deadline">
-						12th June, 2020
+						{{opps?.Deadline_Comp}}
 					</div>
 				</div>
 				<div class="opp-location-container">
@@ -51,7 +51,7 @@
 						Date
 					</div>
 					<div class="opp-date">
-						12th June, 2020
+						{{opps?.Deadline_Reg}}
 					</div>
 				</div>
 			</div>
@@ -61,7 +61,7 @@
 						Deadline
 					</div>
 					<div class="opp-deadline">
-						12th June, 2020
+						{{opps?.Deadline_Comp}}
 					</div>
 				</div>
 				<div class="opp-date-container desktop-small">
@@ -69,7 +69,7 @@
 						Date
 					</div>
 					<div class="opp-date">
-						12th June, 2020
+						{{opps?.Deadline_Reg}}
 					</div>
 				</div>
 			</div>
@@ -83,10 +83,10 @@
 			</div>
 		</div>
 
-		<div *ngIf="opps?.Testimonial">
+		<div *ngIf="opps?.Testimonials">
 			<label class="opp-testimonial-label">Testimonials</label>
 			<div class="opp-testimonial-container">
-				<p class="opp-testimonial">{{opps?.Testimonial}}</p>
+				<p class="opp-testimonial">{{opps?.Testimonials}}</p>
 			</div>
 		</div>
 
@@ -98,7 +98,7 @@
 						<app-opps-card [opps]="opportunity" [type]="'recc'"></app-opps-card>
 					</div>
 				</div>-->
-				<!--<app-opps-wishlistv2 [wishlist]='recc_opps'></app-opps-wishlistv2>-->
+				<app-opps-wishlistv2 [wishlist]='recc_opps | slice:0:8'></app-opps-wishlistv2>
 			</div>
 			<div class="opp-comments-container">
 				<label class="opp-thread-label">Threads</label>

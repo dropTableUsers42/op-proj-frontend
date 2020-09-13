@@ -53,7 +53,7 @@
 				</div>
 			</form>
 		</div>
-		<div [ngClass]="list_class" (scroll)="scrolled()" #scrollFrame>
+		<div [ngClass]="list_class" (scroll)="scrolled()" [style.height.px]="isMobile ? getHeight - 130 : getHeight - 180" #scrollFrame>
 			<div *ngIf="searchForm.value['searchtype'] == 'Opps'" class="opps-list-inner">
 				<div class="opp-card-container" *ngFor="let opportunity of opportunity_list">
 					<app-opps-card [opps]="opportunity"></app-opps-card>

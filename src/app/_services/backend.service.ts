@@ -69,6 +69,8 @@ export class BackendService {
       for(var opp of item)
       {
         opp.domain = opp['domain']['type'];
+        opp.Deadline_Comp = opp['Time_Registration'];
+        opp.Deadline_Reg = opp['Time_Competition'];
       }
       return item;
     }));

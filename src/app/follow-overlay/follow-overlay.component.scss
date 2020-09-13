@@ -12,7 +12,7 @@
 
 	display: flex;
 	justify-content: center;
-	align-items: center; 
+	align-items: center;
 }
 
 .overlay-container {
@@ -23,6 +23,12 @@
 
 	background: #363636;
 	border-radius: 40px;
+}
+
+@media screen and (max-width: 602px) {
+	.overlay-container {
+		width: calc(100vw - 40px);
+	}
 }
 
 .overlay-header {
@@ -76,10 +82,11 @@
 }
 
 .follow-list {
-	padding-top: 34px;
 
 	padding-right: 30px;
 	padding-left: 30px;
+
+	height: calc(508*100vh/720 - 69px);
 }
 
 .follow-container {
@@ -93,6 +100,12 @@
 
 .icon-container {
 	height: 50px;
+}
+
+@media screen and (max-width: 520px) {
+	.icon-container {
+		height: 25px;
+	}
 }
 
 .reg-icon {
@@ -124,6 +137,15 @@
 	flex-grow: 1;
 }
 
+@media screen and (max-width: 520px) {
+	.name-container {
+		font-size: 16px;
+		line-height: 117.5%;
+		height: 25px;
+	}
+}
+
+
 a:link, a:visited, a:hover, a:active {
 	color: #F9F9F9;
 	text-decoration: none;
@@ -145,6 +167,16 @@ a:link, a:visited, a:hover, a:active {
 	text-align: center;
 
 	min-width: 105px;
+
+	cursor: pointer;
+}
+
+@media screen and (max-width: 520px) {
+	.follow-button {
+		font-size: 14px;
+		line-height: 117.5%;
+		height: 25px;
+	}
 }
 
 .follow-button.followed {
@@ -165,10 +197,31 @@ a:link, a:visited, a:hover, a:active {
 	color: #F9F9F9;
 }
 
+.follow-button.unfollowed:hover {
+	background-color: #5c5c5c;
+	color: #F9F9F9;
+}
+
 .follow-button.followed:hover:before {
 	content:"Unfollow";
 }
 
 .follow-button.followed:hover span {
 	display: none;
+}
+
+.scrollable {
+	padding-top: 34px;
+	height: 100%;
+	overflow: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollable::-webkit-scrollbar {
+	display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollable {
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
 }

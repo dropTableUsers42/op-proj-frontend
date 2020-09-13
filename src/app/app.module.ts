@@ -28,6 +28,7 @@ import { ToNthPipe } from './_pipes/to-nth.pipe';
 import { FollowOverlayComponent } from './follow-overlay/follow-overlay.component';
 import { CountdownPipe } from './_pipes/countdown.pipe';
 import { OppDetailCommentComponent } from './opp-detail-comment/opp-detail-comment.component';
+import { SearchFormComponent } from './search-form/search-form.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { OppDetailCommentComponent } from './opp-detail-comment/opp-detail-comme
     FollowOverlayComponent,
     CountdownPipe,
     OppDetailCommentComponent,
+    SearchFormComponent,
   ],
   imports: [
     BrowserModule,

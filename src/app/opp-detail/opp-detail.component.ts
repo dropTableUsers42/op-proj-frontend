@@ -138,6 +138,16 @@ export class OppDetailComponent implements OnInit {
 
   }
 
+  domain_type_api = {
+    'Core': 'Core',
+    'IT': 'IT',
+    'Consulting': 'Consulting',
+    'Entrepreneurship': 'Entrepreneurship',
+    'Finance': 'Finance',
+    'SocDev-and-Policy': 'SocDev & Policy',
+    null: 'Undefined'
+  }
+
   get location_type() {
     if(this.opps)
     {
@@ -148,6 +158,14 @@ export class OppDetailComponent implements OnInit {
           return 'International';
         }
         else if(tag.slug == 'national')
+        {
+          return 'National';
+        }
+        else if(tag.slug == 'online')
+        {
+          return 'Online';
+        }
+        else if(tag.slug == 'indian')
         {
           return 'National';
         }

@@ -6,9 +6,11 @@
 	<div class="shadow-container" #shadowContainer [@domainTransform]="{value: isScrolledToTop ? 'default' : 'transform', params: {translate: domainTranslate + 5 * (this.isMobile ? 0 : 1)}}" [@shadowTrigger]="isScrolledToTop ? 'hasNoShadow' : 'hasShadow'">
 		<form [formGroup]="searchForm" (ngSubmit)="search()">
 			<div class="search-container">
-				<div class="search-bar">
-					<mat-icon class="search-icon">search</mat-icon>
-					<input class="search-input" type="text" id="searchstring" name="searchstring" placeholder="Search" autocomplete="off" autocorrect="off" spellcheck="false" formControlName="searchstring">
+				<div class="search-row">
+					<div class="search-bar">
+						<mat-icon class="search-icon" (click)="search()">search</mat-icon>
+						<input class="search-input" type="search" id="searchstring" name="searchstring" placeholder="Search" autocomplete="off" autocorrect="off" spellcheck="false" formControlName="searchstring">
+					</div>
 					<div class="search-type-toggle">
 						<mat-button-toggle-group name="search-type-toggle" formControlName="searchtype">
 							<mat-button-toggle *ngFor="let type of searchTypes" disableRipple id="{{type}}" value="{{type}}">{{type}}</mat-button-toggle>
@@ -16,11 +18,11 @@
 					</div>
 				</div>
 				<div class="filter-container">
-					<div class="domain-filter">
+					<!---<div class="domain-filter">
 						<mat-placeholder class="domain-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">casino</mat-icon><span class="domain-label-string">Domain</span></mat-placeholder>
 						<mat-select disableOptionCentering>
 						</mat-select>
-					</div>
+					</div>-->
 					<div class="sub-filter">
 						<mat-placeholder class="sub-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">settings</mat-icon><span class="sub-label-string">Opps&nbsp;Type</span></mat-placeholder>
 						<mat-select disableOptionCentering>

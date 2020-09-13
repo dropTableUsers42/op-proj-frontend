@@ -76,6 +76,15 @@ export class Profilev2Component implements OnInit {
     'socdev'
   ]
 
+  domain_ordering = [
+    'core',
+    'it',
+    'consult',
+    'ent',
+    'fin',
+    'socdev'
+  ]
+
   constructor(private backendService: BackendService, private actRoute: ActivatedRoute, private router: Router, private authService: AuthService, private pageStyleService: PageStyleService) {
     this.pageStyleService.newEvent('home');
   }
@@ -90,11 +99,18 @@ export class Profilev2Component implements OnInit {
         this.user = user;
         this.followed = this.isFollowed;
         this.domain_prefs = [];
+        let temp_domains = [];
         for(let domain in this.user.domains)
         {
           if(this.user.domains[domain])
           {
-            this.domain_prefs.push(this.domain_prefs_api[domain]);
+            temp_domains.push(this.domain_prefs_api[domain]);
+          }
+        }
+        for (let domain of this.domain_ordering)
+        {
+          if (temp_domains.includes(domain)) {
+            this.domain_prefs.push(domain);
           }
         }
         this.wishlist = user['wishlist'];

@@ -90,6 +90,10 @@ export function isIntegerValidator(control: AbstractControl) : {[key : string]: 
   if(control.value !== undefined && isNaN(control.value)) {
     return {'nonNum': true};
   }
+
+  if(control.value > 5)
+    return {'nonNum':true};
+
   return null;
 }
 
@@ -100,5 +104,6 @@ export function containsNumberValidator(control: AbstractControl) : {[key : stri
   {
     return {'num': true};
   }
+
   return null;
 }

@@ -48,3 +48,18 @@
 		font-size: calc((100vw - 90px - 1 * 100vw * 0.0234)*24/(2*275));
 	}
 }
+
+@media screen and (max-width: 600px) {
+	.opp-card-container {
+		margin-left: 20px;
+		margin-bottom: calc(100vw * 0.0234);
+		width: calc((100vw - 40px - 20px)/2);
+		height: calc((100vw - 40px - 20px)*100/275);
+		font-size: calc((100vw - 40px - 20px)*12/275);
+	}
+
+	.opps-list {
+		margin-left: -45px;
+		margin-right: -45px;
+	}
+}

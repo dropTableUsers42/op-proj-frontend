@@ -65,12 +65,39 @@ label {
 	line-height: 36px;
 	/* identical to box height */
 
-	text-align: right;
+	text-align: left;
 
 
 	color: #FFFFFF;
 
 	margin: 0 0;
+}
+
+.otp-login-email {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 36px;
+	/* identical to box height */
+
+	text-align: left;
+
+
+	color: #FFFFFF;
+
+	margin: 0 0;
+}
+
+@media screen and (max-width: 600px) {
+	.otp-login-label, .otp-login-email {
+		text-align: center;
+	}
+}
+
+.otp-email-change-container {
+	display: flex;
+	flex-direction: row;
 }
 
 .otp-id-change-container {
@@ -86,7 +113,7 @@ label {
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
-	line-height: 14px;
+	line-height: 36px;
 
 	text-align: right;
 
@@ -95,6 +122,7 @@ label {
 	margin: 0 0;
 
 	cursor: pointer;
+	text-decoration: underline;
 }
 
 .otp-login-id, .otp-login-otp {
@@ -102,12 +130,14 @@ label {
 	width: 100%;
 	height: 30px;
 
-	padding-left:5px;
+	padding-left:15px;
 
 	background: #FFFFFF;
 	border-radius: 65px;
 
 	margin-top: 5px;
+
+	font-family: Poppins;
 
 }
 
@@ -144,6 +174,9 @@ label {
 
 .otp-send-button,.otp-enter-button {
 	text-align: right;
+}
+
+.otp-enter {
 	flex-grow: 1;
 }
 
@@ -151,11 +184,17 @@ label {
 
 	font-family: poppins;
 	font-style: normal;
-	font-weight: bold;
+	font-weight: 600;
 	font-size: 14px;
 	line-height: 14px;
 
 	margin-top: 5px;
+}
+
+@media screen and (max-width: 600px) {
+	.otp-otp-incorrect, .otp-id-incorrect, .otp-otp-sent {
+		text-align: center;
+	}
 }
 
 .otp-otp-incorrect, .otp-id-incorrect {
@@ -170,10 +209,61 @@ label {
 	color: white;
 
 	width: 100%;
-	text-align: center;
+	text-align: right;
+
+	font-family: Poppins;
+
+	margin-top: 5px;
+}
+
+@media screen and (max-width: 600px) {
+	.signup-link{
+		text-align: center;
+	}
 }
 
 .signup-link:hover {
 	cursor: pointer;
 	text-decoration: underline;
+}
+
+.otp-button.otp-enter {
+	display: flex;
+	flex-direction: row-reverse;
+
+}
+
+.otp-all-button{
+	padding-left: 9px;
+	padding-right: 9px;
+	height: 35px;
+
+	border: 2px solid #F9F9F9;
+	border-radius: 39px;
+
+	background-color: transparent;
+
+
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 100%;
+
+	text-align: center;
+
+	color: #F9F9F9;
+
+	cursor: pointer;
+}
+
+.otp-all-button:hover {
+	background-color: #F9F9F9;
+	color: #363636;
+}
+
+@media screen and (max-width: 600px) {
+	.otp-single {
+		margin: 0 auto;
+	}
 }

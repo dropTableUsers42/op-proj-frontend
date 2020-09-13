@@ -20,7 +20,7 @@ export class Opps {
 
 	public About: string;
 
-	public Testimonial: string;
+	public Testimonials: string;
 
 	public tags: Tag[];
 

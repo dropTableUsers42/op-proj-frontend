@@ -69,6 +69,7 @@
 	.main_title {
 		font-size: calc(120*100vw/1280);
 		line-height: calc(144*100vw/1280);
+		margin-top: calc(228*100vh/720 - 60px);
 	}
 }
 
@@ -85,6 +86,12 @@
 	.main_title {
 		font-size: 62px;
 		line-height: 75.3px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.main_title {
+		margin-top: calc(228*100vh/720 - 100px);
 	}
 }
 

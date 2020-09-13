@@ -15,7 +15,7 @@
 				</div>
 				<div class="year-branch-container">
 					<div class="year-container">
-						<label class="year-label">Year</label><br>
+						<label class="year-label">Year of study</label><br>
 						<input autocomplete="off" autocorrect="off" spellcheck="false" [ngClass]="{'year-content': true, 'input-invalid': profileForm.get('year').invalid}" name="year-content" formControlName="year">
 					</div>
 					<div class="branch-container">
@@ -25,12 +25,12 @@
 				</div>
 				<div *ngIf="profileForm.get('year').invalid">
 					<div *ngIf="profileForm.get('year').errors.nonNum" class="form-error">
-						Please enter a number as your year!
+						Please enter a number (1-5) as your year
 					</div>
 				</div>
 				<div *ngIf="profileForm.get('branch').invalid">
 					<div *ngIf="profileForm.get('branch').errors.num" class="form-error">
-						Your Branch cannot contain numbers!
+						Your Branch cannot contain numbers
 					</div>
 				</div>
 			</div>
@@ -58,7 +58,7 @@
 			<label class="domains-label">Domain Interests</label><br>
 			<mat-button-toggle-group multiple name="domain-choice" aria-label="Domain Choice" formControlName="domains">
 				<mat-button-toggle class="core" value="core">Core</mat-button-toggle>
-				<mat-button-toggle class="it" value="it">IT</mat-button-toggle>
+				<mat-button-toggle class="it" value="it">IT/Coding</mat-button-toggle>
 				<mat-button-toggle class="consult" value="consult">Consulting</mat-button-toggle>
 				<mat-button-toggle class="ent" value="ent">Entrepeneurship</mat-button-toggle>
 				<mat-button-toggle class="fin" value="fin">Finance</mat-button-toggle>

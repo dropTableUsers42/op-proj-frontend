@@ -10,7 +10,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
 
-  otp_login = 'ENTER COLLEGE EMAIL ID';
+  otp_login = 'Login';
 
   get otp_login_text() {
     if(this.formState == 'send-otp')
@@ -19,7 +19,7 @@ export class LoginFormComponent implements OnInit {
     }
     else if(this.formState == 'enter-otp')
     {
-      return "ENTER OTP RECIEVED ON ".concat(this.otpForm.value['login_id']);
+      return "Enter OTP received on ";
     }
   }
 

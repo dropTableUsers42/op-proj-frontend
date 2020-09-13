@@ -52,7 +52,7 @@ export class OpsearchComponent implements OnInit, DoCheck {
 
     searchForm = new FormGroup({
         searchstring: new FormControl(''),
-        searchtype: new FormControl('People')
+        searchtype: new FormControl('Opps')
     });
 
     searchTypes = [
@@ -71,7 +71,7 @@ export class OpsearchComponent implements OnInit, DoCheck {
         'consult': 'Consulting',
         'ent': 'Entrepreneurship',
         'fin': 'Finance',
-        'socdev': 'SocDev-and-Policy'
+        'socdev': 'SocDev & Policy'
     };
 
     public domain_tags = {

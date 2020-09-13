@@ -57,10 +57,10 @@ export class SidenavComponent implements OnInit {
     {link: 'search/consult', name: 'Consulting', id: 'consult'},
     {link: 'search/ent', name: 'Entrepreneurship', id: 'ent'},
     {link: 'search/fin', name: 'Finance', id: 'fin'},
-    {link: 'search/socdev', name: 'Socdev & Policy', id: 'socdev'},
+    {link: 'search/socdev', name: 'SocDev & Policy', id: 'socdev'},
   ]
 
-  AboutLink = {link: 'about', name: 'ABOUT US'}
+  AboutLink = {link: 'about', name: 'About Us'}
 
   constructor(private pageStyleService: PageStyleService) { }
 

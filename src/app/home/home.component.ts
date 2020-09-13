@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewEncapsulation, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation, AfterViewInit, ViewChild, ElementRef, DoCheck } from '@angular/core';
 import { PageStyleService } from '../_services/page-style.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { BackendService } from '../_services/backend.service';
@@ -26,13 +26,13 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 		]),
   ]
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
 
   title = 'THE OPPORTUNITY PROJECT.';
 
   searchForm = new FormGroup({
 		searchstring: new FormControl (''),
-		searchtype: new FormControl('People')
+		searchtype: new FormControl('Opps')
 	})
 
   search_types = [
@@ -41,6 +41,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ]
   
   spin: boolean;
+
+  isMobile: boolean;
 
   constructor(private pageStyleService: PageStyleService, private backendService: BackendService, private authService: AuthService) { }
 
@@ -58,6 +60,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
 			this.searchForm.patchValue({'searchstring': ''});
 			this.searchSpecific();
     });
+  }
+
+  get getHeight(): number {
+	return window.innerHeight;
+  }
+
+  ngDoCheck(): void {
+	this.isMobile = window.innerWidth <= 600;
   }
 
   public opportunity_list: Opps[] = [];

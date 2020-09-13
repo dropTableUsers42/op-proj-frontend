@@ -48,8 +48,12 @@
 	padding-top: 13px;
 	padding-left: 45px;
 	padding-right: 45px;
+}
 
-	margin-bottom: 10px;
+@media screen and (max-width: 700px) {
+	.domain {
+		font-size: 50px;
+	}
 }
 
 @media screen and (max-width: 600px) {
@@ -60,9 +64,26 @@
 	}
 	.search-container {
 		padding-top: 5px;
-		padding-left: 7px;
-		padding-right: 7px;
+		padding-left: 20px;
+		padding-right: 20px;
 	}
+}
+
+@media screen and (max-width: 450px) {
+	.domain {
+		font-size: 30px;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.domain {
+		font-size: 20px;
+	}
+}
+
+.search-row {
+	display: flex;
+	flex-direction: row;
 }
 
 .search-bar {
@@ -74,6 +95,8 @@
 	padding-right: 10px;
 
 	display: flex;
+
+	min-width: 0px;
 }
 
 @media screen and (max-width: 600px) {
@@ -95,6 +118,8 @@
 	
 	margin-top: 10px;
 	margin-bottom: 10px;
+
+	cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
@@ -188,13 +213,13 @@ mat-button-toggle {
 
 .filter-container {
 
-	margin-top: 5px;
+	margin-top: 15px;
 	margin-bottom: 5px;
 	display: flex;
 
 	flex-flow: row wrap;
 
-	margin-left: -30px;
+	margin-left: -10px;
 
 }
 
@@ -233,7 +258,6 @@ mat-button-toggle {
 	display: flex;
 	align-items: center;
 
-	padding-right: 10px;
 
 }
 
@@ -256,7 +280,6 @@ mat-button-toggle {
 
 	justify-content: center;
 	align-items: center; 
-	margin-bottom: 10px;
 }
 
 .sort-filter {
@@ -275,7 +298,6 @@ mat-button-toggle {
 
 	justify-content: center;
 	align-items: center; 
-	margin-bottom: 10px;
 }
 
 .sub-filter-label {
@@ -307,6 +329,8 @@ mat-button-toggle {
 	width: 100vw;
 	margin-left: -45px;
 	z-index:1;
+
+	padding-bottom: 10px;
 }
 
 .opps-list, .user-list {
@@ -314,6 +338,12 @@ mat-button-toggle {
 	padding-top: 15px;
 
 	overflow: scroll;
+}
+
+@media screen and (max-width: 600px) {
+	.opps-list, .user-list {
+		padding-top: 0px;
+	}
 }
 
 .opps-list {
@@ -399,10 +429,6 @@ mat-button-toggle {
 		margin-left: calc(100vw * 0.0234);
 	}
 
-	.filter-container {
-		margin-left: calc(-100vw * 0.0234);
-	}
-
 	.opps-list {
 		margin-left: calc(-100vw * 0.0234);
 		margin-right: calc(-100vw * 0.0234);
@@ -415,13 +441,6 @@ mat-button-toggle {
 		width: calc((100vw - 90px - 1 * 100vw * 0.0234)/2);
 		height: calc((100vw - 90px - 1 * 100vw * 0.0234)*100/275);
 		font-size: calc((100vw - 90px - 1 * 100vw * 0.0234)*24/(2*275));
-	}
-
-	.user-card-container {
-
-		width: calc((100vw - 90px));
-		height: calc(120*(100vw - 90px)/(382));
-		font-size: calc(24*(100vw - 90px)/(382));
 	}
 }
 
@@ -437,6 +456,19 @@ mat-button-toggle {
 	.opps-list {
 		margin-left: -45px;
 		margin-right: -45px;
+	}
+
+	.user-list {
+		margin-left: -45px;
+		margin-right: -45px;
+	}
+
+	.user-card-container {
+		margin-left: 20px;
+		margin-bottom: calc(100vw * 0.0234);
+		width: calc((100vw - 40px - 20px)/2);
+		height: calc(120*(100vw - 40px - 20px)/(2*382));
+		font-size: calc(24*(100vw - 40px - 20px)/(2*382));
 	}
 
 	.filter-container {

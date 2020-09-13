@@ -12,14 +12,14 @@ label {
 	margin: 0 0;
 }
 
-@media screen and (min-width: 600px)
+@media screen and (min-width: 670px)
 {
 	:host {
 		flex-grow: 1;
 	}
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 670px) {
 	:host {
 		display: flex;
 		flex-direction: column;
@@ -39,7 +39,7 @@ label {
 
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 670px) {
 	.form-container {
 		margin: 0 auto;
 		display: inline-block;
@@ -51,7 +51,7 @@ label {
 
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 670px) {
 	.ref-form, .reg-form {
 		margin-top: 7vw;
 	}
@@ -66,13 +66,17 @@ label {
 	line-height: 36px;
 	/* identical to box height */
 
-	text-align: right;
-
-	float: right;
+	width: 100%;
 
 	color: #FFFFFF;
 
 	margin: 0 0;
+}
+
+@media screen and (max-width: 670px) {
+	.ref-code-label, .reg-label {
+		text-align: center;
+	}
 }
 
 .ref-code-id, .ref-code-code, .reg-name, .reg-username, .reg-otp {
@@ -80,12 +84,14 @@ label {
 	width: 100%;
 	height: 30px;
 
-	padding-left:5px;
+	padding-left:15px;
 
 	background: #FFFFFF;
 	border-radius: 65px;
 
 	margin-top: 5px;
+
+	font-family: Poppins;
 
 }
 
@@ -120,14 +126,13 @@ label {
 
 .reg-button {
 	text-align: right;
-	flex-grow: 1;
 }
 
 .ref-incorrect, .otp-incorrect {
 
 	font-family: poppins;
 	font-style: normal;
-	font-weight: bold;
+	font-weight: 600;
 	font-size: 14px;
 	line-height: 14px;
 
@@ -143,10 +148,62 @@ label {
 	color: white;
 
 	width: 100%;
-	text-align: center;
+	text-align: right;
+	font-family: Poppins;
+
+	margin-top: 5px;
 }
 
 .signin-link:hover {
 	cursor: pointer;
 	text-decoration: underline;
+}
+
+@media screen and (max-width: 670px) {
+	.signin-link{
+		text-align: center;
+	}
+}
+
+.otp-all-button{
+	padding-left: 9px;
+	padding-right: 9px;
+	height: 35px;
+
+	border: 2px solid #F9F9F9;
+	border-radius: 39px;
+
+	background-color: transparent;
+
+
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 100%;
+
+	text-align: center;
+
+	color: #F9F9F9;
+
+	cursor: pointer;
+}
+
+.otp-all-button:hover {
+	background-color: #F9F9F9;
+	color: #363636;
+}
+
+.otp-grow {
+	display: flex;
+	flex-direction: row-reverse;
+
+	flex-grow: 1;
+}
+
+
+@media screen and (max-width: 670px) {
+	.otp-single {
+		margin: 0 auto;
+	}
 }

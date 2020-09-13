@@ -62,6 +62,7 @@
 	.main_title {
 		font-size: calc(120*100vw/1280);
 		line-height: calc(144*100vw/1280);
+		margin-top: calc(228*100vh/720 - 60px);
 	}
 }
 
@@ -134,6 +135,15 @@
 	padding-top: 20px;
 	padding-left: 45px;
 	padding-right: 45px;
+
+	margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+	.search-container {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 }
 
 .search-bar {
@@ -148,6 +158,15 @@
 
 }
 
+@media screen and (max-width: 600px) {
+	.search-bar {
+
+		padding-left: 10px;
+		padding-right: 4px;
+		height: 30px;
+	}
+}
+
 .search-icon {
 	width: 20px;
 	height: 20px;
@@ -158,6 +177,21 @@
 	
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+	.search-icon {
+
+		width: 16px;
+		height: 16px;
+
+		font-size: 18px;
+
+		line-height: 16px;
+
+		margin-top: 7px;
+		margin-bottom: 7px;
+	}
 }
 
 mat-spinner {
@@ -182,6 +216,13 @@ mat-spinner {
 	line-height: 40px;
 
 	min-width: 0px;
+}
+
+@media screen and (max-width: 600px) {
+	.search-input {
+		font-size: 18px;
+		line-height: 30px;
+	}
 }
 
 .search-type-toggle {
@@ -221,6 +262,18 @@ mat-button-toggle {
 	padding: 10px !important;
 }
 
+
+@media screen and (max-width: 600px) {
+	mat-button-toggle {
+		height: 22px;
+	}
+
+	::ng-deep .search-container .mat-button-toggle-label-content {
+		font-size: 12px;
+		line-height: 16px;
+	}
+}
+
 .filter-container {
 
 	margin-top: 15px;
@@ -247,7 +300,6 @@ mat-button-toggle {
 	align-items: center;
 
 	margin-left: 30px;
-	margin-bottom: 10px;
 }
 
 .domain-filter-icon {
@@ -290,7 +342,6 @@ mat-button-toggle {
 
 	justify-content: center;
 	align-items: center; 
-	margin-bottom: 10px;
 }
 
 .sort-filter {
@@ -343,6 +394,8 @@ mat-button-toggle {
 	z-index:1;
 
 	position: relative;
+
+	padding-bottom: 10px;
 }
 
 .opps-list, .user-list {
@@ -350,9 +403,6 @@ mat-button-toggle {
 	padding-top: 15px;
 
 	overflow: scroll;
-
-	height: calc(100vh - 170px);
-	
 }
 
 .opps-list {
@@ -438,10 +488,6 @@ mat-button-toggle {
 		margin-left: calc(100vw * 0.0234);
 	}
 
-	.filter-container {
-		margin-left: calc(-100vw * 0.0234);
-	}
-
 	.opps-list {
 		margin-left: calc(-100vw * 0.0234);
 		margin-right: calc(-100vw * 0.0234);
@@ -449,17 +495,42 @@ mat-button-toggle {
 
 	.opp-card-container {
 		margin-bottom: calc(100vw * 0.0234);
-		margin-left: calc(100vw * 0.0234);;
+		margin-left: calc(100vw * 0.0234);
 
 		width: calc((100vw - 90px - 1 * 100vw * 0.0234)/2);
 		height: calc((100vw - 90px - 1 * 100vw * 0.0234)*100/275);
 		font-size: calc((100vw - 90px - 1 * 100vw * 0.0234)*24/(2*275));
 	}
+}
+
+@media screen and (max-width: 600px) {
+	.opp-card-container {
+		margin-left: 20px;
+		margin-bottom: calc(100vw * 0.0234);
+		width: calc((100vw - 40px - 20px)/2);
+		height: calc((100vw - 40px - 20px)*100/275);
+		font-size: calc((100vw - 40px - 20px)*12/275);
+	}
+
+	.opps-list {
+		margin-left: -45px;
+		margin-right: -45px;
+	}
+
+	.user-list {
+		margin-left: -45px;
+		margin-right: -45px;
+	}
 
 	.user-card-container {
+		margin-left: 20px;
+		margin-bottom: calc(100vw * 0.0234);
+		width: calc((100vw - 40px - 20px)/2);
+		height: calc(120*(100vw - 40px - 20px)/(2*382));
+		font-size: calc(24*(100vw - 40px - 20px)/(2*382));
+	}
 
-		width: calc((100vw - 90px));
-		height: calc(120*(100vw - 90px)/(382));
-		font-size: calc(24*(100vw - 90px)/(382));
+	.filter-container {
+		display: none;
 	}
 }

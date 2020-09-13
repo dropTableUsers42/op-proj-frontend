@@ -68,6 +68,32 @@ export class OppsCardComponent implements OnInit {
 		}
 	}
 
+	months = {
+		'january' : 'January',
+		'february' : 'February',
+		'march': 'March',
+		'april': 'April',
+		'may': 'May',
+		'june': 'June',
+		'july': 'July',
+		'august': 'August',
+		'september': 'September',
+		'october': 'October',
+		'november': 'November',
+		'december': 'December',
+		'tbd': 'TBD',
+		'all year': 'All Year'
+	}
+
+	get month() {
+		for(let tag of this.opportunity.tags) {
+			if(tag.slug.toLowerCase() in this.months)
+			{
+				return this.months[tag.slug];
+			}
+		}
+	}
+
 	interested_click(event) {
 		event.preventDefault();
     	event.stopPropagation();

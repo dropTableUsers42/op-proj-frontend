@@ -13,8 +13,8 @@ export class SignupFormComponent implements OnInit {
 
   formState = 'enter-ref';
 
-  referral_label = 'Enter your College ID and Referral Code';
-  reg_label = 'Enter your details to signup!';
+  referral_label = 'Sign Up';
+  reg_label = 'Enter details';
 
   ref_invalid: boolean = false;
   otp_invalid: boolean = false;
