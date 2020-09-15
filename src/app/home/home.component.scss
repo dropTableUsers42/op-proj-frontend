@@ -199,6 +199,10 @@ mat-spinner {
 	margin-bottom: 10px;
 }
 
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+	stroke: #181819;
+}
+
 .search-input {
 	background-color: transparent;
 
@@ -281,7 +285,7 @@ mat-button-toggle {
 
 	flex-flow: row wrap;
 
-	margin-left: -30px;
+	margin-left: -10px;
 
 }
 
@@ -341,7 +345,9 @@ mat-button-toggle {
 	padding-right: 10px;
 
 	justify-content: center;
-	align-items: center; 
+	align-items: center;
+
+	width: 120px;
 }
 
 .sort-filter {

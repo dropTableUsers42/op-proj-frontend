@@ -6,6 +6,7 @@ import { AuthService } from '../_services/auth.service';
 import { User } from '../_models/user.model';
 import { Opps } from '../_models/opps.model';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { tags, months, regions, funding } from '../opsearch/tags-vector';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +15,16 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
               './home-colors.component.scss'],
   animations: [
     trigger('shadowTrigger', [
-			state ('hasShadow', style({
-				boxShadow: '3px 6px 10px -4px rgba(0, 0, 0, 0.3)'
-			})),
-			state('hasNoShadow', style({
-				boxShadow: 'none'
-			})),
-			transition ('* => *', [
-				animate('0.2s ease-in-out')
-			]),
-		]),
+            state ('hasShadow', style({
+                boxShadow: '3px 6px 10px -4px rgba(0, 0, 0, 0.3)'
+            })),
+            state('hasNoShadow', style({
+                boxShadow: 'none'
+            })),
+            transition ('* => *', [
+                animate('0.2s ease-in-out')
+            ]),
+        ]),
   ]
 })
 export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
@@ -31,18 +32,41 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
   title = 'THE OPPORTUNITY PROJECT.';
 
   searchForm = new FormGroup({
-		searchstring: new FormControl (''),
-		searchtype: new FormControl('Opps')
-	})
+        searchstring: new FormControl (''),
+        searchtype: new FormControl('Opps')
+    });
+
+    oppsFilterForm = new FormGroup({
+        type: new FormControl(''),
+        date: new FormControl(''),
+        region: new FormControl(''),
+        funding: new FormControl('')
+    });
 
   search_types = [
-		{ id: 1, name: "Opps" },
-		{ id: 2, name: "People" }, 
+        { id: 1, name: "Opps" },
+        { id: 2, name: "People" }, 
   ]
   
   spin: boolean;
 
   isMobile: boolean;
+
+    get tags_vector(): {} {
+        return tags;
+    }
+
+    get months_vector(): {} {
+        return months;
+    }
+
+    get regions_vector(): {} {
+        return regions;
+    }
+
+    get funding_vector(): {} {
+        return funding;
+    }
 
   constructor(private pageStyleService: PageStyleService, private backendService: BackendService, private authService: AuthService) { }
 
@@ -52,75 +76,100 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
     this.pageStyleService.newEvent('home');
 
     this.user_list = [];
-		this.opportunity_list = [];
+        this.opportunity_list = [];
     this.searchForm.patchValue({'searchstring': ''});
     this.searchSpecific();
     
     this.searchForm.get('searchtype').valueChanges.subscribe(val => {
-			this.searchForm.patchValue({'searchstring': ''});
-			this.searchSpecific();
+            this.searchForm.patchValue({'searchstring': ''});
+            this.searchSpecific();
+    });
+
+    this.oppsFilterForm.valueChanges.subscribe(val => {
+        console.log(this.oppsFilterForm.value);
+        this.searchSpecific();
     });
   }
 
   get getHeight(): number {
-	return window.innerHeight;
+    return window.innerHeight;
   }
 
   ngDoCheck(): void {
-	this.isMobile = window.innerWidth <= 600;
+    this.isMobile = window.innerWidth <= 600;
   }
 
   public opportunity_list: Opps[] = [];
-	public user_list: User[] = [];
+    public user_list: User[] = [];
 
   get domain_title_class() {
-		let ret_class = {'domain': true};
-		ret_class['it'] = true;
-		return ret_class;
-	}
+        let ret_class = {'domain': true};
+        ret_class['it'] = true;
+        return ret_class;
+    }
 
-	get search_icon_class() {
-		let ret_class = {'search-icon': true};
-		ret_class['it'] = true;
-		return ret_class;
-	}
+    get search_icon_class() {
+        let ret_class = {'search-icon': true};
+        ret_class['it'] = true;
+        return ret_class;
+    }
 
-	get search_input_class() {
-		let ret_class = {'search-input': true};
-		ret_class['it'] = true;
-		return ret_class;
+    get search_input_class() {
+        let ret_class = {'search-input': true};
+        ret_class['it'] = true;
+        return ret_class;
   }
 
   get list_class() {
-		if(this.searchForm.value['searchtype'] == 'Opps')
-		{
-			return 'opps-list';
-		}
-		else
-		{
-			return 'user-list';
-		}
-	}
+        if(this.searchForm.value['searchtype'] == 'Opps')
+        {
+            return 'opps-list';
+        }
+        else
+        {
+            return 'user-list';
+        }
+    }
   
   search() {
-		this.searchSpecific();
-	}
+        this.searchSpecific();
+    }
 
-	searchSpecific() {
+    searchSpecific(): void {
     this.spin = true;
-		if(this.searchForm.value.searchtype == 'Opps')
-		{
-			this.backendService.searchOpps(this.searchForm.value.searchstring).subscribe(list => {
-        this.opportunity_list = list;
-        this.spin = false;
-			})
-		}
-		else {
-			this.backendService.searchUser(this.searchForm.value.searchstring).subscribe(list => {
-        this.user_list = list;
-        this.spin = false;
-			})
-		}
+    if(this.searchForm.value.searchtype == 'Opps')
+    {
+        let tags = '';
+
+        if (this.oppsFilterForm.value.date !== '' && this.oppsFilterForm.value.date != undefined)
+        {
+            tags += ' ' + this.oppsFilterForm.value.date;
+        }
+        if (this.oppsFilterForm.value.region !== '' && this.oppsFilterForm.value.region != undefined)
+        {
+            tags += ' ' + this.oppsFilterForm.value.region;
+        }
+        if (this.oppsFilterForm.value.funding !== '' && this.oppsFilterForm.value.funding != undefined)
+        {
+            tags += ' ' + this.oppsFilterForm.value.funding;
+        }
+
+        if(tags === '')
+        {
+            tags = null;
+        }
+        console.log(tags);
+        this.backendService.searchOpps(this.searchForm.value.searchstring, null, tags).subscribe(list => {
+            this.opportunity_list = list;
+            this.spin = false;
+        })
+    }
+    else {
+        this.backendService.searchUser(this.searchForm.value.searchstring).subscribe(list => {
+    this.user_list = list;
+    this.spin = false;
+        })
+    }
   }
 
   @ViewChild ('scrollFrame', {static: false}) scrollFrame: ElementRef;
@@ -133,7 +182,7 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
   }
   
   scrolled() {
-		this.isScrolledToTop = this.scrollContainer.scrollTop == 0;
-	}
+        this.isScrolledToTop = this.scrollContainer.scrollTop == 0;
+    }
 
 }

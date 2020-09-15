@@ -69,6 +69,8 @@ export class OpsearchComponent implements OnInit, DoCheck {
         funding: new FormControl('')
     });
 
+    spin = false;
+
     public opportunityList: Opps[] = [];
     public userList: User[] = [];
     public domain: string;
@@ -209,7 +211,7 @@ export class OpsearchComponent implements OnInit, DoCheck {
         this.oppsFilterForm.valueChanges.subscribe(val => {
             console.log(this.oppsFilterForm.value);
             this.searchSpecific();
-        })
+        });
     }
 
     search(): void {
@@ -217,6 +219,7 @@ export class OpsearchComponent implements OnInit, DoCheck {
     }
 
     searchSpecific(): void {
+        this.spin = true;
         if (this.searchForm.value.searchtype == 'Opps')
         {
             let tags = '';
@@ -244,11 +247,13 @@ export class OpsearchComponent implements OnInit, DoCheck {
             }
             this.backendService.searchOpps(this.searchForm.value.searchstring, this.domain_tag, tags).subscribe(list => {
                 this.opportunityList = list;
+                this.spin = false;
             });
         }
         else {
             this.backendService.searchUser(this.searchForm.value.searchstring).subscribe(list => {
                 this.userList = list;
+                this.spin = false;
             });
         }
     }

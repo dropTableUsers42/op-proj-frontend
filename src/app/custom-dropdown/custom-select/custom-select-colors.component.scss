@@ -22,6 +22,10 @@
 	background-color: #2BA9CA;
 }
 
+.home .svg {
+	background-color: #181819;
+}
+
 .core input::placeholder, .core input {
 	color: #05905F;
 }
@@ -44,4 +48,8 @@
 
 .socdev input::placeholder, .socdev input {
 	color: #2BA9CA;
+}
+
+.home input::placeholder, .home input {
+	color: #181819
 }

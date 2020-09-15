@@ -8,7 +8,8 @@
 			<div class="search-container">
 				<div class="search-row">
 					<div class="search-bar">
-						<mat-icon class="search-icon" (click)="search()">search</mat-icon>
+						<mat-icon *ngIf="!spin" class="search-icon">search</mat-icon>
+						<mat-spinner *ngIf="spin" diameter=20></mat-spinner>
 						<input class="search-input" type="search" id="searchstring" name="searchstring" placeholder="Search" autocomplete="off" autocorrect="off" spellcheck="false" formControlName="searchstring">
 					</div>
 					<div class="search-type-toggle">

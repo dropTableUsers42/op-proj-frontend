@@ -143,3 +143,27 @@ mat-button-toggle {
 	color: #2BA9CA;
 	opacity: 0.5;
 }
+
+::ng-deep .core .mat-progress-spinner circle, .core .mat-spinner circle {
+	stroke:#05905F;
+}
+
+::ng-deep .it .mat-progress-spinner circle, .it .mat-spinner circle {
+	stroke: #FF9D63;
+}
+
+::ng-deep .consult .mat-progress-spinner circle, .consult .mat-spinner circle {
+	stroke: #E76D50;
+}
+
+::ng-deep .ent .mat-progress-spinner circle, .ent .mat-spinner circle {
+	stroke: #225882;
+}
+
+::ng-deep .fin .mat-progress-spinner circle, .fin .mat-spinner circle {
+	stroke: #D67BBB;
+}
+
+::ng-deep .socdev .mat-progress-spinner circle, .socdev .mat-spinner circle {
+	stroke: #2BA9CA;
+}
