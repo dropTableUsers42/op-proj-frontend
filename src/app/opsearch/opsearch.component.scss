@@ -280,24 +280,22 @@ mat-button-toggle {
 
 	justify-content: center;
 	align-items: center; 
+
+	font-size: 14px;
+
+	width: 120px;
 }
 
-.sort-filter {
-	height: 25px;
+#opps-type {
+	width: 200px;
+}
 
-	display: flex;
-	flex-direction: row;
+#region-filter {
+	width: 130px;
+}
 
-	background: transparent;
-	border-radius: 8px;
-
-	margin-left: auto;
-
-	padding-left: 6px;
-	padding-right: 10px;
-
-	justify-content: center;
-	align-items: center; 
+#funding-filter {
+	width: 155px;
 }
 
 .sub-filter-label {

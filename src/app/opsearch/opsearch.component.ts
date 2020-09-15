@@ -15,6 +15,8 @@ import {
     transition,
 } from '@angular/animations';
 
+import { tags, months, regions, funding } from './tags-vector';
+
 
 @Component({
     selector: 'app-opsearch',
@@ -59,6 +61,13 @@ export class OpsearchComponent implements OnInit, DoCheck {
         'Opps',
         'People',
     ];
+
+    oppsFilterForm = new FormGroup({
+        type: new FormControl(''),
+        date: new FormControl(''),
+        region: new FormControl(''),
+        funding: new FormControl('')
+    });
 
     public opportunityList: Opps[] = [];
     public userList: User[] = [];
@@ -154,6 +163,22 @@ export class OpsearchComponent implements OnInit, DoCheck {
         return retClass;
     }
 
+    get tags_vector(): {} {
+        return tags;
+    }
+
+    get months_vector(): {} {
+        return months;
+    }
+
+    get regions_vector(): {} {
+        return regions;
+    }
+
+    get funding_vector(): {} {
+        return funding;
+    }
+
     ngOnInit(): void {
         this.actRoute.params.subscribe((val => {
             if(!(val.domain in this.domain_links))
@@ -180,23 +205,51 @@ export class OpsearchComponent implements OnInit, DoCheck {
             this.searchForm.patchValue({searchstring: ''});
             this.searchSpecific();
         });
+
+        this.oppsFilterForm.valueChanges.subscribe(val => {
+            console.log(this.oppsFilterForm.value);
+            this.searchSpecific();
+        })
     }
 
     search(): void {
         this.searchSpecific();
     }
 
-    searchSpecific() {
-        if(this.searchForm.value.searchtype == 'Opps')
+    searchSpecific(): void {
+        if (this.searchForm.value.searchtype == 'Opps')
         {
-            this.backendService.searchOpps(this.searchForm.value.searchstring, this.domain_tag).subscribe(list => {
+            let tags = '';
+
+            if (this.oppsFilterForm.value.type !== '' && this.oppsFilterForm.value.type != undefined)
+            {
+                tags += ' ' + this.oppsFilterForm.value.type;
+            }
+            if (this.oppsFilterForm.value.date !== '' && this.oppsFilterForm.value.date != undefined)
+            {
+                tags += ' ' + this.oppsFilterForm.value.date;
+            }
+            if (this.oppsFilterForm.value.region !== '' && this.oppsFilterForm.value.region != undefined)
+            {
+                tags += ' ' + this.oppsFilterForm.value.region;
+            }
+            if (this.oppsFilterForm.value.funding !== '' && this.oppsFilterForm.value.funding != undefined)
+            {
+                tags += ' ' + this.oppsFilterForm.value.funding;
+            }
+
+            if(tags === '')
+            {
+                tags = null;
+            }
+            this.backendService.searchOpps(this.searchForm.value.searchstring, this.domain_tag, tags).subscribe(list => {
                 this.opportunityList = list;
-            })
+            });
         }
         else {
             this.backendService.searchUser(this.searchForm.value.searchstring).subscribe(list => {
                 this.userList = list;
-            })
+            });
         }
     }
 

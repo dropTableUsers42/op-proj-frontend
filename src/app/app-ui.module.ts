@@ -7,6 +7,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { PortalModule } from '@angular/cdk/portal';
 
 const uiModules = [
   MatSidenavModule,
@@ -16,7 +18,9 @@ const uiModules = [
   MatButtonToggleModule,
   MatSelectModule,
   MatProgressSpinnerModule,
-  ScrollingModule
+  ScrollingModule,
+  PortalModule,
+  OverlayModule
 ];
 
 @NgModule({

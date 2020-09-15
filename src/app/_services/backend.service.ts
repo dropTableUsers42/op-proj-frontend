@@ -57,12 +57,17 @@ export class BackendService {
       }));
   }
 
-  public searchOpps(searchstring, domain = null): Observable<Opps[]> {
+  public searchOpps(searchstring, domain = null, tags = null): Observable<Opps[]> {
 
     let params = new HttpParams().set("name",searchstring);
     if(domain !== undefined && domain != null)
     {
       params = params.append("domain", domain);
+    }
+
+    if(tags !== undefined && tags != null)
+    {
+      params = params.append("tags", tags);
     }
 
     return this.httpClient.get<Opps[]>("https://the-op.herokuapp.com/opportunity/search", {params:params}).pipe(map(item => {

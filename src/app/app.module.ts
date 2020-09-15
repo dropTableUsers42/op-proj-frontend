@@ -29,6 +29,9 @@ import { FollowOverlayComponent } from './follow-overlay/follow-overlay.componen
 import { CountdownPipe } from './_pipes/countdown.pipe';
 import { OppDetailCommentComponent } from './opp-detail-comment/opp-detail-comment.component';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { CustomSelectComponent } from './custom-dropdown/custom-select/custom-select.component';
+import { DropdownComponent } from './custom-dropdown/dropdown/dropdown.component';
+import { CustomSelectOptionComponent } from './custom-dropdown/custom-select-option/custom-select-option.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,9 @@ import { SearchFormComponent } from './search-form/search-form.component';
     CountdownPipe,
     OppDetailCommentComponent,
     SearchFormComponent,
+    CustomSelectComponent,
+    DropdownComponent,
+    CustomSelectOptionComponent,
   ],
   imports: [
     BrowserModule,

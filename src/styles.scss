@@ -4,6 +4,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined');
 
+@import '~@angular/cdk/overlay-prebuilt.css';
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 

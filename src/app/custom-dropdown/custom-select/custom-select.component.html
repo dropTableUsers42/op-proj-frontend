@@ -1,0 +1,19 @@
+<div [ngClass]="main_class">
+	<div class="input" [class.required]="required" #dropreference>
+	  <span class="label-text"><div #labelSvg id="type-svg" class="svg"></div></span>
+	  <input #input
+	  		 [value]="displayText"
+			 placeholder={{placeholder}}
+			 [disabled]="disabled"
+			 readonly
+			 autocomplete="off"
+			 (click)="showDropdown()"
+			 (blur)="onTouched()">
+	  <span class="dropdown-arrow" (click)="onDropMenuIconClick($event)"><div id="arrow-svg" class="svg"></div></span>
+	</div>
+	<app-dropdown [reference]="dropreference" #dropdownComp>
+		<div class="dropdown-options-container">
+			<ng-content select="app-custom-select-option"></ng-content>
+		</div>
+	</app-dropdown>
+  </div>
