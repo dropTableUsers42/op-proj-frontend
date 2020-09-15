@@ -69,8 +69,18 @@
 	<div class="opps-form-container">
 		<label class="opps-form-label">Opportunities Pursued</label>
 		<div class="opps-form-content">
-			<textarea autocomplete="off" autocorrect="off" spellcheck="false" class="opps-content" name="opps-content" value="{{ops}}"></textarea>
+			<mat-form-field [formGroup]="pursuedForm">
+				<mat-select formControlName="pursuedMultiCtrl" [multiple]="true" #multiSelect>
+				  <mat-option>
+					<ngx-mat-select-search formControlName="pursuedFilterCtrl"></ngx-mat-select-search>
+				  </mat-option>
+				  <mat-option *ngFor="let opp of filteredOppsMulti | async" [value]="opp">
+					{{opp.Name_of_Program}}
+				  </mat-option>
+				</mat-select>
+			  </mat-form-field>
 		</div>
+		<div class="opps-form-label" *ngFor="let opp of pursuedForm.value.pursuedMultiCtrl">{{opp.Name_of_Program}}</div>
 	</div>
 </div>
 <!--<img class="reg-icon">

@@ -1,0 +1,104 @@
+<div class="page-container scrollable">
+	<img id="logo">
+	<div class="text title-l" id="about-title">About the OP.</div>
+	<div class="text" id="about-content">{{aboutContent}}</div>
+	<div class="text title-m">Domains</div>
+	<div class="flex-row" id="card-list-container">
+		<div class="card flip core">
+			<div class="flip-card-inner">
+				<div class="flip-card-front">
+					Core
+				</div>
+				<div class="flip-card-back">
+					<div class="flip-back-text">For the budding researcher or engineer in you</div>
+				</div>
+			</div>
+		</div>
+		<div class="card flip it">
+			<div class="flip-card-inner">
+				<div class="flip-card-front">
+					IT
+				</div>
+				<div class="flip-card-back">
+					<div class="flip-back-text">if(interest(CS) == True): 
+						enter_here = True</div>
+				</div>
+			</div>
+		</div>
+		<div class="card flip consult">
+			<div class="flip-card-inner">
+				<div class="flip-card-front">
+					Consulting
+				</div>
+				<div class="flip-card-back">
+					<div class="flip-back-text">Cases, guesstimates, and real-life problems give you thrills? This is where you shop.</div>
+				</div>
+			</div>
+		</div>
+		<div class="card flip ent">
+			<div class="flip-card-inner">
+				<div class="flip-card-front">
+					Entrepreneurship
+				</div>
+				<div class="flip-card-back">
+					<div class="flip-back-text">Elon, Jeff, and Mark recommend this for you</div>
+				</div>
+			</div>
+		</div>
+		<div class="card flip fin">
+			<div class="flip-card-inner">
+				<div class="flip-card-front">
+					Finance
+				</div>
+				<div class="flip-card-back">
+					<div class="flip-back-text">Derivatives, Investments, Securities, Valuation. If you understand any of these, congratulations! You might just be one step closer to Buffet.</div>
+				</div>
+			</div>
+		</div>
+		<div class="card flip socdev">
+			<div class="flip-card-inner">
+				<div class="flip-card-front">
+					SocDev & Policy
+				</div>
+				<div class="flip-card-back">
+					<div class="flip-back-text">Changing the world one amendment at a time. Agree? Join us!</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text title-m">Features</div>
+	<div class="text title-m">Team</div>
+	<div class="text title-s">Co-Founders</div>
+	<div class="flex-row team-container">
+		<div *ngFor="let member of team['Co-Founders']" class="team-detail">
+			<img class="team-image" src="{{member.image}}">
+			<div class="text team-text">{{member.name}}</div>
+			<div class="social-links flex-row">
+				<a href="{{member.linkedin}}"><img class="social" src="/assets/svg/linkedin.svg"></a>
+				<a href="{{member.insta}}"><img class="social" src="/assets/svg/insta.svg"></a>
+			</div>
+		</div>
+	</div>
+	<div class="text title-s">Product Curators</div>
+	<div class="flex-row team-container">
+		<div *ngFor="let member of team['Product Curators']" class="team-detail">
+			<img class="team-image" src="{{member.image}}">
+			<div class="text team-text">{{member.name}}</div>
+			<div class="social-links flex-row">
+				<a href="{{member.linkedin}}"><img class="social" src="/assets/svg/linkedin.svg"></a>
+				<a href="{{member.insta}}"><img class="social" src="/assets/svg/insta.svg"></a>
+			</div>
+		</div>
+	</div>
+	<div class="text title-s">Product Developers</div>
+	<div class="flex-row team-container">
+		<div *ngFor="let member of team['Product Developers']" class="team-detail">
+			<img class="team-image" src="{{member.image}}">
+			<div class="text team-text">{{member.name}}</div>
+			<div class="social-links flex-row">
+				<a href="{{member.linkedin}}"><img class="social" src="/assets/svg/linkedin.svg"></a>
+				<a href="{{member.insta}}"><img class="social" src="/assets/svg/insta.svg"></a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -3,36 +3,36 @@ button {
 }
 
 .home .menu-button, .home .sidelink>a:link, .home .sidelink>a:visited, .home .sidelink>a:hover, .home .sidelink>a:active,
-.home .aboutlink>a:link, .home .aboutlink>a:visited, .home .aboutlink>a:hover, .home .aboutlink>a:active {
+.home .aboutlink>a:link, .home .aboutlink>a:visited, .home .aboutlink>a:hover, .home .aboutlink>a:active, .home .aboutlink>a {
 	color: #F9F9F9;
 }
 
 .core .menu-button, .core .sidelink>a:link, .core .sidelink>a:visited, .core .sidelink>a:hover, .core .sidelink>a:active,
-.core .aboutlink>a:link, .core .aboutlink>a:visited, .core .aboutlink>a:hover, .core .aboutlink>a:active, #core>a:hover {
+.core .aboutlink>a:link, .core .aboutlink>a:visited, .core .aboutlink>a:hover, .core .aboutlink>a:active, #core>a:hover, .core .aboutlink>a {
 	color: #05905F;
 }
 
 .it .menu-button, .it .sidelink>a:link, .it .sidelink>a:visited, .it .sidelink>a:hover, .it .sidelink>a:active,
-.it .aboutlink>a:link, .it .aboutlink>a:visited, .it .aboutlink>a:hover, .it .aboutlink>a:active, #it>a:hover {
+.it .aboutlink>a:link, .it .aboutlink>a:visited, .it .aboutlink>a:hover, .it .aboutlink>a:active, #it>a:hover, .it .aboutlink>a {
 	color: #FF9D63;
 }
 
 .consult .menu-button, .consult .sidelink>a:link, .consult .sidelink>a:visited, .consult .sidelink>a:hover, .consult .sidelink>a:active,
-.consult .aboutlink>a:link, .consult .aboutlink>a:visited, .consult .aboutlink>a:hover, .consult .aboutlink>a:active, #consult>a:hover {
+.consult .aboutlink>a:link, .consult .aboutlink>a:visited, .consult .aboutlink>a:hover, .consult .aboutlink>a:active, #consult>a:hover, .consult .aboutlink>a {
 	color: #E76D50;
 }
 
 .ent .menu-button, .ent .sidelink>a:link, .ent .sidelink>a:visited, .ent .sidelink>a:hover, .ent .sidelink>a:active,
-.ent .aboutlink>a:link, .ent .aboutlink>a:visited, .ent .aboutlink>a:hover, .ent .aboutlink>a:active, #ent>a:hover {
+.ent .aboutlink>a:link, .ent .aboutlink>a:visited, .ent .aboutlink>a:hover, .ent .aboutlink>a:active, #ent>a:hover, .ent.aboutlink>a {
 	color: #225882;
 }
 
 .fin .menu-button, .fin .sidelink>a:link, .fin .sidelink>a:visited, .fin .sidelink>a:hover, .fin .sidelink>a:active,
-.fin .aboutlink>a:link, .fin .aboutlink>a:visited, .fin .aboutlink>a:hover, .fin .aboutlink>a:active, #fin>a:hover {
+.fin .aboutlink>a:link, .fin .aboutlink>a:visited, .fin .aboutlink>a:hover, .fin .aboutlink>a:active, #fin>a:hover, .fin .aboutlink>a {
 	color: #D67BBB;
 }
 
 .socdev .menu-button, .socdev .sidelink>a:link, .socdev .sidelink>a:visited, .socdev .sidelink>a:hover, .socdev .sidelink>a:active,
-.socdev .aboutlink>a:link, .socdev .aboutlink>a:visited, .socdev .aboutlink>a:hover, .socdev .aboutlink>a:active, #socdev>a:hover {
+.socdev .aboutlink>a:link, .socdev .aboutlink>a:visited, .socdev .aboutlink>a:hover, .socdev .aboutlink>a:active, #socdev>a:hover, .socdev .aboutlink>a {
 	color: #2BA9CA;
 }

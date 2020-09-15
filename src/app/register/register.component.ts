@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { BackendService } from '../_services/backend.service';
 import { AuthService } from '../_services/auth.service';
 import { PageStyleService } from '../_services/page-style.service';
@@ -6,13 +6,17 @@ import { User } from '../_models/user.model';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { CountdownPipe } from '../_pipes/countdown.pipe';
+import { Opps } from '../_models/opps.model';
+import { ReplaySubject, Subject } from 'rxjs';
+import { take, takeUntil } from 'rxjs/operators';
+import { MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ops = "chjbkdsghbvksdcnbadvjkdnvkjdnvjkacklamlkacklamlkacklamlklamlkbgklamlkacklamlklamlkvlklamlkvggamlkvlklamlkvdddgdfg";
 
@@ -28,7 +32,16 @@ export class RegisterComponent implements OnInit {
     })
   });
 
-  constructor(private backendService: BackendService, private router: Router, private authService: AuthService, private pageStyleService: PageStyleService) {
+  listOpps: Opps[] = [];
+  pursuedForm = new FormGroup({
+    pursuedMultiCtrl: new FormControl([]),
+    pursuedFilterCtrl: new FormControl(''),
+  });
+  public filteredOppsMulti: ReplaySubject<Opps[]> = new ReplaySubject<Opps[]>(1);
+
+  constructor(private backendService: BackendService,
+              private router: Router, private authService: AuthService,
+              private pageStyleService: PageStyleService) {
     this.pageStyleService.newEvent('home');
   }
 
@@ -41,8 +54,30 @@ export class RegisterComponent implements OnInit {
     'SocDev-and-Policy': 'socdev',
   }
 
+  @ViewChild('multiSelect', { static: true }) multiSelect: MatSelect;
+
+  /** Subject that emits when the component has been destroyed. */
+  protected _onDestroy = new Subject<void>();
+
   ngOnInit(): void {
+
+    this.backendService.searchOpps('').subscribe(ret => {
+      this.listOpps = ret;
+      console.log('done');
+    });
+
+    this.filteredOppsMulti.next(this.listOpps.slice());
+
+    this.pursuedForm.get('pursuedFilterCtrl').valueChanges
+      .pipe(takeUntil(this._onDestroy))
+      .subscribe(() => {
+        this.filterOppsMulti();
+      });
+
     this.user = this.authService.currentUserValue;
+    let temp = this.user.pursued.map(opp => opp.slug);
+    console.log(temp);
+    this.pursuedForm.get('pursuedMultiCtrl').setValue(this.user.pursued);
     this.profileForm.patchValue({
       name: this.user.name,
       college: this.user.college,
@@ -54,11 +89,53 @@ export class RegisterComponent implements OnInit {
     for(let domain in this.user.domains)
     {
       if(this.user.domains[domain])
+      {
         domain_prefs.push(this.domain_prefs_api[domain]);
+      }
     }
     this.profileForm.patchValue({
       domainForm: {domains: domain_prefs}
-    })
+    });
+  }
+
+  ngAfterViewInit(): void {
+    this.setInitialValue();
+  }
+
+  ngOnDestroy(): void {
+    this._onDestroy.next();
+    this._onDestroy.complete();
+  }
+
+  protected setInitialValue(): void {
+    this.filteredOppsMulti
+      .pipe(take(1), takeUntil(this._onDestroy))
+      .subscribe(() => {
+        // setting the compareWith property to a comparison function
+        // triggers initializing the selection according to the initial value of
+        // the form control (i.e. _initializeSelection())
+        // this needs to be done after the filteredBanks are loaded initially
+        // and after the mat-option elements are available
+        this.multiSelect.compareWith = (a: Opps, b: Opps) => a && b && a.slug === b.slug;
+      });
+  }
+
+  protected filterOppsMulti(): void {
+    if (!this.listOpps) {
+      return;
+    }
+    // get the search keyword
+    let search = this.pursuedForm.get('pursuedFilterCtrl').value;
+    if (!search) {
+      this.filteredOppsMulti.next(this.listOpps.slice());
+      return;
+    } else {
+      search = search.toLowerCase();
+    }
+    // filter the banks
+    this.filteredOppsMulti.next(
+      this.listOpps.filter(opp=> opp.Name_of_Program.toLowerCase().indexOf(search) > -1)
+    );
   }
 
   onSubmit() {

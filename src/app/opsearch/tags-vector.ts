@@ -86,7 +86,7 @@ export const months = [
 
 export const regions = [
     { slug: 'indian', name: 'Indian' },
-    { slug: 'international', name: 'International' },
+    { slug: 'international', name: 'Foreign' },
     { slug: 'online', name: 'Online' },
 ];
 
@@ -94,3 +94,12 @@ export const funding = [
     { slug: 'funded', name: 'Funded' },
     { slug: 'partially-funded', name: 'Partially Funded' },
 ];
+
+export const domains = [
+    {slug: 'Core', name: 'Core'},
+    {slug: 'IT', name: 'IT'},
+    {slug: 'Consulting', name: 'Consulting'},
+    {slug: 'Finance', name: 'Finance'},
+    {slug: 'Entrepreneurship', name: 'Entrepreneurship'},
+    {slug: 'SocDev-and-Policy', name: 'SocDev & Policy'}
+]

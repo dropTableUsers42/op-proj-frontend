@@ -575,7 +575,9 @@ p {
 	line-height: 19px;
 
 	color: #181918;
-	text-justify: auto;
+	text-align: justify;
+
+	white-space: pre-line;
 }
 
 .opp-comments-recc-container {

@@ -12,6 +12,8 @@ import { OppDetailComponent } from './opp-detail/opp-detail.component';
 import { Profilev2Component } from './profilev2/profilev2.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuardGuard } from './_guards/auth-guard.guard';
+import { AboutComponent } from './about/about.component';
+import { ContributeComponent } from './contribute/contribute.component';
 
 
 const routes: Routes = [
@@ -24,6 +26,8 @@ const routes: Routes = [
   { path: 'profilev2/:slug', component: Profilev2Component, canActivate: [AuthGuardGuard] },
   { path: 'search/:domain', component: OpsearchComponent, canActivate: [AuthGuardGuard] },
   { path: 'opps/:slug', component: OppDetailComponent, canActivate: [AuthGuardGuard] },
+  { path: 'about', component: AboutComponent },
+  { path: 'contribute', component: ContributeComponent },
   { path: '**', redirectTo: ''},
 ];
 

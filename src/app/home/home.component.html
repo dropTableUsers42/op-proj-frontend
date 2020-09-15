@@ -8,10 +8,13 @@
 		<div class="shadow-container" [@shadowTrigger]="isScrolledToTop ? 'hasNoShadow' : 'hasShadow'">
 			<form [formGroup]="searchForm" (ngSubmit)="search()">
 				<div class="search-container">
-					<div class="search-bar">
-						<mat-icon *ngIf="!spin" [ngClass]="search_icon_class">search</mat-icon>
-						<mat-spinner *ngIf="spin" diameter=20></mat-spinner>
-						<input [ngClass]="search_input_class" type="text" id="searchstring" name="searchstring" placeholder="Search" autocomplete="off" autocorrect="off" spellcheck="false" formControlName="searchstring">
+					<div class="search-row">
+						<div class="search-bar">
+							<mat-icon *ngIf="!spin" [ngClass]="search_icon_class">search</mat-icon>
+							<mat-spinner *ngIf="spin && isMobile" diameter=16></mat-spinner>
+							<mat-spinner *ngIf="spin && !isMobile" diameter=20></mat-spinner>
+							<input [ngClass]="search_input_class" type="text" id="searchstring" name="searchstring" placeholder="Search" autocomplete="off" autocorrect="off" spellcheck="false" formControlName="searchstring">
+						</div>
 						<div class="search-type-toggle">
 							<mat-button-toggle-group name="search-type-toggle" formControlName="searchtype">
 								<mat-button-toggle *ngFor="let type of search_types" disableRipple id="{{type.name}}" value="{{type.name}}">{{type.name}}</mat-button-toggle>
@@ -25,6 +28,17 @@
 								<mat-select disableOptionCentering>
 								</mat-select>
 							</div>-->
+							<div class="sub-filter" id="domain-filter">
+								<app-custom-select [required]="true"
+								labelUrl="/assets/svg/domain.svg"
+								placeholder="Domains"
+								styleType="home"
+								formControlName="domain"
+								>
+									<app-custom-select-option value='All'></app-custom-select-option>
+									<app-custom-select-option *ngFor="let tag of domains_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
+								</app-custom-select>
+							</div>
 							<div class="sub-filter">
 								<app-custom-select [required]="true"
 								labelUrl="/assets/svg/date.svg"
@@ -56,6 +70,23 @@
 								>
 									<app-custom-select-option value='All'></app-custom-select-option>
 									<app-custom-select-option *ngFor="let tag of funding_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
+								</app-custom-select>
+							</div>
+						</div>
+					</form>
+					<form *ngIf="searchForm.value['searchtype'] == 'People'">
+						<div class="filter-container">
+							<!---<div class="domain-filter">
+								<mat-placeholder class="domain-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">casino</mat-icon><span class="domain-label-string">Domain</span></mat-placeholder>
+								<mat-select disableOptionCentering>
+								</mat-select>
+							</div>-->
+							<div class="sub-filter">
+								<app-custom-select [required]="true"
+								labelUrl="/assets/svg/opps-type.svg"
+								placeholder="College"
+								styleType="home"
+								>
 								</app-custom-select>
 							</div>
 						</div>

@@ -32,6 +32,8 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import { CustomSelectComponent } from './custom-dropdown/custom-select/custom-select.component';
 import { DropdownComponent } from './custom-dropdown/dropdown/dropdown.component';
 import { CustomSelectOptionComponent } from './custom-dropdown/custom-select-option/custom-select-option.component';
+import { AboutComponent } from './about/about.component';
+import { ContributeComponent } from './contribute/contribute.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { CustomSelectOptionComponent } from './custom-dropdown/custom-select-opt
     CustomSelectComponent,
     DropdownComponent,
     CustomSelectOptionComponent,
+    AboutComponent,
+    ContributeComponent,
   ],
   imports: [
     BrowserModule,

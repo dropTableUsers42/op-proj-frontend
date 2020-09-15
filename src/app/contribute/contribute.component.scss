@@ -1,0 +1,66 @@
+.page-container {
+	width: 100vw;
+
+	height: 100vh;
+
+	padding-left: 45px;
+	padding-right: 45px;
+
+	padding-top: 100px;
+
+	background-color: #363636;
+}
+
+@media screen and (max-width: 600px) {
+	.page-container {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+
+.text {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 110%;
+
+	text-align: center;
+
+	color: #F9F9F9;
+}
+
+.title-m {
+	font-weight: bold;
+	font-size: 48px;
+	line-height: 105%;
+
+}
+
+.title-s {
+	font-weight: 500;
+	font-size: 36px;
+	line-height: 105%;
+
+	margin-top: 30px;
+}
+
+@media screen and (max-width: 600px) {
+	.text {
+		font-size: 16px;
+	}
+
+	.title-m {
+		font-size: 30px;
+	}
+
+	.title-s {
+		font-size: 28px;
+	}
+}
+
+.gform {
+	background-color: #F9F9F9;
+
+	border-radius: 10px;
+}

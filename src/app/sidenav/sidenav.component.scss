@@ -38,8 +38,14 @@
 	}
 }
 
+@media screen and (max-width: 600px) {
+	.link-list {
+		text-align: center;
+	}
+}
+
 .sidelink-container {
-	height: 60%;
+	height: 50%;
 
 	padding-top: 100px;
 	padding-right: 30px;
@@ -50,10 +56,26 @@
 	padding-top: 150px;
 	padding-right: 30px;
 
-	height: 40%;
+}
 
+
+@media screen and (max-width: 600px) {
+	.sidelink-container, .aboutlink {
+		padding-right: 0px;
+	}
 }
 
 a:link, a:visited, a:hover, a:active {
 	text-decoration: none;
+}
+
+#contribute-link {
+
+	padding-top: 0px;
+
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 77%;
+	line-height: 150%;
 }

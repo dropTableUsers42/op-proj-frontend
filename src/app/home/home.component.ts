@@ -6,7 +6,7 @@ import { AuthService } from '../_services/auth.service';
 import { User } from '../_models/user.model';
 import { Opps } from '../_models/opps.model';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { tags, months, regions, funding } from '../opsearch/tags-vector';
+import { tags, months, regions, funding, domains } from '../opsearch/tags-vector';
 
 @Component({
   selector: 'app-home',
@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
     });
 
     oppsFilterForm = new FormGroup({
+        domain: new FormControl(''),
         type: new FormControl(''),
         date: new FormControl(''),
         region: new FormControl(''),
@@ -66,6 +67,10 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
 
     get funding_vector(): {} {
         return funding;
+    }
+
+    get domains_vector(): {} {
+        return domains;
     }
 
   constructor(private pageStyleService: PageStyleService, private backendService: BackendService, private authService: AuthService) { }
@@ -158,8 +163,19 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
         {
             tags = null;
         }
+
+        let domain = '';
+        if (this.oppsFilterForm.value.domain !== '' && this.oppsFilterForm.value.domain  != undefined)
+        {
+            domain = this.oppsFilterForm.value.domain;
+        }
+        else
+        {
+            domain = null;
+        }
+
         console.log(tags);
-        this.backendService.searchOpps(this.searchForm.value.searchstring, null, tags).subscribe(list => {
+        this.backendService.searchOpps(this.searchForm.value.searchstring, domain, tags).subscribe(list => {
             this.opportunity_list = list;
             this.spin = false;
         })

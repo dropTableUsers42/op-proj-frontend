@@ -59,6 +59,17 @@ p {
 	font-size: 100%;
 	line-height: 105%;
 
+	width: 100%;
+
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+	margin-bottom: 0px;
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+
 
 	color: #181918;
 }
