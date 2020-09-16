@@ -44,6 +44,22 @@
 	content: url('/assets/images/placeholder.jpg');
 }
 
+#send-button {
+
+	background: transparent;
+	border-style: none;
+	outline: none;
+}
+
+#send-icon {
+
+	margin-top: 1px;
+	width: 17px;
+	height: 17px;
+
+	content: url('/assets/svg/send.svg');
+}
+
 .comment-reply {
 	margin-top: 8px;
 

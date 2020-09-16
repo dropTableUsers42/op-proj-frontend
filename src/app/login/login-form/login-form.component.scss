@@ -180,6 +180,14 @@ label {
 	flex-grow: 1;
 }
 
+.button-invalid, .button-invalid:hover {
+	border: 3px solid #9c9a9a !important;
+	color: #9c9a9a !important;
+	background: #5a5a5a !important;
+
+	cursor: not-allowed;
+}
+
 .otp-otp-incorrect, .otp-id-incorrect, .otp-otp-sent {
 
 	font-family: poppins;

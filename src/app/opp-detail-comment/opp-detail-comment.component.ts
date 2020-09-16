@@ -18,7 +18,9 @@ export class OppDetailCommentComponent implements OnInit {
 
   replyForm = new FormGroup({
     data: new FormControl('')
-  })
+  });
+
+  spin = false;
 
   replying: boolean;
 
@@ -29,19 +31,23 @@ export class OppDetailCommentComponent implements OnInit {
   }
 
   submitReply() {
-    this.replying = false;
-
-    let parent = this.comment._id;
-    if(this.comment.parent != null)
+    if (this.spin === false)
     {
-      parent = this.comment.parent;
-    }
+      this.spin = true;
 
-    this.backendService.addComment(this.opp.slug, this.replyForm.value.data, parent).subscribe(comment => {
-      this.replyForm.patchValue({data: ''});
-      this.onReplySubmitted.emit(comment);
+      let parent = this.comment._id;
+      if(this.comment.parent != null)
+      {
+        parent = this.comment.parent;
+      }
+      this.backendService.addComment(this.opp.slug, this.replyForm.value.data, parent).subscribe(comment => {
+        this.replyForm.patchValue({data: ''});
+        this.onReplySubmitted.emit(comment);
+        this.spin = false;
+        this.replying = false;
+      }
+      );
     }
-    )
   }
 
 }

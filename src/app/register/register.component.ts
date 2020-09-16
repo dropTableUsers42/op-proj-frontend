@@ -32,6 +32,8 @@ export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   });
 
+  spin = false;
+
   /*listOpps: Opps[] = [];
   pursuedForm = new FormGroup({
     pursuedMultiCtrl: new FormControl([]),
@@ -62,6 +64,8 @@ export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
   get width(): number {
     return window.innerWidth;
   }
+
+  dpOverlayShow = false;
 
   ngOnInit(): void {
 
@@ -143,6 +147,7 @@ export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 */
   onSubmit() {
+    this.spin = true;
     let domainBody = this.domain_prefs_api;
     for(let domain in this.domain_prefs_api)
     {
@@ -161,6 +166,7 @@ export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
       this.user = user;
       this.backendService.addDomainPref(domainBody).subscribe((user: User) => {
         this.user = user;
+        this.spin = false;
         if(first)
         {
           this.router.navigate(['home']);
@@ -169,8 +175,8 @@ export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
         {
           this.router.navigate(["/profile"]);
         }
-      })
-    })
+      });
+    });
   }
 
 }

@@ -34,6 +34,8 @@ export class OppDetailComponent implements OnInit {
     'SocDev-and-Policy': 'socdev'
   }
 
+  spin = false;
+
   @ViewChild('scrollFrame') scrollFrame: ElementRef;
 
   get title_class() {
@@ -128,7 +130,7 @@ export class OppDetailComponent implements OnInit {
   gotoTop(): void {
 
     var scrollElem= document.querySelector('#moveTop');
-    scrollElem?.scrollIntoView({behavior: 'smooth'});
+    scrollElem?.scrollIntoView();
   }
 
   scrolled() {
@@ -196,12 +198,20 @@ export class OppDetailComponent implements OnInit {
   }
 
   submitComment() {
-    this.backendService.addComment(this.opps.slug, this.commentForm.value.data).subscribe(comment => {
-      this.commentForm.patchValue({data: ''});
-      comment.user = this.authService.currentUserValue;
-      this.opps.comments.push(comment);
-      this.fill_comments();
-    })
+    if (this.spin === false)
+    {
+      this.spin = true;
+      this.backendService.addComment(this.opps.slug, this.commentForm.value.data).subscribe(comment => {
+        this.commentForm.patchValue({data: ''});
+        comment.user = this.authService.currentUserValue;
+        this.opps.comments.push(comment);
+        this.fill_comments();
+        this.spin = false;
+      },
+      error => {
+        this.spin = false;
+      });
+    }
   }
 
   addToReplies(comment) {

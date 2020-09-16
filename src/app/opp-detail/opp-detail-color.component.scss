@@ -145,3 +145,7 @@
 .socdev .opp-tag{
 	border: 1px solid #2BA9CA;
 }
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+	stroke: #181819;
+}

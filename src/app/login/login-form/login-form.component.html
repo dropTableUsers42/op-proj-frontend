@@ -15,13 +15,15 @@
 		<div *ngIf="otp_resent" class="otp-otp-sent">OTP Resent</div>
 		<div class="otp-button-container">
 			<div *ngIf="formState=='send-otp'" class="otp-button otp-single">
-				<input class="otp-send-button otp-all-button" type="submit" value="Get OTP">
+				<button class="otp-send-button otp-all-button" [disabled]='spin' [class.button-invalid]="spin" type="submit">
+					Get OTP
+				</button>
 			</div>
 			<div *ngIf="formState=='enter-otp'" class="otp-button otp-enter">
-				<input class="otp-enter-button otp-all-button" type="submit" value="Login">
+				<input class="otp-enter-button otp-all-button" [disabled]='spin'  [class.button-invalid]="spin" type="submit" value="Login">
 			</div>
 			<div *ngIf="formState=='enter-otp'" class="otp-button">
-				<input class="otp-resend-button otp-all-button" type="button" (click)="resendOtp()" value="Resend OTP">
+				<input class="otp-resend-button otp-all-button" [disabled]='spin' [class.button-invalid]="spin" type="button" (click)="resendOtp()" value="Resend OTP">
 			</div>
 		</div>
 	</form>

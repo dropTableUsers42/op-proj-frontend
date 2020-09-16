@@ -30,25 +30,31 @@ export class SignupFormComponent implements OnInit {
     otp: new FormControl('')
   });
 
+  spin = false;
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   sendRef() {
+    this.spin = true;
     this.authService.sendRefOtp(this.referralForm.value['referral_id'], this.referralForm.value['referral_code']).subscribe(
       ret => {
         console.log('OTP Sent!');
         this.formState = 'enter-otp';
+        this.spin = false;
       },
       error => {
         this.ref_invalid = true;
         console.log('Please check your Email ID or Referral Code!');
+        this.spin = false;
       }
     );
   }
 
   signUp() {
+    this.spin = true;
     this.authService.signUp(this.referralForm.value['referral_id'], 
                             this.referralForm.value['referral_code'],
                             this.registerForm.value['name'],
@@ -56,6 +62,7 @@ export class SignupFormComponent implements OnInit {
                             this.registerForm.value['otp']).subscribe(user => {
       console.log('Signed in!');
       let reged = this.authService.currentUserValue.hasCompletedRegistration;
+      this.spin = false;
       if(reged)
       {
         this.router.navigate(['/profile']);
@@ -69,6 +76,7 @@ export class SignupFormComponent implements OnInit {
     error => {
       console.log('Invalid OTP!');
       this.otp_invalid = true;
+      this.spin = false;
     })
   }
 

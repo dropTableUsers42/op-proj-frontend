@@ -1,0 +1,19 @@
+<div *ngIf="show" (click)="close()" class="overlay-with-bg">
+	<div class="overlay-container scrollable" (click)="stopPropagate($event)">
+		<div class="flex-row row-nowrap" id="dp-wrapper">
+			<div class="flex-row">
+				<div *ngFor="let img of dpUrls[selectedColor]" class="dp-bg" [class.selected]="img.key == selectedImage"
+				(click)="select(img.key)">
+					<img class="dp-img" src="{{img.url}}">
+				</div>
+			</div>
+			<div class="flex-col" id="col-wrapper">
+				<div class="color-img" *ngFor="let color of dpUrls | keyvalue" id="{{color.key}}"
+				[class.selected]="color.key == selectedColor" (click)="selectColor(color.key)"></div>
+			</div>
+		</div>
+		<div id="wrapper">
+			<button class="button" id="save" (click)="save()">Save</button>
+		</div>
+	</div>
+</div>

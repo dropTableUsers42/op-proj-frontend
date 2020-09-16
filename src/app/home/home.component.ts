@@ -57,14 +57,15 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
       console.log(this.oldScroll);
       console.log(window.innerHeight - 60);
       if(this.oldScroll == 0 && this.scrollFrame1.nativeElement.scrollTop > this.oldScroll) {
+        console.log('Bottom');
         let targetElm = document.querySelector('#bottom');
-        targetElm.scrollIntoView({behavior: 'smooth'});
+        //targetElm.scrollIntoView();
       }
       else if (this.oldScroll == window.innerHeight - 60 && this.scrollFrame1.nativeElement.scrollTop < this.oldScroll)
       {
         console.log('Top');
         let targetElm = document.querySelector('#top');
-        targetElm.scrollIntoView({behavior: 'smooth'});
+        //targetElm.scrollIntoView();
       }
       this.oldScroll = this.scrollFrame1.nativeElement.scrollTop;
   }

@@ -34,6 +34,8 @@ export class LoginFormComponent implements OnInit {
   otp_sent: boolean = false;
   otp_resent: boolean = false;
 
+  spin = false;
+
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -58,6 +60,7 @@ export class LoginFormComponent implements OnInit {
   handleOtpSubmit() {
     if(this.formState == 'send-otp')
     {  
+      this.spin = true;
       this.authService.sendOtp(this.otpForm.value.login_id).subscribe(
         user => {
           this.formState = 'enter-otp';
@@ -65,24 +68,28 @@ export class LoginFormComponent implements OnInit {
           this.otp_sent = true;
           this.otp_valid = true;
           this.otp_resent = false;
+          this.spin = false;
         },
         error => {
           this.id_valid = false;
           this.otp_sent = false;
           this.otp_valid = true;
           this.otp_resent = false;
+          this.spin = false;
         }
       );
     }
     else if(this.formState == 'enter-otp')
     {
+      this.spin = true;
       console.log(this.otpForm.value.login_id);
       this.authService.loginOtp(this.otpForm.value['login_id'], parseInt(this.otpForm.value['login_otp'])).subscribe(
         user => {
+          this.spin = false;
           let reged = this.authService.currentUserValue.hasCompletedRegistration;
           if(reged)
           {
-            this.router.navigate(['/profile']);
+            this.router.navigate(['/home']);
           }
           else
           {
@@ -90,6 +97,7 @@ export class LoginFormComponent implements OnInit {
           }
         },
         error => {
+          this.spin = false;
           console.log("Incorrect OTP");
           this.id_valid = true;
           this.otp_sent = false;
@@ -103,8 +111,10 @@ export class LoginFormComponent implements OnInit {
   resendOtp() {
     if(this.formState == 'enter-otp')
     {
+      this.spin = true;
       this.authService.sendOtp(this.otpForm.value.login_id).subscribe(
         user => {
+          this.spin = false;
           this.formState = 'enter-otp';
           this.id_valid = true;
           this.otp_sent = false;
@@ -112,6 +122,7 @@ export class LoginFormComponent implements OnInit {
           this.otp_resent = true;
         },
         error => {
+          this.spin = false;
           this.id_valid = false;
           this.otp_sent = false;
           this.otp_valid = true;
@@ -124,6 +135,7 @@ export class LoginFormComponent implements OnInit {
   changeId() {
     if(this.formState == 'enter-otp')
     {
+      this.spin = false;
       this.formState = 'send-otp';
       this.id_valid = true;
       this.otp_sent = false;

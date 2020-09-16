@@ -35,6 +35,7 @@ import { CustomSelectOptionComponent } from './custom-dropdown/custom-select-opt
 import { AboutComponent } from './about/about.component';
 import { ContributeComponent } from './contribute/contribute.component';
 import { TimeAgoPipe } from './_pipes/time-ago.pipe';
+import { DpOverlayComponent } from './register/dp-overlay/dp-overlay.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { TimeAgoPipe } from './_pipes/time-ago.pipe';
     AboutComponent,
     ContributeComponent,
     TimeAgoPipe,
+    DpOverlayComponent,
   ],
   imports: [
     BrowserModule,

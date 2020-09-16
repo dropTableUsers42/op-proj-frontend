@@ -113,9 +113,11 @@
 				<label class="opp-thread-label">Threads</label>
 				<form class="opp-new-comment-container" (ngSubmit)="submitComment()" [formGroup]="commentForm">
 					<div class="reg-icon-container">
-						<img class="reg-icon">
+						<img *ngIf="!spin" class="reg-icon">
+						<mat-spinner diameter=22 *ngIf="spin"></mat-spinner>
 					</div>
 					<input autocomplete="off" spellcheck="false" class="opp-new-comment-input" placeholder="Have a question regarding the Opportunity?" formControlName="data">
+					<button id="send-button" type="submit"><img id="send-icon"></button>
 				</form>
 				<div class="opp-all-comments-container" *ngFor="let comment of opps?.comments">
 					<div class="opp-parent-comment" *ngIf="comment.parent==null">

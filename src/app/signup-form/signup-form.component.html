@@ -6,7 +6,7 @@
 		<p *ngIf="ref_invalid" class="ref-incorrect">Please check your email ID or referral code</p>
 		<div class="button-container">
 			<div class="otp-button otp-single">
-				<input class="ref-otp-send-button otp-all-button" type="submit" value="Send OTP">
+				<input class="ref-otp-send-button otp-all-button" [class.button-invalid]="spin" [disabled]="spin" type="submit" value="Send OTP">
 			</div>
 		</div>
 	</form>
@@ -18,10 +18,10 @@
 		<p *ngIf="otp_invalid" class="otp-incorrect">Invalid OTP</p>
 		<div class="button-container">
 			<div class="otp-button otp-grow">
-				<input class="reg-button otp-all-button" type="submit" value="Register">
+				<input class="reg-button otp-all-button" [class.button-invalid]="spin" [disabled]="spin" type="submit" value="Register">
 			</div>
 			<div class="otp-button">
-				<input class="reg-reenter-button otp-all-button" (click)="reEnter()" type="button" value="Re-enter email">
+				<input class="reg-reenter-button otp-all-button" [class.button-invalid]="spin" [disabled]="spin" (click)="reEnter()" type="button" value="Re-enter email">
 			</div>
 		</div>
 	</form>

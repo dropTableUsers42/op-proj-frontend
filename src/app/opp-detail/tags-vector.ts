@@ -1,9 +1,11 @@
 export const tagsVector = {
 	'Indian Case Competition': '/assets/svg/tags/Competition-01.svg',
+	'Case Competition': '/assets/svg/tags/Competition-01.svg',
 	'International Case Competition': '/assets/svg/tags/Competition-01.svg',
 	'Competition': '/assets/svg/tags/Competition-01.svg',
 	'MUN': '/assets/svg/tags/Competition-01.svg',
 	'Indian Conferences/Summit/Forum': '/assets/svg/tags/Conference-01.svg',
+	'Summits/Conferences/Forum': '/assets/svg/tags/Conference-01.svg',
 	'International Conferences/Summit/Forum': '/assets/svg/tags/Conference-01.svg',
 	'Conference': '/assets/svg/tags/Conference-01.svg',
 	'Research Internship': '/assets/svg/tags/Internship-01.svg',

@@ -2,7 +2,7 @@
 	<form id="profileForm" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 		<div class="profile-details-container">
 			<div class="profile-image-container">
-				<img class="reg-icon">
+				<img class="reg-icon" (click)="dpOverlayShow = true">
 			</div>
 			<div class="profile-text-container">
 				<div *ngIf="width > 500" class="name-container">
@@ -40,7 +40,7 @@
 			</div>
 			<div class="profile-button-email-container">
 				<div class="edit-button-container">
-					<button for="profileForm" [ngClass]="{'edit-button': true, 'button-invalid': profileForm.invalid}" [disabled]="profileForm.invalid">Save</button>
+					<button for="profileForm" [ngClass]="{'edit-button': true, 'button-invalid': (profileForm.invalid || spin)}" [disabled]="profileForm.invalid || spin">Save</button>
 				</div>
 				<div *ngIf="width > 940" class="email-container">
 					<p class="email-content">{{user?.email}}</p>
@@ -105,7 +105,7 @@
 			</mat-button-toggle-group>
 		</div>
 	</div>
-	<div *ngIf="false" class="opps-form-container">
+	<!--<div *ngIf="false" class="opps-form-container">
 		<label class="opps-form-label">Opportunities Pursued</label>
 		<div class="opps-form-content">
 			<mat-form-field [formGroup]="pursuedForm">
@@ -120,8 +120,9 @@
 			  </mat-form-field>
 		</div>
 		<div class="opps-form-label" *ngFor="let opp of pursuedForm.value.pursuedMultiCtrl">{{opp.Name_of_Program}}</div>
-	</div>
+	</div>-->
 </div>
+<app-dp-overlay [show]="dpOverlayShow" (onClose)="dpOverlayShow = false"></app-dp-overlay>
 <!--<img class="reg-icon">
 
 <p class="first-name-label">First Name</p>
