@@ -38,9 +38,9 @@ input:focus, textarea:focus, button:focus {
     padding: 0px 0px !important;
 }
 
-.mat-button-focus-overlay {
+/*.mat-button-focus-overlay {
     background-color: transparent !important;
-}
+}*/
 
 mat-sidenav {
 	padding: 0px 0px !important;
@@ -48,17 +48,17 @@ mat-sidenav {
 	backdrop-filter: blur(5px) !important;
 }
 
-.sidenav-container {
+/*.sidenav-container {
 	background: transparent !important;
-}
+}*/
 
 .mat-drawer-content {
 	overflow-y: hidden !important;
 }
 
-.mat-drawer-backdrop.mat-drawer-shown {
+/*.mat-drawer-backdrop.mat-drawer-shown {
 	background-color: transparent !important;
-}
+}*/
 
 .scrollable {
 	overflow: scroll;

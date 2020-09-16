@@ -218,6 +218,10 @@ export class OpsearchComponent implements OnInit, DoCheck {
         this.searchSpecific();
     }
 
+    resetFilters(): void {
+        //TODO
+    }
+
     searchSpecific(): void {
         this.spin = true;
         if (this.searchForm.value.searchtype == 'Opps')

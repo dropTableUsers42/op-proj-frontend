@@ -128,7 +128,7 @@ export class OppDetailComponent implements OnInit {
   gotoTop(): void {
 
     var scrollElem= document.querySelector('#moveTop');
-    scrollElem?.scrollIntoView();
+    scrollElem?.scrollIntoView({behavior: 'smooth'});
   }
 
   scrolled() {

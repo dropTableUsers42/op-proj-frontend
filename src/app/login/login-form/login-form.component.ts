@@ -45,7 +45,7 @@ export class LoginFormComponent implements OnInit {
         let reged = this.authService.currentUserValue.hasCompletedRegistration;
         if(reged)
         {
-          this.router.navigate(['/profile']);
+          this.router.navigate(['/home']);
         }
         else
         {

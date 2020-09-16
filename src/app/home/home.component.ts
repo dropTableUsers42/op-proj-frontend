@@ -48,6 +48,26 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
         { id: 1, name: "Opps" },
         { id: 2, name: "People" }, 
   ]
+
+  @ViewChild('scrollFrame1') scrollFrame1: ElementRef;
+
+  oldScroll = 0;
+
+  scrolled1(event: any): void {
+      console.log(this.oldScroll);
+      console.log(window.innerHeight - 60);
+      if(this.oldScroll == 0 && this.scrollFrame1.nativeElement.scrollTop > this.oldScroll) {
+        let targetElm = document.querySelector('#bottom');
+        targetElm.scrollIntoView({behavior: 'smooth'});
+      }
+      else if (this.oldScroll == window.innerHeight - 60 && this.scrollFrame1.nativeElement.scrollTop < this.oldScroll)
+      {
+        console.log('Top');
+        let targetElm = document.querySelector('#top');
+        targetElm.scrollIntoView({behavior: 'smooth'});
+      }
+      this.oldScroll = this.scrollFrame1.nativeElement.scrollTop;
+  }
   
   spin: boolean;
 

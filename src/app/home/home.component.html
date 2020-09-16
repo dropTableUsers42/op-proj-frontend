@@ -1,10 +1,12 @@
-<div class="page-container">
+<div class="page-container" (scroll)="scrolled1($event)" #scrollFrame1>
 	<div class="title-page-container">
+		<span id="top"></span>
 		<div class="title-container">
 			<h1 class="main_title">{{title}}</h1>	
 		</div>
 	</div>
 	<div class="search-page-container">
+		<span id="bottom"></span>
 		<div class="shadow-container" [@shadowTrigger]="isScrolledToTop ? 'hasNoShadow' : 'hasShadow'">
 			<form [formGroup]="searchForm" (ngSubmit)="search()">
 				<div class="search-container">

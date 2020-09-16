@@ -19,6 +19,7 @@ export const tagsVector = {
 	'Volunteering': '/assets/svg/tags/Workshop-01.svg',
 	'Policy Bootcamp': '/assets/svg/tags/Workshop-01.svg',
 	'Community': '/assets/svg/tags/Workshop-01.svg',
+	'Immersion Program': '/assets/svg/tags/Workshop-01.svg',
 	'International Summer School': '/assets/svg/tags/Courses-01.svg',
 	'Summer School': '/assets/svg/tags/Courses-01.svg',
 	'Winter School': '/assets/svg/tags/Courses-01.svg',

@@ -70,6 +70,9 @@
 								<app-custom-select-option *ngFor="let tag of funding_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
 							</app-custom-select>
 						</div>
+						<div (click)="resetFilters()">
+							TODO Reset Filter
+						</div>
 					</div>
 				</form>
 				<form *ngIf="searchForm.value['searchtype'] == 'People'">

@@ -156,11 +156,19 @@ export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     }
     delete this.profileForm.value.domainForm;
+    let first = this.user.hasCompletedRegistration == false;
     this.backendService.patchUser(this.profileForm.value).subscribe((user: User)=>{
       this.user = user;
       this.backendService.addDomainPref(domainBody).subscribe((user: User) => {
         this.user = user;
-        this.router.navigate(["/profile"]);
+        if(first)
+        {
+          this.router.navigate(['home']);
+        }
+        else
+        {
+          this.router.navigate(["/profile"]);
+        }
       })
     })
   }

@@ -4,7 +4,7 @@
 		<div class="opp-name-org-image-container">
 			<div class="opp-text-container">
 				<div class="opp-name-container">
-					<p class="opp-name">{{opps?.Name_of_Program}}</p>
+					<p class="opp-name"><a class="nocolor" href="{{opps?.Site}}">{{opps?.Name_of_Program}}</a></p>
 				</div>
 				<div class="opp-organiser-container">
 					<p class="opp-organiser">{{opps?.Organiser}}</p>
@@ -82,7 +82,8 @@
 			<div class="opp-about-container">
 				{{opps?.About}}
 			</div>
-			<div class="opp-link">
+			<div class="opp-link opp-about-container">
+				Link to Opportunity Website:<br><br>
 				<a href="{{opps?.Site}}" class="opp-about-container">
 					{{opps?.Site}}
 				</a>

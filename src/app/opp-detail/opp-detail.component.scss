@@ -224,8 +224,8 @@ p {
 }
 
 .opp-image-container {
-	width: 288px;
-	min-width: 288px;
+	width: 27.3vw;
+	min-width: 27.3vw;
 }
 
 @media screen and (max-width: 540px) {
@@ -247,11 +247,6 @@ p {
 .opp-icon {
 	max-width: 100%;
 	height: auto;
-
-	border: 7px solid #F9F9F9;
-	border-radius: 20px;
-
-	box-shadow: inset 0px 7px 7px rgba(0, 0, 0, 0.25);
 }
 
 .opp-domain-type-container {
@@ -454,7 +449,7 @@ p {
 	font-size: 24px;
 	line-height: 117.5%;
 
-	text-align: center;
+	text-align: justify;
 	width: 100%;
 
 	margin-top: 70px;
@@ -471,6 +466,14 @@ p {
 	width: 100%;
 
 	margin-top: 70px;
+
+	word-wrap: break-word;
+}
+
+@media screen and (max-width: 600px) {
+	.opp-about-container, .opp-link {
+		margin-top: 40px;
+	}
 }
 
 @media screen and (max-width: 700px) {
@@ -704,4 +707,28 @@ p {
 	width: 255px;
 
 	font-size: 24px;
+}
+
+/* unvisited link */
+a.nocolor:link {
+	color: #f9f9f9;
+	text-decoration: none;
+}
+
+/* visited link */
+a.nocolor:visited {
+	color: #f9f9f9;
+	text-decoration: none;
+}
+
+/* mouse over link */
+a.nocolor:hover {
+	color: #f9f9f9;
+	text-decoration: none;
+}
+
+/* selected link */
+a.nocolor:active {
+	color: #f9f9f9;
+	text-decoration: none;
 }
