@@ -59,6 +59,12 @@
 	color: #F9F9F9;
 }
 
+@media screen and (max-width: 600px) {
+	.overlay-title {
+		font-size: 25px;
+	}
+}
+
 .overlay-cross {
 	width: 30%;
 	min-width: 30%;

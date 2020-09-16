@@ -76,6 +76,9 @@
 	min-width: calc((100vw - 180px - 3 * 27px)/4);
 
 	font-size: 24px;
+
+	margin-top:10px;
+	margin-bottom: 20px;
 }
 
 .opp-card-first {
@@ -93,24 +96,17 @@
 
 @media screen and (max-width: 1100px) {
 	.opp-card-container {
-		width: calc((100vw - 90px - 3 * 30px)/4);
-		height: calc((100vw - 90px - 3 * 30px)*147/(4*255));
-		font-size: calc((100vw - 90px - 3 * 30px)*24/(4*255));
+		height: calc((100vw - 180px - 3 * 27px)*147/(4*255));
+		width: calc((100vw - 180px - 3 * 27px)/4);
+		font-size: calc((100vw - 180px - 3 * 30px)*24/(4*255));
 	}
 }
 
 @media screen and (max-width: 790px) {
-	.opps-list {
-		margin-left: calc(-100vw * 0.0234);
-		margin-right: calc(-100vw * 0.0234);
-	}
 
 	.opp-card-container {
-		margin-bottom: calc(100vw * 0.0234);
-		margin-left: calc(100vw * 0.0234);;
-
-		width: calc((100vw - 90px - 2 * 30px)/3);
-		height: calc((100vw - 90px - 2 * 30px)*147/(3*255));
-		font-size: calc((100vw - 90px - 2 * 30px)*24/(3*255));
+		height: calc((100vw - 180px - 2 * 27px)*147/(3*255));
+		width: calc((100vw - 180px - 2 * 27px)/3) !important;
+		font-size: calc((100vw - 180px - 2 * 30px)*24/(3*255));
 	}
 }

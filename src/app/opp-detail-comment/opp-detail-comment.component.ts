@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Comment, Opps } from '../_models/opps.model';
 import { FormGroup, FormControl } from '@angular/forms';
 import { BackendService } from '../_services/backend.service';
+import { TimeAgoPipe } from '../_pipes/time-ago.pipe';
 
 @Component({
   selector: 'app-opp-detail-comment',
@@ -12,6 +13,7 @@ export class OppDetailCommentComponent implements OnInit {
 
   @Input('comment') comment: Comment;
   @Input('opp') opp: Opps;
+  @Input('depth') depth: boolean;
   @Output() onReplySubmitted: EventEmitter <any> = new EventEmitter<any>();
 
   replyForm = new FormGroup({

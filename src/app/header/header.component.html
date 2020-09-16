@@ -2,18 +2,18 @@
 	<div [ngClass]="header_class" [@headerColor]="header_trigger">
 		<div class="header-button-container">
 			<button mat-button disableRipple color="{{mat_style()}}" class="menu-button" (click)="sidenavToggle()">
-				<mat-icon>{{'menu'}}</mat-icon>
+				<mat-icon [@colorTransform]="color_trigger">{{'menu'}}</mat-icon>
 			</button>
 		</div>
 		<div class="logo-container" (click)="logoClick()">
-			<p [ngClass]="logo_class()" [@logoTransform]="logo_trigger">{{logo}}</p>
+			<p [ngClass]="logo_class()" [@logoTransform]="logo_trigger" [@colorTransform]="color_trigger">{{logo}}</p>
 		</div>
 		<div class="profile-container">
 			<div (click)="profileClick()" class="profile-image-container">
 				<span class="align-helper"></span><img class="reg-icon">
 			</div>
 			<div class="profile-wishlist-container">
-				<span class="align-helper"></span><p [ngClass]="{'wishlist': true, 'shake1': shakeState, 'shake2': !shakeState}" (click)="wishlist_link()">{{wishlist}}</p>
+				<span class="align-helper"></span><p [ngClass]="{'wishlist': true, 'shake1': shakeState, 'shake2': !shakeState}" (click)="wishlist_link()" [@colorTransform]="color_trigger">{{wishlist}}</p>
 			</div>
 		</div>
 	</div>

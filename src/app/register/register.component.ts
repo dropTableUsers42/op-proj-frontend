@@ -32,12 +32,12 @@ export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   });
 
-  listOpps: Opps[] = [];
+  /*listOpps: Opps[] = [];
   pursuedForm = new FormGroup({
     pursuedMultiCtrl: new FormControl([]),
     pursuedFilterCtrl: new FormControl(''),
   });
-  public filteredOppsMulti: ReplaySubject<Opps[]> = new ReplaySubject<Opps[]>(1);
+  public filteredOppsMulti: ReplaySubject<Opps[]> = new ReplaySubject<Opps[]>(1);*/
 
   constructor(private backendService: BackendService,
               private router: Router, private authService: AuthService,
@@ -54,30 +54,34 @@ export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
     'SocDev-and-Policy': 'socdev',
   }
 
-  @ViewChild('multiSelect', { static: true }) multiSelect: MatSelect;
+  //@ViewChild('multiSelect', { static: true }) multiSelect: MatSelect;
 
   /** Subject that emits when the component has been destroyed. */
-  protected _onDestroy = new Subject<void>();
+  //protected _onDestroy = new Subject<void>();
+
+  get width(): number {
+    return window.innerWidth;
+  }
 
   ngOnInit(): void {
 
-    this.backendService.searchOpps('').subscribe(ret => {
+    /*this.backendService.searchOpps('').subscribe(ret => {
       this.listOpps = ret;
       console.log('done');
-    });
+    });*/
 
-    this.filteredOppsMulti.next(this.listOpps.slice());
+    /*this.filteredOppsMulti.next(this.listOpps.slice());
 
     this.pursuedForm.get('pursuedFilterCtrl').valueChanges
       .pipe(takeUntil(this._onDestroy))
       .subscribe(() => {
         this.filterOppsMulti();
       });
-
+    */
     this.user = this.authService.currentUserValue;
-    let temp = this.user.pursued.map(opp => opp.slug);
-    console.log(temp);
-    this.pursuedForm.get('pursuedMultiCtrl').setValue(this.user.pursued);
+    //let temp = this.user.pursued.map(opp => opp.slug);
+    //console.log(temp);
+    //this.pursuedForm.get('pursuedMultiCtrl').setValue(this.user.pursued);
     this.profileForm.patchValue({
       name: this.user.name,
       college: this.user.college,
@@ -99,14 +103,14 @@ export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.setInitialValue();
+    //this.setInitialValue();
   }
 
   ngOnDestroy(): void {
-    this._onDestroy.next();
-    this._onDestroy.complete();
+    //this._onDestroy.next();
+    //this._onDestroy.complete();
   }
-
+/*
   protected setInitialValue(): void {
     this.filteredOppsMulti
       .pipe(take(1), takeUntil(this._onDestroy))
@@ -137,7 +141,7 @@ export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
       this.listOpps.filter(opp=> opp.Name_of_Program.toLowerCase().indexOf(search) > -1)
     );
   }
-
+*/
   onSubmit() {
     let domainBody = this.domain_prefs_api;
     for(let domain in this.domain_prefs_api)

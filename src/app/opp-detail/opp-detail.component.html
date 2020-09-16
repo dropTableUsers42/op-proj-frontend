@@ -1,4 +1,5 @@
-<div class="page-container">
+<div class="page-container" #scrollFrame (scroll)="scrolled()">
+	<span id="moveTop"></span>
 	<div [ngClass]="title_class">
 		<div class="opp-name-org-image-container">
 			<div class="opp-text-container">
@@ -14,7 +15,7 @@
 				</div>
 			</div>
 			<div class="opp-image-container">
-				<img class="opp-icon">
+				<img class="opp-icon" src="{{tags_vector[opps?.Type]}}">
 			</div>
 		</div>
 		<div class="opp-domain-type-container">
@@ -81,6 +82,11 @@
 			<div class="opp-about-container">
 				{{opps?.About}}
 			</div>
+			<div class="opp-link">
+				<a href="{{opps?.Site}}" class="opp-about-container">
+					{{opps?.Site}}
+				</a>
+			</div>
 		</div>
 
 		<div *ngIf="opps?.Testimonials">
@@ -98,7 +104,9 @@
 						<app-opps-card [opps]="opportunity" [type]="'recc'"></app-opps-card>
 					</div>
 				</div>-->
-				<app-opps-wishlistv2 [wishlist]='recc_opps | slice:0:8'></app-opps-wishlistv2>
+				<div id="reccs">
+					<app-opps-wishlistv2 [wishlist]='recc_opps | slice:0:8'></app-opps-wishlistv2>
+				</div>
 			</div>
 			<div class="opp-comments-container">
 				<label class="opp-thread-label">Threads</label>
@@ -110,9 +118,9 @@
 				</form>
 				<div class="opp-all-comments-container" *ngFor="let comment of opps?.comments">
 					<div class="opp-parent-comment" *ngIf="comment.parent==null">
-						<app-opp-detail-comment [comment]="comment" [opp]="opps" (onReplySubmitted)="addToReplies($event)"></app-opp-detail-comment>
+						<app-opp-detail-comment [comment]="comment" [opp]="opps" [depth]="false" (onReplySubmitted)="addToReplies($event)"></app-opp-detail-comment>
 						<div class="opp-child-comment" *ngFor="let child_id of comment.children">
-							<app-opp-detail-comment [comment]="comment_dict[child_id]" [opp]="opps" (onReplySubmitted)="addToReplies($event)"></app-opp-detail-comment>
+							<app-opp-detail-comment [comment]="comment_dict[child_id]" [opp]="opps" [depth]="true" (onReplySubmitted)="addToReplies($event)"></app-opp-detail-comment>
 						</div>
 					</div>
 				</div>

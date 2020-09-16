@@ -9,18 +9,20 @@
 			</div>
 			<div class="comment-reply">
 				<div class="time-link">
-					{{comment.createdAt }}
+					{{comment.createdAt | timeAgo}}
 				</div>
 				<div class="reply-link" (click)="replying = !replying">
 					{{replying ? 'Close':'Reply'}}
 				</div>
 			</div>
-			<form *ngIf="replying" class="comment-reply-form" (ngSubmit)="submitReply()" [formGroup]="replyForm">
-				<div class="image-container">
+			<div *ngIf="replying" class="flex-row reply" [class.shift]="depth">
+				<div class="image-container reply-image">
 					<img class="reg-icon">
 				</div>
-				<input autocomplete="off" spellcheck="false" class="opp-reply-comment-input" placeholder="Reply to this comment." formControlName="data">
-			</form>
+				<form class="comment-reply-form" (ngSubmit)="submitReply()" [formGroup]="replyForm">
+					<input autocomplete="off" spellcheck="false" class="opp-reply-comment-input" placeholder="Reply to this comment." formControlName="data">
+				</form>
+			</div>
 		</div>
 	</div>
 </div>

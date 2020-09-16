@@ -95,32 +95,31 @@
 }
 
 .socdev .opp-deadline-label, .socdev .opp-location-label, .socdev .opp-date-label, .socdev .opp-deadline, .socdev .opp-location, .socdev .opp-date, .socdev .opp-country, .socdev .opp-tag, .socdev .opp-about-container {
-	color: #D67BBB;
+	color: #2BA9CA;
 }
 
-
 .core .opp-location-divider {
-	border-top: #05905F;
+	border-top: 1px #05905F;
 }
 
 .it .opp-location-divider {
-	border-top: #FF9D63;
+	border-top: 1px #FF9D63;
 }
 
 .consult .opp-location-divider {
-	border-top: #E76D50
+	border-top: 1px #E76D50
 }
 
 .fin .opp-location-divider {
-	border-top:  #D67BBB;
+	border-top: 1px #D67BBB;
 }
 
 .ent .opp-location-divider {
-	border-top: #225882
+	border-top: 1px #225882
 }
 
 .socdev .opp-location-divider{
-	border-top: #2BA9CA;
+	border-top: 1px #2BA9CA;
 }
 
 .core .opp-tag {
@@ -132,7 +131,7 @@
 }
 
 .consult .opp-tag{
-	border: 1px solid #D67BBB;
+	border: 1px solid #E76D50;
 }
 
 .fin .opp-tag {
@@ -140,7 +139,7 @@
 }
 
 .ent .opp-tag {
-	border: 1px solid #225882
+	border: 1px solid #225882;
 }
 
 .socdev .opp-tag{

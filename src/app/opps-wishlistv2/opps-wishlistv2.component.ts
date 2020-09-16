@@ -47,6 +47,7 @@ export class OppsWishlistv2Component implements OnInit, OnChanges {
       y = Math.floor((this.opportunity_list.length-1)/shift) + 1;
       x = Math.floor(this.currentIdx/shift) + 1;
     }
+    return '1';
     return x + '/' + y;
   }
 

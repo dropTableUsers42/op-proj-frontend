@@ -34,6 +34,7 @@ import { DropdownComponent } from './custom-dropdown/dropdown/dropdown.component
 import { CustomSelectOptionComponent } from './custom-dropdown/custom-select-option/custom-select-option.component';
 import { AboutComponent } from './about/about.component';
 import { ContributeComponent } from './contribute/contribute.component';
+import { TimeAgoPipe } from './_pipes/time-ago.pipe';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { ContributeComponent } from './contribute/contribute.component';
     CustomSelectOptionComponent,
     AboutComponent,
     ContributeComponent,
+    TimeAgoPipe,
   ],
   imports: [
     BrowserModule,

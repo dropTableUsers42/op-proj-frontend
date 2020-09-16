@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ScrollService } from '../_services/scroll.service';
 import { PageStyleService } from '../_services/page-style.service';
 import { AuthService } from '../_services/auth.service';
@@ -46,6 +46,24 @@ import {
       state('socdev-scrolled', style({
 				backgroundColor: '#DAEDF2'
       })),
+      state('core-scrolled-opps', style({
+				backgroundColor: '#05905F'
+      })),
+      state('it-scrolled-opps', style({
+				backgroundColor: '#FF9D63'
+      })),
+      state('consult-scrolled-opps', style({
+				backgroundColor: '#E76D50'
+      })),
+      state('ent-scrolled-opps', style({
+				backgroundColor: '#225882'
+      })),
+      state('fin-scrolled-opps', style({
+				backgroundColor: '#D67BBB'
+      })),
+      state('socdev-scrolled-opps', style({
+				backgroundColor: '#2BA9CA'
+      })),
       transition('default <=> *', [
 				animate('0.5s ease-in-out')
 			]),
@@ -66,6 +84,17 @@ import {
 			transition('* => *', [
 				animate('0.25s ease-in-out')
 			]),
+    ]),
+    trigger('colorTransform', [
+			state('default', style({
+				opacity: 1
+			})),
+			state('white', style({
+				color: '#F9F9F9'
+			})),
+			transition('* => *', [
+				animate('0.25s ease-in-out')
+			]),
 		]),
 	],
 })
@@ -81,6 +110,20 @@ export class HeaderComponent implements OnInit {
   shakeState: boolean = true;
 
   get header_trigger() {
+    if(this.router.url.includes('opps'))
+    {
+      if(this.scrolled)
+      {
+        return 'search';
+      }
+      else
+      {
+        if(this.page_style)
+          return this.page_style.concat('-scrolled-opps');
+        else
+          return 'search';
+      }
+    }
     if(this.page_style == 'home')
     {
       return 'default';
@@ -100,13 +143,24 @@ export class HeaderComponent implements OnInit {
   }
 
   get logo_trigger() {
-    if(!this.scrolled)
+    if(!this.scrolled || this.router.url.includes('opps'))
     {
       return 'default';
     }
     else
     {
       return 'transform';
+    }
+  }
+
+  get color_trigger() {
+    if(this.scrolled || !this.router.url.includes('opps'))
+    {
+      return 'default';
+    }
+    else
+    {
+      return 'white';
     }
   }
 
@@ -147,7 +201,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() onSidenavToggle: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private router: Router, private scrollService: ScrollService, private pageStyleService: PageStyleService, private authService: AuthService, private interestedService: InterestedService) { }
+  constructor(private router: Router, private actRoute: ActivatedRoute, private scrollService: ScrollService, private pageStyleService: PageStyleService, private authService: AuthService, private interestedService: InterestedService) { }
 
   ngOnInit(): void {
     this.scrolled = false;

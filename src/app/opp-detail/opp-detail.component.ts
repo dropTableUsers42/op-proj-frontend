@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Opps } from '../_models/opps.model';
 import { BackendService } from '../_services/backend.service';
 import { AuthService } from '../_services/auth.service';
@@ -7,6 +7,8 @@ import { InterestedService } from '../_services/interested.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { User } from '../_models/user.model';
+import { ScrollService } from '../_services/scroll.service';
+import { tagsVector } from './tags-vector';
 
 @Component({
   selector: 'app-opp-detail',
@@ -31,6 +33,8 @@ export class OppDetailComponent implements OnInit {
     'Entrepreneurship': 'ent',
     'SocDev-and-Policy': 'socdev'
   }
+
+  @ViewChild('scrollFrame') scrollFrame: ElementRef;
 
   get title_class() {
     let ret_class = {'opp-title-container': true};
@@ -76,11 +80,15 @@ export class OppDetailComponent implements OnInit {
     return ret;
   }
 
+  get tags_vector(): {} {
+    return tagsVector;
+  }
+
   commentForm = new FormGroup({
     data: new FormControl('')
   })
 
-  constructor(private actRoute: ActivatedRoute, private backendService: BackendService, private pageStyleService: PageStyleService, private authService: AuthService, public interestedService: InterestedService) { }
+  constructor(private actRoute: ActivatedRoute, private backendService: BackendService, private pageStyleService: PageStyleService, private authService: AuthService, public interestedService: InterestedService, private renderer: Renderer2, private scrollService: ScrollService) { }
 
   fill_comments() {
     this.comment_dict = {};
@@ -92,6 +100,8 @@ export class OppDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.actRoute.params.subscribe(val => {
+      window.scroll(0, 0);
+      this.gotoTop();
       this.backendService.getOpps(val['slug']).subscribe(opp => {
         this.opps = opp;
         this.page_style = this.get_page_style[this.opps.domain];
@@ -99,7 +109,7 @@ export class OppDetailComponent implements OnInit {
 
         this.backendService.getReccomendations(this.opps.slug).subscribe(reccs => {
           this.recc_opps = reccs;
-        })
+        });
         this.fill_comments();
       })
     });
@@ -113,6 +123,16 @@ export class OppDetailComponent implements OnInit {
     this.opps.About = "Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random";
 
     this.opps.Testimonial = "Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description.Lorem ipsum description blah blah blah random hello description description Lorem Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description.Lorem ipsum description blah blah blah rand. Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description.Lorem ipsum description blah blah blah";*/
+  }
+
+  gotoTop(): void {
+
+    var scrollElem= document.querySelector('#moveTop');
+    scrollElem?.scrollIntoView();
+  }
+
+  scrolled() {
+    this.scrollService.newEvent(this.scrollFrame.nativeElement.scrollTop == 0);
   }
 
   interestedClick() {

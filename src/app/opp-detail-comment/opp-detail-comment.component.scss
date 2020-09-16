@@ -18,8 +18,19 @@
 }
 
 .image-container {
+
 	width: 16px;
 	max-width: 16px;
+}
+
+.reply.shift {
+	transform: translateX(-31px);
+}
+
+.reply-image {
+	margin-top: 14px;
+
+	margin-right: 5px;
 }
 
 .reg-icon {
@@ -78,4 +89,9 @@
 
 .reply-link {
 	margin-left: 20px;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: row;
 }
