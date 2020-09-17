@@ -118,7 +118,7 @@
 				<label class="opp-thread-label">Threads</label>
 				<form class="opp-new-comment-container" (ngSubmit)="submitComment()" [formGroup]="commentForm">
 					<div class="reg-icon-container">
-						<img *ngIf="!spin" class="reg-icon">
+						<img *ngIf="!spin" class="reg-icon" src="{{dpUrl}}">
 						<mat-spinner diameter=22 *ngIf="spin"></mat-spinner>
 					</div>
 					<input autocomplete="off" spellcheck="false" class="opp-new-comment-input" placeholder="Have a question regarding the Opportunity?" formControlName="data">
@@ -126,9 +126,9 @@
 				</form>
 				<div class="opp-all-comments-container" *ngFor="let comment of opps?.comments">
 					<div class="opp-parent-comment" *ngIf="comment.parent==null">
-						<app-opp-detail-comment [comment]="comment" [opp]="opps" [depth]="false" (onReplySubmitted)="addToReplies($event)"></app-opp-detail-comment>
+						<app-opp-detail-comment [comment]="comment" [opp]="opps" [depth]="false" [dpUrlOwn]="dpUrl" (onReplySubmitted)="addToReplies($event)"></app-opp-detail-comment>
 						<div class="opp-child-comment" *ngFor="let child_id of comment.children">
-							<app-opp-detail-comment [comment]="comment_dict[child_id]" [opp]="opps" [depth]="true" (onReplySubmitted)="addToReplies($event)"></app-opp-detail-comment>
+							<app-opp-detail-comment [comment]="comment_dict[child_id]" [opp]="opps" [dpUrlOwn]="dpUrl" [depth]="true" (onReplySubmitted)="addToReplies($event)"></app-opp-detail-comment>
 						</div>
 					</div>
 				</div>

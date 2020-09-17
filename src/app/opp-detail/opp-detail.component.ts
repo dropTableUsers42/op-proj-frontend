@@ -9,6 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { User } from '../_models/user.model';
 import { ScrollService } from '../_services/scroll.service';
 import { tagsVector } from './tags-vector';
+import { dpUrls, getUrl } from '../register/dp-overlay/dp-overlay.component';
 
 @Component({
   selector: 'app-opp-detail',
@@ -108,7 +109,7 @@ export class OppDetailComponent implements OnInit {
 
     let usr = this.authService.currentUserValue;
 
-    
+    this.dpUrl = getUrl(usr.picture.style, usr.picture.colour);
 
     this.actRoute.params.subscribe(val => {
       this.recc_opps = [];

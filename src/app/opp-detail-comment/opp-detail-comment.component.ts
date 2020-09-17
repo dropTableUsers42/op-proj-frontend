@@ -14,6 +14,7 @@ export class OppDetailCommentComponent implements OnInit {
   @Input('comment') comment: Comment;
   @Input('opp') opp: Opps;
   @Input('depth') depth: boolean;
+  @Input('dpUrlOwn') dpUrlOwn: string;
   @Output() onReplySubmitted: EventEmitter <any> = new EventEmitter<any>();
 
   replyForm = new FormGroup({
@@ -28,6 +29,8 @@ export class OppDetailCommentComponent implements OnInit {
 
   ngOnInit(): void {
     this.replying = false;
+
+    console.log(this.comment);
   }
 
   submitReply() {

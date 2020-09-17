@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { BackendService } from '../_services/backend.service';
 import { ToNthPipe } from '../_pipes/to-nth.pipe'
+import { getUrl } from '../register/dp-overlay/dp-overlay.component';
+import { PageStyleService } from '../_services/page-style.service';
 
 @Component({
   selector: 'app-user-card',
@@ -43,9 +45,17 @@ export class UserCardComponent implements OnInit {
     'ent',
     'fin',
     'socdev'
-  ]
+  ];
+
+  dpUrl = "/assets/images/placeholder.jpg";
 
   ngOnInit(): void {
+
+    if(this.user.picture)
+    {
+      this.dpUrl = getUrl(this.user.picture.style, this.user.picture.colour);
+    }
+
     this.domain_prefs = [];
     for(let domain in this.user.domains)
     {

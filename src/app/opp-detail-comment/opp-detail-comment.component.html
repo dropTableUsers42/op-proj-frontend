@@ -17,7 +17,7 @@
 			</div>
 			<div *ngIf="replying" class="flex-row reply" [class.shift]="depth">
 				<div class="image-container reply-image">
-					<img *ngIf="!spin" class="reg-icon">
+					<img *ngIf="!spin" class="reg-icon-reply" src="{{dpUrlOwn}}">
 					<mat-spinner diameter=16 *ngIf="spin"></mat-spinner>
 				</div>
 				<form class="comment-reply-form" (ngSubmit)="submitReply()" [formGroup]="replyForm">
