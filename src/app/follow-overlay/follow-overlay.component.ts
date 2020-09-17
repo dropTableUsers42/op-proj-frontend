@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../_models/user.model';
 import { AuthService } from '../_services/auth.service';
 import { BackendService } from '../_services/backend.service';
+import { getUrl } from '../register/dp-overlay/dp-overlay.component';
 
 @Component({
   selector: 'app-follow-overlay',
@@ -46,6 +47,14 @@ export class FollowOverlayComponent implements OnInit {
       "followed": user.isFollowed,
       "unfollowed": !user.isFollowed,
     }
+  }
+
+  getDpUrls(user: any) {
+    if(user.picture)
+    {
+      return  getUrl(parseInt(user.picture.style), user.picture.colour);;
+    }
+    return '/assets/images/placeholder.jpg';
   }
 
   show_followed(user: User) {

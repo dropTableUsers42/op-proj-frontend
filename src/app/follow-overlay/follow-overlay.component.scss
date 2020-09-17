@@ -106,24 +106,30 @@
 
 .icon-container {
 	height: 50px;
-}
-
-@media screen and (max-width: 520px) {
-	.icon-container {
-		height: 25px;
-	}
-}
-
-.reg-icon {
-	vertical-align: middle;
-	max-width: auto;
-	height: 100%;
+	width: 50px;
 
 	border-radius: 50%;
 
 	box-shadow: inset 0px 7px 7px rgba(0, 0, 0, 0.25);
 
-	content: url('/assets/images/placeholder.jpg');
+	background-color: #f9f9f9;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+@media screen and (max-width: 520px) {
+	.icon-container {
+		height: 25px;
+		width: 25px;
+	}
+}
+
+.reg-icon {
+	vertical-align: middle;
+	width: 100%;
+	max-height: auto;
 }
 
 .name-container {
