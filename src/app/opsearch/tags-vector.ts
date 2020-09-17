@@ -105,17 +105,17 @@ export const domains = [
 ]
 
 export const colleges = [
-    {slug: 'BITS Pilani - Pilani Campus', name: 'BITS Pilani - Pilani Campus'},
-    {slug: 'BITS Pilani - Goa Campus', name: 'BITS Pilani - Goa Campus'},
-    {slug: 'BITS Pilani - Hyderabad Campus', name: 'BITS Pilani - Hyderabad Campus'},
     {slug: 'IIT Bombay', name: 'IIT Bombay'},
+    {slug: 'BITS Pilani - Pilani Campus', name: 'BITS Pilani - Pilani'},
     {slug: 'IIT Delhi', name: 'IIT Delhi'},
     {slug: 'IIT Kanpur', name: 'IIT Kanpur'},
     {slug: 'IIT Guwahati', name: 'IIT Guwahati'},
     {slug: 'IIT Kharagpur', name: 'IIT Kharagpur'},
     {slug: 'IIT Madras', name: 'IIT Madras'},
     {slug: 'IIT Jodhpur', name: 'IIT Jodhpur'},
-    {slug: 'IIT Roorkee', name: 'IIT Roorkee'}
+    {slug: 'IIT Roorkee', name: 'IIT Roorkee'},
+    {slug: 'BITS Pilani - Goa Campus', name: 'BITS Pilani - Goa'},
+    {slug: 'BITS Pilani - Hyderabad Campus', name: 'BITS Pilani - Hyderabad'},
 ]
 
 export const years = [

@@ -39,6 +39,7 @@ import { DpOverlayComponent } from './register/dp-overlay/dp-overlay.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { ContributeAllComponent } from './contribute-all/contribute-all.component';
+import { WaitlistOverlayComponent } from './waitlist-overlay/waitlist-overlay.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { ContributeAllComponent } from './contribute-all/contribute-all.componen
     DpOverlayComponent,
     TestimonialComponent,
     ContributeAllComponent,
+    WaitlistOverlayComponent,
   ],
   imports: [
     BrowserModule,

@@ -169,6 +169,14 @@ label {
 	text-decoration: underline;
 }
 
+#waitlist-link {
+	margin-top: 5px;
+
+	white-space: pre-line;
+
+	line-height: 100%;
+}
+
 @media screen and (max-width: 670px) {
 	.signin-link{
 		text-align: center;

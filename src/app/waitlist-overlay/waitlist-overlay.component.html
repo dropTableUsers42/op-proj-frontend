@@ -1,0 +1,22 @@
+<div *ngIf="show" (click)="close()" class="overlay-with-bg">
+	<div class="overlay-container" (click)="stopPropagate($event)">
+		<form *ngIf="!currentStatus" id="prereg-form" [formGroup]="preregForm" (ngSubmit)="submitForm()">
+			<p class="text label">Unlock the Beta Access</p>
+			<div class="col-flex hcentered" id="input_fields">
+			  <input class="input" placeholder="Name" formControlName="name">
+			  <input class="input" placeholder="College email ID" formControlName="email">
+			  <mat-form-field id="select" appearance="fill">
+				<mat-select disableOptionCentering floatLabel='never' placeholder='College' formControlName='college'>
+				  <mat-option *ngFor="let college of collegeNames" [value]="college">
+					{{college}}
+				  </mat-option>
+				</mat-select>
+			  </mat-form-field>
+			  <input *ngIf="collegeEntered === 'Other'"  class="input" placeholder="College" formControlName="collegeName">
+			  <input [ngClass]="{'button-trans': true, 'button-invalid': preregForm.invalid}"[disabled]="preregForm.invalid" id="submit" type="submit" value="Pre-register">
+			</div>
+		  </form>
+		  <p *ngIf="currentStatus" class="text label hcentered">Thank you!</p>
+		  <p *ngIf="currentStatus" class="text label-small hcentered">We will get back to you soon.</p>
+	</div>
+</div>

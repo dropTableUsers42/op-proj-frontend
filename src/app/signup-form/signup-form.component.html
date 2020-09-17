@@ -27,5 +27,7 @@
 	</form>
 	<div class="link-container">
 		<p class="signin-link" (click)="signin()">Click here to login!</p>
+		<p class="signin-link" id="waitlist-link" (click)="showWaitlistForm = true">{{"Don't have a referral code?\nRequest Access"}}</p>
 	</div>
 </div>
+<app-waitlist-overlay [show]="showWaitlistForm" (onClose)="showWaitlistForm = false"></app-waitlist-overlay>

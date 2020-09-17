@@ -4,6 +4,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../_models/user.model';
 
+export const apiUrl = 'https://the-op.herokuapp.com';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,11 +37,11 @@ export class AuthService {
   }
 
   sendOtp(id) {
-    return this.http.post("https://the-op.herokuapp.com/login/otp", {"identifier": id});
+    return this.http.post(apiUrl.concat("/login/otp"), {"identifier": id});
   }
 
   loginOtp(id, otp) {
-    return this.http.post<User>("https://the-op.herokuapp.com/login", {"identifier": id, "otp": otp})
+    return this.http.post<User>(apiUrl.concat("/login"), {"identifier": id, "otp": otp})
           .pipe(map(user => {
               let token = user['token'];
               user = user['user'];
@@ -52,11 +54,11 @@ export class AuthService {
   }
 
   sendRefOtp(id, ref) {
-    return this.http.post("https://the-op.herokuapp.com/signup/otp", {"email": id, "referral" : ref});
+    return this.http.post(apiUrl.concat("/signup/otp"), {"email": id, "referral" : ref});
   }
 
   signUp(id, ref, name, username, otp) {
-    return this.http.post<User>("https://the-op.herokuapp.com/signup", {"email": id, "referral" : ref, 'name': name, 'username': username, 'otp': parseInt(otp)}).pipe(map(user => {
+    return this.http.post<User>(apiUrl.concat("/signup"), {"email": id, "referral" : ref, 'name': name, 'username': username, 'otp': parseInt(otp)}).pipe(map(user => {
       let token = user['token'];
       user = user['user'];
       user.college = user['college']['type'];

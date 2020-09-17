@@ -6,7 +6,7 @@ import { Observable, ObservedValueOf } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import { ifStmt } from '@angular/compiler/src/output/output_ast';
-
+import { apiUrl } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class BackendService {
   constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
   public getUser(username) : Observable<User>{
-    return this.httpClient.get<User>("https://the-op.herokuapp.com/user/".concat(username)).pipe(map((user) => {
+    return this.httpClient.get<User>(apiUrl.concat("/user/").concat(username)).pipe(map((user) => {
       user = user['user'];
       user.college = user['college']['type'];
       return user;
@@ -25,7 +25,7 @@ export class BackendService {
 
   public patchUser(user: User): Observable<User>{
     let usr = user;
-    return this.httpClient.patch<User>("https://the-op.herokuapp.com/me/profile", usr)
+    return this.httpClient.patch<User>(apiUrl.concat("/me/profile"), usr)
       .pipe(map(
         (user) => {
           user = user['user'];
@@ -37,7 +37,7 @@ export class BackendService {
   }
 
   public getMe(): Observable<User>{
-    return this.httpClient.get<User>("https://the-op.herokuapp.com/me").pipe(map(
+    return this.httpClient.get<User>(apiUrl.concat("/me")).pipe(map(
       (user) => {
         user = user['user'];
         user.college = user['college']['type'];
@@ -48,7 +48,7 @@ export class BackendService {
   }
 
   public getMyWishlist(): Observable<Opps[]>{
-    return this.httpClient.get<Opps[]>("https://the-op.herokuapp.com/me/wishlist")
+    return this.httpClient.get<Opps[]>(apiUrl.concat("/me/wishlist"))
       .pipe(map((opps) => {
         opps = opps['wishlist']['opportunities'];
         opps.map(opp => {
@@ -59,7 +59,7 @@ export class BackendService {
   }
 
   public addPursued(slug: string): Observable<Opps[]> {
-    return this.httpClient.post<Opps[]>("https://the-op.herokuapp.com/me/pursued", {"opportunity": slug}).pipe(map(
+    return this.httpClient.post<Opps[]>(apiUrl.concat("/me/pursued"), {"opportunity": slug}).pipe(map(
       opps => {
         return opps['opportunities'];
       }
@@ -83,7 +83,7 @@ export class BackendService {
       params = params.append("tags", tags);
     }
 
-    return this.httpClient.get<Opps[]>("https://the-op.herokuapp.com/opportunity/search", {params:params}).pipe(map(item => {
+    return this.httpClient.get<Opps[]>(apiUrl.concat("/opportunity/search"), {params:params}).pipe(map(item => {
       for(var opp of item)
       {
         opp.domain = opp['domain']['type'];
@@ -95,11 +95,11 @@ export class BackendService {
   }
 
   public follow(username) : Observable<User[]>{
-    return this.httpClient.post<User[]>("https://the-op.herokuapp.com/me/follow", {"username": username});
+    return this.httpClient.post<User[]>(apiUrl.concat("/me/follow"), {"username": username});
   }
 
   public unfollow(username) : Observable<User[]>{
-    return this.httpClient.post<User[]>("https://the-op.herokuapp.com/me/unfollow", {"username": username});
+    return this.httpClient.post<User[]>(apiUrl.concat("/me/unfollow"), {"username": username});
   }
 
   public searchUser(searchstring, year = null, college = null) : Observable<User[]> {
@@ -115,7 +115,7 @@ export class BackendService {
       params = params.append('college', college);
     }
 
-    return this.httpClient.get<User[]>("https://the-op.herokuapp.com/user/search", {params: params}).pipe(map(item => {
+    return this.httpClient.get<User[]>(apiUrl.concat("/user/search"), {params: params}).pipe(map(item => {
       for(var user of item)
       {
         user.college = user['college']['type'];
@@ -125,7 +125,7 @@ export class BackendService {
   }
 
   public getOpps(slug) : Observable<Opps> {
-    return this.httpClient.get<Opps>("https://the-op.herokuapp.com/opportunity/".concat(slug)).pipe(map(item => {
+    return this.httpClient.get<Opps>(apiUrl.concat("/opportunity/").concat(slug)).pipe(map(item => {
       item.domain = item['domain']['type'];
       item.About = item['Description'];
       item.Deadline_Comp = item['Time_Registration'];
@@ -137,11 +137,11 @@ export class BackendService {
 
   public addOppsToWishlist(slug) : Observable<Opps[]> {
     let body = {'opportunity': slug};
-    return this.httpClient.post<Opps[]>("https://the-op.herokuapp.com/me/wishlist", body=body);
+    return this.httpClient.post<Opps[]>(apiUrl.concat("/me/wishlist"), body=body);
   }
 
   public deleteOppsFromWishlist(slug) : Observable<Opps[]> {
-    return this.httpClient.delete<Opps[]>("https://the-op.herokuapp.com/me/wishlist/".concat(slug));
+    return this.httpClient.delete<Opps[]>(apiUrl.concat("/me/wishlist/").concat(slug));
   }
 
   public addComment(oppSlug, data, parent=null) : Observable<Comment> {
@@ -150,11 +150,11 @@ export class BackendService {
     {
       body['parent'] = parent;
     }
-    return this.httpClient.post<Comment>("https://the-op.herokuapp.com/opportunity/".concat(oppSlug).concat("/comment"), body=body);
+    return this.httpClient.post<Comment>(apiUrl.concat("/opportunity/").concat(oppSlug).concat("/comment"), body=body);
   }
 
   public getReccomendations(slug) : Observable<Opps[]> {
-    return this.httpClient.get<Opps[]>("https://the-op.herokuapp.com/opportunity/".concat(slug).concat("/recommendations")).pipe(map(
+    return this.httpClient.get<Opps[]>(apiUrl.concat("/opportunity/").concat(slug).concat("/recommendations")).pipe(map(
       opps => {
         opps.map(opp => {
           opp.domain = opp['domain']['type'];
@@ -166,7 +166,7 @@ export class BackendService {
 
   public addDomainPref(domainBody) : Observable<User> {
     console.log(domainBody);
-    return this.httpClient.post<User>("https://the-op.herokuapp.com/me/domains/", {"domains": domainBody}).pipe(map(user => {
+    return this.httpClient.post<User>(apiUrl.concat("/me/domains/"), {"domains": domainBody}).pipe(map(user => {
       user = user['user'];
       user.college = user['college']['type'];
       user.domains = domainBody;
@@ -184,7 +184,7 @@ export class BackendService {
       }
     };
 
-    return this.httpClient.patch<User>('https://the-op.herokuapp.com/me/profile', body).pipe(map(user => {
+    return this.httpClient.patch<User>(apiUrl.concat('/me/profile'), body).pipe(map(user => {
       user = user['user'];
       user.college = user['college']['type'];
       this.authService.updateUser(user);

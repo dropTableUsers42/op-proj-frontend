@@ -30,6 +30,8 @@ export class SignupFormComponent implements OnInit {
     otp: new FormControl('')
   });
 
+  showWaitlistForm = false;
+
   spin = false;
 
   constructor(private authService: AuthService, private router: Router) { }
