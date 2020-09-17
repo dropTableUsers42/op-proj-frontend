@@ -3,6 +3,7 @@ import { Comment, Opps } from '../_models/opps.model';
 import { FormGroup, FormControl } from '@angular/forms';
 import { BackendService } from '../_services/backend.service';
 import { TimeAgoPipe } from '../_pipes/time-ago.pipe';
+import { dpUrls, getUrl } from '../register/dp-overlay/dp-overlay.component';
 
 @Component({
   selector: 'app-opp-detail-comment',
@@ -25,12 +26,17 @@ export class OppDetailCommentComponent implements OnInit {
 
   replying: boolean;
 
+  dpUrl = '/assets/images/placeholder.jpg';
+
   constructor(private backendService: BackendService) { }
 
   ngOnInit(): void {
     this.replying = false;
 
-    console.log(this.comment);
+    if(this.comment?.user?.picture)
+    {
+      this.dpUrl = getUrl(this.comment.user.picture.style, this.comment.user.picture.colour);
+    }
   }
 
   submitReply() {
