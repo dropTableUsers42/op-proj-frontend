@@ -100,9 +100,16 @@ export class OppDetailComponent implements OnInit {
     }
   }
 
+  dpUrl = "/assets/images/placeholder.jpg";
+
   havePursued = false;
 
   ngOnInit(): void {
+
+    let usr = this.authService.currentUserValue;
+
+    
+
     this.actRoute.params.subscribe(val => {
       this.recc_opps = [];
       window.scroll(0, 0);
@@ -146,9 +153,13 @@ export class OppDetailComponent implements OnInit {
 
   pursue(): void {
     this.havePursued = true;
-    this.backendService.addPursued(this.opps.slug).subscribe(opps => {
+    this.backendService.addPursued(this.opps.slug).subscribe(opp => {
       this.backendService.getMe();
       let usr = this.authService.currentUserValue;
+
+      usr.pursued = opp;
+
+      this.authService.updateUser(usr);
      });
   }
 
