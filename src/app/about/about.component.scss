@@ -26,9 +26,20 @@
 		margin-top: 50px;
 	}
 
+	#features {
+		content: url("/assets/svg/method-draw-image.svg");
+
+		width: calc(100vw - 240px);
+		height: auto;
+
+		@media screen and (max-width: 600px) {
+			width: calc(100vw - 60px);
+		}
+	}
+
 	@media screen and (max-width: 600px) {
 		#about-title {
-			font-size: 48px;
+			font-size: 36px;
 		}
 	}
 
@@ -82,11 +93,13 @@
 	}
 
 	.title-m {
-		font-size: 36px;
+		font-size: 30px;
+
+		margin-top: 40px;
 	}
 
 	.title-s {
-		font-size: 28px;
+		font-size: 24px;
 	}
 }
 
@@ -124,7 +137,17 @@
 }
 
 .team-detail {
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 	margin-right: 6.25vw;
+}
+
+@media screen and (max-width: 600px) {
+	.team-detail {
+		width: calc((100vw - 60px - 6.25vw * 1)/2);
+	}
 }
 
 .team-image {
@@ -154,9 +177,9 @@
 	}
 
 	.team-image {
-		width: calc((100vw - 60px - 6.25vw * 1)/2);
-		height: calc((100vw - 60px - 6.25vw * 1)/2);
-		border-radius: calc((100vw - 60px - 6.25vw * 1)/2);
+		width: calc(0.6 * (100vw - 60px - 6.25vw * 1)/2);
+		height: calc(0.6 * (100vw - 60px - 6.25vw * 1)/2);
+		border-radius: calc(0.6 * (100vw - 60px - 6.25vw * 1)/2);
 	}
 }
 

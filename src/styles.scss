@@ -74,6 +74,12 @@ mat-sidenav {
 	scrollbar-width: none;  /* Firefox */
 }
 
+.hcentered {
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+}
+
 * {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }

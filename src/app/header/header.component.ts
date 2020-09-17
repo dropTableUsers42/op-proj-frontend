@@ -95,6 +95,17 @@ import {
 			transition('* => *', [
 				animate('0.25s ease-in-out')
 			]),
+    ]),
+    trigger('logoColorTransform', [
+			state('default', style({
+				opacity: 1
+			})),
+			state('white', style({
+				backgroundColor: '#F9F9F9'
+			})),
+			transition('* => *', [
+				animate('0.25s ease-in-out')
+			]),
 		]),
 	],
 })

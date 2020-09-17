@@ -6,7 +6,8 @@
 			</button>
 		</div>
 		<div class="logo-container" (click)="logoClick()">
-			<p [ngClass]="logo_class()" [@logoTransform]="logo_trigger" [@colorTransform]="color_trigger">{{logo}}</p>
+			<!--<p class="logo" [@logoTransform]="logo_trigger" [@colorTransform]="color_trigger">{{logo}}</p>-->
+			<div id="logo-svg" [@logoTransform]="logo_trigger" [@logoColorTransform]="color_trigger" class="hcentered"></div>
 		</div>
 		<div class="profile-container">
 			<div (click)="profileClick()" class="profile-image-container">

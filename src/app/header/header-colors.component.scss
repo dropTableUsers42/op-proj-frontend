@@ -3,7 +3,7 @@ button {
 }
 
 .home .menu-button, .home .logo, .home .wishlist {
-	color: white;
+	color: #f9f9f9;
 }
 
 .core .menu-button, .core .logo, .core .wishlist {
@@ -30,6 +30,34 @@ button {
 	color: #2BA9CA;
 }
 
-.logo {
+.home #logo-svg {
+	background-color: #f9f9f9;
+}
+
+.core #logo-svg {
+	background-color: #05905F;
+}
+
+.it #logo-svg {
+	background-color: #FF9D63;
+}
+
+.consult #logo-svg {
+	background-color: #05905F;
+}
+
+.ent #logo-svg {
+	background-color: #225882;
+}
+
+.fin #logo-svg {
+	background-color: #D67BBB;
+}
+
+.socdev #logo-svg {
+	background-color: #2BA9CA;
+}
+
+#logo-svg {
 	opacity: 1;
 }
