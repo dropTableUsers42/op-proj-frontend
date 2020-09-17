@@ -27,6 +27,8 @@ export class User {
 	domains;
 
 	picture: Picture;
+
+	referralShare: string;
 }
 
 export class Picture {

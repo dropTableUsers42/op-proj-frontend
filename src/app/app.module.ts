@@ -37,6 +37,8 @@ import { ContributeComponent } from './contribute/contribute.component';
 import { TimeAgoPipe } from './_pipes/time-ago.pipe';
 import { DpOverlayComponent } from './register/dp-overlay/dp-overlay.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { TestimonialComponent } from './testimonial/testimonial.component';
+import { ContributeAllComponent } from './contribute-all/contribute-all.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     ContributeComponent,
     TimeAgoPipe,
     DpOverlayComponent,
+    TestimonialComponent,
+    ContributeAllComponent,
   ],
   imports: [
     BrowserModule,

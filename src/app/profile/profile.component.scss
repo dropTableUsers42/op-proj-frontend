@@ -326,7 +326,7 @@ p {
 
 	width: 100%;
 
-	text-align: center;
+	margin-left: 5px;
 }
 
 @media screen and (max-width: 600px) {
@@ -352,6 +352,8 @@ p {
 	#copied-message {
 		font-size: 10px;
 		line-height: 10px;
+
+		margin-left: 3px;
 	}
 }
 

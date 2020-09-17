@@ -100,14 +100,30 @@ export class OppDetailComponent implements OnInit {
     }
   }
 
+  havePursued = false;
+
   ngOnInit(): void {
     this.actRoute.params.subscribe(val => {
       this.recc_opps = [];
       window.scroll(0, 0);
       this.gotoTop();
       this.backendService.getOpps(val['slug']).subscribe(opp => {
+        this.havePursued = false;
         this.opps = opp;
         this.page_style = this.get_page_style[this.opps.domain];
+        console.log(this.authService.currentUserValue.pursued);
+
+        let pursued = this.authService.currentUserValue.pursued;
+
+        for (let opp of pursued)
+        {
+          if(opp.slug == this.opps.slug)
+          {
+            this.havePursued = true;
+            break;
+          }
+        }
+
         this.pageStyleService.newEvent(this.page_style);
 
         this.backendService.getReccomendations(this.opps.slug).subscribe(reccs => {
@@ -126,6 +142,12 @@ export class OppDetailComponent implements OnInit {
     this.opps.About = "Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random";
 
     this.opps.Testimonial = "Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description.Lorem ipsum description blah blah blah random hello description description Lorem Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description.Lorem ipsum description blah blah blah rand. Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description blah blah blah random hello description description Lorem ipsum description.Lorem ipsum description blah blah blah";*/
+  }
+
+  pursue(): void {
+    this.havePursued = true;
+    this.backendService.addPursued(this.opps.slug).subscribe(opps => {
+    })
   }
 
   gotoTop(): void {

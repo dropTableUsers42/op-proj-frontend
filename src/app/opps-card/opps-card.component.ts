@@ -16,11 +16,11 @@ export class OppsCardComponent implements OnInit, AfterViewInit, DoCheck {
 @Input('interest') public showInterested: boolean = true;
 @Input('type') public cardType: string = 'search';
 
-    @ViewChild('mainCard') mainCard: ElementRef;
-    @ViewChild('oppsType') oppsType: ElementRef;
-    @ViewChild('matIcon') matIcon: ElementRef;
-    @ViewChild('oppsLocation') oppsLocation: ElementRef;
-    @ViewChild('oppsDuration') oppsDuration: ElementRef;
+    @ViewChild('mainCard', {static: false}) mainCard: ElementRef;
+    @ViewChild('oppsType', {static: false}) oppsType: ElementRef;
+    @ViewChild('matIcon', {static: false}) matIcon: ElementRef;
+    @ViewChild('oppsLocation', {static: false}) oppsLocation: ElementRef;
+    @ViewChild('oppsDuration', {static: false}) oppsDuration: ElementRef;
 
     constructor(private router: Router, private backendService: BackendService, private renderer: Renderer2) {
     }
@@ -29,13 +29,20 @@ export class OppsCardComponent implements OnInit, AfterViewInit, DoCheck {
     }
 
     ngAfterViewInit(): void {
-        let totalWidth = this.mainCard.nativeElement.offsetWidth;
-        let totalHeight= this.mainCard.nativeElement.offsetHeight;
-        let paddingWidth = parseFloat(window.getComputedStyle(this.mainCard.nativeElement, null).paddingLeft);
+    }
+
+    ngDoCheck(): void {
+        let paddingWidth = 0;
+        let totalWidth = this.mainCard?.nativeElement.offsetWidth;
+        let totalHeight= this.mainCard?.nativeElement.offsetHeight;
+        if(this.mainCard?.nativeElement)
+        {
+            paddingWidth = parseFloat(window.getComputedStyle(this.mainCard?.nativeElement, null).paddingLeft);
+        }
 
         let durationWidth = 0;
 
-        if(this.oppsDuration.nativeElement)
+        if(this.oppsDuration?.nativeElement)
         {
             durationWidth = parseFloat(window.getComputedStyle(this.oppsDuration?.nativeElement, null).width);
         }
@@ -43,17 +50,19 @@ export class OppsCardComponent implements OnInit, AfterViewInit, DoCheck {
         totalWidth -= 2 * paddingWidth;
         let typeWidth = 0.8 * totalWidth;
 
-        this.renderer.setStyle(this.oppsType.nativeElement, 'max-width', typeWidth + 'px');
-        this.renderer.setStyle(this.oppsType.nativeElement, 'border-radius', (0.185 * totalHeight) + 'px');
-        this.renderer.setStyle(this.oppsType.nativeElement, 'line-height', (0.105 * totalHeight) + 'px');
+        if(this.oppsType?.nativeElement)
+        {
+            this.renderer.setStyle(this.oppsType.nativeElement, 'max-width', typeWidth + 'px');
+            this.renderer.setStyle(this.oppsType.nativeElement, 'border-radius', (0.185 * totalHeight) + 'px');
+            this.renderer.setStyle(this.oppsType.nativeElement, 'line-height', Math.ceil((0.105 * totalHeight)) + 'px');
+        }
 
-        if(this.oppsLocation.nativeElement && this.oppsDuration.nativeElement)
+        if(this.oppsLocation?.nativeElement && this.oppsDuration?.nativeElement)
         {
             this.renderer.setStyle(this.oppsLocation.nativeElement, 'max-width', (totalWidth - durationWidth - 3) + 'px');
         }
-    }
 
-    ngDoCheck(): void {}
+    }
 
     getMainColor() {
         if(this.opportunity.domain == 'Core')

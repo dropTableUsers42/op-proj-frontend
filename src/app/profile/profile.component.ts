@@ -80,6 +80,8 @@ export class ProfileComponent implements OnInit, AfterViewInit, AfterViewChecked
   ngOnInit(): void {
     this.user = this.authService.currentUserValue;
 
+    this.clipboardMessage = 'Hey! There’s this platform that I’ve started using, called The Opportunity Project, which is giving out exclusive access to a small cohort. I have a referral code with me which will help you get access to the site, and I am giving it to you because I believe it will help you immensely. I hope you like it!\n\nReferral Code: ' + this.user.referralShare + '\nWebsite: www.opproject.club';
+
     this.dpUrl = getUrl(this.user.picture.style, this.user.picture.colour);
 
     this.backendService.getMe().subscribe(user => {

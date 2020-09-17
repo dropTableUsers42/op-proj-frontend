@@ -28,9 +28,9 @@
 					<div class="edit-button-container">
 						<button class="edit-button" (click)="onEditClick()">Edit Profile</button>
 					</div>
-					<button class="share-button" (click)="showCopyMessage()" [cdkCopyToClipboard]="'copy123'"></button>
+					<div class="share-button" (click)="showCopyMessage()" [cdkCopyToClipboard]="clipboardMessage"></div>
 				</div>
-				<div id="copied-message" *ngIf="clipboardCopied" >Copied to Clipboard!</div>
+				<div id="copied-message" *ngIf="clipboardCopied" >Referral Message copied!</div>
 			</div>
 		</div>
 		<div class="profile-about-container">

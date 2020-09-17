@@ -6,6 +6,7 @@ import { Observable, ObservedValueOf } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import { ifStmt } from '@angular/compiler/src/output/output_ast';
+import { userError } from '@angular/compiler-cli/src/transformers/util';
 
 
 @Injectable({
@@ -182,6 +183,15 @@ export class BackendService {
       this.authService.updateUser(user);
       return user;
     }));
+  }
+
+  public addPursued(slug) : Observable<Opps[]> {
+    return this.httpClient.post<Opps[]>('https://the-op.herokuapp.com/me/pursued', {opportunity: slug}).pipe(map(opps => {
+      let user = this.authService.currentUserValue;
+      user.pursued = opps['opportunities'];
+      this.authService.updateUser(user);
+      return opps;
+    }))
   }
 
 }

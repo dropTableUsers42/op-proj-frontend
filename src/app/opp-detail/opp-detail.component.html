@@ -4,7 +4,7 @@
 		<div class="opp-name-org-image-container">
 			<div class="opp-text-container">
 				<div class="opp-name-container">
-					<p class="opp-name"><a class="nocolor" href="{{opps?.Site}}">{{opps?.Name_of_Program}}</a></p>
+					<p class="opp-name"><a class="nocolor" href="{{opps?.Site}}" target="_empty">{{opps?.Name_of_Program}}</a></p>
 				</div>
 				<div class="opp-organiser-container">
 					<p class="opp-organiser">{{opps?.Organiser}}</p>
@@ -84,10 +84,15 @@
 			</div>
 			<div class="opp-link opp-about-container">
 				Link to Opportunity Website:<br><br>
-				<a href="{{opps?.Site}}" class="opp-about-container">
+				<a href="{{opps?.Site}}" target="_empty" class="opp-about-container">
 					{{opps?.Site}}
 				</a>
 			</div>
+		</div>
+
+		<div class="pursued-container">
+			<div *ngIf="havePursued" id="post-test-link" class="have-pursued hcentered"><a routerLink="/post-testimonial" target="_empty">Want to post a Testimonial?</a></div>
+			<div *ngIf="!havePursued" (click)="pursue()" class="have-pursued hcentered" id="not-pursued">Have pursued this Opportunity?</div>
 		</div>
 
 		<div *ngIf="opps?.Testimonials">
@@ -105,7 +110,7 @@
 						<app-opps-card [opps]="opportunity" [type]="'recc'"></app-opps-card>
 					</div>
 				</div>-->
-				<div id="reccs">
+				<div id="reccs" [class.show]="recc_opps?.length > 0">
 					<app-opps-wishlistv2 [wishlist]='recc_opps | slice:0:8'></app-opps-wishlistv2>
 				</div>
 			</div>

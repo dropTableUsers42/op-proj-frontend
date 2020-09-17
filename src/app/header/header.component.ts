@@ -232,7 +232,10 @@ export class HeaderComponent implements OnInit {
 
     let user = this.authService.currentUserValue;
 
-    this.dpUrl = getUrl(user.picture.style, user.picture.colour);
+    if(user.picture)
+    {
+      this.dpUrl = getUrl(user.picture.style, user.picture.colour);
+    }
 
     this.authService.currentUser.subscribe(usr => {
       this.dpUrl = getUrl(usr.picture.style, usr.picture.colour);

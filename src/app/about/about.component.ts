@@ -14,39 +14,39 @@ export class AboutComponent implements OnInit {
     'Co-Founders': [
         {
           name: 'Cherub Kapoor',
-          image: '/assets/images/placeholder.jpg',
+          image: '/assets/team/Cherub.png',
           linkedin: '',
           insta: '',
         },
         {
           name: 'Rahul Sunder',
-          image: '/assets/images/placeholder.jpg',
+          image: '/assets/team/RahulS.png',
           linkedin: '',
           insta: '',
         }
       ],
-    'Product Curators': [
+    'Core Team': [
       {
         name: 'Hrishikesh Baviskar',
-        image: '/assets/images/placeholder.jpg',
+        image: '/assets/team/Baviskar.png',
         linkedin: '',
         insta: '',
       },
       {
         name: 'Neelanchal Joshi',
-        image: '/assets/images/placeholder.jpg',
+        image: '/assets/team/Neelanchal.png',
         linkedin: '',
         insta: '',
       },
       {
         name: 'Mainak Mandal',
-        image: '/assets/images/placeholder.jpg',
+        image: '/assets/team/Mainak.png',
         linkedin: '',
         insta: '',
       },
       {
         name: 'Rahul Kumar',
-        image: '/assets/images/placeholder.jpg',
+        image: '/assets/team/RahulK.png',
         linkedin: '',
         insta: '',
       }
@@ -54,24 +54,37 @@ export class AboutComponent implements OnInit {
     'Product Developers': [
       {
         name: 'Rwitaban Goswami',
-        image: '/assets/images/placeholder.jpg',
+        image: '/assets/team/Rwitaban.png',
         linkedin: '',
         insta: '',
       },
       {
         name: 'Nimish Lakhotia',
-        image: '/assets/images/placeholder.jpg',
+        image: '/assets/team/Nimish.png',
         linkedin: '',
         insta: '',
       },
       {
         name: 'Pratham Gupta',
-        image: '/assets/images/placeholder.jpg',
+        image: '/assets/team/Pratham.png',
         linkedin: '',
         insta: '',
       },
-    ]
+    ],
   };
+
+  public team1 = [
+    'Vasu Swaroop',
+    'Yatin Jindal',
+    'Yash Pathak',
+    'Tulip Pandey',
+    'Shubham Kumar',
+    'Sushant Gupta',
+    'Dishank Jindal',
+    'Aryan Verma',
+    'Arnev Garg',
+    'Parag Panigrahi'
+  ];
 
   constructor(private pageStyleService: PageStyleService) { }
 

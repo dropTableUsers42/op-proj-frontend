@@ -14,6 +14,8 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthGuardGuard } from './_guards/auth-guard.guard';
 import { AboutComponent } from './about/about.component';
 import { ContributeComponent } from './contribute/contribute.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
+import { ContributeAllComponent } from './contribute-all/contribute-all.component';
 
 
 const routes: Routes = [
@@ -27,7 +29,9 @@ const routes: Routes = [
   { path: 'search/:domain', component: OpsearchComponent, canActivate: [AuthGuardGuard] },
   { path: 'opps/:slug', component: OppDetailComponent, canActivate: [AuthGuardGuard] },
   { path: 'about', component: AboutComponent },
-  { path: 'contribute', component: ContributeComponent },
+  { path: 'post-opp', component: ContributeComponent },
+  { path: 'post-testimonial', component: TestimonialComponent },
+  { path: 'contribute', component: ContributeAllComponent },
   { path: '**', redirectTo: ''},
 ];
 

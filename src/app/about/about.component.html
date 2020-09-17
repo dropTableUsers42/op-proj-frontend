@@ -80,9 +80,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="text title-s">Product Curators</div>
+	<div class="text title-s">Core Team</div>
 	<div class="flex-row team-container">
-		<div *ngFor="let member of team['Product Curators']" class="team-detail">
+		<div *ngFor="let member of team['Core Team']" class="team-detail">
 			<img class="team-image" src="{{member.image}}">
 			<div class="text team-text">{{member.name}}</div>
 			<div class="social-links flex-row">
@@ -92,7 +92,7 @@
 		</div>
 	</div>
 	<div class="text title-s">Product Developers</div>
-	<div class="flex-row team-container">
+	<div class="flex-row team-container flex-center">
 		<div *ngFor="let member of team['Product Developers']" class="team-detail">
 			<img class="team-image" src="{{member.image}}">
 			<div class="text team-text">{{member.name}}</div>
@@ -102,4 +102,10 @@
 			</div>
 		</div>
 	</div>
+	<div class="text title-s">Product Content Curators</div>
+	<ul>
+		<li *ngFor="let member of team1" class="text">
+			{{member}}
+		</li>
+	</ul>
 </div>

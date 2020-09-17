@@ -39,6 +39,9 @@
 
 .title-container {
 	width: calc(62.9vw);
+
+	display: flex;
+	flex-direction: column;
 }
 
 .main_title {
@@ -55,6 +58,8 @@
 	color: #FFFFFF;
 
 	mix-blend-mode: normal;
+
+	flex-grow: 1;
 }
 
 @media screen and (min-width: 1400px)
@@ -644,4 +649,30 @@ mat-button-toggle {
 
 	background: #363636;
 	border-radius: 40px;
+}
+
+/*********************************************/
+
+.scroll-arrow {
+
+	width: 100vw;
+
+	margin-left: -60px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	margin-bottom: 10px;
+}
+
+.scroll-svg {
+	width: 30px;
+	height: 30px;
+
+	--webkit-mask: url('/assets/svg/down.svg') center no-repeat;
+	mask: url('/assets/svg/down.svg') center no-repeat;
+
+	background-color: #f9f9f9;
 }
