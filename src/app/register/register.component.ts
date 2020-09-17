@@ -10,6 +10,7 @@ import { Opps } from '../_models/opps.model';
 import { ReplaySubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { MatSelect } from '@angular/material/select';
+import { getUrl } from './dp-overlay/dp-overlay.component';
 
 @Component({
   selector: 'app-register',
@@ -33,6 +34,8 @@ export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
   });
 
   spin = false;
+
+  dpUrl = '/assets/images/placeholder.jpg';
 
   /*listOpps: Opps[] = [];
   pursuedForm = new FormGroup({
@@ -83,6 +86,7 @@ export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
       });
     */
     this.user = this.authService.currentUserValue;
+    this.dpUrl = getUrl(this.user.picture.style, this.user.picture.colour);
     //let temp = this.user.pursued.map(opp => opp.slug);
     //console.log(temp);
     //this.pursuedForm.get('pursuedMultiCtrl').setValue(this.user.pursued);
@@ -108,6 +112,11 @@ export class RegisterComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     //this.setInitialValue();
+  }
+
+  saveDp(event: any): void {
+    this.user.picture = event;
+    this.dpUrl = getUrl(this.user.picture.style, this.user.picture.colour);
   }
 
   ngOnDestroy(): void {

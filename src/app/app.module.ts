@@ -36,6 +36,7 @@ import { AboutComponent } from './about/about.component';
 import { ContributeComponent } from './contribute/contribute.component';
 import { TimeAgoPipe } from './_pipes/time-ago.pipe';
 import { DpOverlayComponent } from './register/dp-overlay/dp-overlay.component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { DpOverlayComponent } from './register/dp-overlay/dp-overlay.component';
     AppUiModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ClipboardModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

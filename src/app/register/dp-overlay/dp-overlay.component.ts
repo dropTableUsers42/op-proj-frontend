@@ -1,4 +1,7 @@
+import { getUrlScheme } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { BackendService } from '../../_services/backend.service';
+import { AuthService } from '../../_services/auth.service';
 
 @Component({
   selector: 'app-dp-overlay',
@@ -8,17 +11,35 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class DpOverlayComponent implements OnInit {
 
   @Output() onClose: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onSave: EventEmitter<any> = new EventEmitter<any>();
 
   @Input() show = false;
 
   selectedImage: number;
   selectedColor: string;
 
-  constructor() { }
+  spin = false;
+
+  colorOrder = [
+    'Brown',
+    'Light-Brown',
+    'Dark-White',
+    'Blue',
+    'Green',
+    'Purple'
+  ]
+
+  constructor(private backendService: BackendService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.selectedImage = 2;
-    this.selectedColor = 'Blue';
+    let user = this.authService.currentUserValue;
+
+    this.selectedImage = user.picture.style;
+
+    let re = /\s/gi;
+    let color = user.picture.colour.replace(re, "-");
+
+    this.selectedColor = color;
   }
 
   stopPropagate(event): void {
@@ -42,9 +63,45 @@ export class DpOverlayComponent implements OnInit {
   }
 
   save(): void {
-    this.close();
+
+    let re = /-/gi;
+    let color = this.selectedColor.replace(re, " ");
+
+    this.spin = true;
+
+    this.backendService.postAvatar(this.selectedImage, color).subscribe(user => {
+      this.spin = false;
+      this.onSave.emit(user.picture);
+      this.close();
+    });
   }
 
+}
+
+export function getUrl(style: number, colour: string): string
+{
+  if(style < 1 || style > 6)
+  {
+    return '/assets/images/placeholder.jpg';
+  }
+
+  let re = /\s/gi;
+  let color = colour.replace(re, "-");
+
+  if (!(color in dpUrls))
+  {
+    return '/assets/images/placeholder.jpg';
+  }
+
+  let typeKey = dpUrls[color];
+  for (let type of typeKey)
+  {
+    if(type.key == style)
+    {
+      return type.url;
+    }
+  }
+  return '/assets/images/placeholder.jpg';
 }
 
 export const dpUrls = {

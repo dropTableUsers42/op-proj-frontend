@@ -2,7 +2,7 @@
 	<div class="profile-all-container">
 		<div class="profile-details-container">
 			<div class="profile-image-container">
-				<img class="reg-icon">
+				<img class="reg-icon" src="{{dpUrl}}">
 			</div>
 			<div class="profile-text-container">
 				<div class="name-container">
@@ -23,10 +23,14 @@
 					<p class="email-content">{{user?.email}}</p>
 				</div>
 			</div>
-			<div class="profile-button-email-container">
-				<div class="edit-button-container">
-					<button class="edit-button" (click)="onEditClick()">Edit Profile</button>
+			<div>
+				<div class="profile-button-email-container"> 
+					<div class="edit-button-container">
+						<button class="edit-button" (click)="onEditClick()">Edit Profile</button>
+					</div>
+					<button class="share-button" (click)="showCopyMessage()" [cdkCopyToClipboard]="'copy123'"></button>
 				</div>
+				<div id="copied-message" *ngIf="clipboardCopied" >Copied to Clipboard!</div>
 			</div>
 		</div>
 		<div class="profile-about-container">

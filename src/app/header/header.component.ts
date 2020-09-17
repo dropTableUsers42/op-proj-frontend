@@ -14,6 +14,7 @@ import {
   group,
   animateChild
 } from '@angular/animations';
+import { dpUrls, getUrl } from '../register/dp-overlay/dp-overlay.component';
 
 @Component({
   selector: 'app-header',
@@ -120,6 +121,8 @@ export class HeaderComponent implements OnInit {
 
   shakeState: boolean = true;
 
+  dpUrl = '/assets/images/placeholder.jpg';
+
   get header_trigger() {
     if(this.router.url.includes('opps'))
     {
@@ -225,7 +228,15 @@ export class HeaderComponent implements OnInit {
     });
     this.interestedService.events$.subscribe(ic => {
       this.shakeState = !this.shakeState;
-    })
+    });
+
+    let user = this.authService.currentUserValue;
+
+    this.dpUrl = getUrl(user.picture.style, user.picture.colour);
+
+    this.authService.currentUser.subscribe(usr => {
+      this.dpUrl = getUrl(usr.picture.style, usr.picture.colour);
+    });
   }
 
   sidenavToggle() {

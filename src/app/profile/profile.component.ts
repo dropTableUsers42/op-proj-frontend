@@ -5,7 +5,9 @@ import { PageStyleService } from '../_services/page-style.service';
 import { User } from '../_models/user.model';
 import { Opps } from '../_models/opps.model';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
-import { ToNthPipe } from '../_pipes/to-nth.pipe'; 
+import { ToNthPipe } from '../_pipes/to-nth.pipe';
+import { getUrl } from '../register/dp-overlay/dp-overlay.component';
+
 
 
 @Component({
@@ -56,16 +58,33 @@ export class ProfileComponent implements OnInit, AfterViewInit, AfterViewChecked
     'socdev'
   ]
 
+  clipboardMessage = 'Copy123';
+
+  clipboardCopied = false;
+
   private fragment: string;
+
+  dpUrl = '/assets/images/placeholder.jpg';
 
   constructor(private backendService: BackendService, private router: Router, private authService: AuthService, private pageStyleService: PageStyleService, private actRoute: ActivatedRoute) {
     this.pageStyleService.newEvent('home');
   }
 
+  showCopyMessage(): void {
+    this.clipboardCopied = true;
+    setTimeout(() => {
+      this.clipboardCopied = false;
+    }, 3000);
+  }
+
   ngOnInit(): void {
     this.user = this.authService.currentUserValue;
+
+    this.dpUrl = getUrl(this.user.picture.style, this.user.picture.colour);
+
     this.backendService.getMe().subscribe(user => {
       this.user = user;
+      this.dpUrl = getUrl(this.user.picture.style, this.user.picture.colour);
       this.wishlist = user['wishlist'];
       this.wishlist.map(opp => {
         opp.domain = opp['domain']['type'];

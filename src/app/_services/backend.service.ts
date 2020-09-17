@@ -167,4 +167,21 @@ export class BackendService {
     }));
   }
 
+  public postAvatar(style, color) : Observable<User> {
+
+    let body = {
+      picture : {
+        style: style,
+        colour: color,
+      }
+    };
+
+    return this.httpClient.patch<User>('https://the-op.herokuapp.com/me/profile', body).pipe(map(user => {
+      user = user['user'];
+      user.college = user['college']['type'];
+      this.authService.updateUser(user);
+      return user;
+    }));
+  }
+
 }

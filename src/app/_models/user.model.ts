@@ -25,4 +25,11 @@ export class User {
 	isFollowed: boolean;
 
 	domains;
+
+	picture: Picture;
+}
+
+export class Picture {
+	style: number;
+	colour: string;
 }

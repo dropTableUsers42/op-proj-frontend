@@ -2,7 +2,7 @@
 	<form id="profileForm" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 		<div class="profile-details-container">
 			<div class="profile-image-container">
-				<img class="reg-icon" (click)="dpOverlayShow = true">
+				<img class="reg-icon" (click)="dpOverlayShow = true" src="{{dpUrl}}">
 			</div>
 			<div class="profile-text-container">
 				<div *ngIf="width > 500" class="name-container">
@@ -97,7 +97,7 @@
 			<label class="domains-label">Domain Interests</label><br>
 			<mat-button-toggle-group multiple name="domain-choice" aria-label="Domain Choice" formControlName="domains">
 				<mat-button-toggle class="core" value="core">Core</mat-button-toggle>
-				<mat-button-toggle class="it" value="it">IT/Coding</mat-button-toggle>
+				<mat-button-toggle class="it" value="it">IT</mat-button-toggle>
 				<mat-button-toggle class="consult" value="consult">Consulting</mat-button-toggle>
 				<mat-button-toggle class="ent" value="ent">Entrepeneurship</mat-button-toggle>
 				<mat-button-toggle class="fin" value="fin">Finance</mat-button-toggle>
@@ -122,7 +122,7 @@
 		<div class="opps-form-label" *ngFor="let opp of pursuedForm.value.pursuedMultiCtrl">{{opp.Name_of_Program}}</div>
 	</div>-->
 </div>
-<app-dp-overlay [show]="dpOverlayShow" (onClose)="dpOverlayShow = false"></app-dp-overlay>
+<app-dp-overlay [show]="dpOverlayShow" (onClose)="dpOverlayShow = false" (onSave)="saveDp($event)"></app-dp-overlay>
 <!--<img class="reg-icon">
 
 <p class="first-name-label">First Name</p>

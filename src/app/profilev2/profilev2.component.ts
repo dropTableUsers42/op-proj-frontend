@@ -6,6 +6,7 @@ import { User } from '../_models/user.model';
 import { Opps } from '../_models/opps.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToNthPipe } from '../_pipes/to-nth.pipe';
+import { getUrl } from '../register/dp-overlay/dp-overlay.component';
 
 @Component({
   selector: 'app-profilev2',
@@ -25,6 +26,8 @@ export class Profilev2Component implements OnInit {
   overlayType: string;
 
   followed = true;
+
+  dpUrl = '/assets/images/placeholder.jpg';
 
   get isFollowed() {
     for(var user of this.user.followers)
@@ -97,6 +100,7 @@ export class Profilev2Component implements OnInit {
       }
       this.backendService.getUser(val.slug).subscribe(user => {
         this.user = user;
+        this.dpUrl = getUrl(this.user.picture.style, this.user.picture.colour);
         this.followed = this.isFollowed;
         this.domain_prefs = [];
         let temp_domains = [];

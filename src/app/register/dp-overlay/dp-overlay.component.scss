@@ -17,7 +17,7 @@
 
 .overlay-container {
 	width: 76.4vw;
-	height: 85vh;
+	max-height: 85vh;
 
 	/* Grey */
 
@@ -45,6 +45,16 @@
 		#col-wrapper {
 			margin-top: -2.7vh;
 		}
+
+		@media screen and (max-width: 600px) {
+			#dp-wrapper-inner {
+				margin-right: -3vw;
+			}
+		}
+	}
+
+	#mobile-col-wrapper {
+		margin-right: -1vw;
 	}
 	
 }
@@ -59,9 +69,9 @@
 	width: 14vw;
 	height: 14vw;
 
-	display:table-cell;
-	vertical-align:middle;
-	text-align:center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 
 	cursor: pointer;
 
@@ -79,8 +89,11 @@
 	}
 
 	@media screen and (max-width: 600px){
-		width: 18vw;
-		height: 18vw;
+		
+		width: calc((76.4vw - 3.9vw - 3.9vw - 2 * 3vw)/3);
+		height: calc((76.4vw - 3.9vw - 3.9vw - 2 * 3vw)/3);
+
+		border-radius: calc((76.4vw - 3.9vw - 3.9vw - 2 * 3vw)/3);
 
 		margin-right: 3vw;
 		margin-bottom: 3.2vh;
@@ -102,21 +115,24 @@
 
 	border-radius: 3.9vw;
 
+	.mobile & {
+		width: calc((76.4vw - 3.9vw - 3.9vw - 5 * 1vw)/6);
+
+		height: calc((76.4vw - 3.9vw - 3.9vw - 5 * 1vw)/6);
+
+		border-radius: calc((76.4vw - 3.9vw - 3.9vw - 5 * 1vw)/6);
+
+		margin-right: 0.5vw;
+
+		margin-bottom: 20px;
+	}
+
 	cursor: pointer;
 
 	margin-top: 2.7vh;
 
 	&.selected {
 		border: 3px solid #F9F9F9;
-	}
-
-	@media screen and (max-width: 600px){
-		width: 8vw;
-		height: 8vw;
-
-		&.selected {
-			border-width: 1.5px;
-		}
 	}
 
 	&#Blue {
@@ -158,6 +174,18 @@
 
 .row-nowrap {
 	flex-flow: row nowrap;
+}
+
+@media screen and (max-width: 600px) {
+	.desktop {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.mobile {
+		display: none;
+	}
 }
 
 /****Button*****/
