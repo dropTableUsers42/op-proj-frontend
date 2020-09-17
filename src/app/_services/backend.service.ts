@@ -58,6 +58,14 @@ export class BackendService {
       }));
   }
 
+  public addPursued(slug: string): Observable<Opps[]> {
+    return this.httpClient.post<Opps[]>("https://the-op.herokuapp.com/me/pursued", {"opportunity": slug}).pipe(map(
+      opps => {
+        return opps['opportunities'];
+      }
+    ));
+  }
+
   public searchOpps(searchstring, domain = null, tags = null): Observable<Opps[]> {
 
     let params = new HttpParams();

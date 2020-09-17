@@ -146,8 +146,10 @@ export class OppDetailComponent implements OnInit {
 
   pursue(): void {
     this.havePursued = true;
-    // this.backendService.addPursued(this.opps.slug).subscribe(opps => {
-    // });
+    this.backendService.addPursued(this.opps.slug).subscribe(opps => {
+      this.backendService.getMe();
+      let usr = this.authService.currentUserValue;
+     });
   }
 
   gotoTop(): void {
