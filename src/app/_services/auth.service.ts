@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../_models/user.model';
 
-export const apiUrl = 'https://www.opproject.com';
+export const apiUrl = 'https://the-op.herokuapp.com';
 
 @Injectable({
   providedIn: 'root'
