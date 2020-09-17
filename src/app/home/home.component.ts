@@ -6,7 +6,7 @@ import { AuthService } from '../_services/auth.service';
 import { User } from '../_models/user.model';
 import { Opps } from '../_models/opps.model';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { tags, months, regions, funding, domains } from '../opsearch/tags-vector';
+import { tags, months, regions, funding, domains, colleges, years } from '../opsearch/tags-vector';
 
 @Component({
   selector: 'app-home',
@@ -44,6 +44,11 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
         funding: new FormControl('')
     });
 
+    userFilterForm = new FormGroup({
+        college: new FormControl(''),
+        year: new FormControl('')
+    });
+
   search_types = [
         { id: 1, name: "Opps" },
         { id: 2, name: "People" }, 
@@ -69,7 +74,13 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
       }
       this.oldScroll = this.scrollFrame1.nativeElement.scrollTop;
   }
+
+    stopPropagate(event): void {
+        event.stopPropagation();
+    }
   
+  isOverlayOpen = false;
+
   spin: boolean;
 
   isMobile: boolean;
@@ -94,6 +105,14 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
         return domains;
     }
 
+    get college_vector(): {} {
+        return colleges;
+    }
+
+    get year_vector(): {} {
+        return years;
+    }
+
   constructor(private pageStyleService: PageStyleService, private backendService: BackendService, private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -115,6 +134,10 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
         console.log(this.oppsFilterForm.value);
         this.searchSpecific();
     });
+
+    this.userFilterForm.valueChanges.subscribe(val => {
+        this.searchSpecific();
+    })
   }
 
   get getHeight(): number {
@@ -192,19 +215,69 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
         }
         else
         {
+            let temp = '';
+            /*let domains = this.authService.currentUserValue.domains;
+
+            for (var dom in domains)
+            {
+                if (domains[dom])
+                {
+                    temp = temp.concat(' ' + dom);
+                }
+            }
+            domain = temp;*/
             domain = null;
         }
 
         console.log(tags);
-        this.backendService.searchOpps(this.searchForm.value.searchstring, domain, tags).subscribe(list => {
+        let searchstring = '';
+        if(this.searchForm.value.searchstring === '')
+        {
+            searchstring = ' ';
+        }
+        else
+        {
+            searchstring = this.searchForm.value.searchstring;
+        }
+        this.backendService.searchOpps(searchstring, domain, tags).subscribe(list => {
             this.opportunity_list = list;
             this.spin = false;
         })
     }
     else {
-        this.backendService.searchUser(this.searchForm.value.searchstring).subscribe(list => {
-    this.user_list = list;
-    this.spin = false;
+
+        let college = '';
+        if (this.userFilterForm.value.college !== '' && this.userFilterForm.value.college != undefined)
+        {
+            college = this.userFilterForm.value.college;
+        }
+        else
+        {
+            college = null;
+        }
+
+        let year = '';
+        if (this.userFilterForm.value.year !== '' && this.userFilterForm.value.year != undefined)
+        {
+            year = this.userFilterForm.value.year;
+        }
+        else
+        {
+            year = null;
+        }
+
+        let searchstring = '';
+        if(this.searchForm.value.searchstring === '')
+        {
+            searchstring = ' ';
+        }
+        else
+        {
+            searchstring = this.searchForm.value.searchstring;
+        }
+        this.backendService.searchUser(searchstring, year, college).subscribe(list => {
+            this.user_list = list;
+            this.spin = false;
         })
     }
   }

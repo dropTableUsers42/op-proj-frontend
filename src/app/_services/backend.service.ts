@@ -5,6 +5,7 @@ import { Opps, Comment } from '../_models/opps.model';
 import { Observable, ObservedValueOf } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
+import { ifStmt } from '@angular/compiler/src/output/output_ast';
 
 
 @Injectable({
@@ -59,7 +60,11 @@ export class BackendService {
 
   public searchOpps(searchstring, domain = null, tags = null): Observable<Opps[]> {
 
-    let params = new HttpParams().set("name",searchstring);
+    let params = new HttpParams();
+    if (searchstring != '')
+    {
+      params = params.append('name', searchstring);
+    }
     if(domain !== undefined && domain != null)
     {
       params = params.append("domain", domain);
@@ -89,8 +94,19 @@ export class BackendService {
     return this.httpClient.post<User[]>("https://the-op.herokuapp.com/me/unfollow", {"username": username});
   }
 
-  public searchUser(searchstring) : Observable<User[]> {
+  public searchUser(searchstring, year = null, college = null) : Observable<User[]> {
     let params = new HttpParams().set("name", searchstring);
+
+    if(year !== undefined && year!= null)
+    {
+      params = params.append('year', year);
+    }
+
+    if(college !== undefined && college != null)
+    {
+      params = params.append('college', college);
+    }
+
     return this.httpClient.get<User[]>("https://the-op.herokuapp.com/user/search", {params: params}).pipe(map(item => {
       for(var user of item)
       {

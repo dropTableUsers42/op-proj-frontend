@@ -1,26 +1,28 @@
-<div (click)="oppClick()" [ngClass]="main_class">
+<div (click)="oppClick()" #mainCard [ngClass]="main_class">
 	<div class="opps-type-interest-container">
 		<div class="opps-type-container" >
-			<div class="opps-type" [style.background-color]="getMainColor()">
+			<div class="opps-type" #oppsType [style.background-color]="getMainColor()">
 				{{opportunity.Type}}
 			</div>
 		</div>
 		<div *ngIf="showInterested" class="opps-interested-button-container">
 			<button mat-mini-fab [ngClass]="{'opps-interested-button':true, 'opps-not-wishlist':!opportunity.isInWishlist, 'opps-in-wishlist':opportunity.isInWishlist}" (click)="interested_click($event)">
-				<mat-icon [inline]='true'>{{interested_icon}}</mat-icon>
+				<mat-icon #matIcon [inline]='true'>{{interested_icon}}</mat-icon>
 			</button>
 		</div>
 	</div>
-	<p class="opps-name" [style.color]="getMainColor()">
-		{{opportunity.Name_of_Program}}
-	</p>
+	<div id="name">
+		<p class="opps-name" [style.color]="getMainColor()">
+			{{opportunity.Name_of_Program}}
+		</p>
+	</div>
 	<p class="opps-org" [style.color]="getMainColor()">
 		{{opportunity.Organiser}}
 	</p>
-	<p *ngIf="cardType != 'wishlistv2' && cardType != 'recc'" class="opps-location" [style.color]="getMainColor()">
+	<p #oppsLocation *ngIf="cardType != 'wishlistv2' && cardType != 'recc'" class="opps-location" [style.color]="getMainColor()">
 		{{opportunity.Location}}
 	</p>
-	<p *ngIf="cardType != 'wishlistv2' && cardType != 'recc'" class="opps-duration" [style.color]="getMainColor()">
+	<p #oppsDuration *ngIf="cardType != 'wishlistv2' && cardType != 'recc'" class="opps-duration" [style.color]="getMainColor()">
 		{{month}}
 	</p>
 </div>

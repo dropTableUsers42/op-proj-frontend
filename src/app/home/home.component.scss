@@ -241,6 +241,28 @@ mat-spinner {
 	}
 }
 
+
+.filter-button {
+	min-width: 22px;
+	width: 22px;
+	height: 22px;
+
+	margin-top: 4px;
+	margin-bottom: 4px;
+
+	border-radius: 22px;
+
+	padding-left: 5px;
+
+	#filter-button {
+		width: auto;
+		height: 11px;
+
+		margin-top: 6px;
+		margin-bottom: 5px;
+	}
+}
+
 .search-type-toggle {
 	display: flex;
 	justify-content: center;
@@ -298,6 +320,17 @@ mat-button-toggle {
 	flex-flow: row wrap;
 
 	margin-left: -10px;
+
+}
+
+.filter-mobile-container {
+	display: flex;
+
+	flex-flow: column;
+
+	align-items: center;
+
+	width: 100%;
 
 }
 
@@ -381,6 +414,14 @@ mat-button-toggle {
 	margin-bottom: 10px;
 }
 
+.sub-mobile {
+	width: 180px;
+
+	margin-left: 0px;
+
+	margin-bottom: 10px;
+}
+
 #domain-filter {
 	width: 200px;
 }
@@ -391,6 +432,14 @@ mat-button-toggle {
 
 #funding-filter {
 	width: 155px;
+}
+
+#college-filter {
+	width: 220px;
+}
+
+#year-filter {
+	width: 150px;
 }
 
 .sub-filter-label {
@@ -563,4 +612,36 @@ mat-button-toggle {
 	.filter-container {
 		display: none;
 	}
+}
+
+/******* Overlay ********/
+
+.overlay-with-bg {
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	left: 0;
+	top: 0;
+
+	z-index: 100;
+
+	background: rgba(24, 25, 24, 0.2);
+	backdrop-filter: blur(20px);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.overlay-container {
+	width: calc(100vw - 48px);
+
+	padding-top: 30px;
+
+	padding-bottom: 30px;
+
+	/* Grey */
+
+	background: #363636;
+	border-radius: 40px;
 }

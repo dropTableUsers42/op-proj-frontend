@@ -673,8 +673,10 @@ p {
 }
 
 #send-icon {
-	width: 20px;
+	width: 15px;
 	height: auto;
+
+	margin-top: 2px;
 
 	content: url('/assets/svg/send.svg');
 }

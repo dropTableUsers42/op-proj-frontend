@@ -11,7 +11,7 @@ mat-button-toggle {
 	background-color: transparent !important;
 }
 
-.mat-button-toggle-checked {
+.mat-button-toggle-checked, .filter-button {
 	color: #FFFFFF !important;
 	background-color: #181918 !important;
 }
@@ -27,4 +27,8 @@ mat-button-toggle {
 .search-input::placeholder {
 	color: #181918;
 	opacity: 0.5;
+}
+
+.overlay-container {
+	background-color: #181918;
 }

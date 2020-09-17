@@ -102,6 +102,7 @@ export class OppDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.actRoute.params.subscribe(val => {
+      this.recc_opps = [];
       window.scroll(0, 0);
       this.gotoTop();
       this.backendService.getOpps(val['slug']).subscribe(opp => {

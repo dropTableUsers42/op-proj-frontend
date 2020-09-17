@@ -12,6 +12,9 @@
 						<mat-spinner *ngIf="spin && isMobile" diameter=16></mat-spinner>
 						<mat-spinner *ngIf="spin && !isMobile" diameter=20></mat-spinner>
 						<input class="search-input" type="search" id="searchstring" name="searchstring" placeholder="Search" autocomplete="off" autocorrect="off" spellcheck="false" formControlName="searchstring">
+						<div *ngIf="isMobile" class="filter-button" (click)="isOverlayOpen = true">
+							<img src="/assets/svg/filter.svg" id="filter-button">
+						</div>
 					</div>
 					<div class="search-type-toggle">
 						<mat-button-toggle-group name="search-type-toggle" formControlName="searchtype">
@@ -70,24 +73,30 @@
 								<app-custom-select-option *ngFor="let tag of funding_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
 							</app-custom-select>
 						</div>
-						<div (click)="resetFilters()">
-							TODO Reset Filter
-						</div>
 					</div>
 				</form>
-				<form *ngIf="searchForm.value['searchtype'] == 'People'">
+				<form *ngIf="searchForm.value['searchtype'] == 'People'" [formGroup]="userFilterForm">
 					<div class="filter-container">
-						<!---<div class="domain-filter">
-							<mat-placeholder class="domain-filter-label"><mat-icon class="sub-icon" fontSet="material-icons-outlined">casino</mat-icon><span class="domain-label-string">Domain</span></mat-placeholder>
-							<mat-select disableOptionCentering>
-							</mat-select>
-						</div>-->
-						<div class="sub-filter">
+						<div class="sub-filter" id="college-filter">
 							<app-custom-select [required]="true"
-							labelUrl="/assets/svg/opps-type.svg"
+							labelUrl="/assets/svg/college.svg"
 							placeholder="College"
 							styleType="{{pageStyle}}"
+							formControlName="college"
 							>
+								<app-custom-select-option value='All'></app-custom-select-option>
+								<app-custom-select-option *ngFor="let tag of college_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
+							</app-custom-select>
+						</div>
+						<div class="sub-filter" id="year-filter">
+							<app-custom-select [required]="true"
+							labelUrl="/assets/svg/year.svg"
+							placeholder="Year"
+							styleType="{{pageStyle}}"
+							formControlName="year"
+							>
+								<app-custom-select-option value='All'></app-custom-select-option>
+								<app-custom-select-option *ngFor="let tag of year_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
 							</app-custom-select>
 						</div>
 					</div>
@@ -109,6 +118,85 @@
 			</div>
 		</div>
 		
+	</div>
+
+	<div *ngIf="isOverlayOpen" class="overlay-with-bg" (click)="isOverlayOpen=false">
+		<div class="overlay-container" (click)="stopPropagate($event)">
+			<form *ngIf="searchForm.value['searchtype'] == 'Opps'" [formGroup]="oppsFilterForm">
+				<div class="filter-mobile-container">
+					<div class="sub-filter sub-mobile">
+						<app-custom-select [required]="true"
+						labelUrl="/assets/svg/opps-type.svg"
+						placeholder="Opps Type"
+						styleType="{{pageStyle}}"
+						formControlName="type"
+						>
+							<app-custom-select-option value='All'></app-custom-select-option>
+							<app-custom-select-option *ngFor="let tag of tags_vector[pageStyle]" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
+						</app-custom-select>
+					</div>
+					<div class="sub-filter sub-mobile">
+						<app-custom-select [required]="true"
+						labelUrl="/assets/svg/date.svg"
+						placeholder="Date"
+						styleType="{{pageStyle}}"
+						formControlName="date"
+						>
+							<app-custom-select-option value='All'></app-custom-select-option>
+							<app-custom-select-option *ngFor="let tag of months_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
+						</app-custom-select>
+					</div>
+					<div class="sub-filter sub-mobile">
+						<app-custom-select [required]="true"
+						labelUrl="/assets/svg/region.svg"
+						placeholder="Region"
+						styleType="{{pageStyle}}"
+						formControlName="region"
+						>
+							<app-custom-select-option value='All'></app-custom-select-option>
+							<app-custom-select-option *ngFor="let tag of regions_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
+						</app-custom-select>
+					</div>
+					<div class="sub-filter sub-mobile">
+						<app-custom-select [required]="true"
+						labelUrl="/assets/svg/funding.svg"
+						placeholder="Funding"
+						styleType="{{pageStyle}}"
+						formControlName="funding"
+						>
+							<app-custom-select-option value='All'></app-custom-select-option>
+							<app-custom-select-option *ngFor="let tag of funding_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
+						</app-custom-select>
+					</div>
+				</div>
+			</form>
+			<form *ngIf="searchForm.value['searchtype'] == 'People'" [formGroup]="userFilterForm">
+				<div class="filter-mobile-container">
+					<div class="sub-filter sub-mobile">
+						<app-custom-select [required]="true"
+						labelUrl="/assets/svg/college.svg"
+						placeholder="College"
+						styleType="{{pageStyle}}"
+						formControlName="college"
+						>
+							<app-custom-select-option value='All'></app-custom-select-option>
+							<app-custom-select-option *ngFor="let tag of college_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
+						</app-custom-select>
+					</div>
+					<div class="sub-filter sub-mobile">
+						<app-custom-select [required]="true"
+						labelUrl="/assets/svg/year.svg"
+						placeholder="Year"
+						styleType="{{pageStyle}}"
+						formControlName="year"
+						>
+							<app-custom-select-option value='All'></app-custom-select-option>
+							<app-custom-select-option *ngFor="let tag of year_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
+						</app-custom-select>
+					</div>
+				</div>
+			</form>
+		</div>
 	</div>
 </div>
 <!--<form #searchForm="ngForm">

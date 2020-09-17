@@ -48,14 +48,6 @@ export class DpOverlayComponent implements OnInit {
 }
 
 export const dpUrls = {
-    'Blue': [
-      {key: 1, url: '/assets/images/Handz/Blue/1.png'},
-      {key: 2, url: '/assets/images/Handz/Blue/2.png'},
-      {key: 3, url: '/assets/images/Handz/Blue/3.png'},
-      {key: 4, url: '/assets/images/Handz/Blue/4.png'},
-      {key: 5, url: '/assets/images/Handz/Blue/5.png'},
-      {key: 6, url: '/assets/images/Handz/Blue/6.png'},
-    ],
     'Brown': [
       {key: 1, url: '/assets/images/Handz/Brown/1.png'},
       {key: 2, url: '/assets/images/Handz/Brown/2.png'},
@@ -71,6 +63,14 @@ export const dpUrls = {
       {key: 4, url: '/assets/images/Handz/Dark-White/4.png'},
       {key: 5, url: '/assets/images/Handz/Dark-White/5.png'},
       {key: 6, url: '/assets/images/Handz/Dark-White/6.png'},
+    ],
+    'Blue': [
+      {key: 1, url: '/assets/images/Handz/Blue/1.png'},
+      {key: 2, url: '/assets/images/Handz/Blue/2.png'},
+      {key: 3, url: '/assets/images/Handz/Blue/3.png'},
+      {key: 4, url: '/assets/images/Handz/Blue/4.png'},
+      {key: 5, url: '/assets/images/Handz/Blue/5.png'},
+      {key: 6, url: '/assets/images/Handz/Blue/6.png'},
     ],
     'Green': [
       {key: 1, url: '/assets/images/Handz/Green/1.png'},

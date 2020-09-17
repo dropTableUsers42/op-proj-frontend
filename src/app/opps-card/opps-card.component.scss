@@ -103,6 +103,54 @@
 	font-weight: bold;
 }
 
+@media screen and (max-width: 600px) {
+	.opps-interested-button, .material-icons, .mat-mini-fab {
+		max-width: 15px;
+		max-height: 15px;
+	
+		line-height: 15px !important;
+	}
+
+	.opps-interested-button-container {
+		min-width: 15px;
+	}
+	
+	::ng-deep span.mat-mini-fab, ::ng-deep span.mat-button-wrapper {
+		padding: 0 0 !important;
+		line-height: 0 !important;
+	
+		font-size: 11px !important;
+	}
+
+	mat-icon {
+		transform: translateY(-2px);
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.opps-interested-button, .material-icons, .mat-mini-fab {
+		max-width: 11px;
+		max-height: 11px;
+	
+		line-height: 11px !important;
+	}
+	
+	::ng-deep span.mat-mini-fab, ::ng-deep span.mat-button-wrapper {
+		padding: 0 0 !important;
+		line-height: 0 !important;
+	
+		font-size: 10px !important;
+	}
+
+	mat-icon {
+		transform: translateY(-1px);
+	}
+
+	.opps-interested-button-container {
+		min-width: 11px;
+	}
+}
+
 .mat-mini-fab {
 	box-shadow: none;
 }
@@ -114,7 +162,7 @@
 
 	font-weight: bold;
 	font-size: 100%;
-	line-height: 100%;
+	line-height: 102%;
 	word-wrap: break-word;
 
 	text-overflow: ellipsis;
@@ -125,10 +173,17 @@
 	display: -webkit-box;
 	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
+
+	padding-bottom: 2px;
+}
+
+.wishlistv2 #name, .recc #name {
+	flex-grow: 1;
 }
 
 .wishlistv2 .opps-name, .recc .opps-name {
-	flex-grow: 1;
+
+	-webkit-line-clamp: 2;
 }
 
 .opps-org {
@@ -150,7 +205,8 @@
 
 .opps-location {
 	position: absolute;
-	bottom: 6.171%;
+	bottom: calc(6.171% - 2px);
+	padding-bottom: 2px;
 	width: 70%;
 
 	font-weight: 600;
@@ -173,7 +229,7 @@
 
 .opps-duration {
 	position: absolute;
-	right: 3.63%;
+	right: 6.171%;
 	bottom: 6.171%;
 
 	font-weight: 500;

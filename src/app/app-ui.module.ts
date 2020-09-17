@@ -9,7 +9,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
-import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 const uiModules = [
   MatSidenavModule,
@@ -22,7 +21,6 @@ const uiModules = [
   ScrollingModule,
   PortalModule,
   OverlayModule,
-  NgxMatSelectSearchModule
 ];
 
 @NgModule({

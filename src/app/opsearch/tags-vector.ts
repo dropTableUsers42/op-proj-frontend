@@ -103,3 +103,25 @@ export const domains = [
     {slug: 'Entrepreneurship', name: 'Entrepreneurship'},
     {slug: 'SocDev-and-Policy', name: 'SocDev & Policy'}
 ]
+
+export const colleges = [
+    {slug: 'BITS Pilani - Pilani Campus', name: 'BITS Pilani - Pilani Campus'},
+    {slug: 'BITS Pilani - Goa Campus', name: 'BITS Pilani - Goa Campus'},
+    {slug: 'BITS Pilani - Hyderabad Campus', name: 'BITS Pilani - Hyderabad Campus'},
+    {slug: 'IIT Bombay', name: 'IIT Bombay'},
+    {slug: 'IIT Delhi', name: 'IIT Delhi'},
+    {slug: 'IIT Kanpur', name: 'IIT Kanpur'},
+    {slug: 'IIT Guwahati', name: 'IIT Guwahati'},
+    {slug: 'IIT Kharagpur', name: 'IIT Kharagpur'},
+    {slug: 'IIT Madras', name: 'IIT Madras'},
+    {slug: 'IIT Jodhpur', name: 'IIT Jodhpur'},
+    {slug: 'IIT Roorkee', name: 'IIT Roorkee'}
+]
+
+export const years = [
+    {slug: 1, name: 'First Year'},
+    {slug: 2, name: 'Second Year'},
+    {slug: 3, name: 'Third Year'},
+    {slug: 4, name: 'Fourth Year'},
+    {slug: 5, name: 'Fifth Year'}
+]

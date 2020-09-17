@@ -15,7 +15,7 @@ import {
     transition,
 } from '@angular/animations';
 
-import { tags, months, regions, funding } from './tags-vector';
+import { tags, months, regions, funding, colleges, years } from './tags-vector';
 
 
 @Component({
@@ -69,6 +69,11 @@ export class OpsearchComponent implements OnInit, DoCheck {
         funding: new FormControl('')
     });
 
+    userFilterForm = new FormGroup({
+        college: new FormControl(''),
+        year: new FormControl('')
+    });
+
     spin = false;
 
     public opportunityList: Opps[] = [];
@@ -104,6 +109,12 @@ export class OpsearchComponent implements OnInit, DoCheck {
         'Finance': 'fin',
         'SocDev-and-Policy': 'socdev' 
     };
+
+    stopPropagate(event): void {
+        event.stopPropagation();
+    }
+
+    isOverlayOpen = false;
 
     @ViewChild('scrollFrame') scrollFrame: ElementRef;
     @ViewChild('shadowContainer') shadowContainer: ElementRef;
@@ -181,6 +192,14 @@ export class OpsearchComponent implements OnInit, DoCheck {
         return funding;
     }
 
+    get college_vector(): {} {
+        return colleges;
+    }
+
+    get year_vector(): {} {
+        return years;
+    }
+
     ngOnInit(): void {
         this.actRoute.params.subscribe((val => {
             if(!(val.domain in this.domain_links))
@@ -189,6 +208,12 @@ export class OpsearchComponent implements OnInit, DoCheck {
             }
             else
             {
+                this.oppsFilterForm.setValue({
+                    type: '',
+                    date: '',
+                    region: '',
+                    funding: ''
+                });
                 this.userList = [];
                 this.opportunityList = [];
                 this.domain = this.domain_links[val.domain];
@@ -209,17 +234,16 @@ export class OpsearchComponent implements OnInit, DoCheck {
         });
 
         this.oppsFilterForm.valueChanges.subscribe(val => {
-            console.log(this.oppsFilterForm.value);
+            this.searchSpecific();
+        });
+
+        this.userFilterForm.valueChanges.subscribe(val => {
             this.searchSpecific();
         });
     }
 
     search(): void {
         this.searchSpecific();
-    }
-
-    resetFilters(): void {
-        //TODO
     }
 
     searchSpecific(): void {
@@ -249,13 +273,56 @@ export class OpsearchComponent implements OnInit, DoCheck {
             {
                 tags = null;
             }
-            this.backendService.searchOpps(this.searchForm.value.searchstring, this.domain_tag, tags).subscribe(list => {
+
+            let searchstring = '';
+            if(this.searchForm.value.searchstring === '')
+            {
+                searchstring = ' ';
+            }
+            else
+            {
+                searchstring = this.searchForm.value.searchstring;
+            }
+
+            this.backendService.searchOpps(searchstring, this.domain_tag, tags).subscribe(list => {
                 this.opportunityList = list;
                 this.spin = false;
             });
         }
         else {
-            this.backendService.searchUser(this.searchForm.value.searchstring).subscribe(list => {
+
+            let college = '';
+            if (this.userFilterForm.value.college !== '' && this.userFilterForm.value.college != undefined)
+            {
+                college = this.userFilterForm.value.college;
+            }
+            else
+            {
+                college = null;
+            }
+
+            let year = '';
+            if (this.userFilterForm.value.year !== '' && this.userFilterForm.value.year != undefined)
+            {
+                year = this.userFilterForm.value.year;
+            }
+            else
+            {
+                year = null;
+            }
+
+            let searchstring = '';
+            if(this.searchForm.value.searchstring === '')
+            {
+                searchstring = ' ';
+            }
+            else
+            {
+                searchstring = this.searchForm.value.searchstring;
+            }
+
+            this.backendService.searchUser(searchstring, year, college).subscribe(list => {
+                console.log(this.userFilterForm.value);
                 this.userList = list;
                 this.spin = false;
             });
