@@ -73,20 +73,25 @@
 	flex-direction: column;
 	justify-content: center;
 
+
 	cursor: pointer;
 
 	.dp-img {
 		width: 14vw;
-		height: auto;
+		height: 14vw;
 
 		margin-top: auto;
 		margin-bottom: auto;
 		display: block;
+
+		border-radius: 14vw;
+
+		&.selected {
+			border: 5px solid #181819;
+		}
+
 	}
 
-	&.selected {
-		border: 5px solid #181819;
-	}
 
 	@media screen and (max-width: 600px){
 		
@@ -98,12 +103,15 @@
 		margin-right: 3vw;
 		margin-bottom: 3.2vh;
 
-		&.selected {
-			border-width: 2.5px;
-		}
-
 		.dp-img {
-			width: 18vw;
+			width: calc((76.4vw - 3.9vw - 3.9vw - 2 * 3vw)/3);
+			height: calc((76.4vw - 3.9vw - 3.9vw - 2 * 3vw)/3);
+
+			border-radius: calc((76.4vw - 3.9vw - 3.9vw - 2 * 3vw)/3);
+
+			&.selected {
+				border-width: 2.5px;
+			}
 		}
 	}
 }

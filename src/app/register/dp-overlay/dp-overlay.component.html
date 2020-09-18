@@ -2,9 +2,9 @@
 	<div class="overlay-container scrollable" (click)="stopPropagate($event)">
 		<div class="flex-row row-nowrap" id="dp-wrapper">
 			<div class="flex-row" id="dp-wrapper-inner">
-				<div *ngFor="let img of dpUrls[selectedColor]" class="dp-bg" [class.selected]="img.key == selectedImage"
+				<div *ngFor="let img of dpUrls[selectedColor]" class="dp-bg"
 				(click)="select(img.key)">
-					<img class="dp-img" src="{{img.url}}">
+					<img class="dp-img" src="{{img.url}}" [class.selected]="img.key == selectedImage">
 				</div>
 			</div>
 			<div class="flex-col desktop" id="col-wrapper">
