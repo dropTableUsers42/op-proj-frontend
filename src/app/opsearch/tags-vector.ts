@@ -20,11 +20,9 @@ export const tags = {
             { slug: 'app-development' , name: 'App/Web Dev' },
     ],
     consult: [
-        {slug: 'indian-case-competition', name: 'Indian Case Competition'},
-        {slug: 'international-case-competition', name: 'Foreign Case Competition'},
-        {slug: 'indian-conferences-summit-forum', name: 'Indian Conferences/Summit/Forum'},
-        {slug: 'international-conferences-summit-forum', name: 'Foreign Conferences/Summit/Forum'},
-        {slug: 'international-summer-school', name: 'Foreign Summer Schools'}
+        {slug: 'case-competition', name: 'Case Competition'},
+        {slug: 'summits-conferences-forums', name: 'Summits/Conferences/Forums'},
+        {slug: 'summer-school', name: 'Summer School'}
     ],
     fin: [
         {slug: 'algorithmic-trading', name: 'Algorithmic Trading'},
