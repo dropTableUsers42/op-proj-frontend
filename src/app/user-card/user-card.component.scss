@@ -52,6 +52,8 @@ p {
 	width: 100%;
 	max-height: auto;
 
+	border-radius: 50%;
+
 }
 
 .user-text-container {
@@ -197,6 +199,8 @@ p {
 	line-height: 100%;
 
 	text-align: center;
+
+	cursor: pointer;
 }
 
 .follow-button.followed {
