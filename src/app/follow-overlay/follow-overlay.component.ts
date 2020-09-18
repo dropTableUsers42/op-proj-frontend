@@ -72,18 +72,23 @@ export class FollowOverlayComponent implements OnInit {
   onFollowClick(user : User) {
     if(user.isFollowed)
     {
+      let currentUser = this.authService.currentUserValue;
+      let idx = currentUser.following.findIndex(usr => usr.username == user.username);
+      if(idx > -1)
+      {
+        currentUser.following.splice(idx, 1);
+      }
+      this.authService.updateUser(currentUser);
       this.backendService.unfollow(user.username).subscribe(fl => {
-        let currentUser = this.authService.currentUserValue;
-        currentUser.following = fl;
-        this.authService.updateUser(currentUser);
       })
     }
     else
     {
+      let currentUser = this.authService.currentUserValue;
+      currentUser.following.push(user);
+      this.authService.updateUser(currentUser);
       this.backendService.follow(user.username).subscribe(fl => {
-        let currentUser = this.authService.currentUserValue;
-        currentUser.following = fl;
-        this.authService.updateUser(currentUser);
+        console.log("Followed");
       })
     }
   }
