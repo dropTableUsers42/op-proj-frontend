@@ -264,13 +264,11 @@ p {
 
 .profile-button-email-container {
 	display:flex;
-	flex-direction: row-reverse;
+	flex-direction: column;
 
 }
 
 .edit-button {
-	padding-left: 25px;
-	padding-right: 25px;
 	float: right;
 	height: 35px;
 
@@ -295,7 +293,7 @@ p {
 	cursor: pointer;
 }
 
-.share-button {
+/*.share-button {
 	height: 35px;
 	width: 35px;
 
@@ -310,6 +308,10 @@ p {
 
 	--webkit-mask: url("/assets/svg/share.svg");
 	mask: url("/assets/svg/share.svg");
+}*/
+
+.share-button {
+	margin-top: 10px;
 }
 
 #copied-message {
@@ -330,8 +332,6 @@ p {
 
 @media screen and (max-width: 600px) {
 	.edit-button {
-		padding-left: 9px;
-		padding-right: 9px;
 		height: 17px;
 		line-height: 0px;
 		font-size: 9px;
@@ -341,12 +341,12 @@ p {
 		width: 70px;
 	}
 
-	.share-button {
+	/*.share-button {
 		width: 17px;
 		height: 17px;
 
 		margin-right: 5px;
-	}
+	}*/
 
 	#copied-message {
 		font-size: 10px;

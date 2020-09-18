@@ -1,0 +1,10 @@
+<div *ngIf="show" (click)="close()" class="overlay-with-bg">
+	<div *ngIf="show" @flyInOut #overlay class="overlay" (click)="stopPropagate($event)">
+		<img id="closeButton" src="assets/svg/closewhite.svg" (click)="close()">
+		<div #overlayTextContainer id="overlayTextContainer">
+			<div #overlayText id="overlayText">
+				{{text1}}<b>{{text2}}</b>{{text3}}
+			</div>
+		</div>
+	</div>
+</div>

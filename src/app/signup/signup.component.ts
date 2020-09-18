@@ -9,6 +9,8 @@ export class SignupComponent implements OnInit {
 
   title = 'THE OPPORTUNITY PROJECT.';
 
+  showAbout = false;
+
   constructor() { }
 
   ngOnInit(): void {

@@ -4,3 +4,14 @@
 	</div>
 	<app-signup-form></app-signup-form>
 </div>
+<app-about-overlay [show]="showAbout" (onClose)="showAbout = false"></app-about-overlay>
+<footer id="footer">
+	<div>
+	  <img #toggleButton (click)="showAbout = true" id="aboutButton" src="assets/svg/about.svg">
+	  <div id="socialButtons">
+		<a href="https://www.linkedin.com/company/opproject"><img class="social-button" id="linkedinButton" src="assets/svg/linkedin.svg"></a>
+		<a href="https://www.instagram.com/opproject.club/"><img class="social-button" id="instaButton" src="assets/svg/insta.svg"></a>
+		<a href="mailto:contact@opproject.club" ><img class="social-button" src="assets/svg/mail.svg"></a>
+	</div>
+	</div>
+</footer>

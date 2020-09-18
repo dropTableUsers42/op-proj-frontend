@@ -110,3 +110,49 @@
 		line-height: calc(144*100vw/1280);
 	}
 }
+
+
+/**********************Footer******************/
+/*************Footer*************/
+$primary-color: #181918;
+$secondary-color:  #363636;
+$text-color: #F9F9F9;
+$white-color: #F9F9F9;
+#footer {
+
+	position: absolute;
+	bottom: 0;
+
+	padding-top: 5px;
+
+	background-color: $primary-color;
+
+	z-index: 100;
+
+	width: 100vw;
+
+	#aboutButton {
+		cursor: pointer;
+	
+		width: 71px;
+		height: auto;
+	
+		margin-left: 30px;
+		margin-bottom: 20px;
+	}
+	
+	#socialButtons {
+		float: right;
+
+		display: flex;
+		.social-button {
+			cursor: pointer;
+		
+			width: 24px;
+			height: auto;
+		
+			margin-right: 30px;
+			margin-bottom: 20px;
+		}
+	}
+}
