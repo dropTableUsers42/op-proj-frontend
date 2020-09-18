@@ -77,6 +77,24 @@ export class ProfileComponent implements OnInit, AfterViewInit, AfterViewChecked
     }, 3000);
   }
 
+  removePursued(pursued: Opps): void {
+    let idx = this.user.pursued.findIndex(opps => opps.slug === pursued.slug);
+    if (idx > -1)
+    {
+      this.user.pursued.splice(idx, 1);
+    }
+    this.backendService.removePursued(pursued.slug).subscribe(
+      opps => {
+        this.backendService.getMe();
+        let usr = this.authService.currentUserValue;
+
+        usr.pursued = opps;
+
+        this.authService.updateUser(usr);
+      }
+    )
+  }
+
   ngOnInit(): void {
     this.user = this.authService.currentUserValue;
 

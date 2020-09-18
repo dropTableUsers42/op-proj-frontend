@@ -497,20 +497,27 @@ mat-button-toggle:focus {
 	color: #F9F9F9;
 }
 
-.opps-content {
-	width: 100%;
+.remove-button {
+	width: 10px;
+	height: 10px;
 
-	overflow-y: visible;
+	margin-left: 10px;
+
+	-webkit-mask: url("/assets/svg/close.svg") center no-repeat;
+	mask: url("/assets/svg/close.svg") center no-repeat;
+
+	background-color: #f9f9f9;
+
+	margin-bottom: 1.5px;
+
+	cursor: pointer;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.opps-content::-webkit-scrollbar {
-	display: none;
-}
-/* Hide scrollbar for IE, Edge and Firefox */
 .opps-content {
-	-ms-overflow-style: none;  /* IE and Edge */
-	scrollbar-width: none;  /* Firefox */
+	display: flex;
+	flex-flow: row nowrap;
+
+	align-items: center;
 }
 
 .wishlist-container {

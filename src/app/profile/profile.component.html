@@ -50,7 +50,7 @@
 			<label class="opps-form-label">Opportunities Pursued</label>
 			<div class="opps-form-content">
 				<ul>
-					<li *ngFor="let pursued of user.pursued" class="opps-content">{{pursued.Name_of_Program}}</li>
+					<li *ngFor="let pursued of user.pursued" class="opps-content">{{pursued.Name_of_Program}}<div class="remove-button" (click)="removePursued(pursued)"></div></li>
 				</ul>
 			</div>
 		</div>

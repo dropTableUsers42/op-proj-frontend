@@ -66,6 +66,14 @@ export class BackendService {
     ));
   }
 
+  public removePursued(slug: string): Observable<Opps[]> {
+    return this.httpClient.delete<Opps[]>(apiUrl.concat("/me/pursued/".concat(slug))).pipe(map(
+      opps => {
+        return opps['opportunities'];
+      }
+    ));
+  }
+
   public searchOpps(searchstring, domain = null, tags = null): Observable<Opps[]> {
 
     let params = new HttpParams();
