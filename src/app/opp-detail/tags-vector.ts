@@ -14,6 +14,7 @@ export const tagsVector = {
 	'Summer Internship': '/assets/svg/tags/Internship-01.svg',
 	'Residency (Internship)': '/assets/svg/tags/Internship-01.svg',
 	'Internship': '/assets/svg/tags/Internship-01.svg',
+	'Learning Program + Scholarship': '/assets/svg/tags/Scholarship-01.svg',
 	'Scholarship': '/assets/svg/tags/Scholarship-01.svg',
 	'Fellowship': '/assets/svg/tags/Scholarship-01.svg',
 	'Training Program': '/assets/svg/tags/Workshop-01.svg',
