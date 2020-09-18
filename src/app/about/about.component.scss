@@ -142,11 +142,6 @@
 	margin-top: 14px;
 }
 
-.college {
-	font-size: 13px;
-	margin-top: 2px;
-}
-
 .team-container {
 	margin-right: -10vw;
 }
@@ -203,6 +198,18 @@
 		width: calc(0.6 * (100vw - 60px - 6.25vw * 1)/2);
 		height: calc(0.6 * (100vw - 60px - 6.25vw * 1)/2);
 		border-radius: calc(0.6 * (100vw - 60px - 6.25vw * 1)/2);
+	}
+}
+
+.college {
+	font-size: 13px;
+	margin-top: 2px;
+}
+
+@media screen and (max-width: 600px) {
+	.college {
+		font-size: 11px;
+		margin-top: 1px;
 	}
 }
 

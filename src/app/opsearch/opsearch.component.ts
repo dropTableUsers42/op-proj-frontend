@@ -200,6 +200,8 @@ export class OpsearchComponent implements OnInit, DoCheck {
         return years;
     }
 
+    first = true;
+
     ngOnInit(): void {
         this.actRoute.params.subscribe((val => {
             if(!(val.domain in this.domain_links))
@@ -208,6 +210,11 @@ export class OpsearchComponent implements OnInit, DoCheck {
             }
             else
             {
+                if(!this.first)
+                {
+                    location.reload();
+                }
+                this.first = false;
                 this.oppsFilterForm.setValue({
                     type: '',
                     date: '',
