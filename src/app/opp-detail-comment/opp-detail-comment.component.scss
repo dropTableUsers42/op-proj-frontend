@@ -17,6 +17,11 @@
 	flex-grow: 1;
 }
 
+.comment-data a:link, .comment-data a:visited, .comment-data a:hover, .comment-data a:active {
+	color: #181918;
+	text-decoration: none;
+}
+
 .image-container {
 
 	width: 16px;

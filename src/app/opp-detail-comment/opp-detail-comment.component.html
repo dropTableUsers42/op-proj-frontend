@@ -1,11 +1,11 @@
 <div class="comment-container">
 	<div class="comment-main">
 		<div class="image-container">
-			<img class="reg-icon" src="{{dpUrl}}">
+			<a routerLink="/profilev2/{{comment.user.username}}"><img class="reg-icon" src="{{dpUrl}}"></a>
 		</div>
 		<div class="comment-data">
 			<div class="comment-text">
-				<b>{{comment.user.name}}</b> {{comment.data}}
+				<a routerLink="/profilev2/{{comment.user.username}}"><b>{{comment.user.name}}</b></a> {{comment.data}}
 			</div>
 			<div class="comment-reply">
 				<div class="time-link">
