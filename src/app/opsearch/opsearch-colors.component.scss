@@ -22,51 +22,51 @@
 	background-color: #DAEDF2;
 }
 
-.core .domain, .core .search-icon, .core .search-input, .core mat-button-toggle, .core::ng-deep .domain-filter .mat-select-arrow, .core .domain-filter-label, .core .sub-filter-label, .core ::ng-deep .sub-filter .mat-select-arrow, .core ::ng-deep .sort-filter .mat-select-arrow {
+.core .domain, .core .search-icon, .core .search-input, .core mat-button-toggle, .core::ng-deep .domain-filter .mat-select-arrow, .core .domain-filter-label, .core .sub-filter-label, .core ::ng-deep .sub-filter .mat-select-arrow, .core ::ng-deep .sort-filter .mat-select-arrow, .core .apply-filter {
 	color: #05905F;
 }
 
-.it .domain, .it .search-icon, .it .search-input, .it mat-button-toggle, .it::ng-deep .domain-filter .mat-select-arrow, .it .domain-filter-label, .it .sub-filter-label, .it ::ng-deep .sub-filter .mat-select-arrow, .it ::ng-deep .sort-filter .mat-select-arrow {
+.it .domain, .it .search-icon, .it .search-input, .it mat-button-toggle, .it::ng-deep .domain-filter .mat-select-arrow, .it .domain-filter-label, .it .sub-filter-label, .it ::ng-deep .sub-filter .mat-select-arrow, .it ::ng-deep .sort-filter .mat-select-arrow, .it .apply-filter {
 	color: #FF9D63;
 }
 
-.consult .domain, .consult .search-icon, .consult .search-input, .consult mat-button-toggle, .consult::ng-deep .domain-filter .mat-select-arrow, .consult .domain-filter-label, .consult .sub-filter-label, .consult ::ng-deep .sub-filter .mat-select-arrow, .consult ::ng-deep .sort-filter .mat-select-arrow {
+.consult .domain, .consult .search-icon, .consult .search-input, .consult mat-button-toggle, .consult::ng-deep .domain-filter .mat-select-arrow, .consult .domain-filter-label, .consult .sub-filter-label, .consult ::ng-deep .sub-filter .mat-select-arrow, .consult ::ng-deep .sort-filter .mat-select-arrow, .consult .apply-filter {
 	color: #E76D50;
 }
 
-.ent .domain, .ent .search-icon, .ent .search-input, .ent mat-button-toggle, .ent::ng-deep .domain-filter .mat-select-arrow, .ent .domain-filter-label, .ent .sub-filter-label, .ent ::ng-deep .sub-filter .mat-select-arrow, .ent ::ng-deep .sort-filter .mat-select-arrow {
+.ent .domain, .ent .search-icon, .ent .search-input, .ent mat-button-toggle, .ent::ng-deep .domain-filter .mat-select-arrow, .ent .domain-filter-label, .ent .sub-filter-label, .ent ::ng-deep .sub-filter .mat-select-arrow, .ent ::ng-deep .sort-filter .mat-select-arrow, .ent .apply-filter {
 	color: #225882;
 }
 
-.fin .domain, .fin .search-icon, .fin .search-input, .fin mat-button-toggle, .fin::ng-deep .domain-filter .mat-select-arrow, .fin .domain-filter-label, .fin .sub-filter-label, .fin ::ng-deep .sub-filter .mat-select-arrow, .fin ::ng-deep .sort-filter .mat-select-arrow {
+.fin .domain, .fin .search-icon, .fin .search-input, .fin mat-button-toggle, .fin::ng-deep .domain-filter .mat-select-arrow, .fin .domain-filter-label, .fin .sub-filter-label, .fin ::ng-deep .sub-filter .mat-select-arrow, .fin ::ng-deep .sort-filter .mat-select-arrow, .fin .apply-filter {
 	color: #D67BBB;
 }
 
-.socdev .domain, .socdev .search-icon, .socdev .search-input, .socdev mat-button-toggle, .socdev::ng-deep .domain-filter .mat-select-arrow, .socdev .domain-filter-label, .socdev .sub-filter-label, .socdev ::ng-deep .sub-filter .mat-select-arrow, .socdev ::ng-deep .sort-filter .mat-select-arrow {
+.socdev .domain, .socdev .search-icon, .socdev .search-input, .socdev mat-button-toggle, .socdev::ng-deep .domain-filter .mat-select-arrow, .socdev .domain-filter-label, .socdev .sub-filter-label, .socdev ::ng-deep .sub-filter .mat-select-arrow, .socdev ::ng-deep .sort-filter .mat-select-arrow, .socdev .apply-filter {
 	color: #2BA9CA;
 }
 
-.core mat-button-toggle {
+.core mat-button-toggle, .core .apply-filter{
 	border: 1px solid #05905F;
 }
 
-.it mat-button-toggle {
+.it mat-button-toggle, .it .apply-filter {
 	border: 1px solid #FF9D63;
 }
 
-.consult mat-button-toggle {
+.consult mat-button-toggle, .consult .apply-filter{
 	border: 1px solid #E76D50;
 }
 
-.ent mat-button-toggle {
+.ent mat-button-toggle, .ent .apply-filter {
 	border: 1px solid #225882;
 }
 
-.fin mat-button-toggle {
+.fin mat-button-toggle, .fin .apply-filter {
 	border: 1px solid #D67BBB;
 }
 
-.socdev mat-button-toggle {
+.socdev mat-button-toggle, .socdev .apply-filter{
 	border: 1px solid #2BA9CA;
 }
 

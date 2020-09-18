@@ -41,15 +41,15 @@
 	width: calc(62.9vw);
 
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 }
 
 .main_title {
 	font-family: colombo, sans-serif;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 120px;
-	line-height: 144px;
+	font-size: calc(min(120*100vw/1280, 120*100vh/720));
+	line-height: calc(min(144*100vw/1280, 144*100vh/720));
 
 	margin: 0 0;
 
@@ -65,9 +65,9 @@
 @media screen and (min-width: 1400px)
 {
 	.main_title {
-		font-size: calc(120*100vw/1280);
-		line-height: calc(144*100vw/1280);
-		margin-top: calc(228*100vh/720 - 60px);
+		font-size: calc(min(120*100vw/1280, 120*100vh/720));
+		line-height: calc(min(144*100vw/1280, 144*100vh/720));
+		margin-top: calc(228*100vh/720 - 70px);
 	}
 }
 
@@ -651,20 +651,48 @@ mat-button-toggle {
 	border-radius: 40px;
 }
 
+.apply-filter-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.apply-filter {
+	font-family: Poppins;
+
+	font-style: normal;
+
+	font-weight: 500;
+
+	font-size: 13px;
+
+	padding-right: 3px;
+
+	padding-left: 3px;
+
+	border-radius: 13px;
+
+	width: 100px;
+
+	text-align: center;
+
+	color: #f9f9f9;
+
+	border: 1px solid #f9f9f9;
+}
+
 /*********************************************/
 
 .scroll-arrow {
 
-	width: 100vw;
-
-	margin-left: -60px;
+	min-width: calc(37.1vw - 120px);
 
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-end;
+	align-items: flex-end;
 
-	margin-bottom: 10px;
+	margin-bottom: 40px;
 }
 
 .scroll-svg {

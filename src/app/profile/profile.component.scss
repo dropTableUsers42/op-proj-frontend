@@ -500,8 +500,8 @@ mat-button-toggle:focus {
 }
 
 .remove-button {
-	width: 10px;
-	height: 10px;
+	min-width: 10px;
+	min-height: 10px;
 
 	margin-left: 10px;
 

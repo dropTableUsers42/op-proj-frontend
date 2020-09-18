@@ -48,6 +48,7 @@ export class AuthService {
               user.college = user['college']['type'];
               user.token = token;
               localStorage.setItem('currentUser', JSON.stringify(user));
+              console.log(user.picture);
               this.currentUserSubject.next(user);
               return user;
           }));

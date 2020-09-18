@@ -218,6 +218,14 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private actRoute: ActivatedRoute, private scrollService: ScrollService, private pageStyleService: PageStyleService, private authService: AuthService, private interestedService: InterestedService) { }
 
   ngOnInit(): void {
+
+    this.authService.currentUser.subscribe(usr => {
+      if(usr?.picture)
+      {
+        this.dpUrl = getUrl(usr.picture.style, usr.picture.colour);
+      }
+    });
+
     this.scrolled = false;
     this.scrollService.events$.subscribe(event => {
       this.scrolled = !event;
@@ -232,14 +240,10 @@ export class HeaderComponent implements OnInit {
 
     let user = this.authService.currentUserValue;
 
-    if(user.picture)
+    if(user?.picture)
     {
       this.dpUrl = getUrl(user.picture.style, user.picture.colour);
     }
-
-    this.authService.currentUser.subscribe(usr => {
-      this.dpUrl = getUrl(usr.picture.style, usr.picture.colour);
-    });
   }
 
   sidenavToggle() {

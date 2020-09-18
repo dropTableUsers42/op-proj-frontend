@@ -52,8 +52,8 @@
 	font-family: colombo, sans-serif;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 120px;
-	line-height: 144px;
+	font-size: calc(min(120*100vw/1280, 120*100vh/720));
+	line-height: calc(min(144*100vw/1280, 144*100vh/720));
 
 	margin: 0 0;
 
@@ -67,8 +67,8 @@
 @media screen and (min-width: 1400px)
 {
 	.main_title {
-		font-size: calc(120*100vw/1280);
-		line-height: calc(144*100vw/1280);
+		font-size: calc(min(120*100vw/1280, 120*100vh/720));
+		line-height: calc(min(144*100vw/1280, 144*100vh/720));
 		margin-top: calc(228*100vh/720 - 60px);
 	}
 }

@@ -55,6 +55,8 @@
 
 	#mobile-col-wrapper {
 		margin-right: -1vw;
+
+		justify-content: center;
 	}
 	
 }
@@ -124,11 +126,11 @@
 	border-radius: 3.9vw;
 
 	.mobile & {
-		width: calc((76.4vw - 3.9vw - 3.9vw - 5 * 1vw)/6);
+		width: calc(0.6 * (76.4vw - 3.9vw - 3.9vw - 5 * 1vw)/6);
 
-		height: calc((76.4vw - 3.9vw - 3.9vw - 5 * 1vw)/6);
+		height: calc(0.6 * (76.4vw - 3.9vw - 3.9vw - 5 * 1vw)/6);
 
-		border-radius: calc((76.4vw - 3.9vw - 3.9vw - 5 * 1vw)/6);
+		border-radius: calc(0.6 * (76.4vw - 3.9vw - 3.9vw - 5 * 1vw)/6);
 
 		margin-right: 0.5vw;
 
