@@ -119,7 +119,6 @@ export class OppDetailComponent implements OnInit {
         this.havePursued = false;
         this.opps = opp;
         this.page_style = this.get_page_style[this.opps.domain];
-        console.log(this.authService.currentUserValue.pursued);
 
         let pursued = this.authService.currentUserValue.pursued;
 
@@ -131,6 +130,8 @@ export class OppDetailComponent implements OnInit {
             break;
           }
         }
+
+        console.log(this.opps.Testimonials);
 
         this.pageStyleService.newEvent(this.page_style);
 
