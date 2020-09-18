@@ -16,12 +16,13 @@
 		<input class="reg-username" type="text" id="username" name="username" placeholder="Username" formControlName="username">
 		<input class="reg-otp" type="text" id="otp" name="otp" placeholder="OTP" formControlName="otp">
 		<p *ngIf="otp_invalid" class="otp-incorrect">Invalid OTP</p>
+		<p *ngIf="ref_invalid" class="ref-incorrect">Please check your email ID or referral code</p>
 		<div class="button-container">
 			<div class="otp-button otp-grow">
 				<input class="reg-button otp-all-button" [class.button-invalid]="spin" [disabled]="spin" type="submit" value="Register">
 			</div>
 			<div class="otp-button">
-				<input class="reg-reenter-button otp-all-button" [class.button-invalid]="spin" [disabled]="spin" (click)="reEnter()" type="button" value="Re-enter email">
+				<input class="reg-reenter-button otp-all-button" [class.button-invalid]="spin" [disabled]="spin" (click)="sendRef()" type="button" value="Resend OTP">
 			</div>
 		</div>
 	</form>
