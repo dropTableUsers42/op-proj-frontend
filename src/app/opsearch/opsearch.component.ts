@@ -15,7 +15,7 @@ import {
     transition,
 } from '@angular/animations';
 
-import { tags, months, regions, funding, colleges, years } from './tags-vector';
+import { tags, months, regions, funding, active, colleges, years } from './tags-vector';
 
 
 @Component({
@@ -66,7 +66,8 @@ export class OpsearchComponent implements OnInit, DoCheck {
         type: new FormControl(''),
         date: new FormControl(''),
         region: new FormControl(''),
-        funding: new FormControl('')
+        funding: new FormControl(''),
+        active: new FormControl('active')
     });
 
     userFilterForm = new FormGroup({
@@ -192,6 +193,10 @@ export class OpsearchComponent implements OnInit, DoCheck {
         return funding;
     }
 
+    get active_vector(): {} {
+        return active;
+    }
+
     get college_vector(): {} {
         return colleges;
     }
@@ -219,7 +224,8 @@ export class OpsearchComponent implements OnInit, DoCheck {
                     type: '',
                     date: '',
                     region: '',
-                    funding: ''
+                    funding: '',
+                    active: ''
                 });
                 this.userList = [];
                 this.opportunityList = [];
@@ -274,6 +280,10 @@ export class OpsearchComponent implements OnInit, DoCheck {
             if (this.oppsFilterForm.value.funding !== '' && this.oppsFilterForm.value.funding != undefined)
             {
                 tags += ' ' + this.oppsFilterForm.value.funding;
+            }
+            if (this.oppsFilterForm.value.active !== '' && this.oppsFilterForm.value.active != undefined)
+            {
+                tags += ' ' + this.oppsFilterForm.value.active;
             }
 
             if(tags === '')

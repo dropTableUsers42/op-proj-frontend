@@ -6,7 +6,7 @@ import { AuthService } from '../_services/auth.service';
 import { User } from '../_models/user.model';
 import { Opps } from '../_models/opps.model';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { tags, months, regions, funding, domains, colleges, years } from '../opsearch/tags-vector';
+import { tags, months, regions, funding, active, domains, colleges, years } from '../opsearch/tags-vector';
 
 @Component({
   selector: 'app-home',
@@ -41,7 +41,8 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
         type: new FormControl(''),
         date: new FormControl(''),
         region: new FormControl(''),
-        funding: new FormControl('')
+        funding: new FormControl(''),
+        active: new FormControl('active')
     });
 
     userFilterForm = new FormGroup({
@@ -99,6 +100,10 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
 
     get funding_vector(): {} {
         return funding;
+    }
+
+    get active_vector(): {} {
+        return active;
     }
 
     get domains_vector(): {} {
@@ -201,6 +206,10 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
         if (this.oppsFilterForm.value.funding !== '' && this.oppsFilterForm.value.funding != undefined)
         {
             tags += ' ' + this.oppsFilterForm.value.funding;
+        }
+        if (this.oppsFilterForm.value.active !== '' && this.oppsFilterForm.value.active!= undefined)
+        {
+            tags += ' ' + this.oppsFilterForm.value.active;
         }
 
         if(tags === '')

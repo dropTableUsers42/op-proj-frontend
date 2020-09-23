@@ -80,6 +80,17 @@
 									<app-custom-select-option *ngFor="let tag of funding_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
 								</app-custom-select>
 							</div>
+							<div class="sub-filter">
+								<app-custom-select [required]="true"
+								labelUrl="/assets/svg/active.svg"
+								placeholder="Status"
+								styleType="home"
+								formControlName="active"
+								>
+									<app-custom-select-option value='All'></app-custom-select-option>
+									<app-custom-select-option *ngFor="let tag of active_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
+								</app-custom-select>
+							</div>
 						</div>
 					</form>
 					<form *ngIf="searchForm.value['searchtype'] == 'People'" [formGroup]="userFilterForm">
@@ -175,6 +186,17 @@
 						>
 							<app-custom-select-option value='All'></app-custom-select-option>
 							<app-custom-select-option *ngFor="let tag of funding_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
+						</app-custom-select>
+					</div>
+					<div class="sub-filter sub-mobile">
+						<app-custom-select [required]="true"
+						labelUrl="/assets/svg/active.svg"
+						placeholder="Status"
+						styleType="home"
+						formControlName="active"
+						>
+							<app-custom-select-option value='All'></app-custom-select-option>
+							<app-custom-select-option *ngFor="let tag of active_vector" key="{{tag.slug}}" value="{{tag.name}}"></app-custom-select-option>
 						</app-custom-select>
 					</div>
 				</div>

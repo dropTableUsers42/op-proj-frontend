@@ -93,6 +93,10 @@ export const funding = [
     { slug: 'partially-funded', name: 'Partially Funded' },
 ];
 
+export const active = [
+    { slug: 'active', name: 'Active' },
+];
+
 export const domains = [
     {slug: 'Core', name: 'Core'},
     {slug: 'IT', name: 'IT'},
