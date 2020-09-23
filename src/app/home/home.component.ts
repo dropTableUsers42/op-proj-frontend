@@ -230,15 +230,7 @@ export class HomeComponent implements OnInit, AfterViewInit, DoCheck {
         }
 
         console.log(tags);
-        let searchstring = '';
-        if(this.searchForm.value.searchstring === '')
-        {
-            searchstring = ' ';
-        }
-        else
-        {
-            searchstring = this.searchForm.value.searchstring;
-        }
+        let searchstring = this.searchForm.value.searchstring;
         this.backendService.searchOpps(searchstring, domain, tags).subscribe(list => {
             this.opportunity_list = list;
             this.spin = false;

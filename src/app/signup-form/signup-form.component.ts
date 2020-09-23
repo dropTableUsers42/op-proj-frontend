@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
 import { invalid } from '@angular/compiler/src/render3/view/util';
@@ -26,7 +26,7 @@ export class SignupFormComponent implements OnInit {
 
   registerForm = new FormGroup({
     name: new FormControl(''),
-    username: new FormControl(''),
+    username: new FormControl('', Validators.pattern('^[a-z0-9][a-z0-9_]{1,18}[a-z0-9]$')),
     otp: new FormControl('')
   });
 

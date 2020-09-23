@@ -281,15 +281,7 @@ export class OpsearchComponent implements OnInit, DoCheck {
                 tags = null;
             }
 
-            let searchstring = '';
-            if(this.searchForm.value.searchstring === '')
-            {
-                searchstring = ' ';
-            }
-            else
-            {
-                searchstring = this.searchForm.value.searchstring;
-            }
+            let searchstring = this.searchForm.value.searchstring;
 
             this.backendService.searchOpps(searchstring, this.domain_tag, tags).subscribe(list => {
                 this.opportunityList = list;
