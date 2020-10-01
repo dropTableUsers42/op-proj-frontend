@@ -27,6 +27,8 @@ export class ProfileComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   overlayType: string;
 
+  showRefer = false;
+
   domain_prefs_api = {
     'Core': 'core',
     'IT': 'it',

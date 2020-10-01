@@ -16,6 +16,7 @@ import { AboutComponent } from './about/about.component';
 import { ContributeComponent } from './contribute/contribute.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { ContributeAllComponent } from './contribute-all/contribute-all.component';
+import { ReportComponent } from './report/report.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'post-opp', component: ContributeComponent },
   { path: 'post-testimonial', component: TestimonialComponent },
   { path: 'contribute', component: ContributeAllComponent },
+  { path: 'report', component: ReportComponent },
   { path: '**', redirectTo: ''},
 ];
 

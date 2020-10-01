@@ -73,7 +73,7 @@ a:link, a:visited, a:hover, a:active {
 	text-decoration: none;
 }
 
-#contribute-link {
+#contribute-link, #report-link {
 
 	padding-top: 0px;
 
@@ -82,4 +82,21 @@ a:link, a:visited, a:hover, a:active {
 	font-weight: 500;
 	font-size: 77%;
 	line-height: 150%;
+
+	flex-grow: 1;
+}
+
+#contrib-report {
+	display: flex;
+	flex-flow: row-reverse;
+
+	margin-right: 30px;
+
+	.aboutlink {
+		padding-right: 0px;
+	}
+
+	@media screen and (max-width: 600px) {
+		margin-right: 0px;
+	}
 }

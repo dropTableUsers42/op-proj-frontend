@@ -41,6 +41,8 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { ContributeAllComponent } from './contribute-all/contribute-all.component';
 import { WaitlistOverlayComponent } from './waitlist-overlay/waitlist-overlay.component';
 import { AboutOverlayComponent } from './about-overlay/about-overlay.component';
+import { ReferOverlayComponent } from './refer-overlay/refer-overlay.component';
+import { ReportComponent } from './report/report.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,8 @@ import { AboutOverlayComponent } from './about-overlay/about-overlay.component';
     ContributeAllComponent,
     WaitlistOverlayComponent,
     AboutOverlayComponent,
+    ReferOverlayComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,

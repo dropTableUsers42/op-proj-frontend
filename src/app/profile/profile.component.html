@@ -29,7 +29,7 @@
 						<button class="edit-button" (click)="onEditClick()">Edit Profile</button>
 					</div>
 					<div class="edit-button-container">
-						<button class="edit-button share-button" (click)="showCopyMessage()" [cdkCopyToClipboard]="clipboardMessage">Refer</button>
+						<button class="edit-button share-button" (click)="showRefer = true">Refer</button>
 					</div>
 				</div>
 				<div id="copied-message" *ngIf="clipboardCopied" >Referral Message copied!</div>
@@ -83,4 +83,5 @@
 	<input class="edit" type="submit" value="Edit Profile" (click)="onClick()">
 	-->
 </div>
+<app-refer-overlay [show]="showRefer" (onClose)="showRefer = false" [message]="clipboardMessage"></app-refer-overlay>
 <app-follow-overlay [show]="overlayShow" [title]="overlayType" (onClose)="overlayShow=false" [users]="overlayType=='Followers' ? user?.followers : user?.following"></app-follow-overlay>

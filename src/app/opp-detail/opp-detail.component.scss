@@ -854,6 +854,20 @@ a.nocolor:active {
 	font-size: 30px;
 }
 
+#report {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+
+	font-size: 15px;
+
+	display: flex;
+	justify-content: center;
+
+	margin-top: 30px;
+	margin-bottom: -30px;
+}
+
 @media screen and (max-width: 600px) {
 	#not-pursued {
 		font-size: 20px;
@@ -864,6 +878,10 @@ a.nocolor:active {
 
 	#post-test-link {
 		font-size: 20px;
+	}
+
+	#report {
+		font-size: 10px;
 	}
 }
 

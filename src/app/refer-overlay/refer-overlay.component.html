@@ -1,0 +1,11 @@
+<div *ngIf="show" (click)="close()" class="overlay-with-bg">
+	<div class="overlay-container" (click)="stopPropagate($event)">
+		<div id="message">
+			{{message}}
+		</div>
+		<div id="refer-copy">
+			<button class="button" (click)="showCopyMessage()" [cdkCopyToClipboard]="message">Refer</button>
+			<div id="copied-message" *ngIf="clipboardCopied" >Copied to Clipboard</div>
+		</div>
+	</div>
+</div>

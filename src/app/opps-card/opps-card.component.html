@@ -1,7 +1,7 @@
-<div (click)="oppClick()" #mainCard [ngClass]="main_class">
+<div (click)="oppClick()" #mainCard [ngClass]="main_class" [style.background-color]="getBgColor()">
 	<div class="opps-type-interest-container">
 		<div class="opps-type-container" >
-			<div class="opps-type" #oppsType [style.background-color]="getMainColor()">
+			<div class="opps-type" #oppsType [style.background-color]="getMainColor()" [style.color]="getBgColor()">
 				{{opportunity.Type}}
 			</div>
 		</div>

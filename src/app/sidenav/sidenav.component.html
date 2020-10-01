@@ -14,8 +14,13 @@
 		<div [ngClass]="aboutlink_class">
 			<a routerLink="{{AboutLink.link}}" (click)="sidenavToggle()">{{AboutLink.name}}</a>
 		</div>
-		<div class="aboutlink" id="contribute-link">
-			<a routerLink="contribute" (click)="sidenavToggle()">Contribute</a>
+		<div id="contrib-report">
+			<div class="aboutlink" id="contribute-link">
+				<a routerLink="contribute" (click)="sidenavToggle()">Contribute</a>
+			</div>
+			<div class="aboutlink" id="report-link">
+				<a routerLink="report" (click)="sidenavToggle()">Report</a>
+			</div>
 		</div>
 	</div>
 </div>

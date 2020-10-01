@@ -65,6 +65,31 @@ export class OppsCardComponent implements OnInit, AfterViewInit, DoCheck {
     }
 
     getMainColor() {
+        let idx = this.opportunity.tags.findIndex(tag => tag.slug === 'new');
+        if(idx > -1)
+        {
+            return '#F9F9F9';
+        }
+        if(this.opportunity.domain == 'Core')
+            return '#05905F';
+        else if(this.opportunity.domain == 'IT')
+            return '#FF9D63';
+        else if(this.opportunity.domain == 'Consulting')
+            return '#E76D50';
+        else if(this.opportunity.domain == 'Finance')
+            return '#D67BBB';
+        else if(this.opportunity.domain == 'Entrepreneurship')
+            return '#225882';
+        else if(this.opportunity.domain == 'SocDev-and-Policy')
+            return '#2BA9CA';
+    }
+
+    getBgColor() {
+        let idx = this.opportunity.tags.findIndex(tag => tag.slug === 'new');
+        if(idx < 0)
+        {
+            return '#F9F9F9';
+        }
         if(this.opportunity.domain == 'Core')
             return '#05905F';
         else if(this.opportunity.domain == 'IT')
@@ -89,9 +114,18 @@ export class OppsCardComponent implements OnInit, AfterViewInit, DoCheck {
     }
 
     get main_class() {
+        let idx = this.opportunity.tags.findIndex(tag => tag.slug === 'new');
         let ret={'opps-card': true};
         ret[this.domain_page_style[this.opportunity.domain]] = true;
         ret[this.cardType] = true;
+        if(idx > -1)
+        {
+            ret['new'] = true;
+        }
+        else
+        {
+            ret['old'] = true;
+        }
         return ret;
     }
 
