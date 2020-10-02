@@ -26,7 +26,7 @@ export class SignupFormComponent implements OnInit {
 
   registerForm = new FormGroup({
     name: new FormControl(''),
-    username: new FormControl('', Validators.pattern('^[a-z0-9][a-z0-9_]{1,18}[a-z0-9]$')),
+    username: new FormControl('', Validators.pattern('^[a-zA-Z0-9][a-zA-Z0-9_]{1,18}[a-zA-Z0-9]$')),
     otp: new FormControl('')
   });
 
